@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="/assets/img/favicon.ico">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/unblock-new-zealand-herald-premium-articles/">
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/css/base.css">
+        <link rel="stylesheet" href="/assets/css/custom-bootstrap.css"><!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117153268-2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-117153268-2');
+        </script><!-- instant.page -->
+        <script defer src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+        
+        <title>Unblock New Zealand Herald Premium Articles - Nitratine</title>
+        <link rel="stylesheet" href="/assets/css/blog.css">
+        <link rel="stylesheet" href="/assets/css/pygments.css">
+
+        <meta name="description" content="A few days ago the site New Zealand Herald started to introduce premium content on their site. Using the JavaScript code in a bookmark found in this post is a very easy way to get around the monthly fee for &#34;premium content&#34;.">
+        <meta name="author" content="Brent Vollebregt">
+        <meta property="og:title" content="Unblock New Zealand Herald Premium Articles">
+        <meta property="og:description" content="A few days ago the site New Zealand Herald started to introduce premium content on their site. Using the JavaScript code in a bookmark found in this post is a very easy way to get around the monthly fee for &#34;premium content&#34;.">
+        <meta property="og:image" content="/post-assets/unblock-new-zealand-herald-premium-articles/feature.png">
+        <meta property="og:url" content="https://nitratine.net/blog/post/unblock-new-zealand-herald-premium-articles/">
+        <meta name="twitter:card" content="summary"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({
+                      google_ad_client: "ca-pub-6407227183932047",
+                      enable_page_level_ads: true
+                 });
+            </script>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="/assets/img/logo.png" width="145" height="30" class="d-inline-block align-top" alt="Brand Icon">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/blog/">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.youtube.com/PyTutorials">YouTube</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/brentvollebregt">GitHub</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/about/">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main role="main" class="container">
+
+            
+            <div class="row">
+                <div class="col-blog-content blog-main">
+
+                    <h1 class="blog-post-title">Unblock New Zealand Herald Premium Articles</h1>
+                    <p class="text-muted">
+                        <a href="/blog/archive/#2019" class="text-muted">04 May 2019</a>
+                        <a href="/blog/categories/#General" class="badge badge-primary ml-2">General</a>
+                        
+                        <a href="/blog/tags/#javascript" class="badge badge-warning">javascript</a>
+                        
+                        <a href="/blog/tags/#bookmarklet" class="badge badge-warning">bookmarklet</a>
+                        <span class="badge badge-danger">Hidden</span>
+                        
+                        <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
+                    </p>
+                    <p class="lead">A few days ago the site New Zealand Herald started to introduce premium content on their site. Using the JavaScript code in a bookmark found in this post is a very easy way to get around the monthly fee for &#34;premium content&#34;.</p>
+                    <hr>
+
+                    <div class="post-content">
+                        <div class="toc">
+<ul>
+<li><a href="#what-is-this">What is This?</a></li>
+<li><a href="#latest-revision">Latest Revision</a><ul>
+<li><a href="#how-to-use-the-bookmarklet">How to Use the Bookmarklet</a></li>
+</ul>
+</li>
+<li><a href="#revisions">Revisions</a><ul>
+<li><a href="#original-script">Original Script</a></li>
+<li><a href="#revision-1">Revision 1</a></li>
+<li><a href="#revision-2-7-5-19">Revision 2 (7-5-19)</a></li>
+</ul>
+</li>
+<li><a href="#why-did-i-write-this">Why Did I Write This?</a><ul>
+<li><a href="#and-that-shocking-artwork">And That Shocking Artwork?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="what-is-this">What is This?</h2>
+<p>A few days ago the site <em>New Zealand Herald</em> started to introduce premium content on their site. This premium content contains articles that require you to pay a monthly fee to read. When looking at the source of the pages received, it's clear to see that full articles are still being sent to clients whether they are premium content or not.</p>
+<p>I fully understand why they would do this; people now buy less papers so this is kind of like paying for the paper every week, just with this subscription you get a lot more. Unfortunately the "paywall" that they have set up currently is a horrible attempt. I feel like they may be in a trial stage for the paywall's implementation which makes it very easy to get around.</p>
+<p>This post contains JavaScript code (that runs on browsers) to help you easily remove the "mask" that hides premium article content.</p>
+<blockquote>
+<p>When going to any article on NZ Herald, you get sent the full article. CSS is then applied to specific elements with the <code>.paywall</code> class to hide the content. This script un-hides that content so you can see the full article.</p>
+</blockquote>
+<h2 id="latest-revision">Latest Revision</h2>
+<p>This is the most recent version of the JavaScript bookmarklet. If you want to see the code, previous versions or a description of why this works, these will be found below.</p>
+<p><a class="btn btn-primary" href="javascript:copyCode()" role="button">Copy the Unblock Code</a>
+<div class="alert alert-success" role="alert" id="copyCodeSuccess" style="display: none">
+  JavaSript code has been copied!
+</div>
+<script type="text/javascript" src="/post-assets/unblock-new-zealand-herald-premium-articles/copy-to-clipboard.js"></script></p>
+<p>The button above copies the bookmarklet to your clipboard. Click this and then create a new bookmark (name it what you want) and paste the code copied into the bookmark address.</p>
+<blockquote>
+<p>On some devices you may find it easier to create a bookmark first with anything and then edit it to insert the code. Make sure the code copied starts with <code>javascript:</code> (it will if you copied it using the button).</p>
+</blockquote>
+<h3 id="how-to-use-the-bookmarklet">How to Use the Bookmarklet</h3>
+<p>When you're on a NZ Herald premium content page, simply open up your bookmarks and click on the bookmark you created. This will execute the code in the background and un-hide the post content.</p>
+<blockquote>
+<p>Websites Change: Please note that NZ Herald can change their site at any time, which means this could stop working at any time. If it has stopped working, feel free to comment below and I will look at what has changed.</p>
+</blockquote>
+<h2 id="revisions">Revisions</h2>
+<p>This is a list of all the revisions of the script. If more information is discovered or the NZ Herald paywall system changes, a new revision will be made. You can copy the script from here if you wish, just make sure to add <code>javascript:</code> at the beginning when making it into a bookmark otherwise it will not execute.</p>
+<h3 id="original-script">Original Script</h3>
+<p>The original script does three main things:
+ - Display any hidden content that is hidden by the <code>.paywall</code> class
+ - Hides the fade out of content before the subscription offer and the ellipsis' throughout some articles. 
+ - Removes the subscription offer from the page</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#article-content.premium-content .paywall&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;display&#39;</span><span class="p">,</span> <span class="s1">&#39;block&#39;</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">insertAdjacentHTML</span><span class="p">(</span><span class="s1">&#39;beforeEnd&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;style&gt;#article-content.premium-content:before, #article-content.premium-content .ellipsis:after {content: none !important}&lt;/style&gt;&#39;</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.article-offer&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;display&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">);</span>
+<span class="p">})();</span>
+</pre></div>
+
+
+<h3 id="revision-1">Revision 1</h3>
+<p>Looking in reddit, I found a <a href="https://www.reddit.com/r/newzealand/comments/bj9fdu/nz_herald_premium_content_for_free/">post</a> that had done the same task I had set out to do. Taking what I found here, I improved the original script and made it easier to read the source.</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span>
+        <span class="s1">&#39;&lt;style&gt;&#39;</span> <span class="o">+</span>
+            <span class="s1">&#39;#main { height: auto !important }&#39;</span> <span class="o">+</span> 
+            <span class="s1">&#39;#article-content.premium-content:before, #article-content.premium-content .ellipsis:after, .article-offer { display: none !important }&#39;</span> <span class="o">+</span> <span class="c1">// Paywall fix</span>
+            <span class="c1">// &#39;.pb-f-article-related-articles, .pb-f-global-recommend, .pb-f-global-blank-html { display: none !important }&#39; + // General advertisement removal (I don&#39;t include it in the button but you can remove the recommended articles if you wish)</span>
+        <span class="s1">&#39;&lt;/style&gt;&#39;</span>
+    <span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.paywall&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;paywall&#39;</span><span class="p">);</span> 
+<span class="p">})();</span>
+</pre></div>
+
+
+<h3 id="revision-2-7-5-19">Revision 2 (7-5-19)</h3>
+<p>This one was a bit bigger because they are now making the css class that used to be <code>paywall</code> now a little bit more random. This can easily be solved by looking at all the classes in the articles content and picking out the mode (not 100% accurate but does the job).</p>
+<p>There is still a backup for any direct children of <code>#article-content</code> if this fails. Scrolling is turned back on, the offer is removed and some ads are removed.</p>
+<div class="codehilite"><pre><span></span><span class="cm">/* Throw some CSS in the head */</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span>
+    <span class="s1">&#39;&lt;style&gt;&#39;</span> <span class="o">+</span>
+        <span class="s1">&#39;#main { height: auto !important; }&#39;</span> <span class="o">+</span> <span class="cm">/* Allow for scrolling */</span>
+        <span class="s1">&#39;#article-content &gt; * { display: block !important; color: #000 !important; opacity: 1 !important; }&#39;</span> <span class="o">+</span> <span class="cm">/* Show content (backup for class guess later) */</span>
+        <span class="s1">&#39;.article-offer { display: none !important; }&#39;</span> <span class="o">+</span> <span class="cm">/* Remove &#39;offer&#39; */</span>
+        <span class="s1">&#39;.ad-container, .pb-f-article-related-articles { display: none !important; }&#39;</span> <span class="o">+</span> <span class="cm">/* Remove advertisements */</span>
+    <span class="s1">&#39;&lt;/style&gt;&#39;</span>
+<span class="p">);</span>
+
+<span class="cm">/* A simple array mode function */</span>
+<span class="kd">function</span> <span class="nx">mode</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span>
+          <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">v</span> <span class="p">=&gt;</span> <span class="nx">v</span><span class="o">===</span><span class="nx">a</span><span class="p">).</span><span class="nx">length</span>
+        <span class="o">-</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">v</span> <span class="p">=&gt;</span> <span class="nx">v</span><span class="o">===</span><span class="nx">b</span><span class="p">).</span><span class="nx">length</span>
+    <span class="p">).</span><span class="nx">pop</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">article_content</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#article-content&#39;</span><span class="p">);</span>
+
+<span class="cm">/* Get all the classes */</span>
+<span class="kd">let</span> <span class="nx">classes</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nx">article_content</span><span class="p">.</span><span class="nx">children</span><span class="p">().</span><span class="nx">each</span><span class="p">((</span><span class="nx">index</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">i</span> <span class="p">=&gt;</span> <span class="nx">classes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="cm">/* Try to find the mode of these classes and remove it (most likely the premium class) */</span>
+<span class="kd">let</span> <span class="nx">possible_premium_class</span> <span class="o">=</span> <span class="nx">mode</span><span class="p">(</span><span class="nx">classes</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">possible_premium_class</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="nx">possible_premium_class</span><span class="p">);</span>
+
+<span class="cm">/* Remove the premium-content class. Removes fade out, ellipsis&#39; */</span>
+<span class="nx">article_content</span>
+    <span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;premium-content&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;full-content&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<h2 id="why-did-i-write-this">Why Did I Write This?</h2>
+<p>People asked me to and I put it here for easy access. I don't even read the news.</p>
+<h3 id="and-that-shocking-artwork">And That Shocking Artwork?</h3>
+<p>I am so sorry. Yes, I used MS Paint.</p>
+<p><img alt="Unblock New Zealand Herald Premium Articles Feature Image" src="/post-assets/unblock-new-zealand-herald-premium-articles/feature.png" /></p>
+                    </div>
+
+                    <nav class="blog-pagination text-center mb-5 mt-4">
+                        
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/google-publisher-toolbar-please-copy-this-code/">&larr; Google Publisher Toolbar: P...</a>
+                        
+                        
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-hash-files-in-python/">How to Hash Files in Python &rarr;</a>
+                        
+                    </nav>
+
+                    
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function() {
+                            this.page.url = 'https://nitratine.net/blog/post/unblock-new-zealand-herald-premium-articles/'; // Your page's canonical URL variable
+                            this.page.identifier = 'https://nitratine.net/blog/post/unblock-new-zealand-herald-premium-articles/'; // Your page's unique identifier variable
+                        };
+                        (function() {
+                            var d = document,
+                                s = d.createElement('script');
+                            s.src = '//nitratine.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                    
+
+                </div>
+
+                                <!-- Sidebar -->
+                <aside class="col-blog-sidebar blog-sidebar">
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">About</h4>
+                        <p class="mb-0">Owner of <a href="https://www.youtube.com/PyTutorials">PyTurorials</a> and creator of <a href="https://github.com/brentvollebregt/auto-py-to-exe">auto-py-to-exe</a>. I enjoy making quick tutorials for people new to particular topics in Python and  tools that help fix small things.</p>
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <input id="search" type="text" class="form-control" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button id="search-submit" class="btn btn-outline-primary" type="button">Search</button>
+                        </div>
+                    </div>
+                    <script>let searchUrl = "/search/";</script>
+                    <script type="text/javascript" defer src="/assets/js/search.js"></script>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">Categories</h4>
+                        <ol class="list-unstyled mb-0 text-center text-lg-left">
+                            
+                                <li>
+                                <a href="/blog/categories/#Apps">&#x1F4F1; Apps
+                                    <span class="badge badge-primary ml-3">3</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#General">&#x1F4F0; General
+                                    <span class="badge badge-primary ml-3">7</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Investigations">&#x1F50D; Investigations
+                                    <span class="badge badge-primary ml-3">2</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Projects">&#x1F4BE; Projects
+                                    <span class="badge badge-primary ml-3">13</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Snippets">&#x2702; Snippets
+                                    <span class="badge badge-primary ml-3">1</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Tools">&#x1F6E0; Tools
+                                    <span class="badge badge-primary ml-3">3</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Tutorials">&#x1F4D6; Tutorials
+                                    <span class="badge badge-primary ml-3">15</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#YouTube">&#x1F3A5; YouTube
+                                    <span class="badge badge-primary ml-3">15</span>
+                                </a>
+                            </li>
+                            
+                        </ol>
+                    </div>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">PyTutorials on YouTube</h4>
+                        <script src="https://apis.google.com/js/platform.js"></script>
+                        <div style="text-align: center">
+                            <div class="g-ytsubscribe" data-channel="PrivateSplat" data-layout="full" data-count="default"></div>
+                        </div>
+                    </div>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">Recent Videos</h4>
+                        <div id="recent-yt-videos" class="yt_video_container">
+                            
+                                <img src="https://img.youtube.com/vi/H8t4DJ3Tdrg/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=H8t4DJ3Tdrg', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/ksW59gYEl6Q/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=ksW59gYEl6Q', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/YPiHBtddefI/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=YPiHBtddefI', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/SQj17D1Q_6s/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=SQj17D1Q_6s', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/2kbeBzEQfXE/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=2kbeBzEQfXE', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/5JSloPGocSY/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=5JSloPGocSY', '_blank')">
+                            
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+
+
+        </main>
+
+        <!-- Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

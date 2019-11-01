@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="/assets/img/favicon.ico">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-create-dialogs-in-python/">
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/css/base.css">
+        <link rel="stylesheet" href="/assets/css/custom-bootstrap.css"><!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117153268-2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-117153268-2');
+        </script><!-- instant.page -->
+        <script defer src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+        
+        <title>How to Create Dialogs in Python - Nitratine</title>
+        <link rel="stylesheet" href="/assets/css/blog.css">
+        <link rel="stylesheet" href="/assets/css/pygments.css">
+
+        <meta name="description" content="In this post I demonstrate dialogs that are provided in the Python standard library by showing you how to use them and what they look like.">
+        <meta name="author" content="Brent Vollebregt">
+        <meta property="og:title" content="How to Create Dialogs in Python">
+        <meta property="og:description" content="In this post I demonstrate dialogs that are provided in the Python standard library by showing you how to use them and what they look like.">
+        <meta property="og:image" content="/post-assets/how-to-create-dialogs-in-python/question-dialogs.png">
+        <meta property="og:url" content="https://nitratine.net/blog/post/how-to-create-dialogs-in-python/">
+        <meta name="twitter:card" content="summary"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({
+                      google_ad_client: "ca-pub-6407227183932047",
+                      enable_page_level_ads: true
+                 });
+            </script>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="/assets/img/logo.png" width="145" height="30" class="d-inline-block align-top" alt="Brand Icon">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/blog/">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.youtube.com/PyTutorials">YouTube</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/brentvollebregt">GitHub</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/about/">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main role="main" class="container">
+
+            
+            <div class="row">
+                <div class="col-blog-content blog-main">
+
+                    <h1 class="blog-post-title">How to Create Dialogs in Python</h1>
+                    <p class="text-muted">
+                        <a href="/blog/archive/#2019" class="text-muted">26 May 2019</a>
+                        <a href="/blog/categories/#Tutorials" class="badge badge-primary ml-2">Tutorials</a>
+                        
+                        <a href="/blog/tags/#python" class="badge badge-warning">python</a>
+                        
+                        <a href="/blog/tags/#gui" class="badge badge-warning">gui</a>
+                        
+                        <a href="/blog/tags/#dialog" class="badge badge-warning">dialog</a>
+                        
+                        <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
+                    </p>
+                    <p class="lead">In this post I demonstrate dialogs that are provided in the Python standard library by showing you how to use them and what they look like.</p>
+                    <hr>
+
+                    <div class="post-content">
+                        <div class="toc">
+<ul>
+<li><a href="#why-are-these-dialogs-useful">Why Are These Dialogs Useful?</a></li>
+<li><a href="#dialog-types-and-their-returns">Dialog Types and Their Returns</a><ul>
+<li><a href="#message-dialogs">Message Dialogs</a></li>
+<li><a href="#question-dialogs">Question Dialogs</a></li>
+<li><a href="#input-dialogs">Input Dialogs</a></li>
+<li><a href="#file-folder-dialogs">File / Folder Dialogs</a></li>
+<li><a href="#color-picker-dialog">Color Picker Dialog</a></li>
+</ul>
+</li>
+<li><a href="#credit">Credit</a></li>
+</ul>
+</div>
+<h2 id="why-are-these-dialogs-useful">Why Are These Dialogs Useful?</h2>
+<p>The dialogs in this post work on Windows, Linux and Mac and look exactly like the default dialogs the OS provides for other applications. Since they look the same as the 'default' dialogs, users are used to the look and feel, so they already know how to use them.</p>
+<p>As these dialogs come with Python, they are easy to access and have had their time of debugging so are quite robust and predictable.</p>
+<h2 id="dialog-types-and-their-returns">Dialog Types and Their Returns</h2>
+<p>Each dialog does something different, takes different input to be created and returns particular values. Understanding what each call returns in different situations is necessary to be able to use these dialogs correctly.</p>
+<blockquote>
+<p>Some of these dialogs make sounds as you would typically find with dialogs displaying an error</p>
+</blockquote>
+<p>In these examples I will be referencing a <code>parent</code>. This parent is a <code>tkinter.Tk</code> object which acts like the "base" of the dialogs. Using a parent also allows you to <strong>set an icon</strong> on the dialog window and task-bar item. Here is an example:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span>
+
+<span class="n">parent</span> <span class="o">=</span> <span class="n">tkinter</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span> <span class="c1"># Create the object</span>
+<span class="n">parent</span><span class="o">.</span><span class="n">overrideredirect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Avoid it appearing and then disappearing quickly</span>
+<span class="n">parent</span><span class="o">.</span><span class="n">iconbitmap</span><span class="p">(</span><span class="s2">&quot;PythonIcon.ico&quot;</span><span class="p">)</span> <span class="c1"># Set an icon (this is optional - must be in a .ico format)</span>
+<span class="n">parent</span><span class="o">.</span><span class="n">withdraw</span><span class="p">()</span> <span class="c1"># Hide the window as we do not want to see this one</span>
+</pre></div>
+
+
+<blockquote>
+<p>When using an icon like this, the .ico must be an icon format - do not just rename the file.</p>
+</blockquote>
+<p>You do not have to create a parent of your own and in that case, leave <code>parent=parent</code> out of the code snippets below. I do however recommend that you look at the side effects if you don't provide a parent as a <code>tkinter.Tk</code> object will be created which will then show a window that you cannot control. Using the parent snippet above makes things a lot easier.</p>
+<blockquote>
+<p>It is important to note that all these dialog calls below are blocking. This means execution will not continue until the user has made a selection or this code is put into another thread.</p>
+</blockquote>
+<h3 id="message-dialogs">Message Dialogs</h3>
+<p>Message dialogs are a simple way to display a message with a title. There are three types of dialogs that simply provide an "OK" button; information, warning and error. Each of these dialogs display a title, message and icon that corresponds to the type of dialog.</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">messagebox</span>
+
+<span class="c1"># After creating parent...</span>
+
+<span class="n">info</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="s1">&#39;Information Title&#39;</span><span class="p">,</span> <span class="s1">&#39;A simple message with an information icon&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+<span class="n">warn</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s1">&#39;Warning Title&#39;</span><span class="p">,</span> <span class="s1">&#39;A simple message with a warning icon&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s1">&#39;Error Title&#39;</span><span class="p">,</span> <span class="s1">&#39;A simple message with an error icon&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Looking at the values of each <code>info</code>, <code>warn</code> and <code>error</code> after executing the lines, you will notice that they all have been assigned value "ok". If the user clicks the OK button or even closes the window using the cross, these dialogs will always return "ok".</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>OK Clicked</th>
+<th>Dialog Closed (X)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>messagebox.showinfo</td>
+<td>"ok"</td>
+<td>"ok"</td>
+</tr>
+<tr>
+<td>messagebox.showwarning</td>
+<td>"ok"</td>
+<td>"ok"</td>
+</tr>
+<tr>
+<td>messagebox.showerror</td>
+<td>"ok"</td>
+<td>"ok"</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Message Dialogs" src="/post-assets/how-to-create-dialogs-in-python/message-dialogs.png" /></p>
+<h3 id="question-dialogs">Question Dialogs</h3>
+<p>Question dialogs allow you to ask a user a particular question with a title and have them reply in one of two ways (or three in one case).</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">messagebox</span>
+
+<span class="c1"># After creating parent...</span>
+
+<span class="n">okcancel</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">askokcancel</span><span class="p">(</span><span class="s1">&#39;Question Title&#39;</span><span class="p">,</span> <span class="s1">&#39;Do you want to perform this action?&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span> <span class="c1"># OK / Cancel</span>
+<span class="n">retrycancel</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">askretrycancel</span><span class="p">(</span><span class="s1">&#39;Question Title&#39;</span><span class="p">,</span> <span class="s1">&#39;Do you want to retry?&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span> <span class="c1"># Retry / Cancel</span>
+<span class="n">yesno</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">askyesno</span><span class="p">(</span><span class="s1">&#39;Question Title&#39;</span><span class="p">,</span> <span class="s1">&#39;Are you sure you want to undo?&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span> <span class="c1"># Yes / No</span>
+<span class="n">yesnocancel</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">askyesnocancel</span><span class="p">(</span><span class="s1">&#39;Question Title&#39;</span><span class="p">,</span> <span class="s1">&#39;Are you sure you want to undo?&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span> <span class="c1"># Yes / No / Cancel</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>OK</th>
+<th>Retry</th>
+<th>Yes</th>
+<th>No</th>
+<th>Cancel</th>
+<th>Dialog Closed (X)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>messagebox.askokcancel</td>
+<td>True</td>
+<td></td>
+<td></td>
+<td></td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr>
+<td>messagebox.askretrycancel</td>
+<td></td>
+<td>True</td>
+<td></td>
+<td></td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr>
+<td>messagebox.askyesno</td>
+<td></td>
+<td></td>
+<td>True</td>
+<td>False</td>
+<td></td>
+<td><em>Not Possible</em></td>
+</tr>
+<tr>
+<td>messagebox.askyesnocancel</td>
+<td></td>
+<td></td>
+<td>True</td>
+<td>False</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Question Dialogs" src="/post-assets/how-to-create-dialogs-in-python/question-dialogs.png" /></p>
+<h3 id="input-dialogs">Input Dialogs</h3>
+<p>Input dialogs ask for a particular type of value; in this case that is either of type string, integer or float. Unfortunately like all the other dialogs, the icon from the parent will not be used due to how these dialogs are constructed. If you plan on consistently taking input from a user I recommend creating your own input dialog.</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">simpledialog</span>
+
+<span class="c1"># After creating parent...</span>
+
+<span class="n">string_value</span> <span class="o">=</span> <span class="n">simpledialog</span><span class="o">.</span><span class="n">askstring</span><span class="p">(</span><span class="s1">&#39;Dialog Title&#39;</span><span class="p">,</span> <span class="s1">&#39;What is your name?&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+<span class="n">integer_value</span> <span class="o">=</span> <span class="n">simpledialog</span><span class="o">.</span><span class="n">askinteger</span><span class="p">(</span><span class="s1">&#39;Dialog Title&#39;</span><span class="p">,</span> <span class="s1">&#39;What is your age?&#39;</span><span class="p">,</span> <span class="n">minvalue</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxvalue</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+<span class="n">float_value</span> <span class="o">=</span> <span class="n">simpledialog</span><span class="o">.</span><span class="n">askfloat</span><span class="p">(</span><span class="s1">&#39;Dialog Title&#39;</span><span class="p">,</span> <span class="s1">&#39;What is your salary?&#39;</span><span class="p">,</span> <span class="n">minvalue</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">maxvalue</span><span class="o">=</span><span class="mf">100000.0</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>OK</th>
+<th>Cancel</th>
+<th>Dialog Closed (X)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>simpledialog.askstring</td>
+<td><em>Input String</em></td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>simpledialog.askinteger</td>
+<td><em>Input Integer</em></td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td>simpledialog.askfloat</td>
+<td><em>Input Float</em></td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Input Dialogs" src="/post-assets/how-to-create-dialogs-in-python/input-dialogs.png" /></p>
+<h3 id="file-folder-dialogs">File / Folder Dialogs</h3>
+<p>File and folder dialogs allow you to ask the user select a folder, single file, multiple files or chose a location to save a file as.</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">filedialog</span>
+
+<span class="c1"># After creating parent...</span>
+
+<span class="n">directory</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askdirectory</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Select a folder&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+
+<span class="c1"># Ask the user to select a single file name.</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askopenfilename</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Select a file&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+
+<span class="c1"># Ask the user to select a one or more file names.</span>
+<span class="n">file_names</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askopenfilenames</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Select one or more files&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+
+<span class="c1"># Ask the user to select a single file name for saving.</span>
+<span class="n">save_as</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">asksaveasfilename</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Save as&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>OK</th>
+<th>Cancel</th>
+<th>Dialog Closed (X)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filedialog.askdirectory</td>
+<td><em>Directory Path</em></td>
+<td>''</td>
+<td>''</td>
+</tr>
+<tr>
+<td>filedialog.askopenfilename</td>
+<td><em>File Path</em></td>
+<td>''</td>
+<td>''</td>
+</tr>
+<tr>
+<td>filedialog.askopenfilenames</td>
+<td><em>List of File Paths</em></td>
+<td>''</td>
+<td>''</td>
+</tr>
+<tr>
+<td>filedialog.asksaveasfilename</td>
+<td><em>File Path</em></td>
+<td>''</td>
+<td>''</td>
+</tr>
+</tbody>
+</table>
+<p>When using any of these file dialog calls, you can also supply a string to the parameter <code>initialdir</code> which will put the user in a particular directory when the dialog first opens; for example:</p>
+<div class="codehilite"><pre><span></span><span class="n">directory_to_start_from</span> <span class="o">=</span> <span class="s1">&#39;C:/Users/User/Downloads/&#39;</span>
+<span class="n">directory</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askdirectory</span><span class="p">(</span><span class="n">initialdir</span><span class="o">=</span><span class="n">directory_to_start_from</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Please select a folder:&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+</pre></div>
+
+
+<p>When asking for a file to open or save as, you can specify what type of files the user can select (based off file extension) using the <code>filetypes</code> argument. This argument takes a list of tuples, where each of these tuples contain a string of the group name and a string of file extensions separated by <code>;</code> if required. The tuple that is the first in the list is the default selection. An example of the usage of <code>filetypes</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">file_types</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Python files&#39;</span><span class="p">,</span> <span class="s1">&#39;*.py;*.pyw&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;All files&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)]</span> <span class="c1"># Initially can select any .py or .pyw files but can change the selection to anything (*)</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askopenfilename</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Select a file&#39;</span><span class="p">,</span> <span class="n">filetypes</span><span class="o">=</span><span class="n">file_types</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="File Dialogs" src="/post-assets/how-to-create-dialogs-in-python/file-dialogs.png" /></p>
+<h3 id="color-picker-dialog">Color Picker Dialog</h3>
+<p>Color pickers are used to ask a user to select a color. These aren't seen in may places but when a color needs to be selected, this is a great option as it contains everything needed.</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">colorchooser</span>
+
+<span class="c1"># After creating parent...</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="n">colorchooser</span><span class="o">.</span><span class="n">askcolor</span><span class="p">(</span><span class="n">initialcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span> <span class="c1"># Returns a tuple</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>OK</th>
+<th>Cancel</th>
+<th>Dialog Closed (X)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filedialog.askdirectory</td>
+<td>((<em>Red Int</em>, <em>Green Int</em>, <em>Blue Int</em>), '<em>Hex Value</em>')</td>
+<td>(None, None)</td>
+<td>(None, None)</td>
+</tr>
+</tbody>
+</table>
+<p>As an example of the output, if I select cyan, I will get <code>((0.0, 255.99609375, 255.99609375), '#00ffff')</code>. The numbers are large as they are floats but this means 0 red, 256 green and 256 blue. We can also see that the second value in the tuple is the hex value for cyan.</p>
+<p><img alt="Color Dialog" src="/post-assets/how-to-create-dialogs-in-python/color-dialog.png" /></p>
+<h2 id="credit">Credit</h2>
+<p>While using a lot of dialogs in my own projects I have always looked around other sites, but recently I found a page called <a href="https://interactivepython.org/runestone/static/CS152f17/GUIandEventDrivenProgramming/02_standard_dialog_boxes.html">How to Think Like a Computer Scientist: Interactive Edition</a> which is a great beginner level tutorial for Python which covers many things. This site made me aware of some dialogs I didn't even realise existed so I give credit to the creator.</p>
+                    </div>
+
+                    <nav class="blog-pagination text-center mb-5 mt-4">
+                        
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-hash-passwords-in-python/">&larr; How To Hash Passwords In Python</a>
+                        
+                        
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-import-a-pyqt5-ui-file-in-a-python-gui/">How to Import a PyQt5 .ui F... &rarr;</a>
+                        
+                    </nav>
+
+                    
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function() {
+                            this.page.url = 'https://nitratine.net/blog/post/how-to-create-dialogs-in-python/'; // Your page's canonical URL variable
+                            this.page.identifier = 'https://nitratine.net/blog/post/how-to-create-dialogs-in-python/'; // Your page's unique identifier variable
+                        };
+                        (function() {
+                            var d = document,
+                                s = d.createElement('script');
+                            s.src = '//nitratine.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                    
+
+                </div>
+
+                                <!-- Sidebar -->
+                <aside class="col-blog-sidebar blog-sidebar">
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">About</h4>
+                        <p class="mb-0">Owner of <a href="https://www.youtube.com/PyTutorials">PyTurorials</a> and creator of <a href="https://github.com/brentvollebregt/auto-py-to-exe">auto-py-to-exe</a>. I enjoy making quick tutorials for people new to particular topics in Python and  tools that help fix small things.</p>
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <input id="search" type="text" class="form-control" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button id="search-submit" class="btn btn-outline-primary" type="button">Search</button>
+                        </div>
+                    </div>
+                    <script>let searchUrl = "/search/";</script>
+                    <script type="text/javascript" defer src="/assets/js/search.js"></script>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">Categories</h4>
+                        <ol class="list-unstyled mb-0 text-center text-lg-left">
+                            
+                                <li>
+                                <a href="/blog/categories/#Apps">&#x1F4F1; Apps
+                                    <span class="badge badge-primary ml-3">3</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#General">&#x1F4F0; General
+                                    <span class="badge badge-primary ml-3">7</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Investigations">&#x1F50D; Investigations
+                                    <span class="badge badge-primary ml-3">2</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Projects">&#x1F4BE; Projects
+                                    <span class="badge badge-primary ml-3">13</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Snippets">&#x2702; Snippets
+                                    <span class="badge badge-primary ml-3">1</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Tools">&#x1F6E0; Tools
+                                    <span class="badge badge-primary ml-3">3</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Tutorials">&#x1F4D6; Tutorials
+                                    <span class="badge badge-primary ml-3">15</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#YouTube">&#x1F3A5; YouTube
+                                    <span class="badge badge-primary ml-3">15</span>
+                                </a>
+                            </li>
+                            
+                        </ol>
+                    </div>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">PyTutorials on YouTube</h4>
+                        <script src="https://apis.google.com/js/platform.js"></script>
+                        <div style="text-align: center">
+                            <div class="g-ytsubscribe" data-channel="PrivateSplat" data-layout="full" data-count="default"></div>
+                        </div>
+                    </div>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">Recent Videos</h4>
+                        <div id="recent-yt-videos" class="yt_video_container">
+                            
+                                <img src="https://img.youtube.com/vi/H8t4DJ3Tdrg/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=H8t4DJ3Tdrg', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/ksW59gYEl6Q/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=ksW59gYEl6Q', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/YPiHBtddefI/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=YPiHBtddefI', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/SQj17D1Q_6s/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=SQj17D1Q_6s', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/2kbeBzEQfXE/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=2kbeBzEQfXE', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/5JSloPGocSY/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=5JSloPGocSY', '_blank')">
+                            
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+
+
+        </main>
+
+        <!-- Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
