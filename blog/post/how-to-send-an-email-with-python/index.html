@@ -310,7 +310,7 @@ Make another string which is the plain-text version of the html and then attach 
 
 
 <p>This method also makes sure that everyone that receives the email will not see the email of everyone else that the email was sent to. If you want to send one email to many addresses and let each recipient see who the email was sent to, you can simply set <code>msg['To']</code> to the recipient emails split by commas and then call <code>server.send_message</code> to send the email passing <code>msg</code> not as a string. </p>
-<div class="codehilite"><pre><span></span><span class="n">send_to_emails</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;volleys2468@gmail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;fayvandermeulen1@gmail.com&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">send_to_emails</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;recipient_1@gmail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;recipient_2@gmail.com&#39;</span><span class="p">]</span>
 
 <span class="c1"># Was: msg[&#39;To&#39;] = send_to_email</span>
 <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">send_to_emails</span><span class="p">)</span>
