@@ -106,6 +106,7 @@
 <li><a href="#revision-1">Revision 1</a></li>
 <li><a href="#revision-2-7-5-19">Revision 2 (7-5-19)</a></li>
 <li><a href="#revision-3-6-11-19">Revision 3 (6-11-19)</a></li>
+<li><a href="#revision-4-18-12-19">Revision 4 (18-12-19)</a></li>
 </ul>
 </li>
 <li><a href="#why-did-i-write-this">Why Did I Write This?</a><ul>
@@ -211,6 +212,50 @@
 <p>It seems some sort of timer function has been implemented that checks for changes are redirects a user to a purchase page. Aside from this, <code>display: none</code> was also added inline to article elements which are no removed.</p>
 <div class="codehilite"><pre><span></span><span class="cm">/* Disable some tamper check? */</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">pwdf</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span> <span class="p">};</span>
+
+<span class="cm">/* Throw some CSS in the head */</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span>
+    <span class="s1">&#39;&lt;style&gt;&#39;</span> <span class="o">+</span>
+        <span class="s1">&#39;#main { height: auto !important; } &#39;</span> <span class="o">+</span> <span class="cm">/* Allow for scrolling */</span>
+        <span class="s1">&#39;#article-content { height: auto !important; overflow: auto !important; } &#39;</span> <span class="o">+</span> <span class="cm">/* Show content in full height */</span>
+        <span class="s1">&#39;#article-content &gt; * { display: block !important; color: #000 !important; opacity: 1 !important; } &#39;</span> <span class="o">+</span> <span class="cm">/* Show content (backup for class guess later) */</span>
+        <span class="s1">&#39;.article-offer { display: none !important; } &#39;</span> <span class="o">+</span> <span class="cm">/* Remove &#39;offer&#39; */</span>
+        <span class="s1">&#39;.ad-container, .pb-f-article-related-articles { display: none !important; } &#39;</span> <span class="o">+</span> <span class="cm">/* Remove advertisements */</span>
+    <span class="s1">&#39;&lt;/style&gt;&#39;</span>
+<span class="p">);</span>
+
+<span class="cm">/* A simple array mode function */</span>
+<span class="kd">function</span> <span class="nx">mode</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span>
+          <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">v</span> <span class="p">=&gt;</span> <span class="nx">v</span><span class="o">===</span><span class="nx">a</span><span class="p">).</span><span class="nx">length</span>
+        <span class="o">-</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">v</span> <span class="p">=&gt;</span> <span class="nx">v</span><span class="o">===</span><span class="nx">b</span><span class="p">).</span><span class="nx">length</span>
+    <span class="p">).</span><span class="nx">pop</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">article_content</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#article-content&#39;</span><span class="p">);</span>
+
+<span class="cm">/* Get all the classes */</span>
+<span class="kd">let</span> <span class="nx">classes</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nx">article_content</span><span class="p">.</span><span class="nx">children</span><span class="p">().</span><span class="nx">each</span><span class="p">((</span><span class="nx">index</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">i</span> <span class="p">=&gt;</span> <span class="nx">classes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="cm">/* Try to find the mode of these classes and remove it (most likely the premium class) */</span>
+<span class="kd">let</span> <span class="nx">possible_premium_class</span> <span class="o">=</span> <span class="nx">mode</span><span class="p">(</span><span class="nx">classes</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">possible_premium_class</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;display&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="nx">possible_premium_class</span><span class="p">);</span>
+
+<span class="cm">/* Remove the premium-content class. Removes fade out, ellipsis&#39; */</span>
+<span class="nx">article_content</span>
+    <span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;premium-content&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;full-content&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<h3 id="revision-4-18-12-19">Revision 4 (18-12-19)</h3>
+<p>It seems <code>window.pwdf</code> is no longer used, I found a couple of solutions; going to use them both to potentially delay a new revision.</p>
+<div class="codehilite"><pre><span></span><span class="cm">/* Disable some tamper check? */</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">prtn</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">f</span><span class="o">:</span> <span class="nx">btoa</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">HASH</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">)</span> <span class="p">};</span>
+<span class="nx">isMobile</span><span class="p">.</span><span class="nx">any</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="kc">true</span><span class="p">;</span>
 
 <span class="cm">/* Throw some CSS in the head */</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span>

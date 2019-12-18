@@ -146,7 +146,7 @@
 <h3 id="locating">Locating</h3>
 <p>First we need to locate where they are now, to do this we can run the following code in Python:</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">site</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">site</span><span class="o">.</span><span class="n">getsitepackages</span><span class="p">())</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">site</span><span class="o">.</span><span class="n">getsitepackages</span><span class="p">())</span>
 </pre></div>
 
 
@@ -170,7 +170,7 @@
 <p>To do this we need to located pyuic5. pyuic5 converts .ui to .py in one simple command and is located in the 'Scripts' folder in your Python distribution. If you don't know where this is, execute the following:</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">))</span>
 </pre></div>
 
 
@@ -185,7 +185,7 @@
 <p>Go back into the code for this GUI and look in the setupUi definition. You should see a class variable called <code>self.pushButton</code> which later has its text set to "Print Message" in the retranslateUi definition below. This is the object of our button that we need to make do something.</p>
 <p>First we need to create our method, this method can be in the global scope or in the class scope, for simplicity I will put it in the class scope. After the retranslateUi definition, create a new class called <code>printMessage</code> that takes self as an argument since it is part of the class now. Inside this put what you want the script do to when you press the button, for this example I will print "Hello World!".</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">printMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -232,7 +232,7 @@
 <h4 id="linking-the-image-button">Linking the Image Button</h4>
 <p>First you will want to create a class definition called <code>setImage</code>; make sure this takes self as it is a class definition. In this method we want to ask the user for an image (not just any file). If they provide a file, we then need to create a pixmap object and then set the pixmap object to the image label. Before we set it, it is ideal to scale the image to fit inside the label without stretching and aligning it to the centre. Your method will look like this:</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">setImage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">fileName</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QFileDialog</span><span class="o">.</span><span class="n">getOpenFileName</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="s2">&quot;Select Image&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Image Files (*.png *.jpg *jpeg *.bmp)&quot;</span><span class="p">)</span> <span class="c1"># Ask for file</span>
+    <span class="n">fileName</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QFileDialog</span><span class="o">.</span><span class="n">getOpenFileName</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Select Image&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Image Files (*.png *.jpg *jpeg *.bmp)&quot;</span><span class="p">)</span> <span class="c1"># Ask for file</span>
     <span class="k">if</span> <span class="n">fileName</span><span class="p">:</span> <span class="c1"># If the user gives a file</span>
         <span class="n">pixmap</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QPixmap</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span> <span class="c1"># Setup pixmap with the provided image</span>
         <span class="n">pixmap</span> <span class="o">=</span> <span class="n">pixmap</span><span class="o">.</span><span class="n">scaled</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imageLbl</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">imageLbl</span><span class="o">.</span><span class="n">height</span><span class="p">(),</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">Qt</span><span class="o">.</span><span class="n">KeepAspectRatio</span><span class="p">)</span> <span class="c1"># Scale pixmap</span>

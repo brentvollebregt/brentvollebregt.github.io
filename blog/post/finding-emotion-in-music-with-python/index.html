@@ -173,21 +173,21 @@ While creating this program, I discovered a way that could give hints to what em
 
 <span class="n">client_credentials_manager</span> <span class="o">=</span> <span class="n">SpotifyClientCredentials</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="o">=</span><span class="n">client_secret</span><span class="p">)</span>
 <span class="n">sp</span> <span class="o">=</span> <span class="n">spotipy</span><span class="o">.</span><span class="n">Spotify</span><span class="p">(</span><span class="n">client_credentials_manager</span><span class="o">=</span><span class="n">client_credentials_manager</span><span class="p">)</span>
-<span class="n">sp</span><span class="o">.</span><span class="n">trace</span><span class="o">=</span><span class="bp">False</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">trace</span><span class="o">=</span><span class="kc">False</span>
 <span class="n">search_querry</span> <span class="o">=</span> <span class="n">title</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">artist</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">search_querry</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;tracks&#39;</span><span class="p">][</span><span class="s1">&#39;items&#39;</span><span class="p">]:</span>
     <span class="c1"># Find a songh that matches title and artist</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;artists&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">artist</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">title</span><span class="p">):</span>
-        <span class="k">print</span> <span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">])</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">])</span>
         <span class="k">break</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="c1"># Just take the first song returned by the search (might be named differently)</span>
-        <span class="k">print</span> <span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;tracks&#39;</span><span class="p">][</span><span class="s1">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;uri&#39;</span><span class="p">])</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;tracks&#39;</span><span class="p">][</span><span class="s1">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;uri&#39;</span><span class="p">])</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="c1"># No results for artist and title</span>
-        <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Cannot Find URI&quot;</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Cannot Find URI&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -204,10 +204,10 @@ While creating this program, I discovered a way that could give hints to what em
 
 <span class="n">client_credentials_manager</span> <span class="o">=</span> <span class="n">SpotifyClientCredentials</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="o">=</span><span class="n">client_secret</span><span class="p">)</span>
 <span class="n">sp</span> <span class="o">=</span> <span class="n">spotipy</span><span class="o">.</span><span class="n">Spotify</span><span class="p">(</span><span class="n">client_credentials_manager</span><span class="o">=</span><span class="n">client_credentials_manager</span><span class="p">)</span>
-<span class="n">sp</span><span class="o">.</span><span class="n">trace</span><span class="o">=</span><span class="bp">False</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">trace</span><span class="o">=</span><span class="kc">False</span>
 <span class="n">features</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">audio_features</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Energy:&#39;</span><span class="p">,</span> <span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;energy&#39;</span><span class="p">])</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Calence:&#39;</span><span class="p">,</span> <span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;valence&#39;</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Energy:&#39;</span><span class="p">,</span> <span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;energy&#39;</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Calence:&#39;</span><span class="p">,</span> <span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;valence&#39;</span><span class="p">])</span>
 </pre></div>
 
 

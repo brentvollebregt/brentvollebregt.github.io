@@ -184,7 +184,7 @@
 <span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;css_dark_theme&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;{{ url_for(&#39;static&#39;, filename=&#39;css/dark/article.css&#39;) }}&quot;</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;css_light_theme&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;{{ url_for(&#39;static&#39;, filename=&#39;css/syntax_highlighting.css&#39;) }}&quot;</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;css_dark_theme&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;{{ url_for(&#39;static&#39;, filename=&#39;css/dark/syntax_highlighting.css&#39;) }}&quot;</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">script</span> <span class="n">async</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;{{ url_for(&#39;static&#39;, filename=&#39;js/article.js&#39;) }}&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">script</span> <span class="k">async</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;{{ url_for(&#39;static&#39;, filename=&#39;js/article.js&#39;) }}&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
 <span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
 
 <span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">content</span> <span class="o">%</span><span class="p">}</span>
@@ -240,7 +240,7 @@
 <p>By putting python files in an articles folder, a script can be called at the path /scripts/[sub]/[article]/[script]. The Python file needs to contain a main method that takes the request as a parameter. The main method must return something to be passed back to the client.</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Do Stuff&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;success&quot;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;success&quot;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
 </pre></div>
 
 

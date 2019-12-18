@@ -209,8 +209,8 @@
 
 <p>Based off this example, we now have tuples of ids and urls in a list object. You could now either look at particular rows or do a for loop over them like this:</p>
 <div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">ids_and_urls</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;ID: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">))</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;URL: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">))</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;ID: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">))</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;URL: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">))</span>
 </pre></div>
 
 
@@ -228,12 +228,12 @@
 <p>Using .keys() we can get the keys that are used in the row object returned. For example:</p>
 <div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id, url FROM url WHERE url=?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="p">))</span>
 <span class="n">particualr_id_and_url</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">particualr_id_and_url</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">particualr_id_and_url</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 </pre></div>
 
 
 <p>This will return a list of the keys for items in the row object. These keys will the the names of the columns for the selected data (which you will already know as you set them). So to get a value out of the row object using it's column name we use:</p>
-<div class="codehilite"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;ID: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">particualr_id_and_url</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;ID: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">particualr_id_and_url</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="p">))</span>
 </pre></div>
 
 

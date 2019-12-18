@@ -134,7 +134,7 @@
 <h2 id="supported-hashing-algorithms-in-python">Supported Hashing Algorithms in Python</h2>
 <p>The <a href="https://docs.python.org/3/library/hashlib.html"><code>hashlib</code> Python module</a> <em>"implements a common interface to many different secure hash and message digest algorithms"</em>. To look at the hashing algorithms Python offers, execute:</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
-<span class="k">print</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">algorithms_guaranteed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hashlib</span><span class="o">.</span><span class="n">algorithms_guaranteed</span><span class="p">)</span>
 </pre></div>
 
 
@@ -142,8 +142,8 @@
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span> <span class="c1"># Construct a hash object using our selected hashing algorithm</span>
 <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s1">&#39;My content&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span> <span class="c1"># Upade the hash using a bytes object</span>
-<span class="k">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span> <span class="c1"># Print the hash value as a hex string</span>
-<span class="k">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span> <span class="c1"># Print the hash value as a bytes object</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span> <span class="c1"># Print the hash value as a hex string</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span> <span class="c1"># Print the hash value as a bytes object</span>
 </pre></div>
 
 
@@ -153,17 +153,17 @@
 <p>To hash a file, read it in bit-by-bit and update the current hashing functions instance. When all bytes have been given to the hashing function in order, we can then get the hex digest.</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
 
-<span class="nb">file</span> <span class="o">=</span> <span class="s2">&quot;.\myfile.txt&quot;</span> <span class="c1"># Location of the file (can be set a different way)</span>
+<span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;.\myfile.txt&quot;</span> <span class="c1"># Location of the file (can be set a different way)</span>
 <span class="n">BLOCK_SIZE</span> <span class="o">=</span> <span class="mi">65536</span> <span class="c1"># The size of each read from the file</span>
 
 <span class="n">file_hash</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span> <span class="c1"># Create the hash object, can use something other than `.sha256()` if you wish</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="c1"># Open the file to read it&#39;s bytes</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="c1"># Open the file to read it&#39;s bytes</span>
     <span class="n">fb</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">BLOCK_SIZE</span><span class="p">)</span> <span class="c1"># Read from the file. Take in the amount declared above</span>
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">fb</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># While there is still data being read from the file</span>
         <span class="n">file_hash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fb</span><span class="p">)</span> <span class="c1"># Update the hash</span>
         <span class="n">fb</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">BLOCK_SIZE</span><span class="p">)</span> <span class="c1"># Read the next block from the file</span>
 
-<span class="k">print</span> <span class="p">(</span><span class="n">file_hash</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span> <span class="c1"># Get the hexadecimal digest of the hash</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">file_hash</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">())</span> <span class="c1"># Get the hexadecimal digest of the hash</span>
 </pre></div>
 
 

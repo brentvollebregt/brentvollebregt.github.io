@@ -147,7 +147,7 @@
 
 <span class="n">pem</span> <span class="o">=</span> <span class="n">private_key</span><span class="o">.</span><span class="n">private_bytes</span><span class="p">(</span>
     <span class="n">encoding</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">Encoding</span><span class="o">.</span><span class="n">PEM</span><span class="p">,</span>
-    <span class="n">format</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">PrivateFormat</span><span class="o">.</span><span class="n">PKCS8</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">PrivateFormat</span><span class="o">.</span><span class="n">PKCS8</span><span class="p">,</span>
     <span class="n">encryption_algorithm</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">NoEncryption</span><span class="p">()</span>
 <span class="p">)</span>
 
@@ -165,7 +165,7 @@
 
 <span class="n">pem</span> <span class="o">=</span> <span class="n">public_key</span><span class="o">.</span><span class="n">public_bytes</span><span class="p">(</span>
     <span class="n">encoding</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">Encoding</span><span class="o">.</span><span class="n">PEM</span><span class="p">,</span>
-    <span class="n">format</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">PublicFormat</span><span class="o">.</span><span class="n">SubjectPublicKeyInfo</span>
+    <span class="nb">format</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">PublicFormat</span><span class="o">.</span><span class="n">SubjectPublicKeyInfo</span>
 <span class="p">)</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;public_key.pem&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -184,7 +184,7 @@
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;private_key.pem&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">key_file</span><span class="p">:</span>
     <span class="n">private_key</span> <span class="o">=</span> <span class="n">serialization</span><span class="o">.</span><span class="n">load_pem_private_key</span><span class="p">(</span>
         <span class="n">key_file</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
-        <span class="n">password</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+        <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">backend</span><span class="o">=</span><span class="n">default_backend</span><span class="p">()</span>
     <span class="p">)</span>
 </pre></div>
@@ -220,7 +220,7 @@
     <span class="n">padding</span><span class="o">.</span><span class="n">OAEP</span><span class="p">(</span>
         <span class="n">mgf</span><span class="o">=</span><span class="n">padding</span><span class="o">.</span><span class="n">MGF1</span><span class="p">(</span><span class="n">algorithm</span><span class="o">=</span><span class="n">hashes</span><span class="o">.</span><span class="n">SHA256</span><span class="p">()),</span>
         <span class="n">algorithm</span><span class="o">=</span><span class="n">hashes</span><span class="o">.</span><span class="n">SHA256</span><span class="p">(),</span>
-        <span class="n">label</span><span class="o">=</span><span class="bp">None</span>
+        <span class="n">label</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
@@ -239,7 +239,7 @@
     <span class="n">padding</span><span class="o">.</span><span class="n">OAEP</span><span class="p">(</span>
         <span class="n">mgf</span><span class="o">=</span><span class="n">padding</span><span class="o">.</span><span class="n">MGF1</span><span class="p">(</span><span class="n">algorithm</span><span class="o">=</span><span class="n">hashes</span><span class="o">.</span><span class="n">SHA256</span><span class="p">()),</span>
         <span class="n">algorithm</span><span class="o">=</span><span class="n">hashes</span><span class="o">.</span><span class="n">SHA256</span><span class="p">(),</span>
-        <span class="n">label</span><span class="o">=</span><span class="bp">None</span>
+        <span class="n">label</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
@@ -261,7 +261,7 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">cryptography.hazmat.primitives</span> <span class="kn">import</span> <span class="n">serialization</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">pem</span> <span class="o">=</span> <span class="n">private_key</span><span class="o">.</span><span class="n">private_bytes</span><span class="p">(</span>
         <span class="n">encoding</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">Encoding</span><span class="o">.</span><span class="n">PEM</span><span class="p">,</span>
-        <span class="n">format</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">PrivateFormat</span><span class="o">.</span><span class="n">PKCS8</span><span class="p">,</span>
+        <span class="nb">format</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">PrivateFormat</span><span class="o">.</span><span class="n">PKCS8</span><span class="p">,</span>
         <span class="n">encryption_algorithm</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">NoEncryption</span><span class="p">()</span>
     <span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;private_key.pem&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -269,7 +269,7 @@
 <span class="o">&gt;&gt;&gt;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">pem</span> <span class="o">=</span> <span class="n">public_key</span><span class="o">.</span><span class="n">public_bytes</span><span class="p">(</span>
         <span class="n">encoding</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">Encoding</span><span class="o">.</span><span class="n">PEM</span><span class="p">,</span>
-        <span class="n">format</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">PublicFormat</span><span class="o">.</span><span class="n">SubjectPublicKeyInfo</span>
+        <span class="nb">format</span><span class="o">=</span><span class="n">serialization</span><span class="o">.</span><span class="n">PublicFormat</span><span class="o">.</span><span class="n">SubjectPublicKeyInfo</span>
     <span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;public_key.pem&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pem</span><span class="p">)</span>
@@ -280,7 +280,7 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;private_key.pem&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">key_file</span><span class="p">:</span>
         <span class="n">private_key</span> <span class="o">=</span> <span class="n">serialization</span><span class="o">.</span><span class="n">load_pem_private_key</span><span class="p">(</span>
             <span class="n">key_file</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
-            <span class="n">password</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+            <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">backend</span><span class="o">=</span><span class="n">default_backend</span><span class="p">()</span>
         <span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;public_key.pem&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">key_file</span><span class="p">:</span>
@@ -299,7 +299,7 @@
         <span class="n">padding</span><span class="o">.</span><span class="n">OAEP</span><span class="p">(</span>
             <span class="n">mgf</span><span class="o">=</span><span class="n">padding</span><span class="o">.</span><span class="n">MGF1</span><span class="p">(</span><span class="n">algorithm</span><span class="o">=</span><span class="n">hashes</span><span class="o">.</span><span class="n">SHA256</span><span class="p">()),</span>
             <span class="n">algorithm</span><span class="o">=</span><span class="n">hashes</span><span class="o">.</span><span class="n">SHA256</span><span class="p">(),</span>
-            <span class="n">label</span><span class="o">=</span><span class="bp">None</span>
+            <span class="n">label</span><span class="o">=</span><span class="kc">None</span>
         <span class="p">)</span>
     <span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">original_message</span> <span class="o">=</span> <span class="n">private_key</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span>
@@ -307,7 +307,7 @@
         <span class="n">padding</span><span class="o">.</span><span class="n">OAEP</span><span class="p">(</span>
             <span class="n">mgf</span><span class="o">=</span><span class="n">padding</span><span class="o">.</span><span class="n">MGF1</span><span class="p">(</span><span class="n">algorithm</span><span class="o">=</span><span class="n">hashes</span><span class="o">.</span><span class="n">SHA256</span><span class="p">()),</span>
             <span class="n">algorithm</span><span class="o">=</span><span class="n">hashes</span><span class="o">.</span><span class="n">SHA256</span><span class="p">(),</span>
-            <span class="n">label</span><span class="o">=</span><span class="bp">None</span>
+            <span class="n">label</span><span class="o">=</span><span class="kc">None</span>
         <span class="p">)</span>
     <span class="p">)</span>
 
@@ -315,7 +315,7 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">original_message</span>
 <span class="sa">b</span><span class="s1">&#39;encrypt me!&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">message</span> <span class="o">==</span> <span class="n">original_message</span>
-<span class="bp">True</span>
+<span class="kc">True</span>
 </pre></div>
 
 
@@ -340,10 +340,10 @@
 
                     <nav class="blog-pagination text-center mb-5 mt-4">
                         
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/encryption-and-decryption-in-python/">&larr; Encryption and Decryption in Python</a>
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/am-i-a-participant/">&larr; Am I A Participant</a>
                         
                         
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/who-is-on-my-network/">Who is on my Network &rarr;</a>
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/encryption-and-decryption-in-python/">Encryption and Decryption in Python &rarr;</a>
                         
                     </nav>
 

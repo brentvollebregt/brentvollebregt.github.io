@@ -165,7 +165,7 @@
 
 
 <p>In this for loop, print what query we are querying and then create another for loop that loops though tweets that are returned from the api search using the query in the current loop.</p>
-<div class="codehilite"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Starting new querry: &quot;</span> <span class="o">+</span> <span class="n">querry</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Starting new querry: &quot;</span> <span class="o">+</span> <span class="n">querry</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">querry</span><span class="p">,</span> <span class="n">tweet_mode</span><span class="o">=</span><span class="s2">&quot;extended&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">tweets_per_query</span> <span class="p">):</span>
 </pre></div>
 
@@ -175,7 +175,7 @@
 <div class="codehilite"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">screen_name</span>
 <span class="nb">id</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">id</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://twitter.com/&#39;</span> <span class="o">+</span> <span class="n">user</span> <span class="o">+</span>  <span class="s1">&#39;/status/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 
 
@@ -194,10 +194,10 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">tweet</span><span class="o">.</span><span class="n">retweeted</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">tweet</span><span class="o">.</span><span class="n">retweet</span><span class="p">()</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Retweeted&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Retweeted&quot;</span><span class="p">)</span>
             <span class="n">new_tweets</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">except</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">TweepError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Already Retweeted&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Already Retweeted&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -205,9 +205,9 @@
 <div class="codehilite"><pre><span></span><span class="k">if</span> <span class="s2">&quot;like&quot;</span> <span class="ow">in</span> <span class="n">text</span> <span class="ow">or</span> <span class="s2">&quot;fav&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">tweet</span><span class="o">.</span><span class="n">favorite</span><span class="p">()</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s2">&quot;Liked&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s2">&quot;Liked&quot;</span><span class="p">)</span>
     <span class="k">except</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Already Liked&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Already Liked&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -221,12 +221,12 @@
 
         <span class="k">for</span> <span class="n">screen_name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">to_follow</span><span class="p">)):</span>
             <span class="n">api</span><span class="o">.</span><span class="n">create_friendship</span><span class="p">(</span><span class="n">screen_name</span><span class="p">)</span>
-            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s2">&quot;Followed: &quot;</span> <span class="o">+</span> <span class="n">screen_name</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s2">&quot;Followed: &quot;</span> <span class="o">+</span> <span class="n">screen_name</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Lastly print a friendly message at the end saying how many tweets we re-tweeted to show that the script is finished. This is outside all loops.</p>
-<div class="codehilite"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;New Tweets: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">new_tweets</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;New Tweets: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">new_tweets</span><span class="p">))</span>
 </pre></div>
 
 
@@ -250,13 +250,13 @@
 
 <span class="n">new_tweets</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">querry</span> <span class="ow">in</span> <span class="n">queries</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Starting new querry: &quot;</span> <span class="o">+</span> <span class="n">querry</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Starting new querry: &quot;</span> <span class="o">+</span> <span class="n">querry</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">querry</span><span class="p">,</span> <span class="n">tweet_mode</span><span class="o">=</span><span class="s2">&quot;extended&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">tweets_per_query</span> <span class="p">):</span>
 
         <span class="n">user</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">screen_name</span>
         <span class="nb">id</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">id</span>
         <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://twitter.com/&#39;</span> <span class="o">+</span> <span class="n">user</span> <span class="o">+</span>  <span class="s1">&#39;/status/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
-        <span class="k">print</span> <span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">text</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">retweeted_status</span><span class="o">.</span><span class="n">full_text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -266,17 +266,17 @@
             <span class="k">if</span> <span class="ow">not</span> <span class="n">tweet</span><span class="o">.</span><span class="n">retweeted</span><span class="p">:</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">tweet</span><span class="o">.</span><span class="n">retweet</span><span class="p">()</span>
-                    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Retweeted&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Retweeted&quot;</span><span class="p">)</span>
                     <span class="n">new_tweets</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="k">except</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">TweepError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Already Retweeted&#39;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Already Retweeted&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="s2">&quot;like&quot;</span> <span class="ow">in</span> <span class="n">text</span> <span class="ow">or</span> <span class="s2">&quot;fav&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">tweet</span><span class="o">.</span><span class="n">favorite</span><span class="p">()</span>
-                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s2">&quot;Liked&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s2">&quot;Liked&quot;</span><span class="p">)</span>
             <span class="k">except</span><span class="p">:</span>
-                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Already Liked&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Already Liked&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="s2">&quot;follow&quot;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">to_follow</span> <span class="o">=</span> <span class="p">[</span><span class="n">tweet</span><span class="o">.</span><span class="n">retweeted_status</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">screen_name</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;screen_name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tweet</span><span class="o">.</span><span class="n">entities</span><span class="p">[</span><span class="s1">&#39;user_mentions&#39;</span><span class="p">]]</span>
@@ -286,9 +286,9 @@
 
             <span class="k">for</span> <span class="n">screen_name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">to_follow</span><span class="p">)):</span>
                 <span class="n">api</span><span class="o">.</span><span class="n">create_friendship</span><span class="p">(</span><span class="n">screen_name</span><span class="p">)</span>
-                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s2">&quot;Followed: &quot;</span> <span class="o">+</span> <span class="n">screen_name</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s2">&quot;Followed: &quot;</span> <span class="o">+</span> <span class="n">screen_name</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;New Tweets: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">new_tweets</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;New Tweets: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">new_tweets</span><span class="p">))</span>
 </pre></div>
 
 

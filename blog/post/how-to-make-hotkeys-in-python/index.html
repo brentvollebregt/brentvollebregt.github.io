@@ -156,7 +156,7 @@
 
 <p>Now create a method called execute. This is what will be executed when a combination is detected. You can put anything in here but for the demonstration I will print a simple string.</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">execute</span><span class="p">():</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Do Something&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Do Something&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -210,7 +210,7 @@
 <span class="n">current</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">execute</span><span class="p">():</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Do Something&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Do Something&quot;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">key</span> <span class="ow">in</span> <span class="n">COMBO</span> <span class="k">for</span> <span class="n">COMBO</span> <span class="ow">in</span> <span class="n">COMBINATIONS</span><span class="p">]):</span>
@@ -235,10 +235,10 @@
 <span class="c1"># Your functions</span>
 
 <span class="k">def</span> <span class="nf">function_1</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Executed function_1&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Executed function_1&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">function_2</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Executed function_2&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Executed function_2&#39;</span><span class="p">)</span>
 
 <span class="c1"># Create a mapping of keys to function (use frozenset as sets are not hashable - so they can&#39;t be used as keys)</span>
 <span class="n">combination_to_function</span> <span class="o">=</span> <span class="p">{</span>

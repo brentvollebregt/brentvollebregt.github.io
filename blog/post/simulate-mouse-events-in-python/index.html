@@ -142,7 +142,7 @@
 
 <h3 id="finding-the-position-of-the-mouse">Finding the Position of the Mouse</h3>
 <p>To find the position of the mouse we can use mouse.position. This will return a tuple of two integers. The first integer is the x position and the second integer is the y position. This is relative to the top left of the screen; x getting bigger is going right and y getting bigger is going down.</p>
-<div class="codehilite"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Current position: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">position</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Current position: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">position</span><span class="p">))</span>
 </pre></div>
 
 
@@ -199,8 +199,8 @@
 
 
 <p>Now when you want to use the controller for the mouse use MouseController and KeyboardController for the keyboard.</p>
-<div class="codehilite"><pre><span></span><span class="n">keyboard</span> <span class="o">=</span> <span class="n">KeyboardController</span><span class="p">()</span>
-<span class="n">mouse</span> <span class="o">=</span> <span class="n">MouseController</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="err">keyboard = KeyboardController()</span>
+<span class="err">mouse = MouseController()</span>
 </pre></div>
 
 

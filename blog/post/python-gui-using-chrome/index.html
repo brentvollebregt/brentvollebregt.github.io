@@ -201,9 +201,9 @@
 <p>This will allow JavaScript and Python to communicate as the client now has the code needed. There is nothing else you need to do apart from creating your functions.</p>
 <h2 id="making-python-functions-you-can-call-in-javascript">Making Python Functions you Can Call in JavaScript</h2>
 <p>To make a Python function that you can call from JavaScript decorate it with <code>@eel.expose</code> like this:</p>
-<div class="codehilite"><pre><span></span><span class="nd">@eel.expose</span>
+<div class="codehilite"><pre><span></span><span class="nd">@eel</span><span class="o">.</span><span class="n">expose</span>
 <span class="k">def</span> <span class="nf">my_python_method</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">):</span>
-    <span class="k">print</span> <span class="p">(</span><span class="n">param1</span> <span class="o">+</span> <span class="n">param2</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">param1</span> <span class="o">+</span> <span class="n">param2</span><span class="p">)</span>
 </pre></div>
 
 
@@ -225,7 +225,7 @@
 <p>Callbacks allow us to execute a function with the data returned as the argument. When the data is returned, the function will be called and the return value will be passed as a parameter to the function. This method works both ways.</p>
 <p>If I wanted to use a callback in Python, I would create my method in JavaScript which returns a value that is exposed using eel. Then in Python:</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">print_return</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Return from Javascript: &#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Return from Javascript: &#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 
 <span class="c1"># Call Javascript function, and pass explicit callback function</span>
 <span class="n">eel</span><span class="o">.</span><span class="n">js_function</span><span class="p">()(</span><span class="n">print_return</span><span class="p">)</span>
@@ -245,7 +245,7 @@
 <h3 id="synchronous-returns">Synchronous Returns</h3>
 <p>When calling a JavaScript function from Python, we can get the return value directly using a double pair of brackets; for example:</p>
 <div class="codehilite"><pre><span></span><span class="n">return_value</span> <span class="o">=</span> <span class="n">eel</span><span class="o">.</span><span class="n">js_random</span><span class="p">()()</span>  <span class="c1"># This immeadiately returns the value</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Got this from Javascript: &#39;</span><span class="p">,</span> <span class="n">return_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Got this from Javascript: &#39;</span><span class="p">,</span> <span class="n">return_value</span><span class="p">)</span>
 </pre></div>
 
 
@@ -269,7 +269,7 @@
 
 <span class="n">eel</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s1">&#39;web&#39;</span><span class="p">)</span>
 
-<span class="nd">@eel.expose</span>
+<span class="nd">@eel</span><span class="o">.</span><span class="n">expose</span>
 <span class="k">def</span> <span class="nf">getTime</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%c</span><span class="s1">&#39;</span><span class="p">)</span>
 
@@ -307,8 +307,8 @@
 <span class="n">eel</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s1">&#39;web&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">my_other_thread</span><span class="p">():</span>
-    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m a thread&quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m a thread&quot;</span><span class="p">)</span>
         <span class="n">eel</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
 
 <span class="n">eel</span><span class="o">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">my_other_thread</span><span class="p">)</span>
@@ -318,7 +318,7 @@
 
 <h3 id="dont-block-eelstart">Don't block eel.start()</h3>
 <p>If you want to execute code underneath eel.start() you can pass block=False as an argument to stop it from blocking. For example:</p>
-<div class="codehilite"><pre><span></span><span class="n">eel</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s1">&#39;main.html&#39;</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">eel</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s1">&#39;main.html&#39;</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
 
@@ -336,7 +336,7 @@
     <span class="c1"># But if we don&#39;t catch these safely, the script will crash</span>
     <span class="k">pass</span> 
 
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;This is printed when the window is closed!&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;This is printed when the window is closed!&#39;</span><span class="p">)</span>
 </pre></div>
 
 
