@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/python-encryption-and-decryption-with-pycryptodome/">
@@ -140,13 +140,13 @@
 <p>As PyCryptodome is a modified fork of PyCrypto, it can be used in some situations as a drop-in-replacement for PyCrypto; you can read more about that <a href="https://www.pycryptodome.org/en/latest/src/vs_pycrypto.html">in the docs</a>.</p>
 <h2 id="installing-pycryptodome">Installing PyCryptodome</h2>
 <p>The easiest way to install this library is to use pip. Open up the terminal/cmd and execute:</p>
-<div class="codehilite"><pre><span></span><span class="go">python -m pip install pycryptodome</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="go">python -m pip install pycryptodome</span>
+</code></pre></div>
 
 
 <p>To make sure it installed correctly, open IDLE and execute:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pycryptodome</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pycryptodome</span>
+</code></pre></div>
 
 
 <p>If no errors appeared it has been installed correctly.</p>
@@ -165,10 +165,10 @@
 </blockquote>
 <h2 id="generating-a-key">Generating A Key</h2>
 <p>Keys that are used in AES must be 128, 192, or 256 bits in size (respectively for <em>AES-128</em>, <em>AES-192</em> or <em>AES-256</em>). PyCryptodome supplies a function at <code>Crypto.Random.get_random_bytes</code> that returns a random byte string of a length we decide. To use this, import the function and pass a length to the function:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
 <span class="n">key</span> <span class="o">=</span> <span class="n">get_random_bytes</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="c1"># 32 bytes * 8 = 256 bits (1 byte = 8 bits)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>When running this snippet, a new key that is of type bytes will generated on each run. When using this method for creating a key, it will need to be stored somewhere to be used again.</p>
@@ -177,7 +177,7 @@
 </blockquote>
 <h3 id="storing-a-key">Storing a Key</h3>
 <p>Key generation may seem useless as you need to store it, but that is definitely not the case. Since this function creates truly random data, we could simply generate a key and then write it to a file on a USB (or some other secure place). When we encrypt/decrypt files, we then read this file from the USB and get the key out. Here is an example of this:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
 <span class="n">key_location</span> <span class="o">=</span> <span class="s2">&quot;F:</span><span class="se">\\</span><span class="s2">my_key.bin&quot;</span> <span class="c1"># A safe place to store a key. Can be on a USB or even locally on the machine (not recommended unless it has been further encrypted)</span>
 
 <span class="c1"># Generate the key</span>
@@ -195,7 +195,7 @@
 
 <span class="c1"># Since this is a demonstration, we can verify that the keys are the same (just for proof - you don&#39;t need to do this)</span>
 <span class="k">assert</span> <span class="n">key</span> <span class="o">==</span> <span class="n">key_from_file</span><span class="p">,</span> <span class="s1">&#39;Keys do not match&#39;</span> <span class="c1"># Will throw an AssertionError if they do not match</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Even though generating keys like this is definitely one of the better options, some people would rather use passwords provided from users. This is quite understandable as it makes it easier for users to use the application</p>
@@ -205,26 +205,26 @@
 <p>PBKDF2 is used because PBKDF1 can only generate keys up to 160 bits long.</p>
 </blockquote>
 <p>A <a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">salt</a> is <em>random data that is used as an additional input to a one-way function that "hashes" data</em>. How you store this is up to you, in short terms, it is combined with the password provided by the user so that the result cannot be looked up in a <a href="https://en.wikipedia.org/wiki/Rainbow_table">rainbow table</a>. Even though not 100% recommended, I feel it can be more beneficial to simply generate a salt and hard-code it into your application. To generate a salt, we can use the same method that we used to generate a key:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">get_random_bytes</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span> <span class="c1"># Print the salt to be copied to your script</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Using the output from this snippet, you can now create a variable in your script and assign it to the value that was output. For example:</p>
-<div class="codehilite"><pre><span></span><span class="c1"># ... imports</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># ... imports</span>
 <span class="n">salt</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x8a\xfe\x1f\xa7</span><span class="s1">aY}</span><span class="se">\xa3</span><span class="s1">It=</span><span class="se">\xc3\xcc</span><span class="s1">T</span><span class="se">\xc8\x94\xc1</span><span class="s1">1%w]A</span><span class="se">\xb7\x87</span><span class="s1">G</span><span class="se">\xd8\xba\x9e\xf8\xec</span><span class="s1">&amp;</span><span class="se">\xf0</span><span class="s1">&#39;</span>
 <span class="c1"># ... rest of your code</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Now that the hard part is over, we can generate keys using user input. Passing the string provided by the user (password) and the salt that you just hard-coded in your script as well as declaring the output length, we can get the key.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Crypto.Protocol.KDF</span> <span class="kn">import</span> <span class="n">PBKDF2</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Protocol.KDF</span> <span class="kn">import</span> <span class="n">PBKDF2</span>
 
 <span class="n">salt</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;...&#39;</span> <span class="c1"># Salt you generated</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;password123&#39;</span> <span class="c1"># Password provided by the user, can use input() to get this</span>
 
 <span class="n">key</span> <span class="o">=</span> <span class="n">PBKDF2</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">salt</span><span class="p">,</span> <span class="n">dkLen</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span> <span class="c1"># Your key that you can encrypt with</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Now in <code>key</code>, you will have the key that you can use in encryption. You do not have to store this key now as you can see that this can be generated every time regarding the user provides the same password.</p>
@@ -240,7 +240,7 @@
 <p>Different modes will require you to store different values for decryption like an iv, nonce or tag. If you want to use a mode that I do not cover here, simply find the example in the docs (from the links above for legacy and modern ciphers) and identify what values need to be stored.</p>
 <h3 id="cbc-example">CBC Example</h3>
 <p>You can find this example <a href="https://pycryptodome.readthedocs.io/en/latest/src/cipher/classic.html#cbc-mode">in the docs</a>. CBC requires you to pad your data to make sure the final block is filled with some data; not all modes require this (as I show in the next example).</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
 <span class="kn">from</span> <span class="nn">Crypto.Util.Padding</span> <span class="kn">import</span> <span class="n">pad</span>
 
 <span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;encrypted.bin&#39;</span> <span class="c1"># Output file</span>
@@ -255,7 +255,7 @@
 <span class="n">file_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cipher</span><span class="o">.</span><span class="n">iv</span><span class="p">)</span> <span class="c1"># Write the iv to the output file (will be required for decryption)</span>
 <span class="n">file_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ciphered_data</span><span class="p">)</span> <span class="c1"># Write the varying length cipher text to the file (this is the encrypted data)</span>
 <span class="n">file_out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="cfb-example">CFB Example</h3>
@@ -264,7 +264,7 @@
 <blockquote>
 <p>CFB, OFB and CTR to not require padding because they are stream ciphers, not block ciphers</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
 
 <span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;encrypted.bin&#39;</span>
 <span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Your data....&#39;</span>
@@ -277,12 +277,12 @@
 <span class="n">file_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cipher</span><span class="o">.</span><span class="n">iv</span><span class="p">)</span>
 <span class="n">file_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ciphered_data</span><span class="p">)</span>
 <span class="n">file_out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="eax-example">EAX Example</h3>
 <p>You can find this example <a href="https://pycryptodome.readthedocs.io/en/latest/src/examples.html#encrypt-data-with-aes">in the docs</a>. Just like all the examples here and in the docs for AES, the steps are all the same, just different data needs to be stored for this mode being a nonce, tag and the ciphered data.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
 
 <span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;encrypted.bin&#39;</span>
 <span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Your data....&#39;</span>
@@ -296,14 +296,14 @@
 <span class="n">file_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span> <span class="c1"># Write the tag out after (will be required for decryption - fixed size)</span>
 <span class="n">file_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ciphered_data</span><span class="p">)</span>
 <span class="n">file_out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="how-to-use-all-the-outputs-from-these-encryptions">How To Use All The Outputs From These Encryptions?</h3>
 <p>Many of these modes will output more than one value; this could be in the form of a iv, nonce or something else. To pack all this data in a file, put the data that have static lengths (always the same) at the top of the file, then ciphered content after this. Now when you read out the file, you can read x amount of bytes using <code>.read(x)</code> to get the known-length values (can be multiple) and then call <code>.read(-1)</code> to get the rest of the data.</p>
 <p>In the examples above, this is how I saved all the data required to a file, but you do not have to save the data this way. When only using the data internally or in something like a database, it can be easier to just keep them separate in their own variable or column.</p>
 <p>Another way to do this would be to convert all the iv, nonce, tag and ciphered text output values to base64. You can now create a Python dictionary object using the names of these variables as keys and base64 values as the values and save this as a JSON file. This makes it very easy to write and read but will make larger files that take longer to read/write. For example:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64encode</span><span class="p">,</span> <span class="n">b64decode</span>
 
 <span class="c1"># These are placeholders for the values that we need to store to be read out later to decrypt. You may require other values than these like the tag or nonce</span>
@@ -328,14 +328,14 @@
 <span class="c1"># Get all the fields from the dictionary read from the JSON file</span>
 <span class="n">ciphertext</span> <span class="o">=</span> <span class="n">input_json</span><span class="p">[</span><span class="s1">&#39;ciphertext&#39;</span><span class="p">]</span>
 <span class="n">iv</span> <span class="o">=</span> <span class="n">input_json</span><span class="p">[</span><span class="s1">&#39;iv&#39;</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="decrypting">Decrypting</h2>
 <p>Now that you have your data, stored it somewhere, you will want to read it and decrypt it. Based off the encryption examples above, these are the examples to decrypt. If you did not store the data in a file, you can populate the require fields using whatever method you used to store them.</p>
 <h3 id="cbc-example_1">CBC Example</h3>
 <p>When the file for the CBC encryption example was written, the iv was first written and then the ciphered data. Since we know the length of the iv (16 bytes), first read that from the start of the file and the read the rest of the file to get the ciphered data.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
 <span class="kn">from</span> <span class="nn">Crypto.Util.Padding</span> <span class="kn">import</span> <span class="n">unpad</span>
 
 <span class="n">input_file</span> <span class="o">=</span> <span class="s1">&#39;encrypted.bin&#39;</span> <span class="c1"># Input file</span>
@@ -349,12 +349,12 @@
 
 <span class="n">cipher</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_CBC</span><span class="p">,</span> <span class="n">iv</span><span class="o">=</span><span class="n">iv</span><span class="p">)</span>  <span class="c1"># Setup cipher</span>
 <span class="n">original_data</span> <span class="o">=</span> <span class="n">unpad</span><span class="p">(</span><span class="n">cipher</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">ciphered_data</span><span class="p">),</span> <span class="n">AES</span><span class="o">.</span><span class="n">block_size</span><span class="p">)</span> <span class="c1"># Decrypt and then up-pad the result</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="cfb-example_1">CFB Example</h3>
 <p>In the CFB encryption example the iv and ciphered data was saved to the output file.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
 
 <span class="n">input_file</span> <span class="o">=</span> <span class="s1">&#39;encrypted.bin&#39;</span>
 <span class="n">key</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;YOUR KEY&#39;</span>
@@ -366,12 +366,12 @@
 
 <span class="n">cipher</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_CFB</span><span class="p">,</span> <span class="n">iv</span><span class="o">=</span><span class="n">iv</span><span class="p">)</span>
 <span class="n">original_data</span> <span class="o">=</span> <span class="n">cipher</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">ciphered_data</span><span class="p">)</span> <span class="c1"># No need to un-pad</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="eax-example_1">EAX Example</h3>
 <p>In the EAX encryption example the nonce, tag and ciphered data was saved to the output file. We know the length of the nonce and tag values so we can read these out first and then the data after.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
 
 <span class="n">input_file</span> <span class="o">=</span> <span class="s1">&#39;encrypted.bin&#39;</span> <span class="c1"># Input file (encrypted)</span>
 <span class="n">key</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;YOUR KEY&#39;</span> <span class="c1"># The key you generated (same as what you encrypted with)</span>
@@ -385,7 +385,7 @@
 <span class="c1"># Decrypt and verify</span>
 <span class="n">cipher</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_EAX</span><span class="p">,</span> <span class="n">nonce</span><span class="p">)</span>
 <span class="n">original_data</span> <span class="o">=</span> <span class="n">cipher</span><span class="o">.</span><span class="n">decrypt_and_verify</span><span class="p">(</span><span class="n">ciphered_data</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span> <span class="c1"># Decrypt and verify with the tag</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="examples">Examples</h2>
@@ -393,7 +393,7 @@
 <p>In each example I will generate a new key that will be used in the session; as described before, you will need to generate a key yourself and save it for encryption and decryption since encryption and decryption most likely won't be done in the same session (you can't rely on <code>get_random_bytes</code> to get your key back).</p>
 <h3 id="string-example-proof">String Example Proof</h3>
 <p>In this proof I will demonstrate how to encrypt and decrypt a string.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
 <span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
 
 <span class="n">key</span> <span class="o">=</span> <span class="n">get_random_bytes</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="c1"># Use a stored / generated key</span>
@@ -428,12 +428,12 @@
 
 <span class="c1"># Now we prove that the original data is the same as the data we just ciphered out (running these should throw no errors)</span>
 <span class="k">assert</span> <span class="n">data_to_encrypt</span> <span class="o">==</span> <span class="n">decrypted_data</span><span class="p">,</span> <span class="s1">&#39;Original data does not match the result&#39;</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="file-example-proof">File Example Proof</h3>
 <p>In this proof I will demonstrate how to encrypt and decrypt a file. This example will be a bit different to the examples above as I will be reading and writing to and from files using a buffer. This allows me to encrypt much larger files without the whole file having to be loaded into memory.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
 <span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
 
 <span class="n">key</span> <span class="o">=</span> <span class="n">get_random_bytes</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="c1"># Use a stored / generated key</span>
@@ -500,7 +500,7 @@
     <span class="k">return</span> <span class="n">file_hash</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 
 <span class="k">assert</span> <span class="n">get_file_hash</span><span class="p">(</span><span class="n">file_to_encrypt</span><span class="p">)</span> <span class="o">==</span> <span class="n">get_file_hash</span><span class="p">(</span><span class="n">file_to_encrypt</span> <span class="o">+</span> <span class="s1">&#39;.decrypted&#39;</span><span class="p">),</span> <span class="s1">&#39;Files are not identical&#39;</span>
-</pre></div>
+</code></pre></div>
 
 
 <blockquote>

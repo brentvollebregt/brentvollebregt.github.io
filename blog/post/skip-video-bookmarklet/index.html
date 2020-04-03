@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/skip-video-bookmarklet/">
@@ -97,15 +97,15 @@
 <p>A <a href="https://en.wikipedia.org/wiki/Bookmarklet">bookmarlet</a> is a bookmark that runs JavaScript code. This allows someone to easily create something like a button that will execute JavaScript when clicked.</p>
 <h2 id="adding-the-bookmarket">Adding the Bookmarket</h2>
 <p>To add the bookmarket, simply click and drag the link below into your bookmark bar.</p>
-<p><a href="javascript:videos = document.getElementsByTagName('video'); for (i = 0; i < videos.length; i++) { videos[i].currentTime = videos[i].duration; }">Skip Video</a></p>
+<p>&lt;a href="javascript:videos = document.getElementsByTagName('video'); for (i = 0; i &lt; videos.length; i++) { videos[i].currentTime = videos[i].duration; }"&gt;Skip Video</a></p>
 <p>If you cannot drag this onto the bookmark bar, right click on it and copy the link address. Next create a new bookmark and add this as the url.</p>
 <h2 id="the-code">The Code</h2>
 <p>You don't need to copy this code (<em>instructions above</em>); this is simply for curiosity.</p>
-<div class="codehilite"><pre><span></span><span class="nx">videos</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">);</span> 
+<div class="codehilite"><pre><span></span><code><span class="nx">videos</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">);</span> 
 <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">videos</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> 
     <span class="nx">videos</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">currentTime</span> <span class="o">=</span> <span class="nx">videos</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">duration</span><span class="p">;</span> 
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>To make this a bookmarklet, you will need to create a new bookmark, add <code>javascript:</code> and then paste the JavaScript code in.</p>

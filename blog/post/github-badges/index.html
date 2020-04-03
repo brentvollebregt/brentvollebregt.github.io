@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/github-badges/">
@@ -105,14 +105,14 @@
 <p><img alt="Create Your Own Badge" src="/post-assets/github-badges/static.png" /></p>
 <p>Entering a value in <code>subject</code> will provide the text for the left, <code>status</code> the value for the right and <code>color</code> the colour of the right part of the badge.</p>
 <p>For example if I wanted to create a badge that says "made with" and then "python" with a blue background, I would do:</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://img.shields.io/badge/made%20with-python-blue.svg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;made with python&quot;</span><span class="p">&gt;</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://img.shields.io/badge/made%20with-python-blue.svg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;made with python&quot;</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
 <p>Which will give you: <img src="https://img.shields.io/badge/made%20with-python-blue.svg" alt="made with python" style="margin-bottom: -5px; display: inline-block;"></p>
 <p>You can also use hex colour codes instead of names, for example:</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://img.shields.io/badge/this%20is-purple-503040.svg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;this is purple&quot;</span><span class="p">&gt;</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://img.shields.io/badge/this%20is-purple-503040.svg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;this is purple&quot;</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
 <p>This will give: <img src="https://img.shields.io/badge/this%20is-purple-503040.svg" alt="this is purple" style="margin-bottom: -5px; display: inline-block;"></p>
@@ -127,8 +127,8 @@
 </ul>
 <p>To apply these styles to a badge, simple add <code>?style=</code> to the end of the url and then add the style type as shown in the brackets above.</p>
 <p>For example, using my badge from before:</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://img.shields.io/badge/made%20with-python-blue.svg?style=flat-square&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;made with python&quot;</span><span class="p">&gt;</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://img.shields.io/badge/made%20with-python-blue.svg?style=flat-square&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;made with python&quot;</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
 <p>Will create: <img src="https://img.shields.io/badge/made%20with-python-blue.svg?style=flat-square" alt="made with python" style="margin-bottom: -5px; display: inline-block;"></p>
@@ -169,21 +169,21 @@
 <blockquote>
 <p>Make sure to encode the uri before requesting. This can be done with the <code>encodeURIComponent()</code> method in JavaScript. For example encodeURIComponent(' ') is '%20'.</p>
 </blockquote>
-<p><strong>?label=healthinesses : Override the default left-hand-side text</strong></p>
+<p><strong><code>?label=healthinesses</code> : Override the default left-hand-side text</strong></p>
 <p><img src="https://img.shields.io/github/tag/expressjs/express.svg" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;">  will become  <img src="https://img.shields.io/github/tag/expressjs/express.svg?label=healthinesses" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;"></p>
-<p><strong>?logo=appveyor : Insert one of the <a href="https://github.com/badges/shields/tree/gh-pages/logo">named logos</a></strong></p>
+<p><strong><code>?logo=appveyor</code> : Insert one of the <a href="https://github.com/badges/shields/tree/gh-pages/logo">named logos</a></strong></p>
 <p><img src="https://img.shields.io/github/tag/expressjs/express.svg" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;">  will become  <img src="https://img.shields.io/github/tag/expressjs/express.svg?logo=appveyor" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;"></p>
-<p><strong>?logo=data:image/png;base64,… : Insert custom logo image (≥ 14px high)</strong></p>
+<p><strong><code>?logo=data:image/png;base64,…</code> : Insert custom logo image (≥ 14px high)</strong></p>
 <p>No example as the data for the png will be large.</p>
-<p><strong>?logoWidth=40 : Set the horizontal space to give to the logo</strong></p>
+<p><strong><code>?logoWidth=40</code> : Set the horizontal space to give to the logo</strong></p>
 <p><img src="https://img.shields.io/github/tag/expressjs/express.svg" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;">  will become  <img src="https://img.shields.io/github/tag/expressjs/express.svg?logoWidth=40" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;"></p>
-<p><strong>?link=http://left&amp;link=http://right : Specify what clicking on the left/right of a badge should do</strong></p>
+<p><strong><code>?link=http://left&amp;link=http://right</code> : Specify what clicking on the left/right of a badge should do</strong></p>
 <p>No example as I use img to embed these images (You can use an &lt;object&gt; tag if you want to embed these).</p>
-<p><strong>?colorA=abcdef : Set background of the left part (hex color only)</strong></p>
+<p><strong><code>?colorA=abcdef</code> : Set background of the left part (hex color only)</strong></p>
 <p><img src="https://img.shields.io/github/tag/expressjs/express.svg" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;">  will become  <img src="https://img.shields.io/github/tag/expressjs/express.svg?colorA=abcdef" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;"></p>
-<p><strong>?colorB=fedcba : Set background of the right part (hex color only)</strong></p>
+<p><strong><code>?colorB=fedcba</code> : Set background of the right part (hex color only)</strong></p>
 <p><img src="https://img.shields.io/github/tag/expressjs/express.svg" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;">  will become  <img src="https://img.shields.io/github/tag/expressjs/express.svg?colorB=fedcba" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;"></p>
-<p><strong>?maxAge=360 : Set the HTTP cache lifetime in secs</strong></p>
+<p><strong><code>?maxAge=360</code> : Set the HTTP cache lifetime in secs</strong></p>
 <p><img src="https://img.shields.io/github/tag/expressjs/express.svg" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;">  will become  <img src="https://img.shields.io/github/tag/expressjs/express.svg?maxAge=360" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;"></p>
                     </div>
 
@@ -192,7 +192,7 @@
                             <a class="btn btn-outline-primary mt-1" href="/blog/post/hit-counter/">&larr; Hit Counter</a>
                         
                         
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-add-a-custom-domain-to-a-github-pages-site/">How To Add a Custom Domain ... &rarr;</a>
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/my-desktop-backgrounds/">My Desktop Backgrounds &rarr;</a>
                         
                     </nav>
 

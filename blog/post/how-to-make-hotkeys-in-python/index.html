@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-make-hotkeys-in-python/">
@@ -114,21 +114,21 @@
 <h2 id="pip">PIP</h2>
 <p>If you haven't used or setup pip before, go to my tutorial at <a href="/blog/post/how-to-setup-pythons-pip/">how-to-setup-pythons-pip</a> to setup pip.</p>
 <h2 id="installing-pynput">Installing Pynput</h2>
-<p>We will be using the punput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
+<p>We will be using the pynput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
 <p><img alt="Installing pynput" src="/post-assets/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
 <p>To double check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
 <p><img alt="Testing pynput" src="/post-assets/how-to-get-mouse-clicks-with-python/pynput2.png" /></p>
 <h2 id="creating-the-script">Creating the Script</h2>
 <p>First import keyboard from pynput and create a variable called current and set it to a set object to track what keys are pressed currently.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">pynput</span> <span class="kn">import</span> <span class="n">keyboard</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput</span> <span class="kn">import</span> <span class="n">keyboard</span>
 
 <span class="c1"># The currently active modifiers</span>
 <span class="n">current</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Next we will setup a listener for the keyboard and set on press and release methods to it. Setup the listener in a with statement and join the listener thread to the main thread using .join().</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">pass</span>
 
 <span class="k">def</span> <span class="nf">on_release</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
@@ -136,41 +136,41 @@
 
 <span class="k">with</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">Listener</span><span class="p">(</span><span class="n">on_press</span><span class="o">=</span><span class="n">on_press</span><span class="p">,</span> <span class="n">on_release</span><span class="o">=</span><span class="n">on_release</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
     <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Next we need to the the combinations to look out for. I this example I will use Shift + A. I will need to use two variants, Shift + A and Shift + a so the combination will be detected no matter what order they are pressed. If A is pressed first, 'a' will be given to the listener but if shift is pressed before A then 'A' will be given to the listener. Make a list called COMBINATIONS and add the keys in sets as shown below.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># The key combination to check</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># The key combination to check</span>
 <span class="n">COMBINATIONS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span><span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">shift</span><span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">KeyCode</span><span class="p">(</span><span class="n">char</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)},</span>
     <span class="p">{</span><span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">shift</span><span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">KeyCode</span><span class="p">(</span><span class="n">char</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">)}</span>
 <span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Now create a method called execute. This is what will be executed when a combination is detected. You can put anything in here but for the demonstration I will print a simple string.</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">execute</span><span class="p">():</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">execute</span><span class="p">():</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Do Something&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Now we will edit the on_press method. We need to first check if the key that has just been pressed is in any of the combinations that we have. If it is we need to add it to the current key set and then loop though all the combinations checking if all the keys in a particular combination are in the 'current' set. If one of the combinations has all their keys down, we need to call execute().</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">key</span> <span class="ow">in</span> <span class="n">COMBO</span> <span class="k">for</span> <span class="n">COMBO</span> <span class="ow">in</span> <span class="n">COMBINATIONS</span><span class="p">]):</span>
         <span class="n">current</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">in</span> <span class="n">current</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">COMBO</span><span class="p">)</span> <span class="k">for</span> <span class="n">COMBO</span> <span class="ow">in</span> <span class="n">COMBINATIONS</span><span class="p">):</span>
             <span class="n">execute</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <blockquote>
 <p>In the current state, this script can provide multiple events for one combination detected. To prevent this, append <code>and not key in current</code> to the end of the initial if statement (before the colon).</p>
 </blockquote>
 <p>Finally we need to modify the on_release method and check that when a key is released, if it is in any of the combinations. If it is we need to removed it from the 'current' set.</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">on_release</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_release</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">key</span> <span class="ow">in</span> <span class="n">COMBO</span> <span class="k">for</span> <span class="n">COMBO</span> <span class="ow">in</span> <span class="n">COMBINATIONS</span><span class="p">]):</span>
         <span class="n">current</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>You can now run the script and when Shift and 'A' are pressed at the same time, the sting will be printed to the console.</p>
@@ -179,7 +179,7 @@
 <h2 id="adding-hotkeys">Adding Hotkeys</h2>
 <p>To add more hotkeys or different hotkeys you will need to add another set of keys to the COMBINATIONS list. To do this use curly braces and make sure to separate the keys by commas. Also to make sure to split each set by a comma or you will be given an error when running the script.</p>
 <p>To use keys like shift and control, you need to provide the key. Keys can be found in the <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">documentation</a>. In this we can see that if we want to use shift, we need to use keyboard.Key.shift. Another example is the scroll lock: keyboard.Key.scroll_lock. To use characters on the keyboard like 'a', 'b', 'c' ect... you will need to use the method keyboard.KeyCode() passing the character as the char parameter. Examples follow below.</p>
-<div class="codehilite"><pre><span></span><span class="n">COMBINATIONS</span> <span class="o">=</span> <span class="p">[</span>
+<div class="codehilite"><pre><span></span><code><span class="n">COMBINATIONS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span><span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">shift</span><span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">KeyCode</span><span class="p">(</span><span class="n">char</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)},</span> <span class="c1"># Shift + a</span>
     <span class="p">{</span><span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">shift</span><span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">KeyCode</span><span class="p">(</span><span class="n">char</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">)},</span> <span class="c1"># Shift + A</span>
     <span class="p">{</span><span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">scroll_lock</span><span class="p">},</span> <span class="c1"># Scroll lock</span>
@@ -187,12 +187,12 @@
     <span class="p">{</span><span class="n">keyboard</span><span class="o">.</span><span class="n">KeyCode</span><span class="p">(</span><span class="n">char</span><span class="o">=</span><span class="s1">&#39;Q&#39;</span><span class="p">)},</span> <span class="c1"># Q</span>
     <span class="p">{</span><span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">shift</span><span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">insert</span><span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">ctrl</span><span class="p">}</span> <span class="c1"># Shift + Insert + Ctrl</span>
 <span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>You can have as many keys as you like in one combination and accidentally adding two of the same combination will not cause any errors.</p>
 <h2 id="final-script">Final Script</h2>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">pynput</span> <span class="kn">import</span> <span class="n">keyboard</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput</span> <span class="kn">import</span> <span class="n">keyboard</span>
 
 <span class="c1"># The key combination to check</span>
 <span class="n">COMBINATIONS</span> <span class="o">=</span> <span class="p">[</span>
@@ -218,13 +218,13 @@
 
 <span class="k">with</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">Listener</span><span class="p">(</span><span class="n">on_press</span><span class="o">=</span><span class="n">on_press</span><span class="p">,</span> <span class="n">on_release</span><span class="o">=</span><span class="n">on_release</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
     <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="an-improved-script">An Improved Script</h2>
 <p>A lot of people had been asking for a solution that can handle different functions for different combinations. <a href="https://www.youtube.com/channel/UCzGG-Z4QAgkt2uYMH6VTpQQ">Christopher Walters</a> commented on the original video with a snippet that allowed users to declare a function per combination. </p>
 <p>I modified the original script as it didn't work out-of-the-box (the idea was there though which is the most important part) and added some comments to make it more understandable <em>(even though it was already quite good)</em>:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">KeyCode</span><span class="p">,</span> <span class="n">Listener</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">KeyCode</span><span class="p">,</span> <span class="n">Listener</span>
 
 <span class="c1"># Your functions</span>
 
@@ -258,7 +258,7 @@
 
 <span class="k">with</span> <span class="n">Listener</span><span class="p">(</span><span class="n">on_press</span><span class="o">=</span><span class="n">on_press</span><span class="p">,</span> <span class="n">on_release</span><span class="o">=</span><span class="n">on_release</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
     <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>When executing this script and pressing Shift + A (in any order), this will execute <code>function_1</code> and print "Executed function_1". Also when pressing Shift + B (in any order), <code>function_2</code> will be executed.</p>

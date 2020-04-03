@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-send-an-email-with-python/">
@@ -117,7 +117,7 @@
 </blockquote>
 <h2 id="simple-email">Simple Email</h2>
 <p>To start off, we will use the <a href="https://docs.python.org/3/library/smtplib.html">smtplib module</a> which comes with python, so no need to install it using <a href="/blog/post/how-to-setup-pythons-pip/">pip</a>.</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">smtplib</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
 
 <span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;myaddress@gmail.com&#39;</span> <span class="c1"># Your email</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;password&#39;</span> <span class="c1"># Your email account password</span>
@@ -129,7 +129,7 @@
 <span class="n">server</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span> <span class="c1"># Login to the email server</span>
 <span class="n">server</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">send_to_email</span> <span class="p">,</span> <span class="n">message</span><span class="p">)</span> <span class="c1"># Send the email</span>
 <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span> <span class="c1"># Logout of the email server</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>By changing the initial variables at the top, the email will be sent. Make sure to change:
@@ -141,7 +141,7 @@
 <p>The image above shows the email that I received. It is very basic and has no subject line, we will add that next.</p>
 <h2 id="better-layouts">Better Layouts</h2>
 <p>We will now add a subject, sender and receiver using the <a href="https://docs.python.org/3/library/email.html">email module</a>. This module is also already in python so no need to use pip.</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">smtplib</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
 <span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
 <span class="kn">from</span> <span class="nn">email.mime.multipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
 
@@ -165,7 +165,7 @@
 <span class="n">text</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">()</span> <span class="c1"># You now need to convert the MIMEMultipart object to a string to send</span>
 <span class="n">server</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">send_to_email</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Replacing the previous variables again and setting the new variable 'subject' to the subject line, the email will now send with a subject line when run.</p>
@@ -174,7 +174,7 @@
 <h2 id="attachments">Attachments</h2>
 <p>There are quite a few ways to attach files to an email, but this is one of the simpler ways. This time we will use an encoder and MIMEMultipart from the email module and os.path to simply get the filename from the provided path.</p>
 <p>This method supports text files, images, videos, audio and pdfs.</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">smtplib</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
 <span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
 <span class="kn">from</span> <span class="nn">email.mime.multipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
 <span class="kn">from</span> <span class="nn">email.mime.base</span> <span class="kn">import</span> <span class="n">MIMEBase</span>
@@ -212,7 +212,7 @@
 <span class="n">text</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">()</span>
 <span class="n">server</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">send_to_email</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Once again, replacing the previous variables but setting the new variable 'file_location' to the location of the tile that you want to send, the email will now send with the file attached.</p>
@@ -221,7 +221,7 @@
 <h2 id="html-in-emails">HTML in Emails</h2>
 <p>If you want to add thinks like links or css formatting to the email, you will need to prepare HTML text for the email.
 Make another string which is the plain-text version of the html and then attach them both to the MIMEMultipart object to be sent later on.</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">smtplib</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
 <span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
 <span class="kn">from</span> <span class="nn">email.mime.multipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
 
@@ -247,7 +247,7 @@ Make another string which is the plain-text version of the html and then attach 
 <span class="n">text</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">()</span>
 <span class="n">server</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">send_to_email</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>As needed before, change the variables at the top but also messageHTML and messagePlain this time, the email will now be displayed using the HTML provided.</p>
@@ -255,7 +255,7 @@ Make another string which is the plain-text version of the html and then attach 
 <p>The image above shows that I received the email with the link and inline CSS colouring on the specified text.</p>
 <h2 id="sending-to-multiple-emails">Sending to Multiple Emails</h2>
 <p>If you want to send the same email to many email addresses, the best method would be to first create all the objects you want in the email, login and then make each <code>MIMEMultipart</code> individually for each email.</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">smtplib</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
 <span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
 <span class="kn">from</span> <span class="nn">email.mime.multipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
 <span class="kn">from</span> <span class="nn">email.mime.base</span> <span class="kn">import</span> <span class="n">MIMEBase</span>
@@ -300,18 +300,18 @@ Make another string which is the plain-text version of the html and then attach 
 
 <span class="c1"># Quit the email server when everything is done</span>
 <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>This method also makes sure that everyone that receives the email will not see the email of everyone else that the email was sent to. If you want to send one email to many addresses and let each recipient see who the email was sent to, you can simply set <code>msg['To']</code> to the recipient emails split by commas and then call <code>server.send_message</code> to send the email passing <code>msg</code> not as a string. </p>
-<div class="codehilite"><pre><span></span><span class="n">send_to_emails</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;recipient_1@gmail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;recipient_2@gmail.com&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><code><span class="n">send_to_emails</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;recipient_1@gmail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;recipient_2@gmail.com&#39;</span><span class="p">]</span>
 
 <span class="c1"># Was: msg[&#39;To&#39;] = send_to_email</span>
 <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">send_to_emails</span><span class="p">)</span>
 
 <span class="c1"># Was: server.sendmail(email, send_to_email, text) where text = msg.as_string()</span>
 <span class="n">server</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> 
-</pre></div>
+</code></pre></div>
 
 
 <blockquote>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/new-zealand-cyber-security-challenge-2019-round-0-solutions/">
@@ -146,7 +146,7 @@
 </tbody>
 </table>
 <p>It was pretty easy to guess that the last row contained the flag and we could assume all the other rows used the same key. Since <em>[plaintext XOR key = cipher text]</em> then <em>[cipher text XOR plaintext = key]</em>; this means we only need one chipher text and it's corresponding plain text to get the key. Using Python, I could get the key using this method:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">base64</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
 
 <span class="n">base64_chiphertext</span> <span class="o">=</span> <span class="s1">&#39;bVkmcyU2L14RKiBjMiddVSY9YzgrVV40&#39;</span>
 <span class="n">plaintext</span> <span class="o">=</span> <span class="s1">&#39;The flag is hidden below&#39;</span>
@@ -157,11 +157,11 @@
 
 <span class="c1"># Decode the cipher text to a byte string and make the plaintext a byte string</span>
 <span class="n">key</span> <span class="o">=</span> <span class="n">bxor</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">base64_chiphertext</span><span class="p">),</span> <span class="n">plaintext</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>The key produced from this was <code>91CSCZN91CSCZN91CSCZN91C</code>. We can see this repeats so we could say <code>91CSCZN</code> is the "base key" that repeats. Now to use this key on the final row, since <code>bxor</code> will zip to whatever byte string is the shortest, we do not have to make the key the correct size.</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">base64</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
 
 <span class="n">base64_chiphertext</span> <span class="o">=</span> <span class="s1">&#39;X10iNHk5fQ4HIGBxPnwPU3c=&#39;</span>
 <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;91CSCZN91CSCZN91CSCZN91C&#39;</span>
@@ -171,7 +171,7 @@
     <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">_a</span> <span class="o">^</span> <span class="n">_b</span> <span class="k">for</span> <span class="n">_a</span><span class="p">,</span> <span class="n">_b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">)])</span>
 
 <span class="n">flag</span> <span class="o">=</span> <span class="n">bxor</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">base64_chiphertext</span><span class="p">),</span> <span class="n">key</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-</pre></div>
+</code></pre></div>
 
 
 <blockquote>
@@ -179,7 +179,7 @@
 </blockquote>
 <h3 id="challenge-2_1">Challenge 2*</h3>
 <p>In the DOM of challenge 2, there is another chiphertext hidden: <code>fnQXc211KwwAJ2B2PyoXUyo9</code>. Using the key on this:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">base64</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
 
 <span class="n">base64_chiphertext</span> <span class="o">=</span> <span class="s1">&#39;fnQXc211KwwAJ2B2PyoXUyo9&#39;</span>
 <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;91CSCZN91CSCZN91CSCZN91C&#39;</span>
@@ -189,7 +189,7 @@
     <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">_a</span> <span class="o">^</span> <span class="n">_b</span> <span class="k">for</span> <span class="n">_a</span><span class="p">,</span> <span class="n">_b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">)])</span>
 
 <span class="n">text</span> <span class="o">=</span> <span class="n">bxor</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">base64_chiphertext</span><span class="p">),</span> <span class="n">key</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>This gives text = <code>GET ./e51d35ed.bin</code>. Making an anchor tag on the page again to go to that relative URL like I did previously, the <a href="https://nzcsc.org.nz/competition/2019/r0/2/challenge/e51d35ed.bin">file</a> is downloaded.</p>
@@ -224,10 +224,10 @@
 <h3 id="challenge-6_1">Challenge 6*</h3>
 <p>Using the <code>validate</code> I had gotten from the .ova file, I opened up Kali Linux and put it in a proper disassembler. Running the program then stopped as it waited for input. I noticed a few commands above the breakpoint, that there had been a value constructed: <code>https://nzcsc.org.nz/competition/2019/r0/6/challenge/server.php?key=72a145aff16bb741310d7c953070807b</code>.</p>
 <p>Requesting this using Python gave the flag:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://nzcsc.org.nz/competition/2019/r0/6/challenge/server.php?key=72a145aff16bb741310d7c953070807b&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <blockquote>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/python-auto-clicker/">
@@ -116,40 +116,40 @@
 <h2 id="pip">PIP</h2>
 <p>If you haven't used or setup pip before, look at my tutorial on <a href="/blog/post/how-to-setup-pythons-pip/">how to setup python's pip</a> to setup pip.</p>
 <h2 id="installing-pynput">Installing Pynput</h2>
-<p>We will be using the punput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
+<p>We will be using the pynput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
 <p><img alt="Installing pynput" src="/post-assets/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
 <p>To double check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
 <p><img alt="Testing pynput" src="/post-assets/how-to-get-mouse-clicks-with-python/pynput2.png" />.</p>
 <h2 id="writing-the-code">Writing the Code</h2>
 <p>First we need to import time and threading. Then import Button and Controller from pynput.mouse so we can control the mouse and import Listener and KeyCode from pynput.keyboard so we can watch for keyboard events to start and stop the auto clicker.</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Controller</span>
 <span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Listener</span><span class="p">,</span> <span class="n">KeyCode</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Next create four variables as shown below. 'delay' will be the delay between each button click. 'button' will be the button to click, this can be either 'Button.left', 'Button.right' or even 'Button.middle'. 'start_stop_key' is the key you want to use to start and stop the auto clicker. I have set it to the key 's' to make it nice and simple, you can use any key here. Finally the 'exit_key' is the key to close the program set it like before, but make sure it is a different key.</p>
-<div class="codehilite"><pre><span></span><span class="n">delay</span> <span class="o">=</span> <span class="mf">0.001</span>
+<div class="codehilite"><pre><span></span><code><span class="n">delay</span> <span class="o">=</span> <span class="mf">0.001</span>
 <span class="n">button</span> <span class="o">=</span> <span class="n">Button</span><span class="o">.</span><span class="n">left</span>
 <span class="n">start_stop_key</span> <span class="o">=</span> <span class="n">KeyCode</span><span class="p">(</span><span class="n">char</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
 <span class="n">exit_key</span> <span class="o">=</span> <span class="n">KeyCode</span><span class="p">(</span><span class="n">char</span><span class="o">=</span><span class="s1">&#39;e&#39;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>No create a class that extends threading.Thread that will allow us to control the mouse clicks. Pass they delay and button to this and have two flags that determine whether it is running or if the whole program is stopping.</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">ClickMouse</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">ClickMouse</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ClickMouse</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">delay</span> <span class="o">=</span> <span class="n">delay</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">button</span> <span class="o">=</span> <span class="n">button</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">program_running</span> <span class="o">=</span> <span class="kc">True</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Next add the methods shown below to control the thread externally.</p>
-<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">start_clicking</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">start_clicking</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="k">def</span> <span class="nf">stop_clicking</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -158,37 +158,37 @@
     <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stop_clicking</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">program_running</span> <span class="o">=</span> <span class="kc">False</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Now we need to create the method that is run when the thread starts. We need to keep looping while the program_running is true and then create another loop inside that checks if the running is set to true. If we are inside both loops, click the set button and then sleep for the set delay.</p>
-<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">program_running</span><span class="p">:</span>
             <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
                 <span class="n">mouse</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="p">)</span>
                 <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delay</span><span class="p">)</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Now we want to create an instance of the mouse controller, create a ClickMouse thread and start it to get into the loop in the run method.</p>
-<div class="codehilite"><pre><span></span><span class="n">mouse</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">mouse</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">()</span>
 <span class="n">click_thread</span> <span class="o">=</span> <span class="n">ClickMouse</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="n">button</span><span class="p">)</span>
 <span class="n">click_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Now create a method called on_press that takes a key as an argument and setup the keyboard listener.</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">pass</span>
 
 <span class="k">with</span> <span class="n">Listener</span><span class="p">(</span><span class="n">on_press</span><span class="o">=</span><span class="n">on_press</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
     <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Now modify the on_press method. If they key pressed is the same as the start_stop_key, stop clicking if the running flag is set to true in the thread otherwise start it. If they key pressed is the exit key, call the exit method in the thread and stop the listener. The new method will look like this:</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">start_stop_key</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">click_thread</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
             <span class="n">click_thread</span><span class="o">.</span><span class="n">stop_clicking</span><span class="p">()</span>
@@ -197,7 +197,7 @@
     <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">exit_key</span><span class="p">:</span>
         <span class="n">click_thread</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
         <span class="n">listener</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>This script can be saved as a .pyw to run in the background. It can easily be still closed using the set exit key even when no dialog is shown.</p>
@@ -211,7 +211,7 @@
 </ul>
 <p>Then run the script and use the start/stop key when wanted. Press the set exit key to exit.</p>
 <h2 id="final-code">Final Code</h2>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Controller</span>
 <span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Listener</span><span class="p">,</span> <span class="n">KeyCode</span>
@@ -267,7 +267,7 @@
 
 <span class="k">with</span> <span class="n">Listener</span><span class="p">(</span><span class="n">on_press</span><span class="o">=</span><span class="n">on_press</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
     <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="common-issues-and-questions">Common Issues and Questions</h2>

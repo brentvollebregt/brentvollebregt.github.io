@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/the-nitratine-project/">
@@ -160,16 +160,16 @@
 </li>
 </ul>
 <h4 id="datajson-sample">data.json sample:</h4>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;title&quot;</span> <span class="p">:</span> <span class="s2">&quot;Colour&quot;</span><span class="p">,</span>
   <span class="nt">&quot;description&quot;</span> <span class="p">:</span> <span class="s2">&quot;This app is based off the goal of obtaining all 16,777,216 colours by randomly generating colours when taping the screen.&quot;</span><span class="p">,</span>
   <span class="nt">&quot;date&quot;</span> <span class="p">:</span> <span class="s2">&quot;18 Nov 17&quot;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <h4 id="viewhtml-sample">view.html sample:</h4>
-<div class="codehilite"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">&quot;SKELETON.html&quot;</span> <span class="o">%</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span><span class="o">%</span> <span class="n">extends</span> <span class="s2">&quot;SKELETON.html&quot;</span> <span class="o">%</span><span class="p">}</span>
 
 <span class="p">{</span><span class="o">%</span> <span class="n">block</span> <span class="n">head</span> <span class="o">%</span><span class="p">}</span>
 <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">title</span> <span class="p">}}</span> <span class="o">|</span> <span class="n">Nitratine</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
@@ -188,7 +188,7 @@
     <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">description</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
 <span class="p">{</span><span class="o">%</span> <span class="n">endblock</span> <span class="o">%</span><span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Here we can see that the two blocks are extended from SKELETON.html. The article CSS file is added and relevant data passed to the template has been used including date, views, description and title; these are pulled from data.json.</p>
@@ -232,10 +232,10 @@
 </ul>
 <h2 id="server-side-scripting">Server Side Scripting</h2>
 <p>By putting python files in an articles folder, a script can be called at the path /scripts/[sub]/[article]/[script]. The Python file needs to contain a main method that takes the request as a parameter. The main method must return something to be passed back to the client.</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Do Stuff&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;success&quot;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>The object returned from the main method is what will be returned to the client. This means if you want to return a JSON object, it would be recommended to jsonify it first.</p>
@@ -251,11 +251,11 @@
 <p>These articles will be found at www.yourdomain.com/sub/article. e.g. nitratine.pythonanywhere.com/apps/colour</p>
 <h3 id="redirects">Redirects</h3>
 <p>To set up a redirect, go to the "Redirects" section in /admin and put where you would like to put the redirect from and to; then press add. Reloading the page will show the current redirects. To remove a redirect, put the 'from' link in the input beside the remove button and click remove. Refresh to see that is has been removed. In the server data, they can be manually done as below:</p>
-<div class="codehilite"><pre><span></span><span class="s2">&quot;redirects&quot;</span> <span class="p">:</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;redirects&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;/apps/color&quot;</span><span class="p">:</span> <span class="s2">&quot;/apps/colour&quot;</span><span class="p">,</span>
     <span class="s2">&quot;/colour&quot;</span> <span class="p">:</span> <span class="s2">&quot;/apps/colour&quot;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="static-descriptions">Static Descriptions</h3>

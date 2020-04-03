@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/change-file-modification-time-in-python/">
@@ -103,38 +103,38 @@
 <p><img alt="Properties showing times of a file" src="/post-assets/change-file-modification-time-in-python/properties.png" /></p>
 <h2 id="setting-file-modification-times">Setting File Modification Times</h2>
 <p>First you will want to import os, time and datetime.</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>You will now need to locate the file you want to edit and create a time object to set to the file. To create one, we will first break it down into it's simpler parts.</p>
-<div class="codehilite"><pre><span></span><span class="n">fileLocation</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<div class="codehilite"><pre><span></span><code><span class="n">fileLocation</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
 <span class="n">year</span> <span class="o">=</span> <span class="mi">2017</span>
 <span class="n">month</span> <span class="o">=</span> <span class="mi">11</span>
 <span class="n">day</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">hour</span> <span class="o">=</span> <span class="mi">19</span>
 <span class="n">minute</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">second</span> <span class="o">=</span> <span class="mi">0</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>fileLocation is a string and the rest of the variables above are integers.</p>
 <p>Next we will create our datetime object using the data given and then convert it to seconds since epoch; this is what will be stored.</p>
-<div class="codehilite"><pre><span></span><span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="n">minute</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="n">second</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="n">minute</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="n">second</span><span class="p">)</span>
 <span class="n">modTime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Now we can do a simple os.utime call passing the file and modification time to set the new times.</p>
-<div class="codehilite"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">utime</span><span class="p">(</span><span class="n">fileLocation</span><span class="p">,</span> <span class="p">(</span><span class="n">modTime</span><span class="p">,</span> <span class="n">modTime</span><span class="p">))</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">utime</span><span class="p">(</span><span class="n">fileLocation</span><span class="p">,</span> <span class="p">(</span><span class="n">modTime</span><span class="p">,</span> <span class="n">modTime</span><span class="p">))</span>
+</code></pre></div>
 
 
 <p>Now if you go back and check the modification date it should be changed.</p>
 <h2 id="final-code">Final Code</h2>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 
@@ -150,7 +150,7 @@
 <span class="n">modTime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
 
 <span class="n">os</span><span class="o">.</span><span class="n">utime</span><span class="p">(</span><span class="n">fileLocation</span><span class="p">,</span> <span class="p">(</span><span class="n">modTime</span><span class="p">,</span> <span class="n">modTime</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="faq">FAQ</h2>

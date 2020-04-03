@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/unblock-new-zealand-herald-premium-articles/">
@@ -139,17 +139,17 @@
  - Display any hidden content that is hidden by the <code>.paywall</code> class
  - Hides the fade out of content before the subscription offer and the ellipsis' throughout some articles. 
  - Removes the subscription offer from the page</p>
-<div class="codehilite"><pre><span></span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#article-content.premium-content .paywall&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;display&#39;</span><span class="p">,</span> <span class="s1">&#39;block&#39;</span><span class="p">);</span>
     <span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">insertAdjacentHTML</span><span class="p">(</span><span class="s1">&#39;beforeEnd&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;style&gt;#article-content.premium-content:before, #article-content.premium-content .ellipsis:after {content: none !important}&lt;/style&gt;&#39;</span><span class="p">);</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.article-offer&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;display&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">);</span>
 <span class="p">})();</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="revision-1">Revision 1</h3>
 <p>Looking in reddit, I found a <a href="https://www.reddit.com/r/newzealand/comments/bj9fdu/nz_herald_premium_content_for_free/">post</a> that had done the same task I had set out to do. Taking what I found here, I improved the original script and made it easier to read the source.</p>
-<div class="codehilite"><pre><span></span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span>
         <span class="s1">&#39;&lt;style&gt;&#39;</span> <span class="o">+</span>
             <span class="s1">&#39;#main { height: auto !important }&#39;</span> <span class="o">+</span> 
@@ -159,13 +159,13 @@
     <span class="p">);</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.paywall&#39;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;paywall&#39;</span><span class="p">);</span> 
 <span class="p">})();</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="revision-2-7-5-19">Revision 2 (7-5-19)</h3>
 <p>This one was a bit bigger because they are now making the css class that used to be <code>paywall</code> now a little bit more random. This can easily be solved by looking at all the classes in the articles content and picking out the mode (not 100% accurate but does the job).</p>
 <p>There is still a backup for any direct children of <code>#article-content</code> if this fails. Scrolling is turned back on, the offer is removed and some ads are removed.</p>
-<div class="codehilite"><pre><span></span><span class="cm">/* Throw some CSS in the head */</span>
+<div class="codehilite"><pre><span></span><code><span class="cm">/* Throw some CSS in the head */</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span>
     <span class="s1">&#39;&lt;style&gt;&#39;</span> <span class="o">+</span>
         <span class="s1">&#39;#main { height: auto !important; }&#39;</span> <span class="o">+</span> <span class="cm">/* Allow for scrolling */</span>
@@ -199,12 +199,12 @@
 <span class="nx">article_content</span>
     <span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;premium-content&#39;</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;full-content&#39;</span><span class="p">);</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="revision-3-6-11-19">Revision 3 (6-11-19)</h3>
 <p>It seems some sort of timer function has been implemented that checks for changes are redirects a user to a purchase page. Aside from this, <code>display: none</code> was also added inline to article elements which are no removed.</p>
-<div class="codehilite"><pre><span></span><span class="cm">/* Disable some tamper check? */</span>
+<div class="codehilite"><pre><span></span><code><span class="cm">/* Disable some tamper check? */</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">pwdf</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span> <span class="p">};</span>
 
 <span class="cm">/* Throw some CSS in the head */</span>
@@ -242,12 +242,12 @@
 <span class="nx">article_content</span>
     <span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;premium-content&#39;</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;full-content&#39;</span><span class="p">);</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="revision-4-18-12-19">Revision 4 (18-12-19)</h3>
 <p>It seems <code>window.pwdf</code> is no longer used, I found a couple of solutions; going to use them both to potentially delay a new revision.</p>
-<div class="codehilite"><pre><span></span><span class="cm">/* Disable some tamper check? */</span>
+<div class="codehilite"><pre><span></span><code><span class="cm">/* Disable some tamper check? */</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">prtn</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">f</span><span class="o">:</span> <span class="nx">btoa</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">HASH</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">)</span> <span class="p">};</span>
 <span class="nx">isMobile</span><span class="p">.</span><span class="nx">any</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="kc">true</span><span class="p">;</span>
 
@@ -286,7 +286,7 @@
 <span class="nx">article_content</span>
     <span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;premium-content&#39;</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;full-content&#39;</span><span class="p">);</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="why-did-i-write-this">Why Did I Write This?</h2>

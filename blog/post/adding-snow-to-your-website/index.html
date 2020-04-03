@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/adding-snow-to-your-website/">
@@ -105,7 +105,7 @@
 <h2 id="adding-the-div">Adding the div</h2>
 <p>First you will need to add a div tag straight under the body tag. It can technically be placed anywhere, this is just recommended for location reasons. Give this div an id of "snow"</p>
 <h3 id="example">Example</h3>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
         Head content
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -114,12 +114,12 @@
         Body content
     <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="css">CSS</h2>
 <p>You will now need to add some CSS, whether it is in a style tag in the head or an external style sheet; it doesn't matter. A selector for the id snow and class snow need to be created. We will then create an animation using keyframes and images supplied below.</p>
-<div class="codehilite"><pre><span></span><span class="p">#</span><span class="nn">snow</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">#</span><span class="nn">snow</span> <span class="p">{</span>
     <span class="n">pointer-events</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
     <span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>
     <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
@@ -138,7 +138,7 @@
     <span class="nt">0</span><span class="o">%</span> <span class="p">{</span> <span class="k">background-position</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
     <span class="nt">100</span><span class="o">%</span> <span class="p">{</span> <span class="k">background-position</span><span class="p">:</span> <span class="mi">500</span><span class="kt">px</span> <span class="mi">1000</span><span class="kt">px</span><span class="p">,</span> <span class="mi">400</span><span class="kt">px</span> <span class="mi">400</span><span class="kt">px</span><span class="p">,</span> <span class="mi">300</span><span class="kt">px</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span> <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="images">Images</h3>
@@ -149,7 +149,7 @@
 <p>Depending on where you save these, you will need to change the background property vale in the snow class.</p>
 <h2 id="connecting-css-and-div">Connecting CSS and Div</h2>
 <p>If you open your site now, nothing should have changed, apart from a div sitting there that can't be seen. You will need to add the snow class to the div tag to enable the snow. You can do this manually or if you want more control, you can attach some buttons to the following functions to turn the snow on and off.</p>
-<div class="codehilite"><pre><span></span><span class="nx">turnOnSnow</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="nx">turnOnSnow</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;snow&#39;</span><span class="p">);</span>
     <span class="nx">div</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;snow&quot;</span><span class="p">);</span>
 <span class="p">};</span>
@@ -158,7 +158,7 @@
     <span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;snow&#39;</span><span class="p">);</span>
     <span class="nx">div</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;snow&quot;</span><span class="p">);</span>
 <span class="p">};</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>By calling turnOnSnow() the snow will be enabled and to disable the snow call turnOffSnow()</p>
@@ -166,7 +166,7 @@
 
                     <nav class="blog-pagination text-center mb-5 mt-4">
                         
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/spotify-playlist-downloader/">&larr; Spotify Playlist Downloader</a>
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/lucy-in-the-sky-with-emotion/">&larr; Lucy In The Sky With Emotion</a>
                         
                         
                             <a class="btn btn-outline-primary mt-1" href="/blog/post/change-file-modification-time-in-python/">Change File Modification Ti... &rarr;</a>

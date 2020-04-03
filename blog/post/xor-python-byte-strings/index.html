@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/xor-python-byte-strings/">
@@ -94,26 +94,26 @@
 <p>Previously doing a CTF challenge I found myself needing to XOR two byte strings in Python to reveal a key from the original text and 'ciphered' data (in this case by XOR).</p>
 <h2 id="string-xor">String XOR</h2>
 <p>I found <a href="https://stackoverflow.com/a/2612730/">an answer on stackoverflow</a> showing how to XOR two strings to form a resulting string:</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">sxor</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">):</span>    
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">sxor</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">):</span>    
     <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Using this we could now do:</p>
-<div class="codehilite"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="n">sxor</span><span class="p">(</span><span class="s1">&#39;string 1&#39;</span><span class="p">,</span> <span class="s1">&#39;string 2&#39;</span><span class="p">)</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">key</span> <span class="o">=</span> <span class="n">sxor</span><span class="p">(</span><span class="s1">&#39;string 1&#39;</span><span class="p">,</span> <span class="s1">&#39;string 2&#39;</span><span class="p">)</span>
+</code></pre></div>
 
 
 <h2 id="byte-xor">Byte XOR</h2>
 <p>But this only worked for strings and I had a byte string. To fix this I simply removed the <code>ord</code> and <code>chr</code> calls to only manipulate bytes.</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">byte_xor</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">byte_xor</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">_a</span> <span class="o">^</span> <span class="n">_b</span> <span class="k">for</span> <span class="n">_a</span><span class="p">,</span> <span class="n">_b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">)])</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>So now I could do</p>
-<div class="codehilite"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="n">byte_xor</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;string 1&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;string 2&#39;</span><span class="p">)</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">key</span> <span class="o">=</span> <span class="n">byte_xor</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;string 1&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;string 2&#39;</span><span class="p">)</span>
+</code></pre></div>
                     </div>
 
                     <nav class="blog-pagination text-center mb-5 mt-4">

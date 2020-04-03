@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/quick-script/">
@@ -110,25 +110,25 @@
 <p>To run this the script quick-script.py needs to be run with Python. A window will appear with your scripts. </p>
 <h3 id="configuration-settingsjson">Configuration (settings.json)</h3>
 <p>This file is located by quick-script.py and keeps a record of settings and script run counts.</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="s2">&quot;close_on_run&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
     <span class="s2">&quot;run_count&quot;</span><span class="p">:</span> <span class="p">{},</span>
     <span class="s2">&quot;stay_on_top&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
     <span class="s2">&quot;window_height&quot;</span><span class="p">:</span> <span class="mi">400</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="python-script-files">Python script files</h3>
 <p>To make a script appear in the UI they need to be in the /scripts/ folder. The script needs four main features; name, description, tags and a main method which returns True on success. An example of a script is shown here:</p>
-<div class="codehilite"><pre><span></span><span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;Example Script&quot;</span>
+<div class="codehilite"><pre><span></span><code><span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;Example Script&quot;</span>
 <span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;Run example script&quot;</span>
 <span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s2">&quot;script&quot;</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;This is an example script&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">True</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>The scripts can be named anything as long as they are in /scripts/ with a .py extension. The script does not have to have name, description or tags, they will just be rendered as none.</p>
@@ -149,7 +149,7 @@
                             <a class="btn btn-outline-primary mt-1" href="/blog/post/simulate-keypresses-in-python/">&larr; Simulate Keypresses In Python</a>
                         
                         
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/monopoly-money/">Monopoly Money &rarr;</a>
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/spotify-playlist-downloader/">Spotify Playlist Downloader &rarr;</a>
                         
                     </nav>
 

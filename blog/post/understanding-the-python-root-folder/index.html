@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/understanding-the-python-root-folder/">
@@ -103,9 +103,9 @@
 </div>
 <h2 id="locating-your-installation">Locating Your Installation</h2>
 <p>When first installing Python, depending on what you select in the installation, there are a couple of places Python could be installed (you could also select your own directory). Luckily this can be easily found by executing the following in Python:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>This will print the location of python.exe which is the executable that runs Python scripts. Common places for Python to be installed on is in <code>C:\PythonXY</code> or <code>%AppData%\Roaming\Python\PythonXY</code>.</p>
@@ -127,9 +127,9 @@
 <p>The folder <code>Lib/</code> contains the Python standard library; that is, all the modules that come with Python like <code>csv</code>, <code>io</code>, <code>tkinter</code>, <code>re</code> and many others.</p>
 <p>A very notable folder in this folder is <code>site-packages</code>. This is where Python modules are installed to when you install them using <code>pip</code> or a <code>setup.py</code> file. Looking in this folder for a module you want to investigate can allow you to see the source.</p>
 <p>If you import a Python module in a Python script and then print the module, the path output will typically be in this folder; for example:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">flask</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">flask</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">flask</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>For me outputs <code>&lt;module 'flask' from 'C:\\Python36\\lib\\site-packages\\flask\\__init__.py'&gt;</code>. C:/Python36 is where Python is installed for me and you can see flask is sitting in lib/site-packages.</p>

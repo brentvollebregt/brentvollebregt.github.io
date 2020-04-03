@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-import-a-pyqt5-ui-file-in-a-python-gui/">
@@ -114,7 +114,7 @@
 <p>If you haven't got the designer, you can use <code>python -m pip install pyqt5-tools</code> to install tools that contain the designer. Finding the executable can be a bit tough to find if you don't know where packages install so I would recommend reading <a href="/blog/post/python-guis-with-pyqt/#locating">the other post</a> to help you find it.</p>
 <h2 id="generating-the-ui-file">Generating the UI File</h2>
 <p>As <a href="/blog/post/python-guis-with-pyqt/#using-the-designer">covered in my original PyQt5 tutorial</a>, install the designer, locate it and use it. When saving the GUI you have created, it will be saved as a <code>.ui</code>. This .ui file is XML that contains the layout of the GUI and other things you may have set in the designer application. Here is a snippet of an example .ui file:</p>
-<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;ui</span> <span class="na">version=</span><span class="s">&quot;4.0&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;class&gt;</span>MainWindow<span class="nt">&lt;/class&gt;</span>
     <span class="nt">&lt;widget</span> <span class="na">class=</span><span class="s">&quot;QMainWindow&quot;</span> <span class="na">name=</span><span class="s">&quot;MainWindow&quot;</span><span class="nt">&gt;</span>
@@ -136,47 +136,47 @@
     <span class="nt">&lt;resources/&gt;</span>
     <span class="nt">&lt;connections/&gt;</span>
 <span class="nt">&lt;/ui&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Regarding you know what XML is, this is pretty basic; knowing a little bit of XML is required for this.</p>
 <h2 id="importing-the-ui-file-in-python">Importing the UI File In Python</h2>
 <p>First we need to import the modules required. We need <code>QtWidgets</code> from PyQt5 for the base widget and <code>uic</code> from PyQt5 also to load the file. We also need <code>sys</code> to access arguments.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">uic</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">uic</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Next we need to create a base class that will load the .ui file in the constructor. It will need to call the <code>__init__</code> method of the inherited class, load the .ui file into the current object and then show the window.</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Ui</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Ui</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Ui</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span> <span class="c1"># Call the inherited classes __init__ method</span>
         <span class="n">uic</span><span class="o">.</span><span class="n">loadUi</span><span class="p">(</span><span class="s1">&#39;basic.ui&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span> <span class="c1"># Load the .ui file</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># Show the GUI</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>It is <strong>very important</strong> here to inherit the correct class. In this example I inherit <code>QtWidgets.QMainWindow</code> because I created a new "Main Window" when selecting the form type when first creating the .ui file in PyQt Designer. If you look back to the source of the .ui file, we can actually identify the class we need to inherit.</p>
-<div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;ui</span> <span class="na">version=</span><span class="s">&quot;4.0&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;class&gt;</span>MainWindow<span class="nt">&lt;/class&gt;</span>
     <span class="nt">&lt;widget</span> <span class="na">class=</span><span class="s">&quot;QMainWindow&quot;</span> <span class="na">name=</span><span class="s">&quot;MainWindow&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;geometry&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;rect&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>This is a snippet of the XML from before. You can see "MainWindow" is the root widget as all the content is wrapped in the <code>&lt;widget class="QMainWindow" name="MainWindow"&gt; ... &lt;/widget&gt;</code> element. This tag has a <code>class</code> attribute; in this example the value is <code>QMainWindow</code>, which explains why I used <code>QtWidgets.QMainWindow</code>.</p>
 <p>Your widget class may be different so be sure to double check!</p>
 <p>After this we then need to create an instance of this class we just made and execute it. </p>
-<div class="codehilite"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="c1"># Create an instance of QtWidgets.QApplication</span>
+<div class="codehilite"><pre><span></span><code><span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="c1"># Create an instance of QtWidgets.QApplication</span>
 <span class="n">window</span> <span class="o">=</span> <span class="n">Ui</span><span class="p">()</span> <span class="c1"># Create an instance of our class</span>
 <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span> <span class="c1"># Start the application</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Putting this all together, we get:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">uic</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">uic</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">class</span> <span class="nc">Ui</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
@@ -188,7 +188,7 @@
 <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
 <span class="n">window</span> <span class="o">=</span> <span class="n">Ui</span><span class="p">()</span>
 <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <blockquote>
@@ -223,7 +223,7 @@
 <h3 id="using-these-names-to-find-the-widgets">Using These Names to Find the Widgets</h3>
 <p>Now that each widget has a name attribute, we can get pointers of these objects. When I say pointers, I mean a variable that we can use to access this widget and modify it. </p>
 <p>The <code>Ui.__init__</code> method is where you will want to get your pointers, right after <code>uic.loadUi('basic.ui', self)</code> is called so the objects exist. To find an object, we can use <a href="https://www.riverbankcomputing.com/static/Docs/PyQt4/qobject.html#findChild"><code>findChild</code></a> on anyone of it's parent objects while supplying the type of widget we are getting and the name.</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Ui</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Ui</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Ui</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="n">uic</span><span class="o">.</span><span class="n">loadUi</span><span class="p">(</span><span class="s1">&#39;basic.ui&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
@@ -232,17 +232,17 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">,</span> <span class="s1">&#39;printButton&#39;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <blockquote>
 <p>Alternatively, you can leave the name out to find the first object of the type you provided. You can also call <code>findChildren</code> to find more than one object.</p>
 </blockquote>
 <p>In the example above, I have searched for a <code>QPushButton</code> object with the name "printButton". To find the object type you need to search for, each widget in the XML will have a <code>class</code> attribute beside the <code>name</code> attribute. If you look at the .ui file I provided and search for "printButton", you will see an attribute <code>class</code> on the same line with a value <code>QPushButton</code>; this is how I knew to use <code>QtWidgets.QPushButton</code>.</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;widget</span> <span class="na">class=</span><span class="s">&quot;QWidget&quot;</span> <span class="na">name=</span><span class="s">&quot;centralwidget&quot;</span><span class="nt">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;widget</span> <span class="na">class=</span><span class="s">&quot;QWidget&quot;</span> <span class="na">name=</span><span class="s">&quot;centralwidget&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;widget</span> <span class="na">class=</span><span class="s">&quot;QPushButton&quot;</span> <span class="na">name=</span><span class="s">&quot;printButton&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;geometry&quot;</span><span class="nt">&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>To find the name of this class in the designer, click on a widget and look at the "Object Inspector" window to the right. In the image below you can see that the type of the widget named "input" is <code>QLineEdit</code>; so I would then use <code>QtWidgets.QLineEdit</code>.</p>
@@ -253,7 +253,7 @@
 </blockquote>
 <h3 id="connecting-buttons-to-methods">Connecting Buttons to Methods</h3>
 <p>To connect a button to a method, we need to get a pointer (as shown before) and then connect it like we normally would. Here is a full example:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">uic</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">uic</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">class</span> <span class="nc">Ui</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
@@ -273,12 +273,12 @@
 <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
 <span class="n">window</span> <span class="o">=</span> <span class="n">Ui</span><span class="p">()</span>
 <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="reading-inputs">Reading Inputs</h3>
 <p>To read inputs, I will use the button method from before to trigger an event and also get another pointer to the input widget.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">uic</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">uic</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">class</span> <span class="nc">Ui</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
@@ -300,7 +300,7 @@
 <span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
 <span class="n">window</span> <span class="o">=</span> <span class="n">Ui</span><span class="p">()</span>
 <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>These are only the basics but are great to build up from.</p>

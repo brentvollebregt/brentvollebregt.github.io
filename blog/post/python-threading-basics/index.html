@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/python-threading-basics/">
@@ -121,7 +121,7 @@
 <p>One good use for threading is to create multiple instances of things that take time outside your program. A great example of this is sending requests to a server. If you want to send many, instead of waiting for them to finish one-by-one before you send the next request, you can create many threads to request different urls and they will then all be waiting at the same time.</p>
 <h2 id="threading-a-method">Threading a Method</h2>
 <p>A basic example of threading can be seen below:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">threading</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
 
 <span class="k">def</span> <span class="nf">worker</span><span class="p">():</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Hello World</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># Add \n so a newline is forced</span>
@@ -131,23 +131,23 @@
     <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">)</span>
     <span class="n">thread_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
     <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>In this example we create a place to store the threads and then loop 4 times as we create the threads. To create the threads, we first initialise a threading.Thread instance passing the method as the target. We then add this thread to our previously create list and start it. This will provide the following output:</p>
-<div class="codehilite"><pre><span></span><span class="gp">$</span> python threading_method.py
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> python threading_method.py
 
 <span class="go">Hello World</span>
 <span class="go">Hello World</span>
 <span class="go">Hello World</span>
 <span class="go">Hello World</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Note that there are no brackets after worker when defining target. This is because we need to pass the method, not what the method returns (even if it returns nothing).</p>
 <h3 id="passing-arguments">Passing Arguments</h3>
 <p>To pass arguments to a method when creating the thread, we can pass a tuple to args. For example:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">threading</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
 
 <span class="k">def</span> <span class="nf">worker</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;I am thread: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -157,23 +157,23 @@
     <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,))</span>
     <span class="n">thread_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
     <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>In this expanded example I have added a number parameter to worker which will then be used in the output. When creating the instance of threading.Thread, I pass the i variable to args in a tuple. This will provide the output:</p>
-<div class="codehilite"><pre><span></span><span class="gp">$</span> python threading_method_args.py
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> python threading_method_args.py
 
 <span class="go">I am thread: 0</span>
 <span class="go">I am thread: 1</span>
 <span class="go">I am thread: 2</span>
 <span class="go">I am thread: 3</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>The reason args is set to <code>(i,)</code> and not <code>(i)</code> is because if we left out the comma, the type would no longer be a tuple and would cause an error.</p>
 <h2 id="threading-a-class">Threading a Class</h2>
 <p>Threading a class can be quite useful as you can have many methods particular to a thread and it's easier to keep your data in one place specific to a thread. An example of threading a class is:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">threading</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
 
 <span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -187,19 +187,19 @@
     <span class="n">thread</span> <span class="o">=</span> <span class="n">MyThread</span><span class="p">()</span>
     <span class="n">thread_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
     <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>In this example I create a class that extends threading.Thread. I have created the initialisation method with a initialisation call to the super class and a <strong>run method which is what will be run when I call start()</strong>. Just like last time I loop 4 times but this time I only need to use <code>MyThread()</code> to set up the thread variable. This will provide the output:</p>
-<div class="codehilite"><pre><span></span><span class="go">RunningRunningRunningRunning</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="go">RunningRunningRunningRunning</span>
+</code></pre></div>
 
 
 <p>See how all the strings are together; this shows that they were all printed at very similar times and then all the new lines were put in. In the above examples this did not occur as I force the newline character.</p>
 <p>Note that if you do not need a initialisation method, you can remove it completely including the super() call.</p>
 <h3 id="passing-arguments_1">Passing Arguments</h3>
 <p>To pass arguments, you just use the class like you would normally. For example:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">threading</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
 
 <span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
@@ -213,12 +213,12 @@
     <span class="n">thread</span> <span class="o">=</span> <span class="n">MyThread</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">thread_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
     <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>In this example I had added a parameter to the class in the initialisation method like you normally would and saved it so it can print it later. Then I simply passed a variable to the class which will be printed. This will output:</p>
-<div class="codehilite"><pre><span></span><span class="go">0123</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="go">0123</span>
+</code></pre></div>
 
 
 <p>Just like last time they concatenated into one string followed by new lines. When passing variables you need to keep the super() call as you are now using the initialisation method unless you pass it in with a different method before calling run.</p>
@@ -226,35 +226,35 @@
 <p>Python has a lot of useful methods, variables and parameter to manage your threads. These are some of the basic ones.</p>
 <h3 id="naming">Naming</h3>
 <p>Setting names for threads can be quite useful for identifying them. To do this, when creating a thread call <code>.setName()</code> and pass a string. For example:</p>
-<div class="codehilite"><pre><span></span><span class="n">thread</span> <span class="o">=</span> <span class="n">MyThread</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">thread</span> <span class="o">=</span> <span class="n">MyThread</span><span class="p">()</span>
 <span class="n">thread</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s1">&#39;MyThread 1&#39;</span><span class="p">)</span>
 <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Now to get the name of the thread just call <code>.getName()</code> on the thread object. There are a few ways of getting the thread object depending on how you stored it. If you are inside the thread and you're in a threading class, you can just use <code>self</code>; for example:</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">MyThread</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>If you want to get it outside of the class, you can just get the variable you saved it under and use that. For example, when I saved the threads in a list before, I can just use an element from it as they are the threading objects I want. The following example will print the name of the first thread added to this list.</p>
-<div class="codehilite"><pre><span></span><span class="n">thread_list</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="codehilite"><pre><span></span><code><span class="n">thread_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
     <span class="n">thread</span> <span class="o">=</span> <span class="n">MyThread</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">thread</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s1">&#39;MyThread &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
     <span class="n">thread_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
     <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">thread_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="joining-threads">Joining Threads</h3>
 <p>Joining a thread allow us to wait until it is terminated before we carry on. For example:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">threading</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
 
 <span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -266,12 +266,12 @@
 <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="n">thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Thread has finished&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>In this example I create the thread and start it. I then call join which waits until the thread is finished. If the thread called does not finish, the thread that called the <code>.join()</code> method (can be the main thread) will wait indefinitely. This means that you shouldn't use .join() on threads that don't finish unless you want to stop the execution of the thread for another reason.</p>
 <p>You can wait for many thread to finish by calling .join() after you started them all. The following example will wait until all 4 threads are finished before it goes to the print statement.</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">threading</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
 
 <span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -289,29 +289,29 @@
 <span class="k">for</span> <span class="n">thread</span> <span class="ow">in</span> <span class="n">thread_list</span><span class="p">:</span>
     <span class="n">thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Thread has finished&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="daemon-threads">Daemon Threads</h3>
 <p>A daemon thread is a thread that will not keep running if the rest of the script has stopped and there are no more non-daemon threads left. We can tell the main thread is non-daemon as it is not abruptly stopped when it's the only thread running.</p>
 <p>This means setting a threads daemon value to <code>True</code> will mean that it will not keep running after the main thread has finished (or other non-daemon threads); we can set <code>daemon</code> to <code>False</code> to make sure the thread keeps running even when the main thread finishes. The daemon value must be set before <code>.start()</code> is called on the thread. To set if a thread is daemon, you can pass <code>daemon=True</code> (or <code>False</code>) in the same place I put args before:</p>
-<div class="codehilite"><pre><span></span><span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,),</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,),</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>You can alternatively set a thread to be daemon using <code>.daemon = bool</code> on the thread. If you are threading a class, you can call <code>self.daemon = bool</code> in the initialisation method or <code>.daemon = bool</code> on the thread like if you were threading a method. For example:</p>
-<div class="codehilite"><pre><span></span><span class="n">thread</span> <span class="o">=</span> <span class="n">MyThread</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">thread</span> <span class="o">=</span> <span class="n">MyThread</span><span class="p">()</span>
 <span class="n">thread</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>To check if a thread is daemon, you can check <code>.daemon</code> on the thread; this is a bool.</p>
 <h3 id="getting-all-threads">Getting All Threads</h3>
 <p>If you want to get all the threads that are currently alive, you can call <code>threading.enumerate()</code>. This will return all alive threads including the main thread in a list. If you want to get all the names of the current alive threads, use:</p>
-<div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">thread</span> <span class="ow">in</span> <span class="n">threading</span><span class="o">.</span><span class="n">enumerate</span><span class="p">():</span>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">thread</span> <span class="ow">in</span> <span class="n">threading</span><span class="o">.</span><span class="n">enumerate</span><span class="p">():</span>
     <span class="nb">print</span> <span class="p">(</span><span class="n">thread</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="is-a-thread-alive">Is a Thread Alive?</h3>

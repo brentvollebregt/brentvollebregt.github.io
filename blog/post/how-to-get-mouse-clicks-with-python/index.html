@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-get-mouse-clicks-with-python/">
@@ -114,24 +114,24 @@
 <h2 id="pip">PIP</h2>
 <p>If you haven't used or setup pip before, go to my tutorial at <a href="/blog/post/how-to-setup-pythons-pip/">how-to-setup-pythons-pip</a> to setup pip.</p>
 <h2 id="installing-pynput">Installing Pynput</h2>
-<p>We will be using the punput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
+<p>We will be using the pynput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
 <p><img alt="Installing pynput" src="/post-assets/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
 <p>To double check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
 <p><img alt="Testing pynput" src="/post-assets/how-to-get-mouse-clicks-with-python/pynput2.png" /></p>
 <h2 id="building-the-script">Building the Script</h2>
 <p>Create a new python file and save it with a .py file extension. You will first want to import Listener from pynput.mouse.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Listener</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Listener</span>
+</code></pre></div>
 
 
 <p>Setup the listener by creating an instance in a with statement and using it's .join() method to join it to the main thread.</p>
-<div class="codehilite"><pre><span></span><span class="k">with</span> <span class="n">Listener</span><span class="p">()</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">Listener</span><span class="p">()</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
     <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Create three methods; on_move, on_click and on_scroll with the parameters as shown below.</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">on_move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">pass</span>
 
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">button</span><span class="p">,</span> <span class="n">pressed</span><span class="p">):</span>
@@ -139,16 +139,16 @@
 
 <span class="k">def</span> <span class="nf">on_scroll</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
     <span class="k">pass</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Link these methods to the listener instance with the function names as the args; I have named the methods as the are defined in the listener class. Now when an action occurs, one of these methods will be run.</p>
-<div class="codehilite"><pre><span></span><span class="k">with</span> <span class="n">Listener</span><span class="p">(</span><span class="n">on_move</span><span class="o">=</span><span class="n">on_move</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="n">on_click</span><span class="p">,</span> <span class="n">on_scroll</span><span class="o">=</span><span class="n">on_scroll</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">Listener</span><span class="p">(</span><span class="n">on_move</span><span class="o">=</span><span class="n">on_move</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="n">on_click</span><span class="p">,</span> <span class="n">on_scroll</span><span class="o">=</span><span class="n">on_scroll</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
+</code></pre></div>
 
 
 <p>To make sure these are running, add some print statements to each method. Save and run the script. Move your mouse around a bit, you should see output as below.</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">on_move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Mouse moved&quot;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">button</span><span class="p">,</span> <span class="n">pressed</span><span class="p">):</span>
@@ -156,12 +156,12 @@
 
 <span class="k">def</span> <span class="nf">on_scroll</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Mouse scrolled&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><img alt="Mouse moved demonstration" src="/post-assets/how-to-get-mouse-clicks-with-python/demo1.png" /></p>
 <p>Using these print statements and the parameters provided, we can give more information when a print. Run this again to make sure it is working properly (example output below).</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">on_move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Mouse moved to (</span><span class="si">{0}</span><span class="s2">, </span><span class="si">{1}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">button</span><span class="p">,</span> <span class="n">pressed</span><span class="p">):</span>
@@ -170,21 +170,21 @@
 
 <span class="k">def</span> <span class="nf">on_scroll</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Mouse scrolled at (</span><span class="si">{0}</span><span class="s1">, </span><span class="si">{1}</span><span class="s1">)(</span><span class="si">{2}</span><span class="s1">, </span><span class="si">{3}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><img alt="Mouse moved demonstration with data" src="/post-assets/how-to-get-mouse-clicks-with-python/demo2.png" /></p>
 <p>If you want this script to be run in the background. Click File -&gt; Save As and save it with a .pyw file extension. Now when it is run outside IDLE there will be no console window and it will not look like it is running. But to make sure the console doesn't appear, we need to first remove the print statements.</p>
 <p>Import logging and setup the basic configuration as I have below. After that, change all print statements to logging.info.</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+</code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;mouse_log.txt&quot;</span><span class="p">),</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;mouse_log.txt&quot;</span><span class="p">),</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">on_move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Mouse moved to (</span><span class="si">{0}</span><span class="s2">, </span><span class="si">{1}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">button</span><span class="p">,</span> <span class="n">pressed</span><span class="p">):</span>
@@ -193,7 +193,7 @@
 
 <span class="k">def</span> <span class="nf">on_scroll</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Mouse scrolled at (</span><span class="si">{0}</span><span class="s1">, </span><span class="si">{1}</span><span class="s1">)(</span><span class="si">{2}</span><span class="s1">, </span><span class="si">{3}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Now when the script is run, nothing should be printed to the console. This is because it is all being saved to the file declared in the basic configuration.</p>
@@ -202,7 +202,7 @@
 <p>Just as a quick note, the Listener class is a thread which means as soon as it has joined to the main thread no code will be executed after the .join() until the Listener is stopped.</p>
 <p>As stated <a href="https://pynput.readthedocs.io/en/latest/mouse.html#controlling-the-mouse">here in the pynput docs on readthedocs.io</a>, we can call pynput.mouse.Listener.stop anywhere in the script to stop the thread or return False from a callback to stop the listener. As shown in my video, we can also just call listener.stop() in one of the definitions due to the fact that that the listener is now in scope and is an instance os Listener.</p>
 <h2 id="final-script">Final Script</h2>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Listener</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Listener</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;mouse_log.txt&quot;</span><span class="p">),</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -219,7 +219,7 @@
 
 <span class="k">with</span> <span class="n">Listener</span><span class="p">(</span><span class="n">on_move</span><span class="o">=</span><span class="n">on_move</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="n">on_click</span><span class="p">,</span> <span class="n">on_scroll</span><span class="o">=</span><span class="n">on_scroll</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
     <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="common-issues-and-questions">Common Issues and Questions</h2>
@@ -231,7 +231,7 @@
 
                     <nav class="blog-pagination text-center mb-5 mt-4">
                         
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-setup-pythons-pip/">&larr; How To Setup Python&#39;s PIP</a>
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/get-wifi-passwords-with-python/">&larr; Get WiFi Passwords With Python</a>
                         
                         
                             <a class="btn btn-outline-primary mt-1" href="/blog/post/python-keylogger/">Python Keylogger &rarr;</a>

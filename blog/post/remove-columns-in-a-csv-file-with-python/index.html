@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/remove-columns-in-a-csv-file-with-python/">
@@ -98,7 +98,7 @@
 <p>This script takes an input CSV file and outputs a copy of the CSV file with particular columns removed. Provide <code>cols_to_remove</code> a list containing the indexes of <strong>columns</strong> in the CSV file that you want removed (starting from index 0 - so the first column would be 0).</p>
 <p>I have used indexes because they are easier to use programmatically and if I did use header titles, one character or space would have put it off. This method scales very well and can remove columns where MS Execl can't open a large file.</p>
 <h2 id="code">Code</h2>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
 
 <span class="n">input_file</span> <span class="o">=</span> <span class="s1">&#39;input.csv&#39;</span>
 <span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;output.csv&#39;</span>
@@ -117,7 +117,7 @@
             <span class="k">for</span> <span class="n">col_index</span> <span class="ow">in</span> <span class="n">cols_to_remove</span><span class="p">:</span>
                 <span class="k">del</span> <span class="n">row</span><span class="p">[</span><span class="n">col_index</span><span class="p">]</span>
             <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="other-useful-and-related-csv-tools">Other Useful and Related CSV Tools</h2>

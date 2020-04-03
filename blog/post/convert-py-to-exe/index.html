@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="/assets/img/favicon.ico">
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/convert-py-to-exe/">
@@ -100,17 +100,17 @@
 <li><a href="#auto-py-to-exe">Auto PY to EXE</a></li>
 <li><a href="#common-issues-and-questions">Common Issues and Questions</a><ul>
 <li><a href="#my-script-runs-fine-in-idle-but-wont-run-when-packaged-to-exe">My script runs fine in IDLE but won't run when packaged to exe</a></li>
-<li><a href="#zipimportzipimporterror-cant-find-module-encodings">zipimport.ZipImportError: can't find module 'encodings'﻿</a></li>
+<li><a href="#zipimportzipimporterror-cant-find-module-encodings">zipimport.ZipImportError: can't find module 'encodings'</a></li>
 <li><a href="#open-command-window-here-isnt-shown-when-i-shift-right-click">"Open command window here" isn't shown when I shift right click?</a></li>
 <li><a href="#pip-is-not-recognized-as-an-internal-or-external-command">'pip' is not recognized as an internal or external command</a></li>
 <li><a href="#fatal-error-in-launcher-unable-to-create-process-using">Fatal error in launcher: Unable to create process using...</a></li>
 <li><a href="#pyinstaller-is-not-recognized-as-an-internal-or-external-command">'pyinstaller' is not recognized as an internal or external command</a></li>
 <li><a href="#when-editing-the-path-variable-i-can-only-edit-the-variable">When editing the PATH variable, I can only edit the variable</a></li>
-<li><a href="#the-exe-does-not-work-on-another-computer">The exe does not work on another computer﻿</a></li>
+<li><a href="#the-exe-does-not-work-on-another-computer">The exe does not work on another computer</a></li>
 <li><a href="#my-antivirus-detected-my-exe-as-a-virus">My antivirus detected my exe as a virus</a></li>
 <li><a href="#i-get-lots-of-warnings-when-running-pyinstaller">I get lots of WARNINGs when running pyinstaller</a></li>
-<li><a href="#will-this-add-my-other-scripts-will-this-work-with-external-python-modules">Will this add my other scripts? / Will this work with external Python modules?﻿</a></li>
-<li><a href="#is-it-available-in-walmart">is it available in Walmart?????﻿</a></li>
+<li><a href="#will-this-add-my-other-scripts-will-this-work-with-external-python-modules">Will this add my other scripts? / Will this work with external Python modules?</a></li>
+<li><a href="#is-it-available-in-walmart">is it available in Walmart?????</a></li>
 </ul>
 </li>
 </ul>
@@ -165,7 +165,7 @@
 <h2 id="common-issues-and-questions">Common Issues and Questions</h2>
 <h3 id="my-script-runs-fine-in-idle-but-wont-run-when-packaged-to-exe">My script runs fine in IDLE but won't run when packaged to exe</h3>
 <p>Regarding that the python script runs properly by itself then this would have been caused by incorrect configuration or third party modules. The best way to find what the issue is, is to add the -d flag and then re-package it. This will mean the exe is now in a debugging mode. Open up cmd and then run the exe using cmd e.g. "C:/folder/path/myexe.exe". Any errors will be preserved in the console which you were previously missing.</p>
-<h3 id="zipimportzipimporterror-cant-find-module-encodings">zipimport.ZipImportError: can't find module 'encodings'﻿</h3>
+<h3 id="zipimportzipimporterror-cant-find-module-encodings">zipimport.ZipImportError: can't find module 'encodings'</h3>
 <p>Please upgrade PyInstaller to 3.4 or above using: <code>python -m pip install --upgrade PyInstaller</code></p>
 <h3 id="open-command-window-here-isnt-shown-when-i-shift-right-click">"Open command window here" isn't shown when I shift right click?</h3>
 <p>Make sure you are holding down shift. If you are using new versions of Windows, this has been replaced by "Open PowerShell Window Here". Using this method will work exactly the same for this tutorial; so go ahead and use PowerShell.</p>
@@ -177,15 +177,15 @@
 <p>Go back to the PyInstaller heading, you have not installed pyinstaller, remember to test it.</p>
 <h3 id="when-editing-the-path-variable-i-can-only-edit-the-variable">When editing the PATH variable, I can only edit the variable</h3>
 <p>Add a ';' to the end and then put in the folder location, then apply/save it. This input is like this because you are using an older version of Windows.</p>
-<h3 id="the-exe-does-not-work-on-another-computer">The exe does not work on another computer﻿</h3>
-<p>This may be an architecture issue. PyInstaller will create an executable with the architecture of the machine it was built with. You are most likely using a 64bit machine if you are asking this question to compile the .py; thus it will create a 64bit executable. As with any other programs, you cannot run 64bit on 32bit but you can run 32bit on 64bit. Thus I recommend using 32bit python or compiling on a 32bit machine so it will work on both architectures﻿.</p>
+<h3 id="the-exe-does-not-work-on-another-computer">The exe does not work on another computer</h3>
+<p>This may be an architecture issue. PyInstaller will create an executable with the architecture of the machine it was built with. You are most likely using a 64bit machine if you are asking this question to compile the .py; thus it will create a 64bit executable. As with any other programs, you cannot run 64bit on 32bit but you can run 32bit on 64bit. Thus I recommend using 32bit python or compiling on a 32bit machine so it will work on both architectures.</p>
 <h3 id="my-antivirus-detected-my-exe-as-a-virus">My antivirus detected my exe as a virus</h3>
 <p>This is your anti-virus vendors fault. Check out <a href="https://github.com/pyinstaller/pyinstaller/issues/2501#issuecomment-286230354">this</a>.</p>
 <h3 id="i-get-lots-of-warnings-when-running-pyinstaller">I get lots of WARNINGs when running pyinstaller</h3>
 <p>These warnings can be ignored in most cases. I have not currently found a situation where these are an issue, after-all, they are only warnings.</p>
-<h3 id="will-this-add-my-other-scripts-will-this-work-with-external-python-modules">Will this add my other scripts? / Will this work with external Python modules?﻿</h3>
+<h3 id="will-this-add-my-other-scripts-will-this-work-with-external-python-modules">Will this add my other scripts? / Will this work with external Python modules?</h3>
 <p>Regarding that your main script imports your others scripts, then yes. PyInstaller looks at imports to figure out what to bundle, so it will add your other scripts just like if you were to import os or time.</p>
-<h3 id="is-it-available-in-walmart"><a href="https://www.youtube.com/watch?v=lOIJIk_maO4&amp;lc=UgxFJKkC5nzr7MiscOd4AaABAg">is it available in Walmart?????﻿</a></h3>
+<h3 id="is-it-available-in-walmart"><a href="https://www.youtube.com/watch?v=lOIJIk_maO4&amp;lc=UgxFJKkC5nzr7MiscOd4AaABAg">is it available in Walmart?????</a></h3>
 <p>I don't believe so, sorry.</p>
                     </div>
 
@@ -194,7 +194,7 @@
                             <a class="btn btn-outline-primary mt-1" href="/blog/post/randomly-generating-numbers-to-fulfil-an-integer-range/">&larr; Randomly Generating Numbers...</a>
                         
                         
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/get-wifi-passwords-with-python/">Get WiFi Passwords With Python &rarr;</a>
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-setup-pythons-pip/">How To Setup Python&#39;s PIP &rarr;</a>
                         
                     </nav>
 
