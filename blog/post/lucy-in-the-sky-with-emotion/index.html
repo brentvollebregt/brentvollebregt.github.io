@@ -3,8 +3,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="/assets/img/favicon.ico">
-        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/lucy-in-the-sky-with-emotion/">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/lucy-in-the-sky-with-emotion/">
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -28,7 +29,7 @@
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Lucy In The Sky With Emotion">
         <meta property="og:description" content="This project aimed to visualise emotion in music with software developed by six people from the COMP241 (Software Engineering Development) paper as a group project. The project was successful in the end using Spotify to assist emotion detection.">
-        <meta property="og:image" content="/post-assets/lucy-in-the-sky-with-emotion/visualiser5.jpg">
+        <meta property="og:image" content="/posts/lucy-in-the-sky-with-emotion/visualiser5.jpg">
         <meta property="og:url" content="https://nitratine.net/blog/post/lucy-in-the-sky-with-emotion/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
@@ -117,16 +118,16 @@
 <p>When the project is first started it will create a sklearn.neighbors.KNeighborsClassifier instance and be provided <a href="/blog/post/finding-emotion-in-music-with-python/">previously researched data</a> for points to be compared to later. The Browse button then needs to be clicked and a directory selected. The music library is then scraped for tags and searches for them in Spotify. We then get audio data from Spotify for each song (if possible) and present the data on the GUI. When a user clicks on a song, recommendations of the five nearest songs based off emotion, song data and the point on the emotion gradient are all displayed to the user. When the user clicks the Visualise button, data will be sent to the visualiser and started.</p>
 <h2 id="demonstration-and-screenshots">Demonstration and Screenshots</h2>
 <h3 id="gui-emotion-detection">GUI - Emotion Detection</h3>
-<p><img alt="Emotion detection - Lucy in the sky with diamonds" src="/post-assets/lucy-in-the-sky-with-emotion/gui1.png" />
-<img alt="Emotion detection - All Star" src="/post-assets/lucy-in-the-sky-with-emotion/gui2.png" /></p>
+<p><img alt="Emotion detection - Lucy in the sky with diamonds" src="/posts/lucy-in-the-sky-with-emotion/gui1.png" />
+<img alt="Emotion detection - All Star" src="/posts/lucy-in-the-sky-with-emotion/gui2.png" /></p>
 <h3 id="gui-valence-energy-graph">GUI - Valence Energy Graph</h3>
-<p><img alt="GUI - Valence Energy Graph" src="/post-assets/lucy-in-the-sky-with-emotion/valence-plot.png" /></p>
+<p><img alt="GUI - Valence Energy Graph" src="/posts/lucy-in-the-sky-with-emotion/valence-plot.png" /></p>
 <h3 id="visualiser">Visualiser</h3>
-<p><img alt="Visualiser control" src="/post-assets/lucy-in-the-sky-with-emotion/visualiser1.jpg" />
-<img alt="Visualiser balls flying" src="/post-assets/lucy-in-the-sky-with-emotion/visualiser2.jpg" />
-<img alt="Visualiser environment view" src="/post-assets/lucy-in-the-sky-with-emotion/visualiser3.jpg" />
-<img alt="Visualiser paused" src="/post-assets/lucy-in-the-sky-with-emotion/visualiser4.jpg" />
-<img alt="Visualiser balls flying colse" src="/post-assets/lucy-in-the-sky-with-emotion/visualiser5.jpg" /></p>
+<p><img alt="Visualiser control" src="/posts/lucy-in-the-sky-with-emotion/visualiser1.jpg" />
+<img alt="Visualiser balls flying" src="/posts/lucy-in-the-sky-with-emotion/visualiser2.jpg" />
+<img alt="Visualiser environment view" src="/posts/lucy-in-the-sky-with-emotion/visualiser3.jpg" />
+<img alt="Visualiser paused" src="/posts/lucy-in-the-sky-with-emotion/visualiser4.jpg" />
+<img alt="Visualiser balls flying colse" src="/posts/lucy-in-the-sky-with-emotion/visualiser5.jpg" /></p>
 <h3 id="installation-and-setup">Installation and Setup</h3>
 <ol>
 <li>First clone the repository at <a href="https://github.com/brentvollebregt/Lucy-In-The-Sky-With-Emotion">https://github.com/brentvollebregt/Lucy-In-The-Sky-With-Emotion</a></li>

@@ -3,8 +3,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="/assets/img/favicon.ico">
-        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-import-a-pyqt5-ui-file-in-a-python-gui/">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-import-a-pyqt5-ui-file-in-a-python-gui/">
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -28,7 +29,7 @@
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="How to Import a PyQt5 .ui File in a Python GUI">
         <meta property="og:description" content="In this tutorial I explain how to import .ui files created using PyQt5&#39;s designer tool in Python and how to connect widgets from the GUI to methods in Python.">
-        <meta property="og:image" content="/post-assets/how-to-import-a-pyqt5-ui-file-in-a-python-gui/feature.png">
+        <meta property="og:image" content="/posts/how-to-import-a-pyqt5-ui-file-in-a-python-gui/feature.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/how-to-import-a-pyqt5-ui-file-in-a-python-gui/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
@@ -203,8 +204,8 @@
 </ul>
 <h2 id="getting-widget-object-pointers">Getting Widget Object Pointers</h2>
 <p>Once you have the GUI being imported, you now need to create some pointers to objects you want. For this example I am going to use the .ui linked below:</p>
-<p><a href="/post-assets/how-to-import-a-pyqt5-ui-file-in-a-python-gui/basic.ui">Download: basic.ui</a></p>
-<p><img alt="basic.ui screenshot" src="/post-assets/how-to-import-a-pyqt5-ui-file-in-a-python-gui/basic-ui.png" /></p>
+<p><a href="/posts/how-to-import-a-pyqt5-ui-file-in-a-python-gui/basic.ui">Download: basic.ui</a></p>
+<p><img alt="basic.ui screenshot" src="/posts/how-to-import-a-pyqt5-ui-file-in-a-python-gui/basic-ui.png" /></p>
 <p>This GUI contains 5 widgets that we can see:</p>
 <ul>
 <li>Text input line</li>
@@ -215,7 +216,7 @@
 <h3 id="giving-widgets-unique-names-to-find-them-with">Giving Widgets Unique Names to Find Them With</h3>
 <p>The most important part of getting a pointer to one of these widgets is to give each widget a unique name, preferably something that is friendly to read. Open my .ui file in the Designer or in notepad to see the names I have given each widget. In the XML you can see the 5 widgets I created have friendly <code>name</code> attributes; these names can help us identify the widgets.</p>
 <p>To set these names, when clicking on an object in the designer, the property editor on the left provides a field called <code>objectName</code></p>
-<p><img alt="objectName in the designer" src="/post-assets/how-to-import-a-pyqt5-ui-file-in-a-python-gui/objectName.png" /></p>
+<p><img alt="objectName in the designer" src="/posts/how-to-import-a-pyqt5-ui-file-in-a-python-gui/objectName.png" /></p>
 <p>Set this to what you want the object to be called and you should see this in the XML when you save the file.</p>
 <blockquote>
 <p>You don't have to look at the XML, seeing/modifying it in the designer is enough.</p>
@@ -246,7 +247,7 @@
 
 
 <p>To find the name of this class in the designer, click on a widget and look at the "Object Inspector" window to the right. In the image below you can see that the type of the widget named "input" is <code>QLineEdit</code>; so I would then use <code>QtWidgets.QLineEdit</code>.</p>
-<p><img alt="widget class name in the designer" src="/post-assets/how-to-import-a-pyqt5-ui-file-in-a-python-gui/widget-class-in-the-designer.png" /></p>
+<p><img alt="widget class name in the designer" src="/posts/how-to-import-a-pyqt5-ui-file-in-a-python-gui/widget-class-in-the-designer.png" /></p>
 <p>The method above simply helps you get a pointer to the object. Now that the hardest part is done, you are free to do what you would normally do after you have located all your widgets you want to use.</p>
 <blockquote>
 <p>Please note, this is not a full tutorial on PyQt5. I am simply demonstrating hwo to import .ui files</p>
@@ -310,10 +311,10 @@
 
                     <nav class="blog-pagination text-center mb-5 mt-4">
                         
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-hash-passwords-in-python/">&larr; How To Hash Passwords In Python</a>
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-create-dialogs-in-python/">&larr; How to Create Dialogs in Python</a>
                         
                         
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-create-dialogs-in-python/">How to Create Dialogs in Python &rarr;</a>
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/xor-python-byte-strings/">XOR Python Byte Strings &rarr;</a>
                         
                     </nav>
 

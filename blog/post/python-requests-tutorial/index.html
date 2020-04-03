@@ -3,8 +3,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="/assets/img/favicon.ico">
-        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/python-requests-tutorial/">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/python-requests-tutorial/">
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -28,7 +29,7 @@
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Python Requests Tutorial">
         <meta property="og:description" content="This is a basic Python requests tutorial to help you get started with sending HTTP requests in Python. This will cover all the basics that you will need and want to know when making HTTP requests in Python.">
-        <meta property="og:image" content="/post-assets/python-requests-tutorial/feature.png">
+        <meta property="og:image" content="/posts/python-requests-tutorial/feature.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/python-requests-tutorial/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
@@ -167,7 +168,7 @@
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">file_destination</span> <span class="o">=</span> <span class="s1">&#39;multi-clipboard.gif&#39;</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://nitratine.net/post-assets/multi-clipboard/multi-clipboard.gif&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://nitratine.net/posts/multi-clipboard/multi-clipboard.gif&#39;</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_destination</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>

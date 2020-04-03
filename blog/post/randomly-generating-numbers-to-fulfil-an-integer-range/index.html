@@ -3,8 +3,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="/assets/img/favicon.ico">
-        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/randomly-generating-numbers-to-fulfil-an-integer-range/">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/randomly-generating-numbers-to-fulfil-an-integer-range/">
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -28,7 +29,7 @@
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Randomly Generating Numbers to Fulfil an Integer Range">
         <meta property="og:description" content="This experiment looks at how many randoms numbers will need to be generated to fufil an integer range. I use python to generate random numbers and simulate thousands of tests. This was conducted to find the range of 16,777,216 for an app I had developed.">
-        <meta property="og:image" content="/post-assets/randomly-generating-numbers-to-fulfil-an-integer-range/graph2.png">
+        <meta property="og:image" content="/posts/randomly-generating-numbers-to-fulfil-an-integer-range/graph2.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/randomly-generating-numbers-to-fulfil-an-integer-range/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
@@ -232,7 +233,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="First script results for 10-860" src="/post-assets/randomly-generating-numbers-to-fulfil-an-integer-range/graph1.png" /></p>
+<p><img alt="First script results for 10-860" src="/posts/randomly-generating-numbers-to-fulfil-an-integer-range/graph1.png" /></p>
 <p>This data produced gives a clear pattern and produced a line of best fit with R^2 value of 0.9997 which is excellent. Using this equation to calculate the target value of 16,777,216 I got a value of 3.94x10^11. Even though this is a very large number, it doesn't seem like it is incorrect. There is a slight exponential addition to the equation calculated which will mean that little increases in x will give larger increases in y.  With this looking like a great start I went and tested a couple of bigger numbers.</p>
 <h3 id="bigger-numbers">Bigger Numbers</h3>
 <p>Due to the time to compute these values, I tested with larger numbers that weren't too much bigger than the previously tested numbers. I tested 1000, 2000, 3000, 4000 and 5000 and compared them to the expected value based off the last equation generated.</p>
@@ -273,7 +274,7 @@
 </tbody>
 </table>
 <p>Looking at this data, the larger the numbers that were tested, the larger the difference between the actual and expected based off the last equation. After adding this data to the last data gathered and graphing it, the new equation is y = 0.0003x2 + 7.8024x - 470.14 with an R^2 of 0.9997. Even though this R^2 value is good, the lower values tested are far off the expected. An example of this difference for 10 being -33.951 for the last equation and -392.09 for this new equation even though the actual value sits around 29.735. This difference however starts to decrease when the range is over 200.</p>
-<p><img alt="Results for larger figures of 1000-5000" src="/post-assets/randomly-generating-numbers-to-fulfil-an-integer-range/graph2.png" /></p>
+<p><img alt="Results for larger figures of 1000-5000" src="/posts/randomly-generating-numbers-to-fulfil-an-integer-range/graph2.png" /></p>
 <p>Even with this decrease being fixed, I am going to have to generate much larger ranges to have a chance of being able to predict the target value. Unfortunately, this isn't as easy as it seems as the current method is quite slow.</p>
 <h2 id="can-efficiency-be-improved">Can Efficiency Be Improved?</h2>
 <p>My first thought to fix this time issue was "Is my method inefficient?". I ran the method for 1000 runs at a 2000 range using the PyCharm profiler as it ran. The results from the profiler are as follows.</p>
@@ -889,7 +890,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Results for large data randing 500 to 12000" src="/post-assets/randomly-generating-numbers-to-fulfil-an-integer-range/graph3.png" /></p>
+<p><img alt="Results for large data randing 500 to 12000" src="/posts/randomly-generating-numbers-to-fulfil-an-integer-range/graph3.png" /></p>
 <p>From this data, I discovered that a trendline formula with a power had developed a significant R^2 value and fits visually. I also once again obtained a polynomial function looking similar to the last. These new equations were y = 3.2575x^1.1202 and y = 0.0001x^2 + 8.9649x - 1830.1.</p>
 <h2 id="equation-analysis">Equation Analysis</h2>
 <p>I now have four equations being:</p>
@@ -1240,7 +1241,7 @@
 </tbody>
 </table>
 <p>Looking at this table, we can see that the two large data equations have a much better guess to the actual values than the previous two equations. This is because the equations have been formed with more data allowing them to be able to guess larger values more accurately. I will then compare the difference between the average values and the last two equations on a graph.</p>
-<p><img alt="Difference for large data equations" src="/post-assets/randomly-generating-numbers-to-fulfil-an-integer-range/graph4.png" /></p>
+<p><img alt="Difference for large data equations" src="/posts/randomly-generating-numbers-to-fulfil-an-integer-range/graph4.png" /></p>
 <h2 id="conclusion">Conclusion</h2>
 <p>By looking at the graph, it appears that the large data polynomial equation was the best at predicting the averages. At about 1500 the equations start to be a bit unreliable but are still staying reasonable close being at most 13% in extreme cases away from the average. This would be because I didn't do enough tests to calculate averages and this theory is definitely shows when the tests go above a range of 6000 as that is where I only calculated averages based off 200 runs due to the time to run the tests.</p>
 <p>Thus, from these tests, I believe the most reliable equation to test the range of 16,777,216 with is y = 0.0001x^2 + 8.9649x - 1830.1.</p>

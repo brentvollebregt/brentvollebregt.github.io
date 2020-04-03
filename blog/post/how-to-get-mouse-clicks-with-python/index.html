@@ -3,8 +3,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="/assets/img/favicon.ico">
-        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-get-mouse-clicks-with-python/">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-get-mouse-clicks-with-python/">
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -28,7 +29,7 @@
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="How To Get Mouse Clicks With Python">
         <meta property="og:description" content="This demonstration shows you how to track mouse clicks, movements and even scrolls using the pynput module. These can then be logged to a file as no console is displayed. This is very similar to a mouse logger.">
-        <meta property="og:image" content="/post-assets/how-to-get-mouse-clicks-with-python/demo2.png">
+        <meta property="og:image" content="/posts/how-to-get-mouse-clicks-with-python/demo2.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/how-to-get-mouse-clicks-with-python/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
@@ -115,9 +116,9 @@
 <p>If you haven't used or setup pip before, go to my tutorial at <a href="/blog/post/how-to-setup-pythons-pip/">how-to-setup-pythons-pip</a> to setup pip.</p>
 <h2 id="installing-pynput">Installing Pynput</h2>
 <p>We will be using the pynput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
-<p><img alt="Installing pynput" src="/post-assets/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
+<p><img alt="Installing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
 <p>To double check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
-<p><img alt="Testing pynput" src="/post-assets/how-to-get-mouse-clicks-with-python/pynput2.png" /></p>
+<p><img alt="Testing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput2.png" /></p>
 <h2 id="building-the-script">Building the Script</h2>
 <p>Create a new python file and save it with a .py file extension. You will first want to import Listener from pynput.mouse.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Listener</span>
@@ -159,7 +160,7 @@
 </code></pre></div>
 
 
-<p><img alt="Mouse moved demonstration" src="/post-assets/how-to-get-mouse-clicks-with-python/demo1.png" /></p>
+<p><img alt="Mouse moved demonstration" src="/posts/how-to-get-mouse-clicks-with-python/demo1.png" /></p>
 <p>Using these print statements and the parameters provided, we can give more information when a print. Run this again to make sure it is working properly (example output below).</p>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Mouse moved to (</span><span class="si">{0}</span><span class="s2">, </span><span class="si">{1}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
@@ -173,7 +174,7 @@
 </code></pre></div>
 
 
-<p><img alt="Mouse moved demonstration with data" src="/post-assets/how-to-get-mouse-clicks-with-python/demo2.png" /></p>
+<p><img alt="Mouse moved demonstration with data" src="/posts/how-to-get-mouse-clicks-with-python/demo2.png" /></p>
 <p>If you want this script to be run in the background. Click File -&gt; Save As and save it with a .pyw file extension. Now when it is run outside IDLE there will be no console window and it will not look like it is running. But to make sure the console doesn't appear, we need to first remove the print statements.</p>
 <p>Import logging and setup the basic configuration as I have below. After that, change all print statements to logging.info.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>

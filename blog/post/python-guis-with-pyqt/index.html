@@ -3,8 +3,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="/assets/img/favicon.ico">
-        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/python-guis-with-pyqt/">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/python-guis-with-pyqt/">
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -28,7 +29,7 @@
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Python GUI&#39;s with PyQt">
         <meta property="og:description" content="This tutorial covers the basics of how to create GUI&#39;s in Python using PyQt5. I will demonstrate how to find the designer and basic usage, converting .ui to .py, running the output file and connecting events to methods.">
-        <meta property="og:image" content="/post-assets/python-guis-with-pyqt/image-label-properties.png">
+        <meta property="og:image" content="/posts/python-guis-with-pyqt/image-label-properties.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/python-guis-with-pyqt/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
@@ -148,17 +149,17 @@
 <p>After recent updates to <code>pyqt5-tools</code>, designer.exe has been moved to the 'Scripts' folder in your Python distribution. To find this using the paths we found before, go to the first path returned ('C:\Python36' in my case) and then go into the 'Scripts' folder; you should find designer.exe in here.</p>
 <h3 id="using-the-designer_1">Using the Designer</h3>
 <p>designer.exe is the program that we will use to make designing GUIs a lot easier; remember the location of this or create a shortcut to it and then run it (double click if you wish). You will be welcomed with a selection window; select "Main Window" and then click "Create".</p>
-<p><img alt="Initial Display" src="/post-assets/python-guis-with-pyqt/pyqt5-designer-start.jpg" /></p>
+<p><img alt="Initial Display" src="/posts/python-guis-with-pyqt/pyqt5-designer-start.jpg" /></p>
 <p>You will now be shown an empty window in the middle of the designer's window with widget options on the left and some other windows to the right.</p>
 <p>On the left you can drag widgets from the drop-downs onto the MainWindow object in the center. On the right in the Object Inspector you can see the current widgets in your window. Right below that is the Property Editor that allows you to modify the widget currently selected.</p>
-<p><img alt="Window Labeled" src="/post-assets/python-guis-with-pyqt/window-labeled.png" /></p>
+<p><img alt="Window Labeled" src="/posts/python-guis-with-pyqt/window-labeled.png" /></p>
 <h4 id="creating-a-simple-window">Creating a Simple Window</h4>
 <p>For this example, we will be just putting a button that prints "Hello World!" when pressed in the Window; soon we will work with a larger example when the basics are out of the way.</p>
 <p>First make your window a bit smaller by clicking and dragging the bottom right of the window (or any part on the edge) to change the size as you would do on any other window. Now find the "Push Button" widget under the Buttons section (on the left) and drag it into the window anywhere. You can double click on the button now to rename the text in it; set it to "Print Message".</p>
 <p>You may now want to change the size of the button, to do this click on the button until there are blue squares on each of it's corners and edges. Use these blue squares to re-size the button to a size you want.</p>
-<p><img alt="GUI with blue buttons showing" src="/post-assets/python-guis-with-pyqt/print-message-ui-blue-buttons.png" /></p>
+<p><img alt="GUI with blue buttons showing" src="/posts/python-guis-with-pyqt/print-message-ui-blue-buttons.png" /></p>
 <p>When you are happy with what you have done (this is just a simple practice) then click File -&gt; Save in the top left and save it somewhere where you will remember; I will save it as 'printMessage.ui' on my desktop.</p>
-<p><em><a href="/post-assets/python-guis-with-pyqt/printMessage.ui">Code download: printMessage.ui</a></em></p>
+<p><em><a href="/posts/python-guis-with-pyqt/printMessage.ui">Code download: printMessage.ui</a></em></p>
 <h2 id="converting-ui-to-py">Converting .ui to .py</h2>
 <p>Now that we have our .ui file, we can convert it into Python code so we can modify and run it.</p>
 <p>To do this we need to located pyuic5. pyuic5 converts .ui to .py in one simple command and is located in the 'Scripts' folder in your Python distribution. If you don't know where this is, execute the following:</p>
@@ -173,8 +174,8 @@
 <p>To convert we now need to pass in the .ui file we created before and decide on an output filename and location. My .ui file is on my desktop currently so I will put the created .py file on the desktop also to make it easier. Now we can convert using <code>pyuic5 -x &lt;.ui file&gt; -o &lt;output.py file&gt;</code>, for example I will use <code>pyuic5 -x "C:\Users\Brent\Desktop\printMessage.ui" -o "C:\Users\Brent\Desktop\printMessage1.py"</code>. This should take not very long at all and show no errors; the python script you declared after -o will now exist - for me a file called printMessage1.py is now on my desktop.</p>
 <h2 id="running-the-output-and-hooking-up-the-button">Running the Output and Hooking up the Button</h2>
 <p>Now that you have the .py file containing the ui code, open it in IDLE or whatever IDE you use. Your code should look something like this:</p>
-<p><img alt="Start GUI Code" src="/post-assets/python-guis-with-pyqt/ui-code-1.png" /></p>
-<p><em><a href="/post-assets/python-guis-with-pyqt/printMessage1.py">Code download: printMessage1.py</a></em></p>
+<p><img alt="Start GUI Code" src="/posts/python-guis-with-pyqt/ui-code-1.png" /></p>
+<p><em><a href="/posts/python-guis-with-pyqt/printMessage1.py">Code download: printMessage1.py</a></em></p>
 <p>Run the code and then wait for the GUI to appear; it currently won't do anything when you press the button so we will set that up.</p>
 <p>Go back into the code for this GUI and look in the setupUi definition. You should see a class variable called <code>self.pushButton</code> which later has its text set to "Print Message" in the retranslateUi definition below. This is the object of our button that we need to make do something.</p>
 <p>First we need to create our method, this method can be in the global scope or in the class scope, for simplicity I will put it in the class scope. After the retranslateUi definition, create a new class called <code>printMessage</code> that takes self as an argument since it is part of the class now. Inside this put what you want the script do to when you press the button, for this example I will print "Hello World!".</p>
@@ -192,8 +193,8 @@
 <p>Remember to not include () when passing the method here or it will not work.</p>
 </blockquote>
 <p>Your script should now look something like this, don't worry if it is a bit different.</p>
-<p><img alt="Start GUI Code" src="/post-assets/python-guis-with-pyqt/ui-code-2.png" /></p>
-<p><em><a href="/post-assets/python-guis-with-pyqt/printMessage2.py">Code download: printMessage2.py</a></em></p>
+<p><img alt="Start GUI Code" src="/posts/python-guis-with-pyqt/ui-code-2.png" /></p>
+<p><em><a href="/posts/python-guis-with-pyqt/printMessage2.py">Code download: printMessage2.py</a></em></p>
 <p>Run the code again and now when you press the button you should see that the script runs your code that you defined in the method you attached to the button.</p>
 <h2 id="more-advanced-example">More Advanced Example</h2>
 <p>In this next example I will show you how to put images in the GUI, add a selection dialog box and add data to a table.</p>
@@ -204,25 +205,25 @@
 - ListWidget (in Item Widgets): This will hold and display entries we add to it
 - LineEdit (in Input Widgets): This will allow us to enter what we want into the table
 - PushButton (in Buttons): This will add the item in the LineEdit to the table</p>
-<p><img alt="MainWindow advanced layout before editing properties" src="/post-assets/python-guis-with-pyqt/MainWindowAdvanced-layout-pt1.png" /></p>
+<p><img alt="MainWindow advanced layout before editing properties" src="/posts/python-guis-with-pyqt/MainWindowAdvanced-layout-pt1.png" /></p>
 <p>If you click on a widget, for example the button that will be selecting the button, the Property Editor on the right will display all the options for that object. In there you can edit things like the exact size/position, borders (frames), tooltips and fonts.</p>
 <p>First we will want to edit the Label that is holding the image; click on the label to open it up in the Property Editor. Find "text" under the QLabel section and delete the text, this is the same as double clicking and removing the text. Now go to the QFrame heading and change "frameShape" to box, this will but a border around the image.</p>
-<p><img alt="Image Label Properties" src="/post-assets/python-guis-with-pyqt/image-label-properties.png" /></p>
+<p><img alt="Image Label Properties" src="/posts/python-guis-with-pyqt/image-label-properties.png" /></p>
 <p>Now click on the select image button and in the QWidget header go to "font". This has many options inside of this so play around to get a font you like (you can leave it if you want). Your GUI should now look something like this:</p>
-<p><img alt="MainWindow advanced layout before editing properties" src="/post-assets/python-guis-with-pyqt/MainWindowAdvanced-layout-pt2.png" /></p>
+<p><img alt="MainWindow advanced layout before editing properties" src="/posts/python-guis-with-pyqt/MainWindowAdvanced-layout-pt2.png" /></p>
 <p>To help you later on, you can also change the "objectName" under QObject in the Property Editor for all widgets so you can identify them easier later. Here is what I named mine:
 - Select Image Button: selectImageBtn
 - Image Label: imageLbl
 - LineEdit: lineEdit
 - Add button: addBtn
 - ListWidget: listWidget</p>
-<p><em><a href="/post-assets/python-guis-with-pyqt/MainWindowAdvanced.ui">Code download: MainWindowAdvanced.ui</a></em></p>
+<p><em><a href="/posts/python-guis-with-pyqt/MainWindowAdvanced.ui">Code download: MainWindowAdvanced.ui</a></em></p>
 <p>Like we did before, convert this .ui file (after saving it) to a .py file.</p>
 <h3 id="connecting-events-to-methods">Connecting Events to Methods</h3>
 <p>Now we need to connect all the actions together. The select image button will need to be connected to a method that displays an image selection dialog which will then put an image in the label. Also we will need to make the 'add' button add the text in the lineEdit object into the listWidget object.</p>
-<p>Your converted .py code should currently look something like this: <em><a href="/post-assets/python-guis-with-pyqt/MainWindowAdvanced1.py">Code download: MainWindowAdvanced1.py</a></em></p>
+<p>Your converted .py code should currently look something like this: <em><a href="/posts/python-guis-with-pyqt/MainWindowAdvanced1.py">Code download: MainWindowAdvanced1.py</a></em></p>
 <p>If you open your .py file in IDLE, you can see that the names we gave each widget have passed through to the names of the actual objects. I also recommend to run the code now to make sure it is running.</p>
-<p><img alt="Object names in code" src="/post-assets/python-guis-with-pyqt/object-names-in-code.png" /></p>
+<p><img alt="Object names in code" src="/posts/python-guis-with-pyqt/object-names-in-code.png" /></p>
 <h4 id="linking-the-image-button">Linking the Image Button</h4>
 <p>First you will want to create a class definition called <code>setImage</code>; make sure this takes self as it is a class definition. In this method we want to ask the user for an image (not just any file). If they provide a file, we then need to create a pixmap object and then set the pixmap object to the image label. Before we set it, it is ideal to scale the image to fit inside the label without stretching and aligning it to the centre. Your method will look like this:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">setImage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -257,7 +258,7 @@
 
 
 <p>Running the script now you should be able to type in the text edit item and then press add for the item to go into the list.</p>
-<p><em><a href="/post-assets/python-guis-with-pyqt/MainWindowAdvanced2.py">Code download: MainWindowAdvanced2.py</a></em></p>
+<p><em><a href="/posts/python-guis-with-pyqt/MainWindowAdvanced2.py">Code download: MainWindowAdvanced2.py</a></em></p>
 <h2 id="common-issues-and-questions">Common Issues and Questions</h2>
 <h3 id="could-not-find-a-version-that-satisfies-the-requirement-pyqt5-tools">Could not find a version that satisfies the requirement pyqt5-tools</h3>
 <p>Currently pyqt5-tools does not support Python 3.7. There is a build in progress as noted in the <a href="https://github.com/altendky/pyqt5-tools/issues/13">issue 13</a>.</p>

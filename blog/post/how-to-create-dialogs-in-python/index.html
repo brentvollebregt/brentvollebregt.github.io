@@ -3,8 +3,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="/assets/img/favicon.ico">
-        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-create-dialogs-in-python/">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-create-dialogs-in-python/">
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -28,7 +29,7 @@
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="How to Create Dialogs in Python">
         <meta property="og:description" content="In this post I demonstrate dialogs that are provided in the Python standard library by showing you how to use them and what they look like.">
-        <meta property="og:image" content="/post-assets/how-to-create-dialogs-in-python/question-dialogs.png">
+        <meta property="og:image" content="/posts/how-to-create-dialogs-in-python/question-dialogs.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/how-to-create-dialogs-in-python/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
@@ -167,7 +168,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Message Dialogs" src="/post-assets/how-to-create-dialogs-in-python/message-dialogs.png" /></p>
+<p><img alt="Message Dialogs" src="/posts/how-to-create-dialogs-in-python/message-dialogs.png" /></p>
 <h3 id="question-dialogs">Question Dialogs</h3>
 <p>Question dialogs allow you to ask a user a particular question with a title and have them reply in one of two ways (or three in one case).</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">messagebox</span>
@@ -232,7 +233,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Question Dialogs" src="/post-assets/how-to-create-dialogs-in-python/question-dialogs.png" /></p>
+<p><img alt="Question Dialogs" src="/posts/how-to-create-dialogs-in-python/question-dialogs.png" /></p>
 <h3 id="input-dialogs">Input Dialogs</h3>
 <p>Input dialogs ask for a particular type of value; in this case that is either of type string, integer or float. Unfortunately like all the other dialogs, the icon from the parent will not be used due to how these dialogs are constructed. If you plan on consistently taking input from a user I recommend creating your own input dialog.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">simpledialog</span>
@@ -275,7 +276,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Input Dialogs" src="/post-assets/how-to-create-dialogs-in-python/input-dialogs.png" /></p>
+<p><img alt="Input Dialogs" src="/posts/how-to-create-dialogs-in-python/input-dialogs.png" /></p>
 <h3 id="file-folder-dialogs">File / Folder Dialogs</h3>
 <p>File and folder dialogs allow you to ask the user select a folder, single file, multiple files or chose a location to save a file as.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">filedialog</span>
@@ -343,7 +344,7 @@
 </code></pre></div>
 
 
-<p><img alt="File Dialogs" src="/post-assets/how-to-create-dialogs-in-python/file-dialogs.png" /></p>
+<p><img alt="File Dialogs" src="/posts/how-to-create-dialogs-in-python/file-dialogs.png" /></p>
 <h3 id="color-picker-dialog">Color Picker Dialog</h3>
 <p>Color pickers are used to ask a user to select a color. These aren't seen in may places but when a color needs to be selected, this is a great option as it contains everything needed.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">colorchooser</span>
@@ -373,17 +374,17 @@
 </tbody>
 </table>
 <p>As an example of the output, if I select cyan, I will get <code>((0.0, 255.99609375, 255.99609375), '#00ffff')</code>. The numbers are large as they are floats but this means 0 red, 256 green and 256 blue. We can also see that the second value in the tuple is the hex value for cyan.</p>
-<p><img alt="Color Dialog" src="/post-assets/how-to-create-dialogs-in-python/color-dialog.png" /></p>
+<p><img alt="Color Dialog" src="/posts/how-to-create-dialogs-in-python/color-dialog.png" /></p>
 <h2 id="credit">Credit</h2>
 <p>While using a lot of dialogs in my own projects I have always looked around other sites, but recently I found a page called <a href="https://interactivepython.org/runestone/static/CS152f17/GUIandEventDrivenProgramming/02_standard_dialog_boxes.html">How to Think Like a Computer Scientist: Interactive Edition</a> which is a great beginner level tutorial for Python which covers many things. This site made me aware of some dialogs I didn't even realise existed so I give credit to the creator.</p>
                     </div>
 
                     <nav class="blog-pagination text-center mb-5 mt-4">
                         
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-import-a-pyqt5-ui-file-in-a-python-gui/">&larr; How to Import a PyQt5 .ui F...</a>
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-hash-passwords-in-python/">&larr; How To Hash Passwords In Python</a>
                         
                         
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/xor-python-byte-strings/">XOR Python Byte Strings &rarr;</a>
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-import-a-pyqt5-ui-file-in-a-python-gui/">How to Import a PyQt5 .ui F... &rarr;</a>
                         
                     </nav>
 

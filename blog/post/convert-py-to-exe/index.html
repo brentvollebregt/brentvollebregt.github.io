@@ -3,8 +3,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="/assets/img/favicon.ico">
-        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/convert-py-to-exe/">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/convert-py-to-exe/">
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -28,7 +29,7 @@
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Convert .py to .exe">
         <meta property="og:description" content="A demonstration of how to package a python script into an executable file. This tutorial includes compiling to one file, no console, how to add an icon and adding other files to the final package.">
-        <meta property="og:image" content="/post-assets/convert-py-to-exe/demo6.png">
+        <meta property="og:image" content="/posts/convert-py-to-exe/demo6.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/convert-py-to-exe/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
@@ -126,10 +127,10 @@
 <h2 id="pyinstaller">PyInstaller</h2>
 <p>Now that pip has been setup, execute the command <code>pip install pyinstaller</code> in cmd. Make sure to check the output for errors as if there are errors it would not have installed successfully. PyInstaller now supports Python 2.7 - 3.7 including Python 3.7.</p>
 <p>To make sure it installed properly, type <code>pyinstaller</code> in cmd and make sure no errors appeared.</p>
-<p><img alt="pyinstaller command output" src="/post-assets/convert-py-to-exe/demo6.png" /></p>
+<p><img alt="pyinstaller command output" src="/posts/convert-py-to-exe/demo6.png" /></p>
 <h2 id="basic-compiling">Basic Compiling</h2>
 <p>Created a new folder and put your python file in it and any other modules or files it may need. Then hold shift and right click in the folder, in the menu that popped up, click "Open PowerShell Window Here" or "Open command window here" for older versions of windows. If this option doesn't appear, try again or open cmd and type <code>cd {folder location}</code> to move to that folder.</p>
-<p><img alt="Open PowerShell window here" src="/post-assets/convert-py-to-exe/demo7.png" /></p>
+<p><img alt="Open PowerShell window here" src="/posts/convert-py-to-exe/demo7.png" /></p>
 <p>Now that cmd is in the right location, execute <code>pyinstaller {the name of your python file}</code> make sure to add .py or whatever extension it has. Wait for it to finish and check if any errors have appeared. If none have you can close cmd and look at the three folders generated.</p>
 <p>Look in the 'dist' folder and you should see {the name of your script}.exe. If you run that your script should execute as an exe.</p>
 <h2 id="no-console">No Console</h2>

@@ -3,8 +3,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="/assets/img/favicon.ico">
-        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/python-keylogger/">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/python-keylogger/">
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -28,7 +29,7 @@
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Python Keylogger">
         <meta property="og:description" content="This is a Python keylogger which will work on Windows, Mac and Linux. This script uses the pynput module. This python keylogger will store typed keys in a file in order of when they were typed.">
-        <meta property="og:image" content="/post-assets/python-keylogger/feature.jpg">
+        <meta property="og:image" content="/posts/python-keylogger/feature.jpg">
         <meta property="og:url" content="https://nitratine.net/blog/post/python-keylogger/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
@@ -122,9 +123,9 @@
 <p>If you haven't used or setup pip before, go to my tutorial at <a href="/blog/post/how-to-setup-pythons-pip/">how-to-setup-pythons-pip</a> to setup pip. This is needed to install pynput to get keys typed.</p>
 <h2 id="installing-pynput">Installing Pynput</h2>
 <p>We will be using the pynput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
-<p><img alt="Installing pynput" src="/post-assets/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
+<p><img alt="Installing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
 <p>To double check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
-<p><img alt="Testing pynput" src="/post-assets/how-to-get-mouse-clicks-with-python/pynput2.png" /></p>
+<p><img alt="Testing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput2.png" /></p>
 <h2 id="building-the-keylogger">Building the Keylogger</h2>
 <p>Create a new Python file and import Key and Listener from pynput.keyboard and the logging module.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Listener</span>
@@ -152,16 +153,16 @@
 
 
 <p>Now save the file with a .pyw file extension to make sure that the console doesn't appear when it's run.</p>
-<p><img alt="Save as .pyw" src="/post-assets/python-keylogger/pyw.png" /></p>
+<p><img alt="Save as .pyw" src="/posts/python-keylogger/pyw.png" /></p>
 <p>Run the script in IDLE to make sure that you haven't made any errors. Errors will show up in here if some do occur.</p>
 <h2 id="autostart">Autostart</h2>
 <p>To make the script run on startup first go to your startup folder. Hold down the windows button and press "R" or type run in the windows menu to make the run dialog appear.</p>
-<p><img alt="shell:startup example" src="/post-assets/python-keylogger/run.png" /></p>
+<p><img alt="shell:startup example" src="/posts/python-keylogger/run.png" /></p>
 <p>Now type <code>shell:startup</code> in the dialog and press enter. This will open a window at your startup folder.</p>
 <p>Copy the keylogger into this folder and then create a new folder somewhere else for logs to be saved to. Make sure this folder is not in the startup folder or it will be opened every time the computer has started. Open the keylogger in IDLE and now change the log_dir to the location of the folder you just created. Make sure this folder path uses forward slashes ('/') and contains a forward slash at the end.</p>
 <h2 id="stopping-the-keylogger">Stopping the Keylogger</h2>
 <p>To stop the keylogger, open up task manager and look for anything named python as shown below due to windows just showing program names. If you have an older version of windows, I recommend looking for pythonw.exe. Right click on this and end the task.</p>
-<p><img alt="Python in task manager" src="/post-assets/python-keylogger/taskmgr.png" /></p>
+<p><img alt="Python in task manager" src="/posts/python-keylogger/taskmgr.png" /></p>
 <h2 id="final-script">Final Script</h2>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Listener</span>
 <span class="kn">import</span> <span class="nn">logging</span>
