@@ -8,7 +8,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/multi-clipboard/">
 
         <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="/assets/css/base.css">
         <link rel="stylesheet" href="/assets/css/custom-bootstrap.css"><!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117153268-2"></script>
@@ -87,17 +87,30 @@
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </p>
                     <p class="lead">A simple clipboard manager so you will never find yourself copying the same thing twice. Images, text and files are supported and unlimited amounts of saved clipboards can be created. Switch clipboard contents using a simple GUI.</p>
-                    <hr>
+                    <hr class="mt-3 mb-0">
 
-                    <div class="post-content">
+                    
+                    <div class="github-summary py-3 d-block text-center">
+                        <a class="repo-name stretched-link" href="https://github.com/brentvollebregt/multi-clipboard">
+                            <img src="/assets/img/github-icon.png" alt="GitHub Icon" />
+                            <span class="ml-2">brentvollebregt/multi-clipboard</span>
+                        </a>
+
+                        <div class="repo-stats">
+                            <img alt="GitHub stars" src="https://img.shields.io/github/stars/brentvollebregt/multi-clipboard?style=social">
+                            <img alt="GitHub forks" src="https://img.shields.io/github/forks/brentvollebregt/multi-clipboard?style=social">
+                            <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/brentvollebregt/multi-clipboard">
+                        </div>
+                    </div>
+
+                    <hr class="my-0">
+                    
+
+                    <div class="post-content mt-3">
                         <p>Switch clipboard contents using a simple GUI<br />
 Images, text, files and other formats are supported with unlimited amounts of saved clipboards able to be created.<br />
 The idea of this is to easily switch clipboards with a simple click in a GUI. It comes with a built in listener for Ctrl + Windows + C</p>
 <p><img alt="Main GUI" src="/posts/multi-clipboard/main-gui.png" /></p>
-<p><a href="https://github.com/brentvollebregt/multi-clipboard">Find the project on GitHub here</a></p>
-
-<p><a href="https://github.com/brentvollebregt/multi-clipboard"><img src="https://img.shields.io/github/stars/brentvollebregt/multi-clipboard.svg?style=social" alt="Stars" style="margin-bottom: -5px; display: inline-block;"></a>
-<a href="https://github.com/brentvollebregt/multi-clipboard"><img src="https://img.shields.io/github/forks/brentvollebregt/multi-clipboard.svg?style=social" alt="Forks" style="margin-bottom: -5px; display: inline-block;"></a></p>
 <h2 id="what-is-this">What Is This?</h2>
 <p>This is my solution to constantly overwriting my clipboard. It is a GUI that acts like a hotbar, click on a virtual clipboard to place it on your actual clipboard. Some command line support has also been added in the form of setting and clearing clipboards.</p>
 <h2 id="a-simple-demo">A Simple Demo</h2>

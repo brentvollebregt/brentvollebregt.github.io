@@ -8,7 +8,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/the-nitratine-project/">
 
         <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="/assets/css/base.css">
         <link rel="stylesheet" href="/assets/css/custom-bootstrap.css"><!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117153268-2"></script>
@@ -87,15 +87,28 @@
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </p>
                     <p class="lead">The Nitratine project was originally a place to host my projects, tutorials and tools. I created a website that fulfilled my wants to host this content over more than two months.</p>
-                    <hr>
+                    <hr class="mt-3 mb-0">
 
-                    <div class="post-content">
+                    
+                    <div class="github-summary py-3 d-block text-center">
+                        <a class="repo-name stretched-link" href="https://github.com/brentvollebregt/nitratine-old">
+                            <img src="/assets/img/github-icon.png" alt="GitHub Icon" />
+                            <span class="ml-2">brentvollebregt/nitratine-old</span>
+                        </a>
+
+                        <div class="repo-stats">
+                            <img alt="GitHub stars" src="https://img.shields.io/github/stars/brentvollebregt/nitratine-old?style=social">
+                            <img alt="GitHub forks" src="https://img.shields.io/github/forks/brentvollebregt/nitratine-old?style=social">
+                            <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/brentvollebregt/nitratine-old">
+                        </div>
+                    </div>
+
+                    <hr class="my-0">
+                    
+
+                    <div class="post-content mt-3">
                         <p>This version of the Nitratine project was originally a place to host my projects, tutorials and tools. I created a website that fulfilled my wants to host this content over more than two months.</p>
 <p>I have now decided to relocate the Nitratine project to Github Pages as it has a lot of benefits but I will still keep this repo public as it may be useful for something else one day.</p>
-<p><a href="https://github.com/brentvollebregt/nitratine-old">Find the project on GitHub here</a></p>
-
-<p><a href="https://github.com/brentvollebregt/nitratine-old"><img src="https://img.shields.io/github/stars/brentvollebregt/nitratine-old.svg?style=social" alt="Stars" style="margin-bottom: -5px; display: inline-block;"></a>
-<a href="https://github.com/brentvollebregt/nitratine-old"><img src="https://img.shields.io/github/forks/brentvollebregt/nitratine-old.svg?style=social" alt="Forks" style="margin-bottom: -5px; display: inline-block;"></a></p>
 <p>This is currently hosted at: <a href="http://nitratine.pythonanywhere.com/">nitratine.pythonanywhere.com</a></p>
 <h2 id="what-is-this">What is this?</h2>
 <p>This project is a website that is hosted using Flask in Python. The main idea of it is to be able to add articles easily while still keeping the raw html idea. When the server starts it will look for articles in a user defined directory that is laid out to a certain specification. From then on the servers data can be edited at any time from within the site.</p>

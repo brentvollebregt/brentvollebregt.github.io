@@ -8,7 +8,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/lucy-in-the-sky-with-emotion/">
 
         <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="/assets/css/base.css">
         <link rel="stylesheet" href="/assets/css/custom-bootstrap.css"><!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117153268-2"></script>
@@ -85,9 +85,26 @@
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </p>
                     <p class="lead">This project aimed to visualise emotion in music with software developed by six people from the COMP241 (Software Engineering Development) paper as a group project. The project was successful in the end using Spotify to assist emotion detection.</p>
-                    <hr>
+                    <hr class="mt-3 mb-0">
 
-                    <div class="post-content">
+                    
+                    <div class="github-summary py-3 d-block text-center">
+                        <a class="repo-name stretched-link" href="https://github.com/brentvollebregt/Lucy-In-The-Sky-With-Emotion">
+                            <img src="/assets/img/github-icon.png" alt="GitHub Icon" />
+                            <span class="ml-2">brentvollebregt/Lucy-In-The-Sky-With-Emotion</span>
+                        </a>
+
+                        <div class="repo-stats">
+                            <img alt="GitHub stars" src="https://img.shields.io/github/stars/brentvollebregt/Lucy-In-The-Sky-With-Emotion?style=social">
+                            <img alt="GitHub forks" src="https://img.shields.io/github/forks/brentvollebregt/Lucy-In-The-Sky-With-Emotion?style=social">
+                            <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/brentvollebregt/Lucy-In-The-Sky-With-Emotion">
+                        </div>
+                    </div>
+
+                    <hr class="my-0">
+                    
+
+                    <div class="post-content mt-3">
                         <div class="toc">
 <ul>
 <li><a href="#what-is-this">What is this?</a></li>
@@ -109,10 +126,6 @@
 </li>
 </ul>
 </div>
-<p><a href="https://github.com/brentvollebregt/Lucy-In-The-Sky-With-Emotion">Find the project on GitHub here</a></p>
-
-<p><a href="https://github.com/brentvollebregt/Lucy-In-The-Sky-With-Emotion"><img src="https://img.shields.io/github/stars/brentvollebregt/Lucy-In-The-Sky-With-Emotion.svg?style=social" alt="Stars" style="margin-bottom: -5px; display: inline-block;"></a>
-<a href="https://github.com/brentvollebregt/Lucy-In-The-Sky-With-Emotion"><img src="https://img.shields.io/github/forks/brentvollebregt/Lucy-In-The-Sky-With-Emotion.svg?style=social" alt="Forks" style="margin-bottom: -5px; display: inline-block;"></a></p>
 <h2 id="what-is-this">What is this?</h2>
 <p>This project takes a local library of music that is tagged and will predict the emotion of the song of either happy or sad. This data can then be passed to a visualiser which will play the selected song along with fiv other recommended songs based off it's emotional position on a valence energy plane.</p>
 <p>When the project is first started it will create a sklearn.neighbors.KNeighborsClassifier instance and be provided <a href="/blog/post/finding-emotion-in-music-with-python/">previously researched data</a> for points to be compared to later. The Browse button then needs to be clicked and a directory selected. The music library is then scraped for tags and searches for them in Spotify. We then get audio data from Spotify for each song (if possible) and present the data on the GUI. When a user clicks on a song, recommendations of the five nearest songs based off emotion, song data and the point on the emotion gradient are all displayed to the user. When the user clicks the Visualise button, data will be sent to the visualiser and started.</p>

@@ -8,7 +8,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/media-picker/">
 
         <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="/assets/css/base.css">
         <link rel="stylesheet" href="/assets/css/custom-bootstrap.css"><!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117153268-2"></script>
@@ -85,16 +85,29 @@
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </p>
                     <p class="lead">I had been requested to help someone with filtering a lot of images taken with a camera. This would need to occur regularly so I created an interface that would help them easily select what photos they wanted.</p>
-                    <hr>
+                    <hr class="mt-3 mb-0">
 
-                    <div class="post-content">
+                    
+                    <div class="github-summary py-3 d-block text-center">
+                        <a class="repo-name stretched-link" href="https://github.com/brentvollebregt/media-picker">
+                            <img src="/assets/img/github-icon.png" alt="GitHub Icon" />
+                            <span class="ml-2">brentvollebregt/media-picker</span>
+                        </a>
+
+                        <div class="repo-stats">
+                            <img alt="GitHub stars" src="https://img.shields.io/github/stars/brentvollebregt/media-picker?style=social">
+                            <img alt="GitHub forks" src="https://img.shields.io/github/forks/brentvollebregt/media-picker?style=social">
+                            <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/brentvollebregt/media-picker">
+                        </div>
+                    </div>
+
+                    <hr class="my-0">
+                    
+
+                    <div class="post-content mt-3">
                         <p><em>Easily chose which images to keep with a simple interface.</em></p>
 <p>I had been requested to help someone with filtering a lot of images taken with a camera. This would need to occur regularly so I created an interface that would help them easily select what photos they wanted. After they have selected and moved their images, they are then free to delete the original files/folders if wanted.</p>
 <p><img alt="Interface" src="/posts/media-picker/interface.jpg" /></p>
-<p><a href="https://github.com/brentvollebregt/media-picker">Find the project on GitHub here</a></p>
-
-<p><a href="https://github.com/brentvollebregt/media-picker"><img src="https://img.shields.io/github/stars/brentvollebregt/media-picker.svg?style=social" alt="Stars" style="margin-bottom: -5px; display: inline-block;"></a>
-<a href="https://github.com/brentvollebregt/media-picker"><img src="https://img.shields.io/github/forks/brentvollebregt/media-picker.svg?style=social" alt="Forks" style="margin-bottom: -5px; display: inline-block;"></a></p>
 <p>This project is a Flask server hosted by Python that is designed to be opened in a Chrome window. Other browsers will work but due to layouts, images of different sizes will mess with the display.</p>
 <h2 id="features">Features</h2>
 <ul>
