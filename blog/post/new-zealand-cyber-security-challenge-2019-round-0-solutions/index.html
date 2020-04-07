@@ -74,7 +74,7 @@
                 <div class="col-blog-content blog-main">
 
                     <h1 class="blog-post-title">New Zealand Cyber Security Challenge 2019 Round 0 Solutions</h1>
-                    <p class="text-muted">
+                    <div class="mb-3">
                         <a href="/blog/archive/#2019" class="text-muted">10 Jun 2019</a>
                         <a href="/blog/categories/#General" class="badge badge-primary ml-2">General</a>
                         
@@ -83,7 +83,7 @@
                         <a href="/blog/tags/#nzcsc" class="badge badge-warning">nzcsc</a>
                         
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
-                    </p>
+                    </div>
                     <p class="lead">These are my solutions to the challenges I solved in the New Zealand Cyber Security Challenge 2019 Round 0.</p>
                     <hr class="mt-3 mb-0">
 
@@ -148,32 +148,32 @@
 </tr>
 </tbody>
 </table>
-<p>It was pretty easy to guess that the last row contained the flag and we could assume all the other rows used the same key. Since <em>[plaintext XOR key = cipher text]</em> then <em>[cipher text XOR plaintext = key]</em>; this means we only need one chipher text and it's corresponding plain text to get the key. Using Python, I could get the key using this method:</p>
+<p>It was pretty easy to guess that the last row contained the flag and we could assume all the other rows used the same key. Since <em>[plaintext XOR key = cipher-text]</em> then <em>[cipher-text XOR plaintext = key]</em>; this means we only need one cipher-text and it's corresponding plain text to get the key. Using Python, I could get the key using this method:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
 
-<span class="n">base64_chiphertext</span> <span class="o">=</span> <span class="s1">&#39;bVkmcyU2L14RKiBjMiddVSY9YzgrVV40&#39;</span>
+<span class="n">base64_ciphertext</span> <span class="o">=</span> <span class="s1">&#39;bVkmcyU2L14RKiBjMiddVSY9YzgrVV40&#39;</span>
 <span class="n">plaintext</span> <span class="o">=</span> <span class="s1">&#39;The flag is hidden below&#39;</span>
 
 <span class="k">def</span> <span class="nf">bxor</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; XOR two byte strings &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">_a</span> <span class="o">^</span> <span class="n">_b</span> <span class="k">for</span> <span class="n">_a</span><span class="p">,</span> <span class="n">_b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">)])</span>
 
-<span class="c1"># Decode the cipher text to a byte string and make the plaintext a byte string</span>
-<span class="n">key</span> <span class="o">=</span> <span class="n">bxor</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">base64_chiphertext</span><span class="p">),</span> <span class="n">plaintext</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="c1"># Decode the cipher-text to a byte string and make the plaintext a byte string</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">bxor</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">base64_ciphertext</span><span class="p">),</span> <span class="n">plaintext</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
 </code></pre></div>
 
 
 <p>The key produced from this was <code>91CSCZN91CSCZN91CSCZN91C</code>. We can see this repeats so we could say <code>91CSCZN</code> is the "base key" that repeats. Now to use this key on the final row, since <code>bxor</code> will zip to whatever byte string is the shortest, we do not have to make the key the correct size.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
 
-<span class="n">base64_chiphertext</span> <span class="o">=</span> <span class="s1">&#39;X10iNHk5fQ4HIGBxPnwPU3c=&#39;</span>
+<span class="n">base64_ciphertext</span> <span class="o">=</span> <span class="s1">&#39;X10iNHk5fQ4HIGBxPnwPU3c=&#39;</span>
 <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;91CSCZN91CSCZN91CSCZN91C&#39;</span>
 
 <span class="k">def</span> <span class="nf">bxor</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; XOR two byte strings &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">_a</span> <span class="o">^</span> <span class="n">_b</span> <span class="k">for</span> <span class="n">_a</span><span class="p">,</span> <span class="n">_b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">)])</span>
 
-<span class="n">flag</span> <span class="o">=</span> <span class="n">bxor</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">base64_chiphertext</span><span class="p">),</span> <span class="n">key</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="n">bxor</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">base64_ciphertext</span><span class="p">),</span> <span class="n">key</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
 </code></pre></div>
 
 
@@ -181,17 +181,17 @@
 <p>This gives <code>flag:c376c32d26b4</code></p>
 </blockquote>
 <h3 id="challenge-2_1">Challenge 2*</h3>
-<p>In the DOM of challenge 2, there is another chiphertext hidden: <code>fnQXc211KwwAJ2B2PyoXUyo9</code>. Using the key on this:</p>
+<p>In the DOM of challenge 2, there is another ciphertext hidden: <code>fnQXc211KwwAJ2B2PyoXUyo9</code>. Using the key on this:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
 
-<span class="n">base64_chiphertext</span> <span class="o">=</span> <span class="s1">&#39;fnQXc211KwwAJ2B2PyoXUyo9&#39;</span>
+<span class="n">base64_ciphertext</span> <span class="o">=</span> <span class="s1">&#39;fnQXc211KwwAJ2B2PyoXUyo9&#39;</span>
 <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;91CSCZN91CSCZN91CSCZN91C&#39;</span>
 
 <span class="k">def</span> <span class="nf">bxor</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; XOR two byte strings &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">_a</span> <span class="o">^</span> <span class="n">_b</span> <span class="k">for</span> <span class="n">_a</span><span class="p">,</span> <span class="n">_b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">)])</span>
 
-<span class="n">text</span> <span class="o">=</span> <span class="n">bxor</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">base64_chiphertext</span><span class="p">),</span> <span class="n">key</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">bxor</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">base64_ciphertext</span><span class="p">),</span> <span class="n">key</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
 </code></pre></div>
 
 

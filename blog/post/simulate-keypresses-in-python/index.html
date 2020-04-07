@@ -74,7 +74,7 @@
                 <div class="col-blog-content blog-main">
 
                     <h1 class="blog-post-title">Simulate Keypresses In Python</h1>
-                    <p class="text-muted">
+                    <div class="mb-3">
                         <a href="/blog/archive/#2017" class="text-muted">16 Dec 2017</a>
                         <a href="/blog/categories/#YouTube" class="badge badge-primary ml-2">YouTube</a>
                         
@@ -85,7 +85,7 @@
                         <a href="/blog/tags/#pynput" class="badge badge-warning">pynput</a>
                         
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
-                    </p>
+                    </div>
                     <p class="lead">This demonstrates how to press keys with Python. Using pynput we are able to simulate key presses into any window. This will show you how to press and release a key, type special keys and type a sentence.</p>
                     <hr class="mt-3 mb-0">
 
@@ -100,6 +100,7 @@
 <li><a href="#pressing-and-releasing-keys">Pressing and Releasing Keys</a></li>
 <li><a href="#pressing-and-releasing-special-keys">Pressing and Releasing Special Keys</a></li>
 <li><a href="#typing-multiple-keys">Typing Multiple Keys</a></li>
+<li><a href="#putting-a-random-delay-between-each-keypress">Putting A Random Delay Between Each Keypress</a></li>
 </ul>
 </li>
 <li><a href="#common-issues-and-questions">Common Issues and Questions</a><ul>
@@ -125,25 +126,25 @@
 <p>To double check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
 <p><img alt="Testing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput2.png" /></p>
 <h2 id="simulating-keys">Simulating Keys</h2>
-<p>Create a new script and save it somewhere so you can easily run the script. Import Key and Controller from pynput.keyboard.</p>
+<p>Create a new script and save it somewhere so you can easily run the script. Import <code>Key</code> and <code>Controller</code> from <code>pynput.keyboard</code>.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Controller</span>
 </code></pre></div>
 
 
-<p>Make a variable called keyboard and set it to an instance of Controller. Now using the keyboard variable we can press and release keys.</p>
+<p>Make a variable called keyboard and set it to an instance of <code>Controller</code>. Now using the keyboard variable we can press and release keys.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">keyboard</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">()</span>
 </code></pre></div>
 
 
 <h3 id="pressing-and-releasing-keys">Pressing and Releasing Keys</h3>
-<p>Using keyboard.press we can press keys and with keyboard.release we can release a key. This allows us to type a key by pressing and releasing. You can only supply this method with one key at a time. Here is an example of how to type the letter 'a'.</p>
+<p>Using <code>keyboard.press</code> we can press keys and with <code>keyboard.release</code> we can release a key. This allows us to type a key by pressing and releasing. You can only supply this method with one key at a time. Here is an example of how to type the letter 'a'.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 
 <h3 id="pressing-and-releasing-special-keys">Pressing and Releasing Special Keys</h3>
-<p>For special keys that can't be put into a string like shift or control, you will need to refer to the page <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">here</a> to look at the Key class for supported keys. Using these in the press or release methods will press/release the key matching it. For example, if I wanted to press the windows key, I would look at <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">that</a> page for the key. 'cmd' has the description "A generic command button. On PC platforms, this corresponds to the Super key or Windows key, and on Mac it corresponds to the Command key" which is what I am looking for. Now for the code.</p>
+<p>For special keys that can't be put into a string like shift or control, you will need to refer to the page <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">here</a> to look at the Key class for supported keys. Using these in the press or release methods will press/release the key matching it. For example, if I wanted to press the windows key, I would look at <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">that page</a> for the key. 'cmd' has the description <em>"A generic command button. On PC platforms, this corresponds to the Super key or Windows key, and on Mac it corresponds to the Command key"</em> which is what I am looking for. Now for the code.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">cmd</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">cmd</span><span class="p">)</span>
 </code></pre></div>
@@ -157,6 +158,21 @@
 </code></pre></div>
 
 
+<p>Here are a few other common special keys:</p>
+<ul>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.alt_l">Key.alt_l</a>: Left ALT</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.backspace">Key.backspace</a>: Backspace</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.ctrl_l">Key.ctrl_l</a>: Left Ctrl</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.delete">Key.delete</a>: Delete</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.enter">Key.enter</a>: Enter</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.esc">Key.esc</a>: Escape</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.f1">Key.f1</a>: F1</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.f5">Key.f5</a>: F5</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.media_play_pause">Key.media_play_pause</a>: Play/Pause</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.page_down">Key.page_down</a>: Page Down</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.up">Key.up</a>: Up Arrow Key</li>
+<li>The rest can be found in the <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">pynput docs for the Key class</a>.</li>
+</ul>
 <h3 id="typing-multiple-keys">Typing Multiple Keys</h3>
 <p>A cool feature supplied by the class is the type method. This method allows us to type more than one key at a time but it has to be a string of characters. So if we wanted to type "Nitratine" we would execute:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="s1">&#39;Nitratine&#39;</span><span class="p">)</span>
@@ -164,6 +180,28 @@
 
 
 <p>This method does also support spaces but when it comes to enters, use a new line character (\n) and a tab character (\t) for tabs.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="s1">&#39;This is one line.</span><span class="se">\n</span><span class="s1">And this is the next line.</span><span class="se">\n\t</span><span class="s1">This line has been tabbed in.&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h3 id="putting-a-random-delay-between-each-keypress">Putting A Random Delay Between Each Keypress</h3>
+<p>To put a random delay between each keypress, you can use <code>time.sleep</code> with a random number passed to it. Here is a small example function I made:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Controller</span>
+
+<span class="n">keyboard</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">()</span>  <span class="c1"># Create the controller</span>
+
+<span class="k">def</span> <span class="nf">type_string_with_delay</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>  <span class="c1"># Loop over each character in the string</span>
+        <span class="n">keyboard</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>  <span class="c1"># Type the character</span>
+        <span class="n">delay</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Generate a random number between 0 and 10</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>  <span class="c1"># Sleep for the amount of seconds generated</span>
+
+<span class="n">type_string_with_delay</span><span class="p">(</span><span class="s2">&quot;This is my string typed with a delay&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
 <h2 id="common-issues-and-questions">Common Issues and Questions</h2>
 <h3 id="how-can-i-use-the-keyboard-and-mouse-controllers-at-the-same-time">How can I use the keyboard and mouse controllers at the same time?</h3>
 <p>When you import the classes, Controller will be set to the last one imported. To show what the issue was, ask yourself, what controller did you use to set the mouse and what one to set the keyboard? You would have used the same, but they need to be from the different classes.  So then you should use:</p>
