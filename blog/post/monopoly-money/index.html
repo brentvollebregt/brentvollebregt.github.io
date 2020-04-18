@@ -25,11 +25,11 @@
         <link rel="stylesheet" href="/assets/css/blog.css">
         <link rel="stylesheet" href="/assets/css/pygments.css">
 
-        <meta name="description" content="A web app that allows players to keep track of their Monopoly balances securely in an internet banking like system. The server is built in Flask which can support unlimited games on one server. Each game has one banker amd can have as many players as needed.">
+        <meta name="description" content="A Node.js server and React frontend that helps you manage your finances in a game of Monopoly from the browser.">
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Monopoly Money">
-        <meta property="og:description" content="A web app that allows players to keep track of their Monopoly balances securely in an internet banking like system. The server is built in Flask which can support unlimited games on one server. Each game has one banker amd can have as many players as needed.">
-        <meta property="og:image" content="/posts/monopoly-money/feature.jpg">
+        <meta property="og:description" content="A Node.js server and React frontend that helps you manage your finances in a game of Monopoly from the browser.">
+        <meta property="og:image" content="/posts/monopoly-money/feature.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/monopoly-money/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
@@ -75,16 +75,22 @@
 
                     <h1 class="blog-post-title">Monopoly Money</h1>
                     <div class="mb-3">
-                        <a href="/blog/archive/#2017" class="text-muted">21 Dec 2017</a>
+                        <a href="/blog/archive/#2020" class="text-muted">18 Apr 2020</a>
                         <a href="/blog/categories/#Projects" class="badge badge-primary ml-2">Projects</a>
                         
-                        <a href="/blog/tags/#python" class="badge badge-warning">python</a>
+                        <a href="/blog/tags/#react" class="badge badge-warning">react</a>
                         
-                        <a href="/blog/tags/#flask" class="badge badge-warning">flask</a>
+                        <a href="/blog/tags/#typescript" class="badge badge-warning">typescript</a>
+                        
+                        <a href="/blog/tags/#javascript" class="badge badge-warning">javascript</a>
+                        
+                        <a href="/blog/tags/#express" class="badge badge-warning">express</a>
+                        
+                        <a href="/blog/tags/#lerna" class="badge badge-warning">lerna</a>
                         
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </div>
-                    <p class="lead">A web app that allows players to keep track of their Monopoly balances securely in an internet banking like system. The server is built in Flask which can support unlimited games on one server. Each game has one banker amd can have as many players as needed.</p>
+                    <p class="lead">A Node.js server and React frontend that helps you manage your finances in a game of Monopoly from the browser.</p>
                     <hr class="mt-3 mb-0">
 
                     
@@ -105,61 +111,46 @@
                     
 
                     <div class="post-content mt-3">
-                        <h2 id="what-is-this">What is this?</h2>
-<p>This project is a substitution for cash/credit cards in the game of Monopoly. A banker creates a game on the server and players then join. The banker can spawn in money and pass it to other players. Players can send money to each other, see how much money is in free parking, see their own amount and see all events that occur (money passed). All events are shown to all players to stop cheating as everyone will know where money goes.</p>
-<h2 id="demonstration-and-screenshots">Demonstration and Screenshots</h2>
-<p><img alt="Player type selection screen" src="/posts/monopoly-money/game1.png" />
-<img alt="Pin input screen" src="/posts/monopoly-money/game2.png" />
-<img alt="Banker screen" src="/posts/monopoly-money/game3.png" />
-<img alt="Player screen" src="/posts/monopoly-money/game4.png" /></p>
-<h2 id="installation-and-setup">Installation and Setup</h2>
-<ol>
-<li>Install Python</li>
-<li>Install Flask (pip install Flask)</li>
-<li>Download or clone the repository at <a href="https://github.com/brentvollebregt/monopoly-money">https://github.com/brentvollebregt/monopoly-money</a></li>
-<li>Visit address displayed</li>
-<li>Choose if you are the banker or another player and supply your name</li>
-<li>If you are a player, enter the pin supplied by your banker</li>
-</ol>
+                        <div align="center" style="padding: 20px 20px 40px 20px">
+    <img src="/posts/monopoly-money/banner.png" alt="Monopoly Money Banner" style="margin-bottom: 10px;">
+    <p class="text-center">Manage your finances in a game of Monopoly from the browser.</p>
+    <a href="https://monopoly-money.nitratine.net/"><button class="btn btn-outline-secondary" type="button">🌐 Visit monopoly-money.nitratine.net →</button></a>
+</div>
+
+<p>Monopoly Money is a webapp designed for mobile that allows multiple players to track their balances collectively in a game of monopoly and transfer money from one another.</p>
+<h2 id="how-can-this-help-you">How Can This Help You?</h2>
+<p>If you have every played the credit card edition of Monopoly, you will appreciate how much faster the game moves without having to count cash. This webapp substitutes the need for cash in a game of monopoly for a mobile-banking-like solution where players can easily send each other virtual currency.</p>
+<p>Using this method for finance management also allows you to keep a full history of your game and have clarity over every movement.</p>
 <h2 id="usage">Usage</h2>
-<p>After the server has been started, the player who is going to be the banker can visit the address displayed on the console, enter their name and click banker.</p>
-<p>By clicking on the bank icon in the top left side, the banker can switch between the bank and their account.</p>
-<p>For other players, go to the address displayed, enter your name and click player. This will now ask for a pin, this can be received from the banker.</p>
-<p>When all players have joined the game, the banker can lock the game by going to the banking screen and clicking the button on the bottom left. This will make sure no one else can join the game. This can be clicked again to open the game back up to more players.</p>
-<p>The banker can now give money to everyone and play the game as it normally would be played.</p>
-<p>Players can send money by selecting what player they want to send money to, changing the amount and clicking go.</p>
-<p>The top of the banker screen allows the banker to send money to a player. Under that allows the banker to send free parking to a particular player. Under than the banker can manage players. Next the banker can set a players balance and finally the "Who starts first?" button will select a player at random and display their name. The "Open/Close" button manages if the game is open or closes to more players and the "End" button will end the game.</p>
+<p>To start using the webapp, follow the basic following steps:</p>
+<ul>
+<li>Get all participants to go to <a href="https://monopoly-money.nitratine.net/">monopoly-money.nitratine.net</a> in a browser of their choosing.</li>
+<li>Whoever is the banker should select "New Game" to create a new game after providing their name.</li>
+<li>All other participants should then selected "Join Game" and using the game id provided by the banker and their name, join the game.</li>
+</ul>
+<p>When everyone is in the game, the banker can then close the game to stop others joining and then start distributing out the initial balances.</p>
 <h2 id="features">Features</h2>
-<h3 id="server">Server</h3>
 <ul>
-<li>Games that generate when a player makes themself a banker</li>
-<li>Free parking</li>
-<li>Log that says what has happened (Shows all money values in K)</li>
+<li>Multiple games can be hosted on the server at once</li>
+<li>Each player uses their own device; everyone joins one game.</li>
+<li>Send money between players quickly</li>
+<li>The person that created the game is the banker. This person can:<ul>
+<li>Give money to players from the bank (and take money)</li>
+<li>Give free parking to players</li>
+<li>Update player names</li>
+<li>Delete players</li>
+<li>Stop new people from joining the game</li>
+<li>End the game completely</li>
 </ul>
-<h3 id="players">Players</h3>
-<ul>
-<li>Easily join a game using a pin</li>
-<li>Auto refresh in the background (still manual button in /play/ if its too slow)</li>
-<li>Self chosen names (can be changed by banker)</li>
-<li>Simple to send money to players/bank/free parking</li>
-<li>Clicking on amounts with 'M' or 'k' will switch them.</li>
-</ul>
-<h3 id="banker">Banker</h3>
-<ul>
-<li>Banker can edit player names and remove people</li>
-<li>Ask who starts first (random selection of current players)</li>
-<li>Can set players balances</li>
-<li>Lock the game so no one else can come in while you are in the middle of a game</li>
-<li>End game easily</li>
+</li>
+<li>History is recorded of each game event that can be viewed by all players</li>
 </ul>
                     </div>
 
                     <nav class="blog-pagination text-center mb-5 mt-4">
                         
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/mp3-itunes-downloader/">&larr; MP3-iTunes Downloader</a>
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-detect-key-presses-in-python/">&larr; How to Detect Key Presses In Python</a>
                         
-                        
-                            <a class="btn btn-outline-primary mt-1" href="/blog/post/lucy-in-the-sky-with-emotion/">Lucy In The Sky With Emotion &rarr;</a>
                         
                     </nav>
 
@@ -296,6 +287,10 @@
                             
                                 <a title="Hit Counter" href="https://hitcounter.pythonanywhere.com/">
                                     <img src="/assets/img/featured-sites/hit-counter.png" />
+                                </a>
+                            
+                                <a title="Monopoly Money" href="https://monopoly-money.nitratine.net/">
+                                    <img src="/posts/monopoly-money/banner.png" />
                                 </a>
                             
                         </div>
