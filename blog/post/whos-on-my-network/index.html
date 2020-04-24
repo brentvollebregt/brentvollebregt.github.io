@@ -25,10 +25,10 @@
         <link rel="stylesheet" href="/assets/css/blog.css">
         <link rel="stylesheet" href="/assets/css/pygments.css">
 
-        <meta name="description" content="This tool helps you keep and eye on who is on your network and when. Simply periodically scan your network, assign devices to people and view who is on your network.">
+        <meta name="description" content="This tool helps you keep an eye on who is on your network and when. Simply periodically scan your network, assign devices to people and view who is on your network.">
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Who&#39;s On My Network">
-        <meta property="og:description" content="This tool helps you keep and eye on who is on your network and when. Simply periodically scan your network, assign devices to people and view who is on your network.">
+        <meta property="og:description" content="This tool helps you keep an eye on who is on your network and when. Simply periodically scan your network, assign devices to people and view who is on your network.">
         <meta property="og:image" content="/posts/whos-on-my-network/feature.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/whos-on-my-network/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -90,7 +90,7 @@
                         
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </div>
-                    <p class="lead">This tool helps you keep and eye on who is on your network and when. Simply periodically scan your network, assign devices to people and view who is on your network.</p>
+                    <p class="lead">This tool helps you keep an eye on who is on your network and when. Simply periodically scan your network, assign devices to people and view who is on your network.</p>
                     <hr class="mt-3 mb-0">
 
                     
@@ -146,7 +146,7 @@
 <h2 id="getting-the-tool-yourself">Getting the Tool Yourself</h2>
 <p>On every official version change, a <a href="https://github.com/brentvollebregt/whos-on-my-network/releases">GitHub release</a> is made which contains two files:</p>
 <ul>
-<li><code>whos_on_my_network.zip</code>: The whos_on_my_network module with the webapp pre-built.</li>
+<li><code>whos_on_my_network.zip</code>: The whos_on_my_network module with the web app pre-built.</li>
 <li><code>whos_on_my_network_binary.zip</code>: A Windows executable of whos_on_my_network (does not support plugins)</li>
 </ul>
 <blockquote>
@@ -169,7 +169,7 @@
 <h4 id="scans">Scans</h4>
 <p><img alt="Who's On My Network Scan Screenshot" src="/posts/whos-on-my-network/scans-screenshot.png" /></p>
 <p>The scans page shows scans that have been made.</p>
-<p>On the scans page, you can select a date range and view all the scans in that period. When clicking on a scan (row on the table), you will be directed to more focused data on that scan in particular, showing the time, network id used and details about each device.</p>
+<p>On the scans page, you can select a date range and view all the scans in that period. When clicking on a scan (row on the table), you will be directed to more focused data on that scan, in particular, showing the time, network id used and details about each device.</p>
 <p><img alt="Who's On My Network Scan Screenshot" src="/posts/whos-on-my-network/scan-screenshot.png" /></p>
 <h3 id="devices">Devices</h3>
 <p><img alt="Who's On My Network Devices Screenshot" src="/posts/whos-on-my-network/devices-screenshot.png" /></p>
@@ -189,7 +189,7 @@
 <h2 id="how-this-tool-works">How This Tool Works</h2>
 <p>By default, this tool uses <a href="https://scapy.net/">scapy</a> to send ARP packets to all addresses in the provided network range (default is 192.168.1.0/24) to identify what devices are on the network. When a host responds, its MAC address, IP address and hostname are obtained and an entry is added to the SQLite database matched to the current scan.</p>
 <p>Plugins are supported by this application to allow custom methods of scanning a network. An example has been provided for WiFi networks that use a <a href="https://github.com/brentvollebregt/whos-on-my-network/blob/master/whos_on_my_network/plugins/asus-rt-ac58u.py">ASUS RT-AC58 router</a>. This plugin demonstrates how you can instead look at the active devices connected to your router rather than scanning the network.</p>
-<p>All data collected by the application is stored locally in a SQLite database.</p>
+<p>All data collected by the application is stored locally in an SQLite database.</p>
 <h2 id="what-happened-to-the-original-version">What Happened to the Original Version?</h2>
 <p>The original version is preserved in the git history under the <a href="https://github.com/brentvollebregt/whos-on-my-network/tree/v1.0.0">tag v1.0.0</a>.</p>
                     </div>

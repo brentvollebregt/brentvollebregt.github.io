@@ -105,10 +105,10 @@
 <h2 id="what-and-why">What and Why?</h2>
 <p>A while ago I had seen someone show all their winnings from using a twitter bot to retweet tweets. Today is a bit more advanced and now people ask to like, follow and sometimes tag. This bot does not tag others but it does retweet, like and follow people mentioned in the tweet.</p>
 <h2 id="setup">Setup</h2>
-<p>First make sure you have <a href="https://www.python.org/downloads/">python</a> installed and that you have <a href="/blog/post/how-to-setup-pythons-pip/">setup pip</a>.</p>
+<p>First, make sure you have <a href="https://www.python.org/downloads/">python</a> installed and that you have <a href="/blog/post/how-to-setup-pythons-pip/">setup pip</a>.</p>
 <p>If you haven't, create a new <a href="https://twitter.com/">twitter</a> account. If you want to use an existing one, be aware that this will spam the shit out of your account.</p>
 <h2 id="installing-tweepy">Installing Tweepy</h2>
-<p>So now that you have setup pip, you can use it to install <a href="http://www.tweepy.org/">tweepy</a> easily. Open up cmd and execute the command <code>pip list tweepy</code>. Make sure the output doesn't have any errors and that it states that it was installed successfully.</p>
+<p>So now that you have set up pip, you can use it to install <a href="http://www.tweepy.org/">tweepy</a> easily. Open up cmd and execute the command <code>pip list tweepy</code>. Make sure the output doesn't have any errors and that it states that it was installed successfully.</p>
 <p>Open up IDLE and execute the following line. If no errors appear, it was installed correctly.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">tweepy</span>
 </code></pre></div>
@@ -128,8 +128,8 @@
 <p><img alt="App tokens" src="/posts/python-retweet-bot/tokens.png" /></p>
 <p>Save these somewhere for the next part of creating the bot.</p>
 <h2 id="creating-the-script">Creating the Script</h2>
-<p>Now that everything is setup and we have the keys we need, we can make the script. Open IDLE, create a new script and save it as a .py.</p>
-<p>First we will want to import the tweepy module.</p>
+<p>Now that everything is set up and we have the keys we need, we can make the script. Open IDLE, create a new script and save it as a .py.</p>
+<p>First, we will want to import the tweepy module.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">tweepy</span>
 </code></pre></div>
 
@@ -142,33 +142,33 @@
 </code></pre></div>
 
 
-<p>Now we need to setup the twitter api by using OAuthHandler and API classes.</p>
+<p>Now we need to set up the twitter API by using OAuthHandler and API classes.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
 <span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
 <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
 </code></pre></div>
 
 
-<p>Next we will set two simple variables. One will hold different search queries and the other will be max tweets per query. These will be used later. You can freely modify these later after you understand what they do (noted in "Running the Script").</p>
+<p>Next, we will set two simple variables. One will hold different search queries and the other will be max tweets per query. These will be used later. You can freely modify these later after you understand what they do (noted in "Running the Script").</p>
 <div class="codehilite"><pre><span></span><code><span class="n">queries</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rt to win&quot;</span><span class="p">,</span> <span class="s2">&quot;retweet to win&quot;</span><span class="p">]</span>
 <span class="n">tweets_per_query</span>  <span class="o">=</span> <span class="mi">50</span>
 </code></pre></div>
 
 
-<p>Now set a variable to count the amount of tweets re-tweeted to use at the end and create a loop looping though the queries declared previously.</p>
+<p>Now set a variable to count the number of tweets re-tweeted to use at the end and create a loop looping through the queries declared previously.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">new_tweets</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">querry</span> <span class="ow">in</span> <span class="n">queries</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">query</span> <span class="ow">in</span> <span class="n">queries</span><span class="p">:</span>
 </code></pre></div>
 
 
-<p>In this for loop, print what query we are querying and then create another for loop that loops though tweets that are returned from the api search using the query in the current loop.</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Starting new querry: &quot;</span> <span class="o">+</span> <span class="n">querry</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">querry</span><span class="p">,</span> <span class="n">tweet_mode</span><span class="o">=</span><span class="s2">&quot;extended&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">tweets_per_query</span> <span class="p">):</span>
+<p>In this for loop, print what query we are querying and then create another for loop that loops through tweets that are returned from the API search using the query in the current loop.</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Starting new query: &quot;</span> <span class="o">+</span> <span class="n">query</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">tweet_mode</span><span class="o">=</span><span class="s2">&quot;extended&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">tweets_per_query</span> <span class="p">):</span>
 </code></pre></div>
 
 
 <p>Now inside this loop, we will focus on each individual tweet which is now in the 'tweet' variable.</p>
-<p>Get the users screen name that tweeted the tweet, id and then create and print the url. This is mainly for output purposes but will be used later.</p>
+<p>Get the user's screen name that tweeted the tweet, id and then create and print the URL. This is mainly for output purposes but will be used later.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">user</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">screen_name</span>
 <span class="nb">id</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">id</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://twitter.com/&#39;</span> <span class="o">+</span> <span class="n">user</span> <span class="o">+</span>  <span class="s1">&#39;/status/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
@@ -176,7 +176,7 @@
 </code></pre></div>
 
 
-<p>Since we used the extended tweet_mode in the search querry, we will be given all the text in the tweet rather than the normal 140 returned by the api.</p>
+<p>Since we used the extended tweet_mode in the search query, we will be given all the text in the tweet rather than the normal 140 returned by the API.</p>
 <p>This text will be sitting in tweet.retweeted_status.full_text if the tweet we are looking at is a re-tweeted tweet or in tweet.full_text if this is the original tweet. Convert the text to lowercase to make it easier to deal with later.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">retweeted_status</span><span class="o">.</span><span class="n">full_text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -229,7 +229,7 @@
 
 <h2 id="running-the-script">Running the Script</h2>
 <p>To use this script, put queries you want to search for in the 'queries' list towards the top. Set tweets_per_query  to how many tweets per query you want to loop at; remember too many interactions with the API and you may get restricted access due to usage limits. Also going back too far with large queries could potentially be an issue.</p>
-<p>Now simply run the script by hitting F5 in IDLE or double clicking on the script. Wait and you should see what the script is up to until it's done.</p>
+<p>Now simply run the script by hitting F5 in IDLE or double-clicking on the script. Wait and you should see what the script is up to until it's done.</p>
 <h2 id="final-script">Final Script</h2>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">tweepy</span>
 
@@ -246,9 +246,9 @@
 <span class="n">tweets_per_query</span>  <span class="o">=</span> <span class="mi">50</span>
 
 <span class="n">new_tweets</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">querry</span> <span class="ow">in</span> <span class="n">queries</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Starting new querry: &quot;</span> <span class="o">+</span> <span class="n">querry</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">querry</span><span class="p">,</span> <span class="n">tweet_mode</span><span class="o">=</span><span class="s2">&quot;extended&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">tweets_per_query</span> <span class="p">):</span>
+<span class="k">for</span> <span class="n">query</span> <span class="ow">in</span> <span class="n">queries</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Starting new query: &quot;</span> <span class="o">+</span> <span class="n">query</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">tweet_mode</span><span class="o">=</span><span class="s2">&quot;extended&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">tweets_per_query</span> <span class="p">):</span>
 
         <span class="n">user</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">screen_name</span>
         <span class="nb">id</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">id</span>
@@ -290,7 +290,7 @@
 
 
 <h2 id="final-notes">Final Notes</h2>
-<p>Unfortunately I didn't add a "tag your friend" command because I didn't want to annoy anyone and didn't bother making another account. This could be a bit hard to impliment because sometimes this is an arbitrary number requested.</p>
+<p>Unfortunately, I didn't add a "tag your friend" command because I didn't want to annoy anyone and didn't bother making another account. This could be a bit hard to implement because sometimes this is an arbitrary number requested.</p>
 <p>I am not responsible for any harm that may come from this.</p>
                     </div>
 

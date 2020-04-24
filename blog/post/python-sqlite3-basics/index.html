@@ -155,10 +155,10 @@
 <p>.execute() can take two arguments, the query and a tuple of data to be put into the query. In my example above, the first item in the tuple would be put in place of the first question mark, this will also happen for the second item and second question mark.</p>
 <p>We use this to stop SQL injections and error happening from dynamic data being added to queries.</p>
 <blockquote>
-<p>It is possible to just add your values by using .format or adding strings together using '+' but this method is much more safe.</p>
+<p>It is possible to just add your values by using .format or adding strings together using '+' but this method is much safer.</p>
 </blockquote>
 <h3 id="why-didnt-you-add-an-id">Why Didn't You Add An Id?</h3>
-<p>One feature of SQLite is that if you have a integer as a primary key in a table, it will auto increment based off the last entry if you do not assign. This means I don't have to worry about making different id's for each entry as the library will take care of it for me.</p>
+<p>One feature of SQLite is that if you have an integer as a primary key in a table, it will auto-increment based off the last entry if you do not assign. This means I don't have to worry about making different id's for each entry as the library will take care of it for me.</p>
 <p>This means after each entry is put into the table, each is assigned a different id being 1, 2, 3, 4, ect...</p>
 <h3 id="committing">Committing</h3>
 <p>When creating tables, adding rows and modifying values, the table is in a temporary state. To actually save the changes you need to call .commit() to the connection object. In this example I would use:</p>
@@ -174,7 +174,7 @@
 
 
 <h3 id="available-datatypes">Available Datatypes</h3>
-<p>Unlike the bigger SQL databases, SQLite come with only 5 datatypes. Although this may seem like an issue, it isn't; you still can implement what you need with these.</p>
+<p>Unlike the bigger SQL databases, SQLite comes with only 5 data types. Although this may seem like an issue, it isn't; you still can implement what you need with these.</p>
 <ul>
 <li><strong>NULL</strong>: A NULL value.</li>
 <li><strong>INTEGER</strong>: A signed integer, stored in 1, 2, 3, 4, 6, or 8 bytes depending on the magnitude of the value.</li>
@@ -188,14 +188,14 @@
 </code></pre></div>
 
 
-<p>In this example I am getting the id of a particular url in my url table. To get the result of my query there are two common possible methods. Depending on how many items your query returns will determine what method you use.</p>
+<p>In this example, I am getting the id of a particular url in my url table. To get the result of my query there are two common possible methods. Depending on how many items your query returns will determine what method you use.</p>
 <h3 id="fetch-one-row-in-returned-object">Fetch One Row In Returned Object</h3>
 <p>After executing your query using cursor.execute() you can now call .fetchone() on cursor to get one row that has been returned. For example:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">url_id</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
 </code></pre></div>
 
 
-<p>This will return a sqlite3.Row object which can easily be casted to a tuple. You can now get items out of the row using indexes. Since I only selected one column from the table I will have one value in my tuple in url_id; so to get this out I can use <code>url_id[0]</code> to get the id of the url.</p>
+<p>This will return a sqlite3.Row object which can easily be cast to a tuple. You can now get items out of the row using indexes. Since I only selected one column from the table I will have one value in my tuple in url_id; so to get this out I can use <code>url_id[0]</code> to get the id of the url.</p>
 <p>If you have selected more than one item, these items will be in a tuple-like object just like above so once again we can use indexes to get values out for example use <code>url_id[2]</code> to get the 3rd (2nd since we start from 0) object out.</p>
 <h3 id="fetch-all-row-in-returned-object">Fetch All Row In Returned Object</h3>
 <p>Like above, we can call .fetchall() on an executed query. This will return multiple rows like above in a list object. For example:</p>
@@ -204,7 +204,7 @@
 </code></pre></div>
 
 
-<p>Based off this example, we now have tuples of ids and urls in a list object. You could now either look at particular rows or do a for loop over them like this:</p>
+<p>Based on this example, we now have tuples of ids and urls in a list object. You could now either look at particular rows or do a for loop over them like this:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">ids_and_urls</span><span class="p">:</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;ID: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">))</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;URL: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">))</span>
@@ -215,8 +215,8 @@
 <p>When you are done modifying and getting data from a database, it is recommended to close your cursor. This is so that other programs that may be using the database can access the database as only one cursor is allowed at a time.</p>
 <p>This is most certainly not something you have to do if only one script/thread accesses the database at a time, the Python garbage collector will remove the object if you don't when the script ends.</p>
 <h3 id="using-keys-in-fetched-data">Using Keys in Fetched Data</h3>
-<p>It may seem a bit stupid to only be able to use indexes to get data out of a row object; and you would be right.</p>
-<p>First we need to set the connections <code>row_factory</code> to <code>sqlite3.Row</code>. This needs to be executed before you set your cursor.</p>
+<p>It may seem a bit stupid to only be able to use indexes to get data out of a row object, and you would be right.</p>
+<p>First, we need to set the connections <code>row_factory</code> to <code>sqlite3.Row</code>. This needs to be executed before you set your cursor.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">connection</span><span class="o">.</span><span class="n">row_factory</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Row</span>
 </code></pre></div>
 
@@ -229,14 +229,14 @@
 </code></pre></div>
 
 
-<p>This will return a list of the keys for items in the row object. These keys will the the names of the columns for the selected data (which you will already know as you set them). So to get a value out of the row object using it's column name we use:</p>
+<p>This will return a list of the keys for items in the row object. These keys will be the names of the columns for the selected data (which you will already know as you set them). So to get a value out of the row object using its column name we use:</p>
 <div class="codehilite"><pre><span></span><code><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;ID: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">particualr_id_and_url</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="p">))</span>
 </code></pre></div>
 
 
 <h2 id="viewing-a-database-without-commands">Viewing a Database Without Commands</h2>
-<p>A great way to check what is in your database is to go to a site like <a href="http://inloop.github.io/sqlite-viewer/">SQLite Viewer</a> where you can view a sqlite file online. Simply drop the file in the site and you will be able to look at the contents locally in a very easy matter.</p>
-<p>On this site you can also temporarily makes changes to the database which allows you to test commands before running them on data else-where.</p>
+<p>A great way to check what is in your database is to go to a site like <a href="http://inloop.github.io/sqlite-viewer/">SQLite Viewer</a> where you can view an SQLite file online. Simply drop the file in the site and you will be able to look at the contents locally in a very easy matter.</p>
+<p>On this site, you can also temporarily makes changes to the database which allows you to test commands before running them on data else-where.</p>
 <h2 id="why-dont-i-just-use-mysql-or-sql-server">Why Don't I Just Use MySQL or SQL Server?</h2>
 <p>One massive benefit of this package is that you don't need to have any extra server running to execute your commands. Everything is done with a file you have access to and you don't need to install any extra software.</p>
 <h2 id="extra-reading">Extra Reading</h2>

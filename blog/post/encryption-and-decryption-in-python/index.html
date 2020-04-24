@@ -25,10 +25,10 @@
         <link rel="stylesheet" href="/assets/css/blog.css">
         <link rel="stylesheet" href="/assets/css/pygments.css">
 
-        <meta name="description" content="In this post I discuss how to encrypt and decrypt messages in Python using symmetric encryption. I will demonstrate how to create keys, save keys and how to encrypt messages and text.">
+        <meta name="description" content="In this post, I discuss how to encrypt and decrypt messages in Python using symmetric encryption. I will demonstrate how to create keys, save keys and how to encrypt messages and text.">
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Encryption and Decryption in Python">
-        <meta property="og:description" content="In this post I discuss how to encrypt and decrypt messages in Python using symmetric encryption. I will demonstrate how to create keys, save keys and how to encrypt messages and text.">
+        <meta property="og:description" content="In this post, I discuss how to encrypt and decrypt messages in Python using symmetric encryption. I will demonstrate how to create keys, save keys and how to encrypt messages and text.">
         <meta property="og:image" content="/posts/encryption-and-decryption-in-python/feature.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/encryption-and-decryption-in-python/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -86,7 +86,7 @@
                         
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </div>
-                    <p class="lead">In this post I discuss how to encrypt and decrypt messages in Python using symmetric encryption. I will demonstrate how to create keys, save keys and how to encrypt messages and text.</p>
+                    <p class="lead">In this post, I discuss how to encrypt and decrypt messages in Python using symmetric encryption. I will demonstrate how to create keys, save keys and how to encrypt messages and text.</p>
                     <hr class="mt-3 mb-0">
 
                     
@@ -116,7 +116,7 @@
 
 <p>Using the <a href="https://cryptography.io/en/latest/">cryptography</a> module in Python, we will use an implementation of AES called <a href="https://cryptography.io/en/latest/fernet/">Fernet</a> to encrypt data. I will also show you how to keep keys safe and how to use these methods on files.</p>
 <h2 id="installing-cryptography">Installing cryptography</h2>
-<p>Since Python does not come with anything that can encrypt files, we will need to use a third party module.</p>
+<p>Since Python does not come with anything that can encrypt files, we will need to use a third-party module.</p>
 <p><a href="https://github.com/dlitz/pycrypto">PyCrypto</a> is quite popular but since it does not offer built wheels, if you don't have Microsoft Visual C++ Build Tools installed, you will be told to install it. Instead of installing extra tools just to build this, I will be using the cryptography module. To install this, execute:</p>
 <div class="codehilite"><pre><span></span><code><span class="go">python -m pip install cryptography</span>
 </code></pre></div>
@@ -142,7 +142,7 @@
 </code></pre></div>
 
 
-<p>The variable <em>key</em> will now have the value of a url safe base64 encoded key. When using these keys to encrypt, make sure to keep them safe, if you lose them you will not be able to decrypt your message.</p>
+<p>The variable <em>key</em> will now have the value of a URL safe base64 encoded key. When using these keys to encrypt, make sure to keep them safe, if you lose them you will not be able to decrypt your message.</p>
 <p>This key will have a type of bytes, so if you want a string you can call <code>key.decode()</code> to convert from UTF-8 to Pythons string type.</p>
 <h3 id="storing-keys">Storing Keys</h3>
 <p>One way of keeping your keys safe is to keep them in a file. To do this we can simply create/overwrite a file and put the key in it.</p>
@@ -200,7 +200,7 @@
 </code></pre></div>
 
 
-<p>The variable <em>encrypted</em> will now have the value of the message encrypted as type bytes. This is also be a url safe base64 encoded key.</p>
+<p>The variable <em>encrypted</em> will now have the value of the message encrypted as type bytes. This is also  a URL safe base64 encoded key.</p>
 <h2 id="decrypting">Decrypting</h2>
 <p>To decrypt a message, you will need the same key and the encrypted message (still in bytes).</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">cryptography.fernet</span> <span class="kn">import</span> <span class="n">Fernet</span>
@@ -228,7 +228,7 @@
 
 <p>This example shows a key being generated, you will want to make sure you have already sorted your key out and put it in a file for later use.</p>
 <h2 id="encrypting-and-decrypting-files">Encrypting and Decrypting Files</h2>
-<p>We can also encrypt files using this method since files can be read as bytes. Simply open the file, read the bytes, encrypt the data and the write them out to a new file. To encrypt:</p>
+<p>We can also encrypt files using this method since files can be read as bytes. Simply open the file, read the bytes, encrypt the data and write them out to a new file. To encrypt:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">cryptography.fernet</span> <span class="kn">import</span> <span class="n">Fernet</span>
 <span class="n">key</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span> <span class="c1"># Use one of the methods to get a key (it must be the same when decrypting)</span>
 <span class="n">input_file</span> <span class="o">=</span> <span class="s1">&#39;test.txt&#39;</span>

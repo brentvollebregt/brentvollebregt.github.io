@@ -25,10 +25,10 @@
         <link rel="stylesheet" href="/assets/css/blog.css">
         <link rel="stylesheet" href="/assets/css/pygments.css">
 
-        <meta name="description" content="Eel is a little Python library for making simple Electron-like HTML/JS GUI apps. This used for creating GUI&#39;s in a Chrome app window with HTML, CSS and JS. In summary it hosts a local webserver, then provides features to communicate between JavaScript and Python.">
+        <meta name="description" content="Eel is a little Python library for making simple Electron-like HTML/JS GUI apps. This used for creating GUI&#39;s in a Chrome app window with HTML, CSS and JS. In summary, it hosts a local webserver, then provides features to communicate between JavaScript and Python.">
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Python GUI Using Chrome">
-        <meta property="og:description" content="Eel is a little Python library for making simple Electron-like HTML/JS GUI apps. This used for creating GUI&#39;s in a Chrome app window with HTML, CSS and JS. In summary it hosts a local webserver, then provides features to communicate between JavaScript and Python.">
+        <meta property="og:description" content="Eel is a little Python library for making simple Electron-like HTML/JS GUI apps. This used for creating GUI&#39;s in a Chrome app window with HTML, CSS and JS. In summary, it hosts a local webserver, then provides features to communicate between JavaScript and Python.">
         <meta property="og:image" content="/posts/python-gui-using-chrome/feature.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/python-gui-using-chrome/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -88,7 +88,7 @@
                         
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </div>
-                    <p class="lead">Eel is a little Python library for making simple Electron-like HTML/JS GUI apps. This used for creating GUI&#39;s in a Chrome app window with HTML, CSS and JS. In summary it hosts a local webserver, then provides features to communicate between JavaScript and Python.</p>
+                    <p class="lead">Eel is a little Python library for making simple Electron-like HTML/JS GUI apps. This used for creating GUI&#39;s in a Chrome app window with HTML, CSS and JS. In summary, it hosts a local webserver, then provides features to communicate between JavaScript and Python.</p>
                     <hr class="mt-3 mb-0">
 
                     
@@ -126,7 +126,7 @@
 <li><a href="#extra-reading">Extra Reading</a></li>
 </ul>
 </div>
-<p>When thinking of what to design <a href="/blog/post/auto-py-to-exe/">auto-py-to-exe</a> with, I came across <a href="https://github.com/ChrisKnott/Eel">Eel</a> for creating GUI's using HTML, CSS and JavaScript in a Chrome app window. Hosting a local webserver and using Chromes app mode was exactly what I needed to make this project look great. Also this library ets you annotate functions in Python so that they can be called from Javascript, and vice versa.</p>
+<p>When thinking of what to design <a href="/blog/post/auto-py-to-exe/">auto-py-to-exe</a> with, I came across <a href="https://github.com/ChrisKnott/Eel">Eel</a> for creating GUI's using HTML, CSS and JavaScript in a Chrome app window. Hosting a local webserver and using Chromes app mode was exactly what I needed to make this project look great. Also this library lets you annotate functions in Python so that they can be called from Javascript, and vice versa.</p>
 <div class="embedded_yt my-3">
     <div>
         <iframe allow="autoplay; encrypted-media" allowfullscreen="" src="https://www.youtube.com/embed/2kbeBzEQfXE"></iframe>
@@ -163,11 +163,11 @@
 </code></pre></div>
 
 
-<p>This example imports eel, says where you files are and then starts the server passing the index page (page to display). When running the script, a chrome in app mode will appear and render the filename you passed in eel.start(). Chrome app mode is the same as chrome with the URL and bookmarks bar hidden.</p>
+<p>This example imports eel, says where your files are and then starts the server passing the index page (page to display). When running the script, a chrome Window in app mode will appear and render the filename you passed in eel.start(). Chrome app mode is the same as chrome with the URL and bookmarks bar hidden.</p>
 <p>If you do not have chrome installed, you will be asked what browser to open. The only difference when using this method is that you cannot control the initial size of the window.</p>
 <p><img alt="Hello World" src="/posts/python-gui-using-chrome/hello-world.png" /></p>
 <h3 id="app-options">App Options</h3>
-<p>You can set some optional variables when staring the server. To do this, pass a dictionary object to assigned to options as an argument; for example:</p>
+<p>You can set some optional variables when starting the server. To do this, pass a dictionary object to assigned to options as an argument; for example:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">my_options</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;mode&#39;</span><span class="p">:</span> <span class="s2">&quot;chrome&quot;</span><span class="p">,</span> <span class="c1">#or &quot;chrome-app&quot;,</span>
     <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
@@ -179,7 +179,7 @@
 </code></pre></div>
 
 
-<p>In this example I have set 'mode' to 'chrome', this will mean that it will use chrome normally and not in app mode; use "chrome-app" to keep app mode (this is default). I set the 'host' to 'localhost' which will then host the server on 127.0.0.1. You could change this to your computers ip on your network so others can access the server. I have also set the port which is useful for clashes between servers and added chrome flags. Chrome flags are appended when calling the executable as usual.</p>
+<p>In this example I have set 'mode' to 'chrome', this will mean that it will use chrome normally and not in app mode; use "chrome-app" to keep app mode (this is the default). I set the 'host' to 'localhost' which will then host the server on 127.0.0.1. You could change this to your computers IP on your network so others can access the server. I have also set the port which is useful for clashes between servers and added chrome flags. Chrome flags are appended when calling the executable as usual.</p>
 <p><em>Remember that you do not have to pass all these options in the dictionary, you can pass one if you want.</em></p>
 <h3 id="setting-window-size">Setting Window Size</h3>
 <p>If you are using chrome in app mode (default) you can specify the size of the window by passing a tuple to the size argument in eel.start(). For example:</p>
@@ -190,7 +190,7 @@
 <p>When I have used this in the past, the size doesn't always match up, a good example of this is in my <a href="/blog/post/auto-py-to-exe/">auto-py-to-exe</a> project which uses <code>size=(650, 612)</code> but renders the window about 636x605. When looking at the inner dimensions of the window using JavaScript; window.innerHeight returns 573 and window.innerWidth returns 634.</p>
 <p>This shows you might have to play around with these values until you get them where you want but they do work (just not as expected).</p>
 <h2 id="communication">Communication</h2>
-<p>Before you carry on, you will need to put a JavaScript file in your html file. Simply add to the header:</p>
+<p>Before you carry on, you will need to put a JavaScript file in your HTML file. Simply add to the header:</p>
 <div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/eel.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 
@@ -204,7 +204,7 @@
 </code></pre></div>
 
 
-<p>Now when you call <code>eel.my_python_method('Hello ', 'world!');</code> in JavaScript, Python will print "Hello World!". This shows that the code is executed in the python instance, not in the chrome window; remember that - you cannot run Python code in JavaScript. You can however return data from Python back to JavaScript; I will describe this later.</p>
+<p>Now when you call <code>eel.my_python_method('Hello ', 'world!');</code> in JavaScript, Python will print "Hello World!". This shows that the code is executed in the python instance, not in the chrome window; remember that - you cannot run Python code in JavaScript. You can however, return data from Python back to JavaScript; I will describe this later.</p>
 <h2 id="making-javascript-functions-you-can-call-in-python">Making JavaScript Functions you Can Call in Python</h2>
 <p>To make a JavaScript function that you can call from Python wrap the function name in <code>eel.expose</code> before creating it like this:</p>
 <div class="codehilite"><pre><span></span><code><span class="nx">eel</span><span class="p">.</span><span class="nx">expose</span><span class="p">(</span><span class="nx">my_javascript_function</span><span class="p">);</span>
@@ -214,10 +214,10 @@
 </code></pre></div>
 
 
-<p>Now when you call <code>eel.my_javascript_function('Hello ', 'world!')</code> in Python, it will print "Hello World!" in the browsers console. This shows that the code was execute in JavaScript by calling the method in Python.</p>
+<p>Now when you call <code>eel.my_javascript_function('Hello ', 'world!')</code> in Python, it will print "Hello World!" in the browser's console. This shows that the code was executed in JavaScript by calling the method in Python.</p>
 <h2 id="returning-values">Returning Values</h2>
 <p>Even though it may seem like Python and JavaScript are working together, there is still a barrier between them as they are running in different processes. Eel supports two ways to return values; callbacks and synchronous returns.</p>
-<p>It's also good to note that passing complex objects between Python and JavaScript may not be possible due to the functions moving the data and the compatibility of the two languages for example you can't pass an instance of a class from Python to JavaScript.</p>
+<p>It's also good to note that passing complex objects between Python and JavaScript may not be possible due to the functions moving the data and the compatibility of the two languages, for example, you can't pass an instance of a class from Python to JavaScript.</p>
 <h3 id="callbacks">Callbacks</h3>
 <p>Callbacks allow us to execute a function with the data returned as the argument. When the data is returned, the function will be called and the return value will be passed as a parameter to the function. This method works both ways.</p>
 <p>If I wanted to use a callback in Python, I would create my method in JavaScript which returns a value that is exposed using eel. Then in Python:</p>
@@ -259,7 +259,7 @@
 
 <p>This will allows us to wait for the value to be returned from the server. If you leave out await, you will be given a <a href="https://developers.google.com/web/fundamentals/primers/promises">Promise object</a> which will only be given the actual value of return when the data is returned which will be a lot later due to the speed of transferring the data (fast for us but too slow for a computer).</p>
 <h2 id="a-simple-example">A Simple Example</h2>
-<p>In this example I will create to files, one being the Python script and the other being main.html in the web/ folder beside the Python script.</p>
+<p>In this example, I will create to files, one being the Python script and the other being main.html in the web/ folder beside the Python script.</p>
 <p><em>server.py</em></p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">eel</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -321,7 +321,7 @@
 
 <p>This will allow code execution to keep flowing after it reaches this statement. Do note that when your code underneath eel.start() is complete the server will stop as the whole script has stopped.</p>
 <h3 id="executing-code-when-the-window-is-closed">Executing Code When the Window is Closed</h3>
-<p>If you don't set block to false, you can detect when the window is closed. Since Eel uses a bottle server in the background, we know this will throw either <code>SystemExit</code>, <code>MemoryError</code> or <code>KeyboardInterrupt</code>. This means we can catch the exception by wrapping <code>eel.start()</code> in a try/expect block and stop the script from ending. For example:</p>
+<p>If you don't set <code>block</code> to false, you can detect when the window is closed. Since Eel uses a bottle server in the background, we know this will throw either <code>SystemExit</code>, <code>MemoryError</code> or <code>KeyboardInterrupt</code>. This means we can catch the exception by wrapping <code>eel.start()</code> in a try/except block and stop the script from ending. For example:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">eel</span>
 
 <span class="n">eel</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s1">&#39;web&#39;</span><span class="p">)</span>

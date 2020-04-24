@@ -119,7 +119,7 @@
 <h2 id="installing-pynput">Installing Pynput</h2>
 <p>We will be using the pynput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
 <p><img alt="Installing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
-<p>To double check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
+<p>To double-check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
 <p><img alt="Testing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput2.png" /></p>
 <h2 id="building-the-script">Building the Script</h2>
 <p>Create a new python file and save it with a .py file extension. You will first want to import Listener from pynput.mouse.</p>
@@ -127,7 +127,7 @@
 </code></pre></div>
 
 
-<p>Setup the listener by creating an instance in a with statement and using it's <code>.join()</code> method to join it to the main thread.</p>
+<p>Setup the listener by creating an instance in a <code>with</code> statement and using it's <code>.join()</code> method to join it to the main thread.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">Listener</span><span class="p">()</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
     <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 </code></pre></div>
@@ -150,7 +150,7 @@
 </code></pre></div>
 
 
-<p>To make sure these are running, add some print statements to each method. Save and run the script. Move your mouse around a bit, you should see output as below.</p>
+<p>To make sure these are running, add some print statements to each method. Save and run the script. Move your mouse around a bit, you should see output like below.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Mouse moved&quot;</span><span class="p">)</span>
 
@@ -232,7 +232,7 @@
 <h3 id="modulenotfounderrorimporterror-no-module-named-pynput">ModuleNotFoundError/ImportError: No module named 'pynput'</h3>
 <p>Did you install pynput? This error will not occur if you installed it properly. If you have multiple versions of Python, make sure you are installing pynput on the same version as what you are running the script with.</p>
 <h3 id="i-got-a-syntaxerror">I got a SyntaxError</h3>
-<p>Syntax errors are caused by you and these is nothing I can offer to fix it apart from telling you to read the error. They always say where the error is in the output using a ^. Generally people that get this issue have incorrect indentation, brackets in the wrong place or something spelt wrong. You can read about SyntaxError on Python's docs <a href="https://docs.python.org/2/tutorial/errors.html#syntax-errors">here</a>.</p>
+<p>Syntax errors are caused by you and there is not much I can offer to fix it apart from telling you to read the error. They always say where the error is in the output using a ^. Generally people that get this issue have incorrect indentation, brackets in the wrong place or something spelt wrong. You can read about SyntaxError on Python's docs <a href="https://docs.python.org/2/tutorial/errors.html#syntax-errors">here</a>.</p>
                     </div>
 
                     <nav class="blog-pagination text-center mb-5 mt-4">

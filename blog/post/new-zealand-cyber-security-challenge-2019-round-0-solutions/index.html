@@ -108,9 +108,9 @@
 </ul>
 </div>
 <h2 id="what-is-the-new-zealand-cyber-security-challenge">What is the <a href="https://nzcsc.org.nz/">New Zealand Cyber Security Challenge</a>?</h2>
-<p>Each year the University of Waikato holds a "cyber security" competition which involves CTF for rounds 1 and 2, policy creation/identification for round 3 and attack/defend servers for the top 5 teams. Side Challenges are also held which varies with the theme per year.</p>
+<p>Each year the University of Waikato holds a "cybersecurity" competition which involves CTF for rounds 1 and 2, policy creation/identification for round 3 and attack/defend servers for the top 5 teams. Side Challenges are also held which varies with the theme per year.</p>
 <blockquote>
-<p>Unfortunately I was not able to solve all challenges in round 0 this year so this solution guide will be incomplete unless extra contributions are provided. </p>
+<p>Unfortunately, I was not able to solve all challenges in round 0 this year so this solution guide will be incomplete unless extra contributions are provided. </p>
 </blockquote>
 <h2 id="solutions">Solutions</h2>
 <h3 id="challenge-1">Challenge 1</h3>
@@ -195,7 +195,7 @@
 </code></pre></div>
 
 
-<p>This gives text = <code>GET ./e51d35ed.bin</code>. Making an anchor tag on the page again to go to that relative URL like I did previously, the <a href="https://nzcsc.org.nz/competition/2019/r0/2/challenge/e51d35ed.bin">file</a> is downloaded.</p>
+<p>This gives text = <code>GET ./e51d35ed.bin</code>. Making an anchor tag on the page again to go to that relative URL as I did previously, the <a href="https://nzcsc.org.nz/competition/2019/r0/2/challenge/e51d35ed.bin">file</a> is downloaded.</p>
 <p>This file is 50KB in size and was the end of the line for me unfortunately. No magic bytes match this file and <a href="https://hexed.it/">hexedit</a> couldn't tell me the file type. I tried many things with this file but nothing gave a flag. I did notice though that there were no bytes in the file that had a value above 127; not sure if this hinted anything.</p>
 <h3 id="challenge-3">Challenge 3</h3>
 <p>This challenge displayed an input that apparently allowed you to run commands, tying <code>help</code> gave <code>Available commands: file, ls, cat, head, tail</code>. Doing <code>ls</code> in the current directory, we could see <code>flag</code> (not the flag), <code>notflag</code> (not the flag), <code>index.php</code> and some folders/files.</p>
@@ -218,7 +218,7 @@
 </blockquote>
 <h3 id="challenge-6">Challenge 6</h3>
 <p>This challenge supplies you a .ova file you can import to virtual box. When imported, a small Linux OS is presented with the file <code>validate</code> at /home/tc. When run, it asks you for a flag and waits a few seconds before saying if it's correct for not.</p>
-<p>When I was first attempting this, I had written a shell script using vi on the VM (lord help me) to get all the strings out of <code>validate</code> and run them though the program. Obviously this didn't work because they learnt their lesson from last year.</p>
+<p>When I was first attempting this, I had written a shell script using vi on the VM (lord help me) to get all the strings out of <code>validate</code> and run them through the program. Obviously this didn't work because they learnt their lesson from last year.</p>
 <p>I decided to extract the ova file using 7-Zip on a windows machine and then unzipped <code>VM-disk001.vmdk</code> within. Looking in \home\tc I could then easily access the <code>validate</code> file. I then went to <a href="https://onlinedisassembler.com/static/home/index.html">onlinedisassembler.com</a> for a dirty way to look at what this binary contained.</p>
 <p>Looking at the strings within the binary on a more familiar interface, I noticed hours later that one of the "flags" (many to put you off - which I had tested them all previously) were reversed; this was the flag.</p>
 <blockquote>

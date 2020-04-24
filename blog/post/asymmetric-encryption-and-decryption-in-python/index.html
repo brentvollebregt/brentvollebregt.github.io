@@ -25,10 +25,10 @@
         <link rel="stylesheet" href="/assets/css/blog.css">
         <link rel="stylesheet" href="/assets/css/pygments.css">
 
-        <meta name="description" content="In this post I demonstrate the usage of the cryptography module in Python by using using the asymmetric key method RSA to encrypt and decrypt messages.">
+        <meta name="description" content="In this post, I demonstrate the usage of the cryptography module in Python by using using the asymmetric key method RSA to encrypt and decrypt messages.">
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Asymmetric Encryption and Decryption in Python">
-        <meta property="og:description" content="In this post I demonstrate the usage of the cryptography module in Python by using using the asymmetric key method RSA to encrypt and decrypt messages.">
+        <meta property="og:description" content="In this post, I demonstrate the usage of the cryptography module in Python by using using the asymmetric key method RSA to encrypt and decrypt messages.">
         <meta property="og:image" content="/posts/asymmetric-encryption-and-decryption-in-python/feature.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/asymmetric-encryption-and-decryption-in-python/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -86,7 +86,7 @@
                         
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </div>
-                    <p class="lead">In this post I demonstrate the usage of the cryptography module in Python by using using the asymmetric key method RSA to encrypt and decrypt messages.</p>
+                    <p class="lead">In this post, I demonstrate the usage of the cryptography module in Python by using using the asymmetric key method RSA to encrypt and decrypt messages.</p>
                     <hr class="mt-3 mb-0">
 
                     
@@ -109,7 +109,7 @@
 </div>
 <p>Using the <a href="https://cryptography.io/en/latest/">cryptography</a> module in Python, this post will look into methods of generating keys, storing keys and using the asymmetric encryption method <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> to encrypt and decrypt messages and files. We will be using <a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa/">cryptography.hazmat.primitives.asymmetric.rsa</a> to generate keys.</p>
 <h2 id="installing-cryptography">Installing cryptography</h2>
-<p>Since Python does not come with anything that can encrypt files, we will need to use a third party module.</p>
+<p>Since Python does not come with anything that can encrypt files, we will need to use a third-party module.</p>
 <p><a href="https://github.com/dlitz/pycrypto">PyCrypto</a> is quite popular but since it does not offer built wheels, if you don't have Microsoft Visual C++ Build Tools installed, you will be told to install it. Instead of installing extra tools just to build this, I will be using the cryptography module. To install this, execute:</p>
 <div class="codehilite"><pre><span></span><code><span class="go">python -m pip install cryptography</span>
 </code></pre></div>
@@ -123,7 +123,7 @@
 <p>If no errors appeared it has been installed correctly.</p>
 <h2 id="what-is-asymmetric-encryption">What is Asymmetric Encryption?</h2>
 <p>If you read my article on <a href="/blog/post/encryption-and-decryption-in-python/">Encryption and Decryption in Python</a>, you will see that I only used one key to encrypt and decrypt.</p>
-<p><a href="https://en.wikipedia.org/wiki/Public-key_cryptography">Asymmetric encryption</a> uses two keys - a private key and a public keys. Public keys are given out for anyone to use, you make them public information. Anyone can encrypt data with your public key and then only those with the private key can decrypt the message. This also works the other way around but it is convention to keep your private key secret.</p>
+<p><a href="https://en.wikipedia.org/wiki/Public-key_cryptography">Asymmetric encryption</a> uses two keys - a private key and a public key. Public keys are given out for anyone to use, you make them public information. Anyone can encrypt data with your public key and then only those with the private key can decrypt the message. This also works the other way around but it is a convention to keep your private key secret.</p>
 <h2 id="getting-a-key">Getting a Key</h2>
 <p>To generate the two keys, we can call rsa.generate_private_key with some general parameters. The public key will be found in the object that holds the creation of the private key.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">cryptography.hazmat.backends</span> <span class="kn">import</span> <span class="n">default_backend</span>
@@ -204,7 +204,7 @@
 
 <p>The variable <em>public_key</em> will now have the public key.</p>
 <h2 id="encrypting">Encrypting</h2>
-<p>Due to how asymmetric encryption algorithms like RSA work, encrypting with either one is fine, you just will need to use the other to decrypt. Applying a bit of logic to this can create some useful scenarios like <a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa/#signing">signining</a> and <a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa/#verification">verification</a>. For this example I will assume that you keep both keys safe and don't release them since this example is only for local encryption (can be applied to wider though when keys are exchanged).</p>
+<p>Due to how asymmetric encryption algorithms like RSA work, encrypting with either one is fine, you just will need to use the other to decrypt. Applying a bit of logic to this can create some useful scenarios like <a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa/#signing">signing</a> and <a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa/#verification">verification</a>. For this example, I will assume that you keep both keys safe and don't release them since this example is only for local encryption (can be applied to wider though when keys are exchanged).</p>
 <p>This means you can use either key but I will demonstrate using the public key to encrypt, this will mean anyone with the private key can decrypt the message.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">cryptography.hazmat.primitives</span> <span class="kn">import</span> <span class="n">hashes</span>
 <span class="kn">from</span> <span class="nn">cryptography.hazmat.primitives.asymmetric</span> <span class="kn">import</span> <span class="n">padding</span>
@@ -317,7 +317,7 @@
 
 
 <h2 id="encrypting-and-decrypting-files">Encrypting and Decrypting Files</h2>
-<p>To encrypt and decrypt files, you will need to use read and write binary when opening files. You can simply substitute the values I previous used for message with the contents of a file. For example:</p>
+<p>To encrypt and decrypt files, you will need to use read and write binary when opening files. You can simply substitute the values I previously used for <code>message</code> with the contents of a file. For example:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
 <span class="n">message</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>

@@ -25,10 +25,10 @@
         <link rel="stylesheet" href="/assets/css/blog.css">
         <link rel="stylesheet" href="/assets/css/pygments.css">
 
-        <meta name="description" content="This is a script that allows you to click you mouse repeatedly with a small delay. It works on windows, mac and linux and can be controlled with user defined keys.">
+        <meta name="description" content="This is a script that allows you to click your mouse repeatedly with a small delay. It works on Windows, Mac and Linux and can be controlled with user-defined keys.">
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Python Auto Clicker">
-        <meta property="og:description" content="This is a script that allows you to click you mouse repeatedly with a small delay. It works on windows, mac and linux and can be controlled with user defined keys.">
+        <meta property="og:description" content="This is a script that allows you to click your mouse repeatedly with a small delay. It works on Windows, Mac and Linux and can be controlled with user-defined keys.">
         <meta property="og:image" content="/posts/python-auto-clicker/feature.jpg">
         <meta property="og:url" content="https://nitratine.net/blog/post/python-auto-clicker/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -86,7 +86,7 @@
                         
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </div>
-                    <p class="lead">This is a script that allows you to click you mouse repeatedly with a small delay. It works on windows, mac and linux and can be controlled with user defined keys.</p>
+                    <p class="lead">This is a script that allows you to click your mouse repeatedly with a small delay. It works on Windows, Mac and Linux and can be controlled with user-defined keys.</p>
                     <hr class="mt-3 mb-0">
 
                     
@@ -115,16 +115,16 @@
 </div>
 
 <h2 id="what-is-this">What is this?</h2>
-<p>This project uses the cross platform module pynput to control the mouse and monitor the keyboard at the same time to create a simple auto clicker.</p>
+<p>This project uses the cross-platform module pynput to control the mouse and monitor the keyboard at the same time to create a simple auto clicker.</p>
 <h2 id="pip">PIP</h2>
 <p>If you haven't used or setup pip before, look at my tutorial on <a href="/blog/post/how-to-setup-pythons-pip/">how to setup python's pip</a> to setup pip.</p>
 <h2 id="installing-pynput">Installing Pynput</h2>
 <p>We will be using the pynput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
 <p><img alt="Installing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
-<p>To double check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
+<p>To double-check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
 <p><img alt="Testing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput2.png" />.</p>
 <h2 id="writing-the-code">Writing the Code</h2>
-<p>First we need to import time and threading. Then import Button and Controller from pynput.mouse so we can control the mouse and import Listener and KeyCode from pynput.keyboard so we can watch for keyboard events to start and stop the auto clicker.</p>
+<p>First, we need to import time and threading. Then import Button and Controller from pynput.mouse so we can control the mouse and import Listener and KeyCode from pynput.keyboard so we can watch for keyboard events to start and stop the auto clicker.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Controller</span>
@@ -132,7 +132,7 @@
 </code></pre></div>
 
 
-<p>Next create four variables as shown below. 'delay' will be the delay between each button click. 'button' will be the button to click, this can be either 'Button.left', 'Button.right' or even 'Button.middle'. 'start_stop_key' is the key you want to use to start and stop the auto clicker. I have set it to the key 's' to make it nice and simple, you can use any key here. Finally the 'exit_key' is the key to close the program set it like before, but make sure it is a different key.</p>
+<p>Next create four variables as shown below. 'delay' will be the delay between each button click. 'button' will be the button to click, this can be either 'Button.left', 'Button.right' or even 'Button.middle'. 'start_stop_key' is the key you want to use to start and stop the auto clicker. I have set it to the key 's' to make it nice and simple, you can use any key here. Finally, the 'exit_key' is the key to close the program set it like before, but make sure it is a different key.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">delay</span> <span class="o">=</span> <span class="mf">0.001</span>
 <span class="n">button</span> <span class="o">=</span> <span class="n">Button</span><span class="o">.</span><span class="n">left</span>
 <span class="n">start_stop_key</span> <span class="o">=</span> <span class="n">KeyCode</span><span class="p">(</span><span class="n">char</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
@@ -140,7 +140,7 @@
 </code></pre></div>
 
 
-<p>No create a class that extends threading.Thread that will allow us to control the mouse clicks. Pass they delay and button to this and have two flags that determine whether it is running or if the whole program is stopping.</p>
+<p>Now create a class that extends threading.Thread that will allow us to control the mouse clicks. Pass they delay and button to this and have two flags that determine whether it is running or if the whole program is stopping.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">ClickMouse</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ClickMouse</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -151,7 +151,7 @@
 </code></pre></div>
 
 
-<p>Next add the methods shown below to control the thread externally.</p>
+<p>Next, add the methods shown below to control the thread externally.</p>
 <div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">start_clicking</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
 
@@ -190,7 +190,7 @@
 </code></pre></div>
 
 
-<p>Now modify the on_press method. If they key pressed is the same as the start_stop_key, stop clicking if the running flag is set to true in the thread otherwise start it. If they key pressed is the exit key, call the exit method in the thread and stop the listener. The new method will look like this:</p>
+<p>Now modify the on_press method. If the key pressed is the same as the start_stop_key, stop clicking if the running flag is set to true in the thread otherwise start it. If the key pressed is the exit key, call the exit method in the thread and stop the listener. The new method will look like this:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">start_stop_key</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">click_thread</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
@@ -277,7 +277,7 @@
 <h3 id="modulenotfounderrorimporterror-no-module-named-pynput">ModuleNotFoundError/ImportError: No module named 'pynput'</h3>
 <p>Did you install pynput? This error will not occur if you installed it properly. If you have multiple versions of Python, make sure you are installing pynput on the same version as what you are running the script with.</p>
 <h3 id="i-got-a-syntaxerror">I got a SyntaxError</h3>
-<p>Syntax errors are caused by you and these is nothing I can offer to fix it apart from telling you to read the error. They always say where the error is in the output using a ^. Generally people that get this issue have incorrect indentation, brackets in the wrong place or something spelt wrong. You can read about SyntaxError on Python's docs <a href="https://docs.python.org/2/tutorial/errors.html#syntax-errors">here</a>.</p>
+<p>Syntax errors are caused by you and there is nothing I can offer to fix it apart from telling you to read the error. They always say where the error is in the output using a ^. Generally, people that get this issue have incorrect indentation, brackets in the wrong place or something spelt wrong. You can read about SyntaxError on Python's docs <a href="https://docs.python.org/2/tutorial/errors.html#syntax-errors">here</a>.</p>
 <h3 id="python-is-not-recognized-as-an-internal-or-external-command">'python' is not recognized as an internal or external command</h3>
 <p>Python hasn't been installed or it hasn't been installed properly. Go to <a href="/blog/post/how-to-setup-pythons-pip/">/blog/post/how-to-setup-pythons-pip/</a> and follow the tutorial. Just before you enter the scripts folder into the path variable, remove the "\scripts\" part at the end. You will also want to add another path with "\scripts\" to have pip.</p>
 <p><em>Edited 11/08/18: Added Python 2 support</em></p>

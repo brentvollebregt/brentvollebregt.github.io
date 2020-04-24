@@ -123,7 +123,7 @@
 <h2 id="installing-pynput">Installing Pynput</h2>
 <p>We will be using the pynput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
 <p><img alt="Installing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
-<p>To double check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
+<p>To double-check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
 <p><img alt="Testing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput2.png" /></p>
 <h2 id="simulating-keys">Simulating Keys</h2>
 <p>Create a new script and save it somewhere so you can easily run the script. Import <code>Key</code> and <code>Controller</code> from <code>pynput.keyboard</code>.</p>
@@ -144,13 +144,13 @@
 
 
 <h3 id="pressing-and-releasing-special-keys">Pressing and Releasing Special Keys</h3>
-<p>For special keys that can't be put into a string like shift or control, you will need to refer to the page <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">here</a> to look at the Key class for supported keys. Using these in the press or release methods will press/release the key matching it. For example, if I wanted to press the windows key, I would look at <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">that page</a> for the key. 'cmd' has the description <em>"A generic command button. On PC platforms, this corresponds to the Super key or Windows key, and on Mac it corresponds to the Command key"</em> which is what I am looking for. Now for the code.</p>
+<p>For special keys that can't be put into a string like shift or control, you will need to refer to the page <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">here</a> to look at the Key class for supported keys. Using these in the press or release methods will press/release the key matching it. For example, if I wanted to press the Windows key, I would look at <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">that page</a> for the key. 'cmd' has the description <em>"A generic command button. On PC platforms, this corresponds to the Super key or Windows key, and on Mac it corresponds to the Command key"</em> which is what I am looking for. Now for the code.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">cmd</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">cmd</span><span class="p">)</span>
 </code></pre></div>
 
 
-<p>This method also allows us to press a key while holding another key, for example ctrl+c to copy. To do this we will need to press ctrl, press and release c and then release ctrl.</p>
+<p>This method also allows us to press a key while holding another key, for example, ctrl+c to copy. To do this we will need to press ctrl, press and release c and then release ctrl.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">ctrl</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
@@ -219,7 +219,7 @@
 <h3 id="modulenotfounderrorimporterror-no-module-named-pynput">ModuleNotFoundError/ImportError : No module named 'pynput'</h3>
 <p>Did you install pynput? This error will not occur if you installed it properly. If you have multiple versions of Python, make sure you are installing pynput on the same version as what you are running the script with.</p>
 <h3 id="i-got-a-syntaxerror">I got a SyntaxError</h3>
-<p>Syntax errors are caused by you and these is nothing I can offer to fix it apart from telling you to read the error. They always say where the error is in the output using a ^. Generally people that get this issue have incorrect indentation, brackets in the wrong place or something spelt wrong. You can read about SyntaxError on Python's docs <a href="https://docs.python.org/2/tutorial/errors.html#syntax-errors">here</a>.</p>
+<p>Syntax errors are caused by you and there is nothing I can offer to fix it apart from telling you to read the error. They always say where the error is in the output using a ^. Generally, people that get this issue have incorrect indentation, brackets in the wrong place or something spelt wrong. You can read about SyntaxError on Python's docs <a href="https://docs.python.org/2/tutorial/errors.html#syntax-errors">here</a>.</p>
 <h3 id="the-key-presses-work-in-notepad-but-not-my-game">The Key Presses Work in Notepad But Not My Game</h3>
 <p>pynput uses a Win32API function called <code>SendInput</code>. The SendInput function will insert input events into the same queue as a hardware device but the events are marked with a <code>LLMHF_INJECTED</code> flag that can be detected by hooks and <a href="https://stackoverflow.com/a/19383403">then filtered</a>. To avoid this flag you probably have to write a custom driver <em>(ref: <a href="https://stackoverflow.com/a/44931001">stackoverflow/Anders</a>)</em>.</p>
 <p>It would be ideal for most games to look for these events if they want to reduce 'bot' activity as it stops packages like these being used.</p>

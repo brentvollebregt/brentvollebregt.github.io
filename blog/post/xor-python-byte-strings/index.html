@@ -141,7 +141,7 @@
 </ul>
 <p>Even though my issue that I was trying to solve was using Python byte strings, I could still use the same principles...</p>
 <h2 id="string-xor">String XOR</h2>
-<p>I found <a href="https://stackoverflow.com/a/2612730/">an answer on stackoverflow</a> showing how to XOR two strings to form a resulting string:</p>
+<p>I found <a href="https://stackoverflow.com/a/2612730/">an answer on StackOverflow</a> showing how to XOR two strings to form a resulting string:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">sxor</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">):</span>    
     <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">))</span>
 </code></pre></div>

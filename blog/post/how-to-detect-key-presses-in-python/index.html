@@ -113,7 +113,7 @@
 <h2 id="installing-pynput">Installing Pynput</h2>
 <p>We will be using the pynput module to listen to keyboard events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
 <p><img alt="Installing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
-<p>To double check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
+<p>To double-check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
 <p><img alt="Testing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput2.png" /></p>
 <h2 id="building-the-script">Building the Script</h2>
 <p>Create a new python file and save it with a .py file extension. You will first want to import Listener from pynput.keyboard.</p>
@@ -121,7 +121,7 @@
 </code></pre></div>
 
 
-<p>Setup the listener by creating an instance in a with statement and using it's <code>.join()</code> method to join it to the main thread.</p>
+<p>Setup the listener by creating an instance in a <code>with</code> statement and using it's <code>.join()</code> method to join it to the main thread.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">Listener</span><span class="p">()</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
     <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 </code></pre></div>
@@ -141,7 +141,7 @@
 </code></pre></div>
 
 
-<p>To make sure these are running, add some print statements to each method. Save and run the script. Press a few keys, you should see output as below.</p>
+<p>To make sure these are running, add some print statements to each method. Save and run the script. Press a few keys, you should see output like below.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key pressed&quot;</span><span class="p">)</span>
 
@@ -162,7 +162,7 @@
 
 <p><img alt="Keys pressed demonstration with data" src="/posts/how-to-detect-key-presses-in-python/demo2.png" /></p>
 <p>If you want this script to be run in the background. Click File -&gt; Save As and save it with a .pyw file extension. Now when it is run outside IDLE there will be no console window and it will not look like it is running. But to make sure the console doesn't appear, we need to first remove the print statements.</p>
-<p>Import logging and setup the basic configuration as I have below. After that, change all print statements to logging.info.</p>
+<p>Import logging and set up the basic configuration as I have below. After that, change all print statements to logging.info.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
 </code></pre></div>
 

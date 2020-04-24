@@ -122,8 +122,8 @@
 </div>
 
 <h2 id="general-talk-about-the-process">General Talk About the Process</h2>
-<p>I decided to create a <a href="https://github.com/brentvollebregt/auto-py-to-exe-pypi">new repository</a> for the package that would be <a href="https://pypi.org/project/auto-py-to-exe/">hosted on PyPI</a> as the video that I provided will still help people understand what is going on. In the old repo I have provided a link to the new one and added in the instructions for instillation using pip.</p>
-<p>It took me a few hours to find out how to structure my package and have everything setup properly from the readme to the entry-points.</p>
+<p>I decided to create a <a href="https://github.com/brentvollebregt/auto-py-to-exe-pypi">new repository</a> for the package that would be <a href="https://pypi.org/project/auto-py-to-exe/">hosted on PyPI</a> as the video that I provided will still help people understand what is going on. In the old repo I have provided a link to the new one and added in the instructions for installation using pip.</p>
+<p>It took me a few hours to find out how to structure my package and have everything set up properly from the readme to the entry-points.</p>
 <p>I use a lot of resources for finer details and looked at a lot of setup.py files but these resources would have been the most helpful:
 - <a href="https://packaging.python.org/tutorials/packaging-projects/">Packaging Python Projects</a>
 - <a href="https://jonemo.github.io/neubertify/2017/09/13/publishing-your-first-pypi-package/">Publishing your First PyPI Package by/for the Absolute Beginner</a>
@@ -133,10 +133,10 @@
 <p>I had completely forgotten though that when importing packages normally in Python, hyphens cause a lot of issues. To fix this I initially changed all traces of 'auto-py-to-exe' to 'auto_py_to_exe'. I later found out that I could still keep the package name 'auto-py-to-exe' by setting name='auto-py-to-exe' and setting everything else (including the folder name) to 'auto_py_to_exe'; a small price to pay for the name.</p>
 <p>So to take from this: hyphens &lt; underscore in package names.</p>
 <h3 id="issues-with-readme">Issues With README</h3>
-<p>The next issue was with PyPI's Warehouse itself (afterwards). I wanted to render my README in PyPI but it wasn't doing it for some reason. I had later found that when looking at the <a href="https://github.com/ChrisKnott/Eel/blob/master/setup.py">setup.py for Eel</a> I had thought it was a great idea to take the long_description value being set to <code>open('README.md', encoding='utf-8').readlines()[1]</code>. I thought very little about this and in the end actually decided to test it and found that it was only taking the first line from my README; copy and pasting is dangerous.</p>
+<p>The next issue was with PyPI's Warehouse itself (afterwards). I wanted to render my README in PyPI but it wasn't doing it for some reason. I had later found that when looking at the <a href="https://github.com/ChrisKnott/Eel/blob/master/setup.py">setup.py for Eel</a> I had thought it was a great idea to take the long_description value being set to <code>open('README.md', encoding='utf-8').readlines()[1]</code>. I thought very little about this and in the end, actually decided to test it and found that it was only taking the first line from my README; copy and pasting is dangerous.</p>
 <p>Next was the fact that you needed a version of setup tools that was waaaay higher than what I had; a simple fix of course using <code>pip install setuptools --upgrade</code>.</p>
-<p>Lastly I had to add <code>long_description_content_type='text/markdown'</code> to setup.py but in all honesty did it in the middle of trying to solve the above two issues so am not 100% sure if this actually changed anything.</p>
-<p>Lesson to take from this; know what you're copying and StackOverflow is very helpful (as I didn't already know that...)</p>
+<p>Lastly, I had to add <code>long_description_content_type='text/markdown'</code> to setup.py but in all honesty, did it in the middle of trying to solve the above two issues so am not 100% sure if this actually changed anything.</p>
+<p>The lesson to take from this; know what you're copying and StackOverflow is very helpful (as I didn't already know that...)</p>
                     </div>
 
                     <nav class="blog-pagination text-center mb-5 mt-4">

@@ -25,10 +25,10 @@
         <link rel="stylesheet" href="/assets/css/blog.css">
         <link rel="stylesheet" href="/assets/css/pygments.css">
 
-        <meta name="description" content="This experiment looks at how many randoms numbers will need to be generated to fufil an integer range. I use python to generate random numbers and simulate thousands of tests. This was conducted to find the range of 16,777,216 for an app I had developed.">
+        <meta name="description" content="This experiment looks at how many randoms numbers will need to be generated to fulfil an integer range. I use python to generate random numbers and simulate thousands of tests. This was conducted to find the range of 16,777,216 for an app I had developed.">
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Randomly Generating Numbers to Fulfil an Integer Range">
-        <meta property="og:description" content="This experiment looks at how many randoms numbers will need to be generated to fufil an integer range. I use python to generate random numbers and simulate thousands of tests. This was conducted to find the range of 16,777,216 for an app I had developed.">
+        <meta property="og:description" content="This experiment looks at how many randoms numbers will need to be generated to fulfil an integer range. I use python to generate random numbers and simulate thousands of tests. This was conducted to find the range of 16,777,216 for an app I had developed.">
         <meta property="og:image" content="/posts/randomly-generating-numbers-to-fulfil-an-integer-range/graph2.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/randomly-generating-numbers-to-fulfil-an-integer-range/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -82,7 +82,7 @@
                         
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </div>
-                    <p class="lead">This experiment looks at how many randoms numbers will need to be generated to fufil an integer range. I use python to generate random numbers and simulate thousands of tests. This was conducted to find the range of 16,777,216 for an app I had developed.</p>
+                    <p class="lead">This experiment looks at how many randoms numbers will need to be generated to fulfil an integer range. I use python to generate random numbers and simulate thousands of tests. This was conducted to find the range of 16,777,216 for an app I had developed.</p>
                     <hr class="mt-3 mb-0">
 
                     
@@ -92,7 +92,7 @@
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#plan">Plan</a></li>
-<li><a href="#creating-initial-method">Creating Initial Method</a></li>
+<li><a href="#creating-an-initial-method">Creating An Initial Method</a></li>
 <li><a href="#testing-small-numbers">Testing Small Numbers</a><ul>
 <li><a href="#bigger-numbers">Bigger Numbers</a></li>
 </ul>
@@ -115,9 +115,9 @@
 <h2 id="introduction">Introduction</h2>
 <p>I was recently discussing 'stupid' apps with a flatmate and how they do so well on app stores. We were thinking of really stupid apps and had come up with the idea of just changing the colour when a user tapped on the screen. Obviously, there would be more to the app but it seemed very achievable and something fun to make. <a href="/blog/post/colour/">My idea was to generate the colours as hexadecimal values and display them to the user along with the colour</a>. I then thought about making the aim of the app to get all the colours; a user would randomly generate colours until they have gotten them all. With there being 16,777,216 different colours that can be represented using hexadecimal I noticed very quickly that this is very unachievable for a user, but how unachievable really was it?</p>
 <h2 id="plan">Plan</h2>
-<p>My plan to finding how 'unachievable' the problem is, is to generate random numbers in a range until all individual numbers in that range are generated. This will be done a few times for certain ranges to get averages and then will be plotted to get a line of best fit. With this line of best fit I should be able to predict ranges much larger than I will be testing with.</p>
-<h2 id="creating-initial-method">Creating Initial Method</h2>
-<p>Sitting in my girlfriend's English lecture at Victoria University seemed like the best place to start this. The plan was to make a definition that took a range integer and randomly generate values until all values in the range were found. It would then return how many generations it took to get all values. To check when I had all values, I sorted the list using pythons built in list sort and then checked if it was identical to a generated list containing 1 to the range in order which was created using the range function in list comprehension.</p>
+<p>My plan to finding how 'unachievable' the problem is, is to generate random numbers in a range until all individual numbers in that range are generated. This will be done a few times for certain ranges to get averages and then will be plotted to get a line of best fit. With this line of best fit, I should be able to predict ranges much larger than I will be testing with.</p>
+<h2 id="creating-an-initial-method">Creating An Initial Method</h2>
+<p>Sitting in my girlfriend's English lecture at Victoria University seemed like the best place to start this. The plan was to make a definition that took a range integer and randomly generates values until all values in the range were found. It would then return how many generations it took to get all values. To check when I had all values, I sorted the list using pythons built-in list sort and then checked if it was identical to a generated list containing 1 to the range in order which was created using the range function in list comprehension.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
 
 <span class="k">def</span> <span class="nf">get_generation</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
@@ -152,7 +152,7 @@
 
 <p>This script was clean and was easy to use; all I had to do was change the four runs, min_, max_ and step_ variables to change looping for average calculation and the integers tested.</p>
 <h2 id="testing-small-numbers">Testing Small Numbers</h2>
-<p>Initially this script was tested with 1000 runs, min_ of 10, max_ of 500 and a step_ of 50; the results are as follows.</p>
+<p>Initially, this script was tested with 1000 runs, min_ of 10, max_ of 500 and a step_ of 50; the results are as follows.</p>
 <table>
 <thead>
 <tr>
@@ -238,7 +238,7 @@
 <p><img alt="First script results for 10-860" src="/posts/randomly-generating-numbers-to-fulfil-an-integer-range/graph1.png" /></p>
 <p>This data produced gives a clear pattern and produced a line of best fit with R^2 value of 0.9997 which is excellent. Using this equation to calculate the target value of 16,777,216 I got a value of 3.94x10^11. Even though this is a very large number, it doesn't seem like it is incorrect. There is a slight exponential addition to the equation calculated which will mean that little increases in x will give larger increases in y.  With this looking like a great start I went and tested a couple of bigger numbers.</p>
 <h3 id="bigger-numbers">Bigger Numbers</h3>
-<p>Due to the time to compute these values, I tested with larger numbers that weren't too much bigger than the previously tested numbers. I tested 1000, 2000, 3000, 4000 and 5000 and compared them to the expected value based off the last equation generated.</p>
+<p>Due to the time to compute these values, I tested with larger numbers that weren't too much bigger than the previously tested numbers. I tested 1000, 2000, 3000, 4000 and 5000 and compared them to the expected value based on the last equation generated.</p>
 <table>
 <thead>
 <tr>
@@ -275,7 +275,7 @@
 </tr>
 </tbody>
 </table>
-<p>Looking at this data, the larger the numbers that were tested, the larger the difference between the actual and expected based off the last equation. After adding this data to the last data gathered and graphing it, the new equation is y = 0.0003x2 + 7.8024x - 470.14 with an R^2 of 0.9997. Even though this R^2 value is good, the lower values tested are far off the expected. An example of this difference for 10 being -33.951 for the last equation and -392.09 for this new equation even though the actual value sits around 29.735. This difference however starts to decrease when the range is over 200.</p>
+<p>Looking at this data, the larger the numbers that were tested, the larger the difference between the actual and expected based on the last equation. After adding this data to the last data gathered and graphing it, the new equation is y = 0.0003x2 + 7.8024x - 470.14 with an R^2 of 0.9997. Even though this R^2 value is good, the lower values tested are far off the expected. An example of this difference for 10 being -33.951 for the last equation and -392.09 for this new equation even though the actual value sits around 29.735. This difference however, starts to decrease when the range is over 200.</p>
 <p><img alt="Results for larger figures of 1000-5000" src="/posts/randomly-generating-numbers-to-fulfil-an-integer-range/graph2.png" /></p>
 <p>Even with this decrease being fixed, I am going to have to generate much larger ranges to have a chance of being able to predict the target value. Unfortunately, this isn't as easy as it seems as the current method is quite slow.</p>
 <h2 id="can-efficiency-be-improved">Can Efficiency Be Improved?</h2>
@@ -661,7 +661,7 @@
 <p>Since this method didn't speed processing up (and if it did, not by much), I decided to turn to threading. Even with its notorious name in Python, I have done a few projects using python threading. To use threading, I plan to call the get_generation method allowing a certain amount of threads at once (can be changed). When a thread completes, I want to put the data in a list somewhere and when all threads for a range is complete, add the data to a CSV file. This can then be used to look at the data with more depth than previous.</p>
 <h3 id="method">Method</h3>
 <p>After some quick planning, I completed the new script to how I had planned. Some quick testing and formatting of the CSV output then had it ready to be fully run.</p>
-<p>This did in fact speed up the process of getting the data but threads were not called as fast as expected and it still did have difficulty on higher numbers. To give a bit of feedback I added a method to look at what was running and provide more useful messages. With this output, I noted that threads were peaking at just over 270, this wasn't currently an issue, just interesting. This was the final script for the threading version.</p>
+<p>This did in-fact speed up the process of getting the data but threads were not called as fast as expected and it still did have difficulty on higher numbers. To give a bit of feedback I added a method to look at what was running and provide more useful messages. With this output, I noted that threads were peaking at just over 270, this wasn't currently an issue, just interesting. This was the final script for the threading version.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
@@ -739,8 +739,8 @@
 
 
 <h3 id="results_1">Results</h3>
-<p>Once again, the bigger the range, the longer it took to compute. Even with threads, 6000 was a stretch. I decided to bring down the run number to 200 to test some bigger numbers; this will be reflected in the standard error. I understand this will give less accurate data but hopefully it will be accurate enough to give a reasonable line of best fit.</p>
-<p>I compared the threading with the original method but running them both at the same time. Interestingly it wasn't that much faster as the threading had completed when the original method had completed 196/200. I will still use the threading method as it has better output and gives more information on current status.</p>
+<p>Once again, the bigger the range, the longer it took to compute. Even with threads, 6000 was a stretch. I decided to bring down the run number to 200 to test some bigger numbers; this will be reflected in the standard error. I understand this will give less accurate data but hopefully, it will be accurate enough to give a reasonable line of best fit.</p>
+<p>I compared the threading with the original method but running them both at the same time. Interestingly it wasn't that much faster as the threading had completed when the original method had completed 196/200. I will still use the threading method as it has a better output and gives more information on the current status.</p>
 <p>Now having the raw data, I was able to calculate the average, min, max and standard error of each of the samples. Using excel I simply just inserted formulas and then took in the row of data. The data is as follows.</p>
 <table>
 <thead>
@@ -1245,11 +1245,10 @@
 <p>Looking at this table, we can see that the two large data equations have a much better guess to the actual values than the previous two equations. This is because the equations have been formed with more data allowing them to be able to guess larger values more accurately. I will then compare the difference between the average values and the last two equations on a graph.</p>
 <p><img alt="Difference for large data equations" src="/posts/randomly-generating-numbers-to-fulfil-an-integer-range/graph4.png" /></p>
 <h2 id="conclusion">Conclusion</h2>
-<p>By looking at the graph, it appears that the large data polynomial equation was the best at predicting the averages. At about 1500 the equations start to be a bit unreliable but are still staying reasonable close being at most 13% in extreme cases away from the average. This would be because I didn't do enough tests to calculate averages and this theory is definitely shows when the tests go above a range of 6000 as that is where I only calculated averages based off 200 runs due to the time to run the tests.</p>
+<p>By looking at the graph, it appears that the large data polynomial equation was the best at predicting the averages. At about 1500 the equations start to be a bit unreliable but are still staying reasonable close being at most 13% in extreme cases away from the average. This would be because I didn't do enough tests to calculate averages and this theory definitely shows when the tests go above a range of 6000 as that is where I only calculated averages based off 200 runs due to the time to run the tests.</p>
 <p>Thus, from these tests, I believe the most reliable equation to test the range of 16,777,216 with is y = 0.0001x^2 + 8.9649x - 1830.1.</p>
 <p>And then the calculation; y = 0.0001<em>(16777216)^2 + 8.9649</em>(16777216) - 1830.1, y = 28,297,901,904.684002</p>
-<p>28 and a quarter billion is still a very big number but a large number was expected. If someone could keep a rate of 400 taps per minute (it would get much slower over time but this is theoretical), it would take them over 134 and a half years to reach this number on average. Even if someone got lucky and had little duplicates compared to an average, I feel this game (Colour) would still not be possible to achieve in anyone lifetime currently.</p>
-<p>The data from this investigation can be downloaded here (xlsx 109KB)</p>
+<p>28 and a quarter billion is still a very big number but a large number was expected. If someone could keep a rate of 400 taps per minute (it would get much slower over time but this is theoretical), it would take them over 134 and a half years to reach this number on average. Even if someone got lucky and had little duplicates compared to an average, I feel this game (Colour) would still not be possible to achieve in anyone's lifetime currently.</p>
                     </div>
 
                     <nav class="blog-pagination text-center mb-5 mt-4">

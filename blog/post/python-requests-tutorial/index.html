@@ -114,7 +114,7 @@
 </ul>
 </div>
 <h2 id="introduction">Introduction</h2>
-<p>The <a href="https://github.com/requests/requests"><code>requests</code></a> Python package is a HTTP library created by <a href="https://github.com/kennethreitz">Kenneth Reitz</a>. It is a very well known package in the Python community for making HTTP requests easy to create and call. This tutorial will cover the basics that you will need to know and will want to know when making HTTP requests in Python.</p>
+<p>The <a href="https://github.com/requests/requests"><code>requests</code></a> Python package is an HTTP library created by <a href="https://github.com/kennethreitz">Kenneth Reitz</a>. It is a very well known package in the Python community for making HTTP requests easy to create and call. This tutorial will cover the basics that you will need to know and will want to know when making HTTP requests in Python.</p>
 <p>Learning how to send HTTP requests allows you to query websites and API's for data or even a webpage so you can scrape data out with something like <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beatifulsoup</a>.</p>
 <h2 id="installation">Installation</h2>
 <p>To install the requests module, first make sure you have pip setup. If not, follow my <a href="/blog/post/how-to-setup-pythons-pip/">tutorial on setting up pip</a>. After making sure pip is working, execute <code>pip install requests</code>. When this is successful, open Python IDLE and execute <code>import requests</code>; if no errors occur, the requests module has been installed successfully.</p>
@@ -133,7 +133,7 @@
 <p>When a browser calls a web page, it initially requests the URL being visited and then calls other URLs that are referenced in the HTML document to render the page with the CSS, JS, image and other files required.</p>
 </blockquote>
 <h2 id="attributes-you-should-know-about">Attributes You Should Know About</h2>
-<p>The <code>Response</code> object that was returned in the example above contains many useful attributes. Here are some ones your should know about:</p>
+<p>The <code>Response</code> object that was returned in the example above contains many useful attributes. Here are some ones you should know about:</p>
 <ul>
 <li><code>.content</code>: The raw content of the request</li>
 <li><code>.text</code>: The text content of the request</li>
@@ -141,7 +141,7 @@
 <li><code>.headers</code>: The headers of the response</li>
 <li><code>.cookies</code>: The cookies returned in the response. You can access cookie value like you would use a dict: <code>response.cookies['logged_in']</code>.</li>
 </ul>
-<p>To get the value of these attributes, use them like I did in the previous code example.</p>
+<p>To get the value of these attributes, use them as I did in the previous code example.</p>
 <h3 id="json">.json()</h3>
 <p>If a site returns a JSON response, you can call <code>.json()</code> on the <code>Response</code> object to convert the JSON object in the response to a Python dictionary.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -185,7 +185,7 @@
 </blockquote>
 <h2 id="different-methods">Different Methods</h2>
 <p>When making a request to a URL/URI, different 'methods' can be used. These tell the server what sort of action you want to perform. HTTP defines actions like GET, POST, PUT, DELETE and many others.</p>
-<p>To use these different methods, simply replace the <code>.get</code> with <code>.post</code>/<code>.put</code>/<code>.delete</code> or whatever method you are using. For example if I wanted to delete a record in a REST API, I could use:</p>
+<p>To use these different methods, simply replace the <code>.get</code> with <code>.post</code>/<code>.put</code>/<code>.delete</code> or whatever method you are using. For example, if I wanted to delete a record in a REST API, I could use:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;https://jsonplaceholder.typicode.com/posts/1&#39;</span><span class="p">)</span>
@@ -194,7 +194,7 @@
 
 
 <h2 id="parameters-in-urls">Parameters in URLs</h2>
-<p>Instead of constructing a url to add parameters to it, the requests module offers a method to add them automatically for you. Simply create your key value pairs in a Python dictionary and then pass this to the <code>params</code> argument in the request method. For example:</p>
+<p>Instead of constructing a URL to add parameters to it, the requests module offers a method to add them automatically for you. Simply create your key-value pairs in a Python dictionary and then pass this to the <code>params</code> argument in the request method. For example:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;key1&#39;</span> <span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span> <span class="p">:</span> <span class="s1">&#39;value2&#39;</span> <span class="p">}</span>
@@ -219,7 +219,7 @@
 <h2 id="sending-data-in-http-body">Sending Data in HTTP Body</h2>
 <p>When making calls to endpoints that require data in the body, we can use form-encoded, JSON or raw bodies.</p>
 <h3 id="form-encoded-body">Form Encoded Body</h3>
-<p>In cases where you want to send some form-encoded data (like a HTML form would submit), we can pass key value pairs like we used above to the <code>data</code> parameter. The dictionary of your data will be form-encoded when the request is made. For example:</p>
+<p>In cases where you want to send some form-encoded data (like a HTML form would submit), we can pass key-value pairs as we used above to the <code>data</code> parameter. The dictionary of your data will be form-encoded when the request is made. For example:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">body_data</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;key1&#39;</span> <span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span> <span class="p">:</span> <span class="s1">&#39;value2&#39;</span> <span class="p">}</span>
@@ -228,8 +228,8 @@
 
 
 <h3 id="json-body">JSON Body</h3>
-<p>Today, JSON bodies are becoming more popular over form-encoded key value pairs; I believe this is due to how easy it is for JavaScript to dump it's data in a request body. Fortunately JSON bodies are as easy to create in the request module as form-encoded are.</p>
-<p>Instead of passing your dictionary to the <code>data</code> parameter, pass it to <code>json</code>. When the request it made, the <code>Content-Type</code> header will automatically be set to <code>application/json</code> to tell the server that this is a JSON request.</p>
+<p>Today, JSON bodies are becoming more popular over form-encoded key-value pairs; this is due to how much more compact JSON is over XML (XML and JSON are typically used to carry larger payloads). Fortunately, JSON bodies are as easy to create in the request module as form-encoded are.</p>
+<p>Instead of passing your dictionary to the <code>data</code> parameter, pass it to <code>json</code>. When the request is made, the <code>Content-Type</code> header will automatically be set to <code>application/json</code> to tell the server that this is a JSON request.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">body_data</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;key1&#39;</span> <span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span> <span class="p">:</span> <span class="s1">&#39;value2&#39;</span> <span class="p">}</span>
@@ -247,7 +247,7 @@
 
 
 <h2 id="custom-headers">Custom headers</h2>
-<p>Previously I discussed that the <code>Content-Type</code> header will automatically be set to <code>application/json</code> when passing data to <code>json</code>. We can set headers manually is a very similar way to how we have been sending data. Once again, create the header key value pairs in a Python dictionary and then pass them to the <code>headers</code> parameter.</p>
+<p>Previously I discussed that the <code>Content-Type</code> header will automatically be set to <code>application/json</code> when passing data to <code>json</code>. We can set headers manually is a very similar way to how we have been sending data. Once again, create the header key-value pairs in a Python dictionary and then pass them to the <code>headers</code> parameter.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">header_data</span> <span class="o">=</span> <span class="p">{</span>
@@ -259,10 +259,10 @@
 
 
 <h2 id="this-is-only-the-basics">This is Only The Basics</h2>
-<p>Please know that these are only the basics of the requests library and there is a lot more to offer from this library; this tutorial however should help you understand what you need to do to request and send data.</p>
+<p>Please know that these are only the basics of the requests library and there is a lot more to offer from this library; this tutorial however, should help you understand what you need to do to request and send data.</p>
 <p>If you want to read up more on this library, Google is full of answers but the docs at <a href="http://docs.python-requests.org/en/master/user/quickstart/">docs.python-requests.org</a> is great for reference material.</p>
 <h2 id="i-dont-have-s-server-how-can-i-test-these">I Don't Have s Server, How Can I Test These?</h2>
-<p><a href="https://hookbin.com/">hookbin.com</a> is an amazing place to test requests. Simply create a new endpoint on the site (big pink button) and copy the URL at the top of rendered page. Now whenever you make a request to that URL, refresh the page and you will be able to see the content of the request you made.</p>
+<p><a href="https://hookbin.com/">hookbin.com</a> is an amazing place to test requests. Simply create a new endpoint on the site (big pink button) and copy the URL at the top of the rendered page. Now whenever you make a request to that URL, refresh the page and you will be able to see the content of the request you made.</p>
                     </div>
 
                     <nav class="blog-pagination text-center mb-5 mt-4">

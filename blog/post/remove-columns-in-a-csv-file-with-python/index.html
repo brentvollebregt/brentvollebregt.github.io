@@ -25,10 +25,10 @@
         <link rel="stylesheet" href="/assets/css/blog.css">
         <link rel="stylesheet" href="/assets/css/pygments.css">
 
-        <meta name="description" content="Need to remove columns from a large CSV file? Simply provide this script the indexes of columns you want to be deleted and it will create a copy CSV file with those columns removed.">
+        <meta name="description" content="Need to remove columns from a large CSV file? Simply provide this script with the indexes of columns you want to be deleted and it will create a copy CSV file with those columns removed.">
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Remove Columns in a CSV File With Python">
-        <meta property="og:description" content="Need to remove columns from a large CSV file? Simply provide this script the indexes of columns you want to be deleted and it will create a copy CSV file with those columns removed.">
+        <meta property="og:description" content="Need to remove columns from a large CSV file? Simply provide this script with the indexes of columns you want to be deleted and it will create a copy CSV file with those columns removed.">
         <meta property="og:image" content="/posts/remove-columns-in-a-csv-file-with-python/feature.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/remove-columns-in-a-csv-file-with-python/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -84,7 +84,7 @@
                         
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </div>
-                    <p class="lead">Need to remove columns from a large CSV file? Simply provide this script the indexes of columns you want to be deleted and it will create a copy CSV file with those columns removed.</p>
+                    <p class="lead">Need to remove columns from a large CSV file? Simply provide this script with the indexes of columns you want to be deleted and it will create a copy CSV file with those columns removed.</p>
                     <hr class="mt-3 mb-0">
 
                     
@@ -98,8 +98,8 @@
 </ul>
 </div>
 <h2 id="what-is-this">What is This?</h2>
-<p>This script takes an input CSV file and outputs a copy of the CSV file with particular columns removed. Provide <code>cols_to_remove</code> a list containing the indexes of <strong>columns</strong> in the CSV file that you want removed (starting from index 0 - so the first column would be 0).</p>
-<p>I have used indexes because they are easier to use programmatically and if I did use header titles, one character or space would have put it off. This method scales very well and can remove columns where MS Execl can't open a large file.</p>
+<p>This script takes an input CSV file and outputs a copy of the CSV file with particular columns removed. Provide <code>cols_to_remove</code> with a list containing the indexes of <strong>columns</strong> in the CSV file that you want to be removed (starting from index 0 - so the first column would be 0).</p>
+<p>I have used indexes because they are easier to use programmatically and if I did use header titles, one character or space would have put it off. This method scales very well and can remove columns where MS Excel can't open a large file.</p>
 <h2 id="code">Code</h2>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
 

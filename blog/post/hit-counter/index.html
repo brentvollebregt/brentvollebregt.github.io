@@ -25,10 +25,10 @@
         <link rel="stylesheet" href="/assets/css/blog.css">
         <link rel="stylesheet" href="/assets/css/pygments.css">
 
-        <meta name="description" content="Easily Count Hits on a Website by Requesting a SVG Displaying Hit Count. Works on any site.">
+        <meta name="description" content="Easily Count Hits on a Website by Requesting an SVG Displaying Hit Count. Works on any site.">
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Hit Counter">
-        <meta property="og:description" content="Easily Count Hits on a Website by Requesting a SVG Displaying Hit Count. Works on any site.">
+        <meta property="og:description" content="Easily Count Hits on a Website by Requesting an SVG Displaying Hit Count. Works on any site.">
         <meta property="og:image" content="/posts/hit-counter/feature.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/hit-counter/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -84,7 +84,7 @@
                         
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </div>
-                    <p class="lead">Easily Count Hits on a Website by Requesting a SVG Displaying Hit Count. Works on any site.</p>
+                    <p class="lead">Easily Count Hits on a Website by Requesting an SVG Displaying Hit Count. Works on any site.</p>
                     <hr class="mt-3 mb-0">
 
                     
@@ -111,17 +111,17 @@
 
 <p>Live demo hosted at: <a href="https://hitcounter.pythonanywhere.com/">hitcounter.pythonanywhere.com</a></p>
 <h2 id="what-is-this">What is This?</h2>
-<p>This is a server that allows a client to request for a svg file that displays views for a url. This url can either be passed as a query parameter or the referrer (or referer) value in the header will be used.</p>
-<p>These is also a small method to prevent the refresh count increase issue (if you want to call it an issue, I see it as annoying) which uses cookies.</p>
-<p><strong>This makes is very easy too keep track of views on static sites like Github Pages.</strong> (can also be uses on non-static sites as a general counter)</p>
+<p>This is a server that allows a client to request an SVG file that displays views for a URL. This URL can either be passed as a query parameter or the referrer (or referer) value in the header will be used.</p>
+<p>There is also a small method to prevent the refresh count increase issue (if you want to call it an issue, I see it as annoying) which uses cookies.</p>
+<p><strong>This makes it very easy to keep track of views on static sites like Github Pages.</strong> (can also be used on non-static sites as a general counter)</p>
 <h2 id="how-can-i-use-it">How Can I Use it?</h2>
 <h3 id="getting-an-svg">Getting an SVG</h3>
-<p>To get an image for the current url (for example is image is being requested by www.example.com), simply get the image as you normally would:</p>
+<p>To get an image for the current URL (for example is image is being requested by www.example.com), simply get the image as you normally would:</p>
 <div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://hitcounter.pythonanywhere.com/count/tag.svg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Hits&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
 
 
-<p>In this example a hit would be added to the websites count on the server. To stop this form occurring but still get the svg file, use:</p>
+<p>In this example, a hit would be added to the websites count on the server. To stop this from occurring but still get the SVG file, use:</p>
 <div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://hitcounter.pythonanywhere.com/nocount/tag.svg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Hits&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
 
@@ -136,8 +136,8 @@
 
 
 <h3 id="getting-a-count-for-a-site-that-isnt-me">Getting a Count For a Site That Isn't Me</h3>
-<p>There may be circumstances that the referrer may not be sent or you may want to request a SVG or count for another site. To do this, add a query with <code>url</code> as the name and the url you want to get (encoded obviously).</p>
-<p>For example, getting an svg:</p>
+<p>There may be circumstances that the referrer may not be sent or you may want to request an SVG or count for another site. To do this, add a query with <code>url</code> as the name and the URL you want to get (encoded obviously).</p>
+<p>For example, getting an SVG:</p>
 <div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://hitcounter.pythonanywhere.com/nocount/tag.svg?url=www.example.com&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Hits&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
 
@@ -156,10 +156,10 @@
 <p>There are also some situations where a client will not send the Referer in the header. This is a simple solution to the server not being able to find where the request came from.</p>
 </blockquote>
 <h2 id="generating-links-with-a-tool-hosted-by-the-server">Generating Links With A Tool Hosted By The Server</h2>
-<p>Going to the location <code>/</code> on the server, you will be served with a HTML page that contains a tool to create the image tag or markdown element and search up a websites count.</p>
+<p>Going to the location <code>/</code> on the server, you will be served with an HTML page that contains a tool to create the image tag or markdown element and search up a websites count.</p>
 <p><img alt="Interface" src="/posts/hit-counter/interface.png" /></p>
 <h2 id="hosting-your-own-server">Hosting Your Own Server</h2>
-<p>Running this server is very easy, simple clone the repo (or download the files) and run <code>server.py</code></p>
+<p>Running this server is very easy, simply clone the repo (or download the files) and run <code>server.py</code></p>
 <p>I host this on pythonaywhere.com; to do this make sure you have cloned the repo into the filesystem and then create a new project. Modify the "WSGI configuration file" under the "Code" header in the "Web" tab. Change line 16 to import your script and restart the application using the green button at the top.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">server</span> <span class="kn">import</span> <span class="n">app</span> <span class="k">as</span> <span class="n">application</span>
 </code></pre></div>
@@ -167,19 +167,19 @@
 
 <p>If you want to enable HTTPS on pythonaywhere, uncomment lines 5 and 8 in server.py to enable flask_sslify (is already installed on pythonaywhere, so you don't need to install it)</p>
 <h2 id="how-it-works">How it Works</h2>
-<p>This server has been built with Flask. Calling one of the <code>/count</code> or <code>/nocount</code> methods will interact with the local SQLite3 database (file) and keep track of urls, views and the counts for urls. Data will be returned based off what is in the database at the current time.</p>
-<p>Cookies are used to prevent multiple counts for the same client in a specified period of time. These are simply the url as the key and a random string generated server side as the value.</p>
+<p>This server has been built with Flask. Calling one of the <code>/count</code> or <code>/nocount</code> methods will interact with the local SQLite3 database (file) and keep track of URLs, views and the counts for URLs. Data will be returned based on what is in the database at the current time.</p>
+<p>Cookies are used to prevent multiple counts for the same client in a specified period. These are simply the URL as the key and a random string generated server-side as the value.</p>
 <h2 id="configuration">Configuration</h2>
 <p>In config.py there are a few configurations that can be made</p>
 <h3 id="database_filename">DATABASE_FILENAME</h3>
 <p>This is the name of the SQLite3 database to be used, if it doesn't exist, it will be created. You don't need to worry about this unless you have conflicts with other applications.</p>
 <h3 id="cookie_timeout">COOKIE_TIMEOUT</h3>
-<p>This is the amount of time for a client to count as a view again. When a view is counted, the SVG/count is returned with a cookie for that site. Currently that is set at 1min (60 seconds) but can be changed.</p>
+<p>This is the amount of time for a client to count as a view again. When a view is counted, the SVG/count is returned with a cookie for that site. Currently, that is set at 1min (60 seconds) but can be changed.</p>
 <p>To disable this feature simply set this to 0; the cookies stored on the server will be flushed from the database after each new view.</p>
 <h3 id="svg_template">SVG_TEMPLATE</h3>
 <p>This is the template of the SVG returned. <code>{count}</code> must always be in this string so that python can add the count before giving it as a response.</p>
 <h3 id="random_value_length">RANDOM_VALUE_LENGTH</h3>
-<p>This is the length of the value of the cookie stored both server and client side. Making this longer will stop collisions from occurring but will increase storage. Each value generated is completely random from the characters [0-9][a-z][A-Z].</p>
+<p>This is the length of the value of the cookie stored both server and client-side. Making this longer will stop collisions from occurring but will increase storage. Each value generated is completely random from the characters [0-9][a-z][A-Z].</p>
 <h2 id="inspiration">Inspiration</h2>
 <p>This project was inspired by <a href="https://github.com/dwyl/hits">github.com/dwyl/hits</a> which is a "General purpose hits (page views) counter" which unfortunately will count GitHub repo views. This was my idea to expand on this and add some features with also making it compatible with any site.</p>
 <h2 id="why-does-the-anti-refresh-system-not-work">Why Does The Anti-Refresh System Not Work?</h2>

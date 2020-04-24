@@ -99,7 +99,7 @@
 <li><a href="#simulating-mouse-events">Simulating Mouse Events</a><ul>
 <li><a href="#finding-the-position-of-the-mouse">Finding the Position of the Mouse</a></li>
 <li><a href="#setting-the-position-of-the-mouse">Setting the Position of the Mouse</a></li>
-<li><a href="#moving-the-mouse-relative-to-its-position">Moving the Mouse Relative to it's Position</a></li>
+<li><a href="#moving-the-mouse-relative-to-its-position">Moving the Mouse Relative to Its Position</a></li>
 <li><a href="#clicking-buttons-on-the-mouse">Clicking Buttons on the Mouse</a></li>
 <li><a href="#pressing-and-releasing-buttons">Pressing and Releasing Buttons</a></li>
 <li><a href="#scrolling">Scrolling</a></li>
@@ -124,39 +124,39 @@
 <h2 id="installing-pynput">Installing Pynput</h2>
 <p>We will be using the pynput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
 <p><img alt="Installing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
-<p>To double check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
+<p>To double-check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
 <p><img alt="Testing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput2.png" /></p>
 <h2 id="simulating-mouse-events">Simulating Mouse Events</h2>
-<p>Create a new script and save it somewhere so you can easily run the script. Import Button and Controller from pynput.mouse.</p>
+<p>Create a new script and save it somewhere so you can easily run the script. Import <code>Button</code> and <code>Controller</code> from <code>pynput.mouse</code>.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Controller</span>
 </code></pre></div>
 
 
-<p>Make a variable called mouse and set it to an instance of Controller. Now using the mouse variable we can control the mouse.</p>
+<p>Make a variable called <code>mouse</code> and set it to an instance of <code>Controller</code>. Now using the <code>mouse</code> variable we can control the mouse.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">mouse</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">()</span>
 </code></pre></div>
 
 
 <h3 id="finding-the-position-of-the-mouse">Finding the Position of the Mouse</h3>
-<p>To find the position of the mouse we can use mouse.position. This will return a tuple of two integers. The first integer is the x position and the second integer is the y position. This is relative to the top left of the screen; x getting bigger is going right and y getting bigger is going down.</p>
+<p>To find the position of the mouse we can use <code>mouse.position</code>. This will return a tuple of two integers. The first integer is the x position and the second integer is the y position. This is relative to the top left of the screen; x getting bigger is going right and y getting bigger is going down.</p>
 <div class="codehilite"><pre><span></span><code><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Current position: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">position</span><span class="p">))</span>
 </code></pre></div>
 
 
 <h3 id="setting-the-position-of-the-mouse">Setting the Position of the Mouse</h3>
-<p>To set the position of the mouse we can use mouse.position again. By setting this to an x and y point, the mouse position will be updated immediately.</p>
+<p>To set the position of the mouse we can use <code>mouse.position</code> again. By setting this to an x and y point, the mouse position will be updated immediately.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">mouse</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 </code></pre></div>
 
 
-<h3 id="moving-the-mouse-relative-to-its-position">Moving the Mouse Relative to it's Position</h3>
-<p>Instead of getting the mouses position and calculating where it needs to be moved to if you want to move it a distance relative, we can use mouse.move. Passing an x and y integers to this will move the mouse relative to it's current position. For example, if I wanted to move it to the right by 20 pixels and up by 13 pixels, I would use:</p>
+<h3 id="moving-the-mouse-relative-to-its-position">Moving the Mouse Relative to Its Position</h3>
+<p>Instead of getting the mouses position and calculating where it needs to be moved to, if you want to move it a distance relative to the current position, we can use <code>mouse.move</code>. Passing an x and y integers to this will move the mouse relative to its current position. For example, if I wanted to move it to the right by 20 pixels and up by 13 pixels, I would use:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">mouse</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">)</span>
 </code></pre></div>
 
 
 <h3 id="clicking-buttons-on-the-mouse">Clicking Buttons on the Mouse</h3>
-<p>To click buttons on the mouse, we would use mouse.click. Passing a button from the Button class imported and an integer, we can preform single, double and triple clicks for any button.</p>
+<p>To click buttons on the mouse, we would use <code>mouse.click</code>. Passing a button from the Button class imported and an integer, we can perform single, double and triple clicks for any button.</p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># Click the left button</span>
 <span class="n">mouse</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">Button</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Click the right button</span>
@@ -171,14 +171,14 @@
 
 
 <h3 id="pressing-and-releasing-buttons">Pressing and Releasing Buttons</h3>
-<p>We can also click a button using press and release methods. This would also allow us to drag an object by pressing, moving and then releasing. To press we would use the mouse.press method and to release we would use the mouse.release method. Both these methods need a button passed which can include the left, middle and right as shown above. More buttons can also be included depending what operating system is being used.</p>
+<p>We can also click a button using press and release methods. This would also allow us to drag an object by pressing, moving and then releasing. To press we would use the mouse.press method and to release we would use the <code>mouse.release</code> method. Both these methods need a button passed which can include the left, middle and right as shown above. More buttons can also be included depending on what operating system is being used.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">mouse</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Button</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
 <span class="n">mouse</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">Button</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
 </code></pre></div>
 
 
 <h3 id="scrolling">Scrolling</h3>
-<p>To scroll we need to use the mouse.scroll passing two integers for horizontal and vertical scroll. The first integer is for horizontal which is left to right scroll; a positive integer will scroll right vice versa. The second integer is for vertical which is up to down scroll; a positive integer will scroll up vice versa.</p>
+<p>To scroll we need to use the <code>mouse.scroll</code> passing two integers for horizontal and vertical scroll. The first integer is for horizontal which is left to right scroll; a positive integer will scroll right vice versa. The second integer is for vertical which is up to down scroll; a positive integer will scroll up vice versa.</p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># Scroll up two steps</span>
 <span class="n">mouse</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1"># Scroll right five steps</span>
@@ -204,7 +204,7 @@
 <h3 id="modulenotfounderrorimporterror-no-module-named-pynput">ModuleNotFoundError/ImportError: No module named 'pynput'</h3>
 <p>Did you install pynput? This error will not occur if you installed it properly. If you have multiple versions of Python, make sure you are installing pynput on the same version as what you are running the script with.</p>
 <h3 id="i-got-a-syntaxerror">I got a SyntaxError</h3>
-<p>Syntax errors are caused by you and these is nothing I can offer to fix it apart from telling you to read the error. They always say where the error is in the output using a ^. Generally people that get this issue have incorrect indentation, brackets in the wrong place or something spelt wrong. You can read about SyntaxError on Python's docs <a href="https://docs.python.org/2/tutorial/errors.html#syntax-errors">here</a>.</p>
+<p>Syntax errors are caused by you and there is nothing I can offer to fix it apart from telling you to read the error. They always say where the error is in the output using a ^. Generally, people that get this issue have incorrect indentation, brackets in the wrong place or something spelt wrong. You can read about SyntaxError on Python's docs <a href="https://docs.python.org/2/tutorial/errors.html#syntax-errors">here</a>.</p>
                     </div>
 
                     <nav class="blog-pagination text-center mb-5 mt-4">

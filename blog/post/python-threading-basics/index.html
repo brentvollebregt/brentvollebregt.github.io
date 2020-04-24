@@ -121,7 +121,7 @@
 
 <h2 id="what-is-threading">What is Threading?</h2>
 <p>The threading module comes pre-installed with python so there are no downloads or installs for this tutorial. Threading allows us to call a method or class that has extended the <code>threading.Thread</code> class to run alongside the main thread (the linear flow that generally happens).</p>
-<p>One good use for threading is to create multiple instances of things that take time outside your program. A great example of this is sending requests to a server. If you want to send many, instead of waiting for them to finish one-by-one before you send the next request, you can create many threads to request different urls and they will then all be waiting at the same time.</p>
+<p>One good use of threading is to create multiple instances of things that take time outside your program. A great example of this is sending requests to a server. If you want to send many, instead of waiting for them to finish one-by-one before you send the next request, you can create many threads to request different URLs and they will then all be waiting at the same time.</p>
 <h2 id="threading-a-method">Threading a Method</h2>
 <p>A basic example of threading can be seen below:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
@@ -137,7 +137,7 @@
 </code></pre></div>
 
 
-<p>In this example we create a place to store the threads and then loop 4 times as we create the threads. To create the threads, we first initialise a threading.Thread instance passing the method as the target. We then add this thread to our previously create list and start it. This will provide the following output:</p>
+<p>In this example, we create a place to store the threads and then loop 4 times as we create the threads. To create the threads, we first initialise a threading.Thread instance passing the method as the target. We then add this thread to our previously create list and start it. This will provide the following output:</p>
 <div class="codehilite"><pre><span></span><code><span class="gp">$</span> python threading_method.py
 
 <span class="go">Hello World</span>
@@ -147,7 +147,7 @@
 </code></pre></div>
 
 
-<p>Note that there are no brackets after worker when defining target. This is because we need to pass the method, not what the method returns (even if it returns nothing).</p>
+<p>Note that there are no brackets after worker when defining the target. This is because we need to pass the method, not what the method returns (even if it returns nothing).</p>
 <h3 id="passing-arguments">Passing Arguments</h3>
 <p>To pass arguments to a method when creating the thread, we can pass a tuple to args. For example:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
@@ -163,7 +163,7 @@
 </code></pre></div>
 
 
-<p>In this expanded example I have added a number parameter to worker which will then be used in the output. When creating the instance of threading.Thread, I pass the i variable to args in a tuple. This will provide the output:</p>
+<p>In this expanded example I have added a number parameter to <code>worker</code> which will then be used in the output. When creating the instance of threading.Thread, I pass the <code>i</code> variable to <code>args</code> in a tuple. This will provide the output:</p>
 <div class="codehilite"><pre><span></span><code><span class="gp">$</span> python threading_method_args.py
 
 <span class="go">I am thread: 0</span>
@@ -193,15 +193,15 @@
 </code></pre></div>
 
 
-<p>In this example I create a class that extends threading.Thread. I have created the initialisation method with a initialisation call to the super class and a <strong>run method which is what will be run when I call start()</strong>. Just like last time I loop 4 times but this time I only need to use <code>MyThread()</code> to set up the thread variable. This will provide the output:</p>
+<p>In this example, I create a class that extends threading.Thread. I have created the initialisation method with an initialisation call to the super class and a <strong>run method which is what will be run when I call start()</strong>. Just like last time I loop 4 times but this time I only need to use <code>MyThread()</code> to set up the thread variable. This will provide the output:</p>
 <div class="codehilite"><pre><span></span><code><span class="go">RunningRunningRunningRunning</span>
 </code></pre></div>
 
 
-<p>See how all the strings are together; this shows that they were all printed at very similar times and then all the new lines were put in. In the above examples this did not occur as I force the newline character.</p>
-<p>Note that if you do not need a initialisation method, you can remove it completely including the super() call.</p>
+<p>See how all the strings are together; this shows that they were all printed at very similar times and then all the new lines were put in. In the above examples, this did not occur as I force the newline character.</p>
+<p>Note that if you do not need an initialisation method, you can remove it completely including the super() call.</p>
 <h3 id="passing-arguments_1">Passing Arguments</h3>
-<p>To pass arguments, you just use the class like you would normally. For example:</p>
+<p>To pass arguments, you just use the class as you would normally. For example:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
 
 <span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
@@ -219,12 +219,12 @@
 </code></pre></div>
 
 
-<p>In this example I had added a parameter to the class in the initialisation method like you normally would and saved it so it can print it later. Then I simply passed a variable to the class which will be printed. This will output:</p>
+<p>In this example, I had added a parameter to the class in the initialisation method like you normally would and saved it so it can print it later. Then I simply passed a variable to the class which will be printed. This will output:</p>
 <div class="codehilite"><pre><span></span><code><span class="go">0123</span>
 </code></pre></div>
 
 
-<p>Just like last time they concatenated into one string followed by new lines. When passing variables you need to keep the super() call as you are now using the initialisation method unless you pass it in with a different method before calling run.</p>
+<p>Just like last time they concatenated into one string followed by new line characters. When passing variables you need to keep the super() call as you are now using the initialisation method unless you pass it in with a different method before calling run.</p>
 <h2 id="managing-your-threads">Managing Your Threads</h2>
 <p>Python has a lot of useful methods, variables and parameter to manage your threads. These are some of the basic ones.</p>
 <h3 id="naming">Naming</h3>
@@ -272,8 +272,8 @@
 </code></pre></div>
 
 
-<p>In this example I create the thread and start it. I then call join which waits until the thread is finished. If the thread called does not finish, the thread that called the <code>.join()</code> method (can be the main thread) will wait indefinitely. This means that you shouldn't use .join() on threads that don't finish unless you want to stop the execution of the thread for another reason.</p>
-<p>You can wait for many thread to finish by calling .join() after you started them all. The following example will wait until all 4 threads are finished before it goes to the print statement.</p>
+<p>In this example, I create the thread and start it. I then call join which waits until the thread is finished. If the thread called does not finish, the thread that called the <code>.join()</code> method (can be the main thread) will wait indefinitely. This means that you shouldn't use .join() on threads that don't finish unless you want to stop the execution of the thread for another reason.</p>
+<p>You can wait for many threads to finish by calling .join() after you started them all. The following example will wait until all 4 threads are finished before it goes to the print statement.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
 
 <span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
@@ -320,11 +320,11 @@
 <h3 id="is-a-thread-alive">Is a Thread Alive?</h3>
 <p>If you want to check if a particular thread is still alive, you can call <code>.is_alive()</code> on the thread. This will return true if the thread is still running.</p>
 <h2 id="why-it-wont-make-your-script-run-faster">Why it Won't Make Your Script Run Faster</h2>
-<p>In most cases, threading your pre-existing code will not make it run any faster. Python threads are designed to run multiple tasks at the same time, however this is only on one cpu core.</p>
+<p>In most cases, threading your pre-existing code will not make it run any faster. Python threads are designed to run multiple tasks at the same time, however, this is only on one CPU core.</p>
 <p>A normal python script is run on a single core so when you create threads it will not speed up as it is basically doing the same thing just at different times. This issue/feature (if you want to look at it in a positive way) is due to the <a href="https://stackoverflow.com/questions/1294382/what-is-a-global-interpreter-lock-gil">Global Interpreter Lock</a> which in short means that "multiple threads can't effectively make use of multiple cores" which is the reason for no speed increase. <a href="https://www.youtube.com/watch?v=ph374fJqFPE">Here</a> is a great talk on the GIL with <a href="http://www.dabeaz.com/python/GIL.pdf">some great slides</a>.</p>
 <p>If you do want to have multiple tasks running on multiple cores, look at the <a href="https://docs.python.org/3.4/library/multiprocessing.html">multiprocessing module</a>.</p>
 <h2 id="extra-resources">Extra Resources</h2>
-<p>Since this is only a basic look over threading so someone that hasn't used it can understand it better, I have left out things like events, signaling and locks. To read more about threads, you could visit these pages:</p>
+<p>Since this is only a basic look over threading so someone that hasn't used it can understand it better, I have left out things like events, signalling and locks. To read more about threads, you could visit these pages:</p>
 <ul>
 <li><a href="https://pymotw.com/3/threading/">pymotw.com/3/threading/</a></li>
 <li><a href="https://docs.python.org/3/library/threading.html">Python 3 Threading Documentation</a></li>

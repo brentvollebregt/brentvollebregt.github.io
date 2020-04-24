@@ -25,10 +25,10 @@
         <link rel="stylesheet" href="/assets/css/blog.css">
         <link rel="stylesheet" href="/assets/css/pygments.css">
 
-        <meta name="description" content="For people new to Python, locating Python files for development can be confusing; these can be python.exe, the scripts folder or the location of where modules are installed to. In this post I discuss what folders host what and how to track common things down.">
+        <meta name="description" content="For people new to Python, locating Python files for development can be confusing; these can be python.exe, the scripts folder or the location of where modules are installed to. In this post, I discuss what folders host what and how to track common things down.">
         <meta name="author" content="Brent Vollebregt">
         <meta property="og:title" content="Understanding The Python Root Folder">
-        <meta property="og:description" content="For people new to Python, locating Python files for development can be confusing; these can be python.exe, the scripts folder or the location of where modules are installed to. In this post I discuss what folders host what and how to track common things down.">
+        <meta property="og:description" content="For people new to Python, locating Python files for development can be confusing; these can be python.exe, the scripts folder or the location of where modules are installed to. In this post, I discuss what folders host what and how to track common things down.">
         <meta property="og:image" content="/posts/understanding-the-python-root-folder/feature.png">
         <meta property="og:url" content="https://nitratine.net/blog/post/understanding-the-python-root-folder/">
         <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -82,7 +82,7 @@
                         
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
                     </div>
-                    <p class="lead">For people new to Python, locating Python files for development can be confusing; these can be python.exe, the scripts folder or the location of where modules are installed to. In this post I discuss what folders host what and how to track common things down.</p>
+                    <p class="lead">For people new to Python, locating Python files for development can be confusing; these can be python.exe, the scripts folder or the location of where modules are installed to. In this post, I discuss what folders host what and how to track common things down.</p>
                     <hr class="mt-3 mb-0">
 
                     
@@ -114,21 +114,21 @@
 <p>This will print the location of python.exe which is the executable that runs Python scripts. Common places for Python to be installed on is in <code>C:\PythonXY</code> or <code>%AppData%\Roaming\Python\PythonXY</code>.</p>
 <p>To run Python scripts, you need to pass a filename as an argument to python.exe so python.exe can run it. For example, if you wanted to execute myscript.py, you would call <code>python myscript.py</code> which calls <code>python.exe</code> (regarding it can be found on the PATH) and passes the filename "myscript.py" as an argument.</p>
 <h2 id="root-directory">Root Directory</h2>
-<p>Where you located python.exe is also the root of your Python installation (assuming you aren't using a virtual environment). In this folder you will find files relating directly to Python and modules you have installed. Under the headings below, I'm going to explain what is in each of the folders in the root folder and notable subdirectories in them.</p>
+<p>Where you located python.exe is also the root of your Python installation (assuming you aren't using a virtual environment). In this folder, you will find files relating directly to Python and modules you have installed. Under the headings below, I'm going to explain what is in each of the folders in the root folder and notable subdirectories in them.</p>
 <h3 id="pythonexe-vs-pythonwexe">python.exe vs pythonw.exe</h3>
 <p>Before we start looking at the folders, you should notice there is a <code>python.exe</code> and a <code>pythonw.exe</code> file. These do very similar jobs but have one primary difference, <code>python.exe</code> will open a terminal window whereas <code>pythonw.exe</code> will not.</p>
-<p>Typically <code>.py</code> files are associated with <code>python.exe</code> and <code>.pyw</code> files are associated with <code>pythonw.exe</code>. This means if you want to see the output from your script (like <code>print</code> calls) or just want to know it's running by seeing a window open, then use <code>.py</code>, otherwise you will want to use <code>.pyw</code> to hide the terminal window that appears.</p>
+<p>Typically <code>.py</code> files are associated with <code>python.exe</code> and <code>.pyw</code> files are associated with <code>pythonw.exe</code>. This means if you want to see the output from your script (like <code>print</code> calls) or just want to know it's running by seeing a window open, then use <code>.py</code>, otherwise, you will want to use <code>.pyw</code> to hide the terminal window that appears.</p>
 <blockquote>
 <p><a href="https://stackoverflow.com/a/30313091">Here</a> is a writeup of the smaller differences between them. </p>
 </blockquote>
 <h3 id="dlls">DLLs/</h3>
-<p>The folder <code>DLLs/</code> contains dll files relating to Python. When looking in here, you may notice that there are actually <code>.pyd</code> files in here.</p>
-<p><code>.pyd</code> files are actually the same as dll files but they include a function <code>PyInit_MODULE()</code> where "MODULE" is the name of the dll file (without the extension). You can read more about this <a href="https://docs.python.org/3/faq/windows.html#is-a-pyd-file-the-same-as-a-dll">in the docs</a>.</p>
+<p>The folder <code>DLLs/</code> contains DLL files relating to Python. When looking in here, you may notice that there are actually <code>.pyd</code> files in here.</p>
+<p><code>.pyd</code> files are actually the same as DLL files but they include a function <code>PyInit_MODULE()</code> where "MODULE" is the name of the DLL file (without the extension). You can read more about this <a href="https://docs.python.org/3/faq/windows.html#is-a-pyd-file-the-same-as-a-dll">in the docs</a>.</p>
 <h3 id="include">include/</h3>
 <p>The folder <code>include/</code> contains header files for the Python/C API</p>
 <h3 id="lib">Lib/</h3>
 <p>The folder <code>Lib/</code> contains the Python standard library; that is, all the modules that come with Python like <code>csv</code>, <code>io</code>, <code>tkinter</code>, <code>re</code> and many others.</p>
-<p>A very notable folder in this folder is <code>site-packages</code>. This is where Python modules are installed to when you install them using <code>pip</code> or a <code>setup.py</code> file. Looking in this folder for a module you want to investigate can allow you to see the source.</p>
+<p>A very notable folder in this folder is <code>site-packages</code>. This is where Python modules are installed when you install them using <code>pip</code> or a <code>setup.py</code> file. Looking in this folder for a module you want to investigate can allow you to see the source.</p>
 <p>If you import a Python module in a Python script and then print the module, the path output will typically be in this folder; for example:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">flask</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">flask</span><span class="p">)</span>
@@ -137,13 +137,13 @@
 
 <p>For me outputs <code>&lt;module 'flask' from 'C:\\Python36\\lib\\site-packages\\flask\\__init__.py'&gt;</code>. C:/Python36 is where Python is installed for me and you can see flask is sitting in lib/site-packages.</p>
 <h3 id="libs">libs/</h3>
-<p>The folder <code>libs/</code> contains native code libraries in comparison to <code>Lib/</code>. This means whereas most files in <code>Lib/</code> are human readable, <code>libs/</code> typically contains compiled libraries.</p>
+<p>The folder <code>libs/</code> contains native code libraries in comparison to <code>Lib/</code>. This means whereas most files in <code>Lib/</code> are human-readable, <code>libs/</code> typically contains compiled libraries.</p>
 <blockquote>
 <p><a href="https://stackoverflow.com/a/19286879">Here</a> is a bit more information on this folder.</p>
 </blockquote>
 <h3 id="scripts">Scripts/</h3>
 <p>The folder <code>Scripts/</code> contains executables and other "scripts" that can be run. Typically this is where modules will put executables so they are then located in the terminal/OS calls using the <a href="/blog/post/fix-python-is-not-recognized-as-an-internal-or-external-command/">PATH variables</a>.</p>
-<p>Putting executables in here allows us to easily execute a command which will be looked for in here (ragarding this folder is in the PATH variable) and then executed. If you set console scripts in a <code>setup.py</code> file, the names you specify will be created as executables in here.</p>
+<p>Putting executables in here allows us to easily execute a command which will be looked for in here (regarding this folder is in the PATH variable) and then executed. If you set console scripts in a <code>setup.py</code> file, the names you specify will be created as executables in here.</p>
 <blockquote>
 <p><a href="https://github.com/brentvollebregt/auto-py-to-exe/blob/d4130394504df7e0e4db439e6a2b0864b7b29966/setup.py#L35">Here is an example</a> of a console script that I mentioned. This allows you to call <code>auto-py-to-exe</code> on the command line to start the application.</p>
 </blockquote>
@@ -155,7 +155,7 @@
 <p>Here are some examples of these:</p>
 <ul>
 <li><code>scripts/md5sum.py</code>: "Python utility to print MD5 checksums of argument files"</li>
-<li><code>scripts/diff.py</code>: Finds the difference of two files. "Command line interface to difflib.py providing diffs" in different formats.</li>
+<li><code>scripts/diff.py</code>: Finds the difference of two files. "Command-line interface to difflib.py providing diffs" in different formats.</li>
 <li><code>scripts/google.py</code>: Open a search term in a new browser window/tab</li>
 </ul>
                     </div>
