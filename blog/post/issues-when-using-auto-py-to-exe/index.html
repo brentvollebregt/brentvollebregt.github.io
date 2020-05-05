@@ -113,6 +113,7 @@
 <li><a href="#err_connection_refused">ERR_CONNECTION_REFUSED</a></li>
 <li><a href="#command-python-setuppy-egg_info-failed-with-error-code-1">Command "python setup.py egg_info" failed with error code 1</a></li>
 <li><a href="#filenotfounderror">FileNotFoundError</a></li>
+<li><a href="#structerror-unpack-requires-a-buffer-of-16-bytes">struct.error: unpack requires a buffer of 16 bytes</a></li>
 </ul>
 </li>
 </ul>
@@ -233,6 +234,8 @@
 <p>Update setuptools using <code>pip install --upgrade setuptools</code>.</p>
 <h4 id="filenotfounderror">FileNotFoundError</h4>
 <p>Make sure the file you are referencing actually exists, this error says that the file you are referencing doesn't exist. If you are using one-file mode, make sure you have followed the necessary steps.</p>
+<h4 id="structerror-unpack-requires-a-buffer-of-16-bytes">struct.error: unpack requires a buffer of 16 bytes</h4>
+<p>This typically occurs when you have supplied <code>--icon</code> / <code>-i</code> with a file that is not a <code>.ico</code> file. Please note that simply changing the extension of a file to .ico does not make it a .ico file; you will need to use a converter of some sort to convert your file (e.g. png, jpg) into a .ico.</p>
 <h2 id="general-questions-constantly-asked">General Questions Constantly Asked</h2>
 <h3 id="how-do-i-convert-all-my-python-files">How do I Convert All My Python Files?</h3>
 <p>Add the entry point in the script location. PyInstaller searches for imports to get the rest of the Python files required to run, so as long as you use the <code>import</code> keyword, your files will be added.</p>
