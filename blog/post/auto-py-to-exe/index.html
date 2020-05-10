@@ -134,7 +134,7 @@
 <h2 id="getting-started">Getting Started</h2>
 <h3 id="prerequisites">Prerequisites</h3>
 <ul>
-<li>Python : Python &gt;= 2.7 ( including 3.7 🎉 )</li>
+<li>Python : Python 2.7 / 3.5-3.7 (see <a href="https://github.com/pyinstaller/pyinstaller/issues/4311">here</a> for 3.8)</li>
 </ul>
 <p><em>To have the interface displayed in the images, you will need chrome. If chrome is not installed or --no-chrome is supplied, the default browser will be used.</em></p>
 <h3 id="installation-and-usage">Installation and Usage</h3>
@@ -182,11 +182,43 @@ $ python setup.py install
 </ol>
 <p><em>Easy.</em></p>
 <h3 id="arguments">Arguments</h3>
-<p>Alternatively you can execute <code>auto-py-to-exe [filename]</code>. This will open up the window with the filename in the script location.</p>
-<p>You can also pass <code>--no-chrome</code> if you want to use your default browser and not chromes app mode; for example <code>auto-py-to-exe --no-chrome my_script.py</code>.</p>
+<p>Usage: <code>auto-py-to-exe [-nc] [-c [CONFIG]] [filename]</code></p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filename</td>
+<td>positional</td>
+<td>Pre-fill the "Script Location" field in the UI.</td>
+</tr>
+<tr>
+<td>-nc, --no-chrome</td>
+<td>optional</td>
+<td>Open the UI using the default browser (which may be Chrome). Will not try to find Chrome</td>
+</tr>
+<tr>
+<td>-c [CONFIG], --config [CONFIG]</td>
+<td>optional</td>
+<td>Provide a configuration file (json) to pre-fill the UI. These can be generated in the settings tab.</td>
+</tr>
+<tr>
+<td>-o [PATH], --output-dir [PATH]</td>
+<td>optional</td>
+<td>Set the default output directory. This can still be changed in the ui.</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>If you are running this package locally, you will need to call <code>python -m auto_py_to_exe</code> instead of <code>auto-py-to-exe</code></p>
 </blockquote>
+<h3 id="configurations">Configurations</h3>
+<p>Instead of inserting the same data into the UI over and over again, you can export the current state of the UI by going to the section "Configuration Import and Export" at the bottom of the advanced tab and exporting a JSON string to the clipboard or a file. This can then be imported into the UI again to re-populate all fields.</p>
 <h2 id="video">Video</h2>
 <p>If you need something visual to help you get started, <a href="https://youtu.be/OZSZHmWSOeM">I made a video for the original release of this project</a>; some things may be different but the same concepts still apply.</p>
 <h2 id="issues-using-the-tool">Issues Using the Tool</h2>
