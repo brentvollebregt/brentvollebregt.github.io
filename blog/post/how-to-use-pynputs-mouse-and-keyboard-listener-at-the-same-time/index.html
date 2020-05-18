@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-use-pynputs-mouse-and-keyboard-listener-at-the-same-time/">
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/css/base.css">
+        <link rel="stylesheet" href="/assets/css/custom-bootstrap.css"><!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117153268-2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-117153268-2');
+        </script><!-- instant.page -->
+        <script defer src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+        
+        <title>How to Use pynput&#39;s Mouse and Keyboard Listener at the Same Time - Nitratine</title>
+        <link rel="stylesheet" href="/assets/css/blog.css">
+        <link rel="stylesheet" href="/assets/css/pygments.css">
+
+        <meta name="description" content="In this tutorial I show you how to fix naming collisions from Python imports and provide an example of using pynput&#39;s mouse and keyboard listeners together.">
+        <meta name="author" content="Brent Vollebregt">
+        <meta property="og:title" content="How to Use pynput&#39;s Mouse and Keyboard Listener at the Same Time">
+        <meta property="og:description" content="In this tutorial I show you how to fix naming collisions from Python imports and provide an example of using pynput&#39;s mouse and keyboard listeners together.">
+        <meta property="og:image" content="/posts/how-to-use-pynputs-mouse-and-keyboard-listener-at-the-same-time/feature.png">
+        <meta property="og:url" content="https://nitratine.net/blog/post/how-to-use-pynputs-mouse-and-keyboard-listener-at-the-same-time/">
+        <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="/assets/img/logo.png" width="145" height="30" class="d-inline-block align-top" alt="Brand Icon">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/blog/">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.youtube.com/PyTutorials">YouTube</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/brentvollebregt">GitHub</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/about/">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main role="main" class="container">
+
+            
+            <div class="row">
+                <div class="col-blog-content blog-main">
+
+                    <h1 class="blog-post-title">How to Use pynput&#39;s Mouse and Keyboard Listener at the Same Time</h1>
+                    <div class="mb-3">
+                        <a href="/blog/archive/#2020" class="text-muted">18 May 2020</a>
+                        <a href="/blog/categories/#Tutorials" class="badge badge-primary ml-2">Tutorials</a>
+                        
+                        <a href="/blog/tags/#pynput" class="badge badge-warning">pynput</a>
+                        
+                        <a href="/blog/tags/#python" class="badge badge-warning">python</a>
+                        
+                        <a href="/blog/tags/#mouse" class="badge badge-warning">mouse</a>
+                        
+                        <a href="/blog/tags/#keyboard" class="badge badge-warning">keyboard</a>
+                        
+                        <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
+                    </div>
+                    <p class="lead">In this tutorial I show you how to fix naming collisions from Python imports and provide an example of using pynput&#39;s mouse and keyboard listeners together.</p>
+                    <hr class="mt-3 mb-0">
+
+                    
+
+                    <div class="post-content mt-3">
+                        <div class="toc">
+<ul>
+<li><a href="#background">Background</a></li>
+<li><a href="#solution">Solution</a><ul>
+<li><a href="#solution-1-the-as-keyword">Solution 1 - The "as" Keyword</a></li>
+<li><a href="#solution-2-only-import-the-base">Solution 2 - Only Import the Base</a></li>
+</ul>
+</li>
+<li><a href="#mouse-and-keyboard-listener-example">Mouse and Keyboard Listener Example</a></li>
+</ul>
+</div>
+<h2 id="background">Background</h2>
+<p>In my posts like <a href="/blog/post/how-to-get-mouse-clicks-with-python/">"How To Get Mouse Clicks With Python"</a> and <a href="/blog/post/how-to-detect-key-presses-in-python/">"How to Detect Key Presses In Python"</a>, I discuss how to use pynput to listen to mouse and keyboard events. </p>
+<p>When trying to use the two listeners at the same time, I see a lot of people copy and paste the two import statements like the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Listener</span>
+<span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Listener</span>
+</code></pre></div>
+
+
+<p>Looking at the code above, ask yourself, how do I create the mouse listener? If you follow the  example from <a href="/blog/post/how-to-get-mouse-clicks-with-python/">my tutorial</a>, you would use the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">Listener</span><span class="p">(</span><span class="n">on_move</span><span class="o">=</span><span class="n">on_move</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
+    <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</code></pre></div>
+
+
+<p>However, when you run this, you will find that <code>Listener</code> is now <code>pynput.keyboard.Listener</code>, not <code>pynput.mouse.Listener</code>. This has occurred because the second import statement has overwritten <code>Listener</code>.</p>
+<h2 id="solution">Solution</h2>
+<p>Solutions to this are very simple and are not specific to pynput as this is just an import mistake. You can use these solutions for other related import naming collisions.</p>
+<h3 id="solution-1-the-as-keyword">Solution 1 - The "<code>as</code>" Keyword</h3>
+<p>The first solution I recommend is to use the Python <code>as</code> keyword. This keyword allows you to rename an imported object when importing. In the situation this post focuses on, you would do:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Listener</span> <span class="k">as</span> <span class="n">MouseListener</span>
+<span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Listener</span> <span class="k">as</span> <span class="n">KeyboardListener</span>
+</code></pre></div>
+
+
+<p>This is very similar to the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Listener</span>
+<span class="n">MouseListener</span> <span class="o">=</span> <span class="n">Listener</span>
+<span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Listener</span>
+<span class="n">KeyboardListener</span> <span class="o">=</span> <span class="n">Listener</span>
+</code></pre></div>
+
+
+<p>So now when you want to use the two listeners, you would do:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Listen to mouse events</span>
+<span class="k">with</span> <span class="n">MouseListener</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">as</span> <span class="n">mouse_listener</span><span class="p">:</span>
+    <span class="n">mouse_listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+<span class="c1"># Listen to keyboard events</span>
+<span class="k">with</span> <span class="n">KeyboardListener</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">as</span> <span class="n">keyboard_listener</span><span class="p">:</span>
+    <span class="n">keyboard_listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</code></pre></div>
+
+
+<blockquote>
+<p>If you are to use the exact code above, remember these listener objects are threads, so when you call <code>.join()</code>, they will block.</p>
+</blockquote>
+<h3 id="solution-2-only-import-the-base">Solution 2 - Only Import the Base</h3>
+<p>Another solution which is a little more verbose in the usages is to just import the base library. To do this for our example, we would simply import <code>pynput</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pynput</span>
+</code></pre></div>
+
+
+<p>Then to use it like we have done above:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Listen to mouse events</span>
+<span class="k">with</span> <span class="n">pynput</span><span class="o">.</span><span class="n">mouse</span><span class="o">.</span><span class="n">Listener</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">as</span> <span class="n">mouse_listener</span><span class="p">:</span>
+    <span class="n">mouse_listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+<span class="c1"># Listen to keyboard events</span>
+<span class="k">with</span> <span class="n">pynput</span><span class="o">.</span><span class="n">keyboard</span><span class="o">.</span><span class="n">Listener</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="k">as</span> <span class="n">keyboard_listener</span><span class="p">:</span>
+    <span class="n">keyboard_listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</code></pre></div>
+
+
+<h2 id="mouse-and-keyboard-listener-example">Mouse and Keyboard Listener Example</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Listener</span> <span class="k">as</span> <span class="n">MouseListener</span>
+<span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Listener</span> <span class="k">as</span> <span class="n">KeyboardListener</span>
+
+
+<span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key pressed: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">on_release</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key released: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">on_move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mouse moved to (</span><span class="si">{0}</span><span class="s2">, </span><span class="si">{1}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">button</span><span class="p">,</span> <span class="n">pressed</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pressed</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mouse clicked at (</span><span class="si">{0}</span><span class="s1">, </span><span class="si">{1}</span><span class="s1">) with </span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">button</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mouse released at (</span><span class="si">{0}</span><span class="s1">, </span><span class="si">{1}</span><span class="s1">) with </span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">button</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">on_scroll</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mouse scrolled at (</span><span class="si">{0}</span><span class="s1">, </span><span class="si">{1}</span><span class="s1">)(</span><span class="si">{2}</span><span class="s1">, </span><span class="si">{3}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">))</span>
+
+
+<span class="c1"># Setup the listener threads</span>
+<span class="n">keyboard_listener</span> <span class="o">=</span> <span class="n">KeyboardListener</span><span class="p">(</span><span class="n">on_press</span><span class="o">=</span><span class="n">on_press</span><span class="p">,</span> <span class="n">on_release</span><span class="o">=</span><span class="n">on_release</span><span class="p">)</span>
+<span class="n">mouse_listener</span> <span class="o">=</span> <span class="n">MouseListener</span><span class="p">(</span><span class="n">on_move</span><span class="o">=</span><span class="n">on_move</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="n">on_click</span><span class="p">,</span> <span class="n">on_scroll</span><span class="o">=</span><span class="n">on_scroll</span><span class="p">)</span>
+
+<span class="c1"># Start the threads and join them so the script doesn&#39;t end early</span>
+<span class="n">keyboard_listener</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">mouse_listener</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">keyboard_listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+<span class="n">mouse_listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</code></pre></div>
+
+
+<blockquote>
+<p>You can leave the <code>.join()</code> calls out if you provide some other method of stopping the application exit, like a while loop.</p>
+</blockquote>
+                    </div>
+
+                    <nav class="blog-pagination text-center mb-5 mt-4">
+                        
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-get-stored-wifi-passwords-in-windows/">&larr; How to get Stored WiFi Pass...</a>
+                        
+                        
+                    </nav>
+
+                    
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function() {
+                            this.page.url = 'https://nitratine.net/blog/post/how-to-use-pynputs-mouse-and-keyboard-listener-at-the-same-time/'; // Your page's canonical URL variable
+                            this.page.identifier = 'https://nitratine.net/blog/post/how-to-use-pynputs-mouse-and-keyboard-listener-at-the-same-time/'; // Your page's unique identifier variable
+                        };
+                        (function() {
+                            var d = document,
+                                s = d.createElement('script');
+                            s.src = '//nitratine.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                    
+
+                </div>
+
+                                <!-- Sidebar -->
+                <aside class="col-blog-sidebar blog-sidebar">
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">About</h4>
+                        <p class="mb-0">Owner of <a href="https://www.youtube.com/PyTutorials">PyTutorials</a> and creator of <a href="https://github.com/brentvollebregt/auto-py-to-exe">auto-py-to-exe</a>. I enjoy making quick tutorials for people new to particular topics in Python and  tools that help fix small things.</p>
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <input id="search" type="text" class="form-control" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button id="search-submit" class="btn btn-outline-primary" type="button">Search</button>
+                        </div>
+                    </div>
+                    <script>let searchUrl = "/search/";</script>
+                    <script type="text/javascript" defer src="/assets/js/search.js"></script>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">Categories</h4>
+                        <ol class="list-unstyled mb-0 text-center text-lg-left">
+                            
+                                <li>
+                                <a href="/blog/categories/#Apps">&#x1F4F1; Apps
+                                    <span class="badge badge-primary ml-3">2</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#General">&#x1F4F0; General
+                                    <span class="badge badge-primary ml-3">7</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Investigations">&#x1F50D; Investigations
+                                    <span class="badge badge-primary ml-3">2</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Projects">&#x1F4BE; Projects
+                                    <span class="badge badge-primary ml-3">15</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Snippets">&#x2702; Snippets
+                                    <span class="badge badge-primary ml-3">1</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Tools">&#x1F6E0; Tools
+                                    <span class="badge badge-primary ml-3">3</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Tutorials">&#x1F4D6; Tutorials
+                                    <span class="badge badge-primary ml-3">18</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#YouTube">&#x1F3A5; YouTube
+                                    <span class="badge badge-primary ml-3">15</span>
+                                </a>
+                            </li>
+                            
+                        </ol>
+                    </div>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">PyTutorials on YouTube</h4>
+                        <script src="https://apis.google.com/js/platform.js"></script>
+                        <div style="text-align: center">
+                            <div class="g-ytsubscribe" data-channel="PrivateSplat" data-layout="full" data-count="default"></div>
+                        </div>
+                    </div>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">Recent Videos</h4>
+                        <div id="recent-yt-videos" class="yt_video_container">
+                            
+                                <img src="https://img.youtube.com/vi/H8t4DJ3Tdrg/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=H8t4DJ3Tdrg', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/ksW59gYEl6Q/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=ksW59gYEl6Q', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/YPiHBtddefI/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=YPiHBtddefI', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/SQj17D1Q_6s/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=SQj17D1Q_6s', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/2kbeBzEQfXE/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=2kbeBzEQfXE', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/5JSloPGocSY/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=5JSloPGocSY', '_blank')">
+                            
+                        </div>
+                    </div>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">Featured Sites</h4>
+                        <div class="featured-sites">
+                            
+                                <a title="Emotionify" href="https://emotionify.nitratine.net/">
+                                    <img src="/assets/img/featured-sites/emotionify.png" />
+                                </a>
+                            
+                                <a title="Spotify Lyrics Viewer" href="https://spotify-lyrics-viewer.nitratine.net/">
+                                    <img src="/assets/img/featured-sites/spotify-lyrics-viewer.png" />
+                                </a>
+                            
+                                <a title="Hit Counter" href="https://hitcounter.pythonanywhere.com/">
+                                    <img src="/assets/img/featured-sites/hit-counter.png" />
+                                </a>
+                            
+                                <a title="Monopoly Money" href="https://monopoly-money.nitratine.net/">
+                                    <img src="/posts/monopoly-money/banner.png" />
+                                </a>
+                            
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+
+
+        </main>
+
+        <!-- Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>
