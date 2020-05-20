@@ -75,7 +75,7 @@
 
                     <h1 class="blog-post-title">How to Manage Multiple Python Distributions</h1>
                     <div class="mb-3">
-                        <a href="/blog/archive/#2020" class="text-muted">19 May 2020</a>
+                        <a href="/blog/archive/#2020" class="text-muted">20 May 2020</a>
                         <a href="/blog/categories/#Tutorials" class="badge badge-primary ml-2">Tutorials</a>
                         
                         <a href="/blog/tags/#python" class="badge badge-warning">python</a>
@@ -111,7 +111,7 @@
 </div>
 <h2 id="the-issue-potential-confusion">The Issue / Potential Confusion</h2>
 <p>Quite often, I get comments from people telling me that a module doesn't work, that they have installed the library/module:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">pip install xyz</span>
+<div class="codehilite"><pre><span></span><code>pip install xyz
 </code></pre></div>
 
 
@@ -132,7 +132,7 @@
 <h2 id="identification">Identification</h2>
 <p>Aside from the situation outlined above, there are better methods of proving that this is the case. The best method in my opinion, would be to identify where the <code>pip</code> and <code>python</code> executables are and check if they are in the same Python distribution. To do this, you can use the <code>where</code> command in Windows.</p>
 <p>For example, to identify what executable is executed when I execute <code>python</code>, I would execute:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">where python</span>
+<div class="codehilite"><pre><span></span><code>where python
 </code></pre></div>
 
 
@@ -145,7 +145,7 @@
 <p>Most people will find that they have only one path in this returned list. If you have more than one printed, use the top one; I discuss why more than one path may be returned later.</p>
 </blockquote>
 <p>To find the location of pip, I would then execute:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">where pip</span>
+<div class="codehilite"><pre><span></span><code>where pip
 </code></pre></div>
 
 
@@ -172,7 +172,7 @@ C:\a\different\path\to\distribution2\Scripts\pip.exe
 <p><code>where</code> prints the paths of executables that the terminal has identified with the name you provided; the top file path is always the one that is executed.</p>
 <p>The terminal has found these by searching the PATH environment variable. The PATH environment variable is a string that contains directories to look at when searching for executables that can be executed. This means you can make an executable/.exe available to use in cmd by adding the folder that it's located in to the PATH environment variable.</p>
 <p>To look at your PATH environment variable, execute:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">echo %PATH%</span>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span> %PATH%
 </code></pre></div>
 
 
@@ -196,7 +196,7 @@ C:\Python37\python.exe
 <p>There are many tutorials on setting up virtual environments in Python and there are many different modules you can use; but here are some basics using the Python 3 built-in venv:</p>
 <h4 id="setting-up-the-virtual-environment">Setting Up The Virtual Environment</h4>
 <p>To set up a virtual environment, open a terminal and execute the following:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">python -m venv venv_folder</span>
+<div class="codehilite"><pre><span></span><code>python -m venv venv_folder
 </code></pre></div>
 
 
@@ -204,7 +204,7 @@ C:\Python37\python.exe
 <h4 id="activating-the-virtual-environment">Activating The Virtual Environment</h4>
 <p>Before activating the virtual environment, executing <code>python</code> and <code>pip</code> will still use the globally setup distribution(s). To use the virtual environment executables, you need to activate it.</p>
 <p>While beside the <code>venv_folder</code> folder (or whatever you named it) in cmd, execute:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">venv_folder/Scripts/activate</span>
+<div class="codehilite"><pre><span></span><code>venv_folder/Scripts/activate
 </code></pre></div>
 
 
@@ -214,7 +214,7 @@ C:\Python37\python.exe
 <p>Now when you execute <code>where python</code> and <code>where pip</code>, you will see that executables from this virtual environment are being used. This is because the Scripts folder in the virtual environment has been added to the start of the PATH variable; you can see this by executing <code>echo %PATH%</code> again.</p>
 <h4 id="deactivating-the-virtual-environment">Deactivating The Virtual Environment</h4>
 <p>To deactivate the virtual environment, go back to the same folder in cmd beside <code>venv_folder</code> and execute:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">venv_folder/Scripts/deactivate</span>
+<div class="codehilite"><pre><span></span><code>venv_folder/Scripts/deactivate
 </code></pre></div>
 
 
