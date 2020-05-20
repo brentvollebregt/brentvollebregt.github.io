@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/assets/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-manage-multiple-python-distributions/">
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/css/base.css">
+        <link rel="stylesheet" href="/assets/css/custom-bootstrap.css"><!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117153268-2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-117153268-2');
+        </script><!-- instant.page -->
+        <script defer src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+        
+        <title>How to Manage Multiple Python Distributions - Nitratine</title>
+        <link rel="stylesheet" href="/assets/css/blog.css">
+        <link rel="stylesheet" href="/assets/css/pygments.css">
+
+        <meta name="description" content="Having multiple distributions of Python installed and not managing them correctly can lead to confusion. In this post, I discuss how to identify this potential mess and methods to fix it.">
+        <meta name="author" content="Brent Vollebregt">
+        <meta property="og:title" content="How to Manage Multiple Python Distributions">
+        <meta property="og:description" content="Having multiple distributions of Python installed and not managing them correctly can lead to confusion. In this post, I discuss how to identify this potential mess and methods to fix it.">
+        <meta property="og:image" content="/posts/how-to-manage-multiple-python-distributions/feature.png">
+        <meta property="og:url" content="https://nitratine.net/blog/post/how-to-manage-multiple-python-distributions/">
+        <meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="/assets/img/logo.png" width="145" height="30" class="d-inline-block align-top" alt="Brand Icon">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/blog/">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.youtube.com/PyTutorials">YouTube</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/brentvollebregt">GitHub</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/about/">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main role="main" class="container">
+
+            
+            <div class="row">
+                <div class="col-blog-content blog-main">
+
+                    <h1 class="blog-post-title">How to Manage Multiple Python Distributions</h1>
+                    <div class="mb-3">
+                        <a href="/blog/archive/#2020" class="text-muted">19 May 2020</a>
+                        <a href="/blog/categories/#Tutorials" class="badge badge-primary ml-2">Tutorials</a>
+                        
+                        <a href="/blog/tags/#python" class="badge badge-warning">python</a>
+                        
+                        <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
+                    </div>
+                    <p class="lead">Having multiple distributions of Python installed and not managing them correctly can lead to confusion. In this post, I discuss how to identify this potential mess and methods to fix it.</p>
+                    <hr class="mt-3 mb-0">
+
+                    
+
+                    <div class="post-content mt-3">
+                        <div class="toc">
+<ul>
+<li><a href="#the-issue-potential-confusion">The Issue / Potential Confusion</a></li>
+<li><a href="#identification">Identification</a><ul>
+<li><a href="#checking-that-these-executables-are-from-the-same-distributions">Checking That These Executables are From the Same Distributions</a></li>
+</ul>
+</li>
+<li><a href="#how-windows-decides-which-executable-to-execute">How Windows Decides Which Executable to Execute</a></li>
+<li><a href="#solutions">Solutions</a><ul>
+<li><a href="#virtual-environments">Virtual Environments</a><ul>
+<li><a href="#setting-up-the-virtual-environment">Setting Up The Virtual Environment</a></li>
+<li><a href="#activating-the-virtual-environment">Activating The Virtual Environment</a></li>
+<li><a href="#deactivating-the-virtual-environment">Deactivating The Virtual Environment</a></li>
+<li><a href="#installing-dependencies">Installing Dependencies</a></li>
+</ul>
+</li>
+<li><a href="#setting-up-your-path-environment-variable-in-an-expected-way">Setting up Your PATH Environment Variable in an Expected Way</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="the-issue-potential-confusion">The Issue / Potential Confusion</h2>
+<p>Quite often, I get comments from people telling me that a module doesn't work, that they have installed the library/module:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">pip install xyz</span>
+</code></pre></div>
+
+
+<p>And then executed <code>python file.py</code> which says something like the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;file.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="kn">import</span> <span class="nn">xyz</span>
+<span class="n">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;xyz&#39;</span>
+</code></pre></div>
+
+
+<p>Two things could have happened here:</p>
+<ol>
+<li>Installing the <code>xyz</code> module failed. This would have clearly been stated when executing <code>pip install xyz</code>.</li>
+<li>When using <code>pip</code>, the module has been installed in one distribution of Python and then a different distribution of Python has been used to try and import the module.</li>
+</ol>
+<p>Point 2 is what I will be focusing on in this post and how to fix confusion between more than one installed distribution of Python.</p>
+<h2 id="identification">Identification</h2>
+<p>Aside from the situation outlined above, there are better methods of proving that this is the case. The best method in my opinion, would be to identify where the <code>pip</code> and <code>python</code> executables are and check if they are in the same Python distribution. To do this, you can use the <code>where</code> command in Windows.</p>
+<p>For example, to identify what executable is executed when I execute <code>python</code>, I would execute:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">where python</span>
+</code></pre></div>
+
+
+<p>This will print one or more paths. When I execute it for example, the following is printed:</p>
+<div class="codehilite"><pre><span></span><code>C:\Python37\python.exe
+</code></pre></div>
+
+
+<blockquote>
+<p>Most people will find that they have only one path in this returned list. If you have more than one printed, use the top one; I discuss why more than one path may be returned later.</p>
+</blockquote>
+<p>To find the location of pip, I would then execute:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">where pip</span>
+</code></pre></div>
+
+
+<p>Which would then output one or more paths. In my case, it has output:</p>
+<div class="codehilite"><pre><span></span><code>C:\Python37\Scripts\pip.exe
+</code></pre></div>
+
+
+<h3 id="checking-that-these-executables-are-from-the-same-distributions">Checking That These Executables are From the Same Distributions</h3>
+<p>Using the paths returned from these two <code>where</code> calls, you can then see if they both belong to the same distribution or not.</p>
+<p>Typically a Python distribution has a root folder which contains python.exe and a Script folder which contains pip.exe. Using my example, you can see that my paths follow the pattern as the Python root is "C:\Python37\".</p>
+<p>In the case you have paths that do not have a common root folder like:</p>
+<div class="codehilite"><pre><span></span><code>&gt; where python
+C:\path\to\distribution1\python.exe
+
+&gt; where pip
+C:\a\different\path\to\distribution2\Scripts\pip.exe
+</code></pre></div>
+
+
+<p>We can see that they do not follow the Python root folder structure I described. We can also see they do not share the same parent directory so they must be from different distributions.</p>
+<h2 id="how-windows-decides-which-executable-to-execute">How Windows Decides Which Executable to Execute</h2>
+<p>When you execute a command in a terminal, the terminal has to figure out which executable to call. As shown above, we can use the <code>where</code> command to identify which executable is found and executed.</p>
+<p><code>where</code> prints the paths of executables that the terminal has identified with the name you provided; the top file path is always the one that is executed.</p>
+<p>The terminal has found these by searching the PATH environment variable. The PATH environment variable is a string that contains directories to look at when searching for executables that can be executed. This means you can make an executable/.exe available to use in cmd by adding the folder that it's located in to the PATH environment variable.</p>
+<p>To look at your PATH environment variable, execute:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">echo %PATH%</span>
+</code></pre></div>
+
+
+<blockquote>
+<p>To modify your PATH environment variable, look at my tutorial on <a href="/blog/post/how-to-setup-pythons-pip/">How To Setup Python's PIP</a>. In this post, I show you how to add a path to the PATH environment variable.</p>
+</blockquote>
+<p>When I'm in a virtual environment and execute <code>where python</code>, I get the following output:</p>
+<div class="codehilite"><pre><span></span><code>C:\Users\Brent\GitHub\nitratine.net\venv\Scripts\python.exe
+C:\Python37\python.exe
+</code></pre></div>
+
+
+<p>I now have two "python" executables I can execute, but only the top one will be used (we only need to execute one of them).</p>
+<p>The terminal has identified these paths in this order by looking at my PATH environment variable and searching each folder listed in it for a "python" executable. Each path is searched based on its position in the PATH environment variable - paths at the start get searched first.</p>
+<p>When not using <code>where</code>, the terminal will typically find the first executable required (first path in the list) and then stop searching as it has what it needs. This means when there are many executables with the same name in the folders to be searched, the executable found first when searching the folders in order will be executed.</p>
+<h2 id="solutions">Solutions</h2>
+<p>There are a couple of common solutions that we can use to fix this mixing of distributions issue. Both these solutions use the knowledge above about how Windows finds the executables we are wanting to execute.</p>
+<h3 id="virtual-environments">Virtual Environments</h3>
+<p>This is my most recommended as you can be sure everything is where you expect it. </p>
+<p>Virtual environments can solve the issue we're looking at because it sets up a folder structure for its own dependencies and executables and then adds the "Scripts" path of this environment to the beginning of the PATH environment variable so that the executables within will be found instead of other executables outside the environment.</p>
+<p>There are many tutorials on setting up virtual environments in Python and there are many different modules you can use; but here are some basics using the Python 3 built-in venv:</p>
+<h4 id="setting-up-the-virtual-environment">Setting Up The Virtual Environment</h4>
+<p>To set up a virtual environment, open a terminal and execute the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">python -m venv venv_folder</span>
+</code></pre></div>
+
+
+<p>This will ask Python's venv module to create a virtual environment in <code>venv_folder</code>. You can substitute <code>venv_folder</code> for a different folder name if you wish, the convention is to use a folder named <code>venv</code> but I have used <code>venv_folder</code> in this tutorial to better identify it as a folder. </p>
+<h4 id="activating-the-virtual-environment">Activating The Virtual Environment</h4>
+<p>Before activating the virtual environment, executing <code>python</code> and <code>pip</code> will still use the globally setup distribution(s). To use the virtual environment executables, you need to activate it.</p>
+<p>While beside the <code>venv_folder</code> folder (or whatever you named it) in cmd, execute:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">venv_folder/Scripts/activate</span>
+</code></pre></div>
+
+
+<blockquote>
+<p>If your folder was named <code>venv</code>, call <code>venv/Scripts/activate</code> (or substitute for a different name).</p>
+</blockquote>
+<p>Now when you execute <code>where python</code> and <code>where pip</code>, you will see that executables from this virtual environment are being used. This is because the Scripts folder in the virtual environment has been added to the start of the PATH variable; you can see this by executing <code>echo %PATH%</code> again.</p>
+<h4 id="deactivating-the-virtual-environment">Deactivating The Virtual Environment</h4>
+<p>To deactivate the virtual environment, go back to the same folder in cmd beside <code>venv_folder</code> and execute:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">venv_folder/Scripts/deactivate</span>
+</code></pre></div>
+
+
+<p>Executing <code>where python</code> and <code>where pip</code> again, you will see that the original setup has been restored.</p>
+<p>Also, since these methods only modify environment variables in the session, closing the terminal session will throw away the activation. You can easily reactivate the virtual environment by following the instructions above again.</p>
+<h4 id="installing-dependencies">Installing Dependencies</h4>
+<p>Now that you know how to set up, activate and deactivate a virtual environment, you can use this to be sure what <code>python</code> and <code>pip</code> you are executing.</p>
+<p>To install dependencies, use the normal <code>pip install xyz</code> and to run a Python script, use the normal <code>python my_file.py</code>.</p>
+<h3 id="setting-up-your-path-environment-variable-in-an-expected-way">Setting up Your PATH Environment Variable in an Expected Way</h3>
+<p>If you don't want to deal with virtual environments, you could just set your PATH environment variable to make sure you get the correct <code>python</code> and <code>pip</code> each time.</p>
+<p>To do this, first identify the root of the Python distribution you want to use. If you already have access to the <code>python</code> executable or IDLE you want to use, execute the following in it:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;\Scripts</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>This will print out two paths; one which is the root folder for the Python distribution that is being used and the other being its Scripts folder.</p>
+<p>Following my tutorial on <a href="/blog/post/how-to-setup-pythons-pip/">How To Setup Python's PIP</a>, add these two paths to the <em>beginning/top</em> of the PATH environment variable.</p>
+<p>Now when you execute <code>where python</code> and <code>where pip</code>, <code>python.exe</code> and <code>pip.exe</code> should be found in these two folders you added first.</p>
+<blockquote>
+<p>When making these changes to the PATH environment variable, you can also identify folders from other Python distribution that you don't actively use and remove them from the PATH environment variable. Then to use these other distributions of Python, absolutely reference the executable in cmd, e.g. <code>C:/my/second/python/distribution/python.exe</code>.</p>
+</blockquote>
+                    </div>
+
+                    <nav class="blog-pagination text-center mb-5 mt-4">
+                        
+                            <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-use-pynputs-mouse-and-keyboard-listener-at-the-same-time/">&larr; How to Use pynput&#39;s Mouse a...</a>
+                        
+                        
+                    </nav>
+
+                    
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function() {
+                            this.page.url = 'https://nitratine.net/blog/post/how-to-manage-multiple-python-distributions/'; // Your page's canonical URL variable
+                            this.page.identifier = 'https://nitratine.net/blog/post/how-to-manage-multiple-python-distributions/'; // Your page's unique identifier variable
+                        };
+                        (function() {
+                            var d = document,
+                                s = d.createElement('script');
+                            s.src = '//nitratine.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                    
+
+                </div>
+
+                                <!-- Sidebar -->
+                <aside class="col-blog-sidebar blog-sidebar">
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">About</h4>
+                        <p class="mb-0">Owner of <a href="https://www.youtube.com/PyTutorials">PyTutorials</a> and creator of <a href="https://github.com/brentvollebregt/auto-py-to-exe">auto-py-to-exe</a>. I enjoy making quick tutorials for people new to particular topics in Python and  tools that help fix small things.</p>
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <input id="search" type="text" class="form-control" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button id="search-submit" class="btn btn-outline-primary" type="button">Search</button>
+                        </div>
+                    </div>
+                    <script>let searchUrl = "/search/";</script>
+                    <script type="text/javascript" defer src="/assets/js/search.js"></script>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">Categories</h4>
+                        <ol class="list-unstyled mb-0 text-center text-lg-left">
+                            
+                                <li>
+                                <a href="/blog/categories/#Apps">&#x1F4F1; Apps
+                                    <span class="badge badge-primary ml-3">2</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#General">&#x1F4F0; General
+                                    <span class="badge badge-primary ml-3">7</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Investigations">&#x1F50D; Investigations
+                                    <span class="badge badge-primary ml-3">2</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Projects">&#x1F4BE; Projects
+                                    <span class="badge badge-primary ml-3">15</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Snippets">&#x2702; Snippets
+                                    <span class="badge badge-primary ml-3">1</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Tools">&#x1F6E0; Tools
+                                    <span class="badge badge-primary ml-3">3</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#Tutorials">&#x1F4D6; Tutorials
+                                    <span class="badge badge-primary ml-3">19</span>
+                                </a>
+                            </li>
+                            
+                                <li>
+                                <a href="/blog/categories/#YouTube">&#x1F3A5; YouTube
+                                    <span class="badge badge-primary ml-3">15</span>
+                                </a>
+                            </li>
+                            
+                        </ol>
+                    </div>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">PyTutorials on YouTube</h4>
+                        <script src="https://apis.google.com/js/platform.js"></script>
+                        <div style="text-align: center">
+                            <div class="g-ytsubscribe" data-channel="PrivateSplat" data-layout="full" data-count="default"></div>
+                        </div>
+                    </div>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">Recent Videos</h4>
+                        <div id="recent-yt-videos" class="yt_video_container">
+                            
+                                <img src="https://img.youtube.com/vi/H8t4DJ3Tdrg/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=H8t4DJ3Tdrg', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/ksW59gYEl6Q/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=ksW59gYEl6Q', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/YPiHBtddefI/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=YPiHBtddefI', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/SQj17D1Q_6s/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=SQj17D1Q_6s', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/2kbeBzEQfXE/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=2kbeBzEQfXE', '_blank')">
+                            
+                                <img src="https://img.youtube.com/vi/5JSloPGocSY/mqdefault.jpg" onclick="window.open('https://www.youtube.com/watch?v=5JSloPGocSY', '_blank')">
+                            
+                        </div>
+                    </div>
+
+                    <div class="card p-3 mb-3 bg-light">
+                        <h4 class="text-center text-lg-left">Featured Sites</h4>
+                        <div class="featured-sites">
+                            
+                                <a title="Emotionify" href="https://emotionify.nitratine.net/">
+                                    <img src="/assets/img/featured-sites/emotionify.png" />
+                                </a>
+                            
+                                <a title="Spotify Lyrics Viewer" href="https://spotify-lyrics-viewer.nitratine.net/">
+                                    <img src="/assets/img/featured-sites/spotify-lyrics-viewer.png" />
+                                </a>
+                            
+                                <a title="Hit Counter" href="https://hitcounter.pythonanywhere.com/">
+                                    <img src="/assets/img/featured-sites/hit-counter.png" />
+                                </a>
+                            
+                                <a title="Monopoly Money" href="https://monopoly-money.nitratine.net/">
+                                    <img src="/posts/monopoly-money/banner.png" />
+                                </a>
+                            
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+
+
+        </main>
+
+        <!-- Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>
