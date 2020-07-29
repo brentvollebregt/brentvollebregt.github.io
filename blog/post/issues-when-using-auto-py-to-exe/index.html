@@ -149,7 +149,7 @@
 <p>A while ago I wrote an article on common issues when using <a href="https://github.com/brentvollebregt/auto-py-to-exe">auto-py-to-exe</a>. In this post, I aim to replace that post and explain more in greater depth.</p>
 <p>Please do not feel offended if I have referred you to this page, it's just the case that many other people have asked the same question you are asking and you haven't been able to find the answers I or others have provided.</p>
 <h3 id="a-small-disclaimer">A Small Disclaimer</h3>
-<p>I cannot guarantee this post or any advice I give will fix all your issues with auto-py-to-exe and <a href="http://www.pyinstaller.org/">PyInstaller</a>. This tool allows you to select options and give data to be fed into PyInstaller, that means that a lot of the errors that occur will be raised by PyInstaller, meaning I can't go and change how it works. Typically though, errors brought up in PyInstaller are due to incorrect configuration, thus this post aims to help you fix anything set up incorrectly.</p>
+<p>I cannot guarantee this post or any advice I give will fix all your issues with auto-py-to-exe and <a href="https://www.pyinstaller.org/">PyInstaller</a>. This tool allows you to select options and give data to be fed into PyInstaller, that means that a lot of the errors that occur will be raised by PyInstaller, meaning I can't go and change how it works. Typically though, errors brought up in PyInstaller are due to incorrect configuration, thus this post aims to help you fix anything set up incorrectly.</p>
 <p>If you have an issue that isn't mentioned in this post, chuck it in the comments below and I will look into adding it if we can find a solution.</p>
 <h2 id="what-is-auto-py-to-exe">What is auto-py-to-exe?</h2>
 <p>auto-py-to-exe is a project I made in my free time to make packaging Python scripts to an executable/bundle easier. The interface uses Chromes app mode and a small Python server in the backend.</p>
@@ -242,6 +242,25 @@
 <h2 id="general-questions-constantly-asked">General Questions Constantly Asked</h2>
 <h3 id="how-do-i-convert-all-my-python-files">How do I Convert All My Python Files?</h3>
 <p>Add the entry point in the script location. PyInstaller searches for imports to get the rest of the Python files required to run, so as long as you use the <code>import</code> keyword, your files will be added.</p>
+<p>For example, if you have a layout like:</p>
+<div class="codehilite"><pre><span></span><code>📂root
+ ┣ 📂my_package
+ ┃ ┣ 📜__init__.py
+ ┃ ┣ 📜__main__.py
+ ┃ ┗ 📜utils.py
+ ┗ 📜start.py
+</code></pre></div>
+
+
+<p>Then package <code>start.py</code> - PyInstaller will find the rest as long as you are using the <code>import</code> keyword.</p>
+<p>If you don't have something like <code>start.py</code> and use your application like a module (<code>python -m [module_name]</code>) then create a file like <code>start.py</code> which imports the package and runs it as you would expect. For example, this is what I do with <code>auto-py-to-exe</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">my_package</span> <span class="kn">import</span> <span class="n">__main__</span>
+
+<span class="n">__main__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;__main__&#39;</span> <span class="c1"># Make it look like `my_package.__main__` is the main script</span>
+<span class="n">__main__</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>  <span class="c1"># Call your main function if required</span>
+</code></pre></div>
+
+
 <h3 id="the-terminal-just-opens-and-closes-but-there-are-no-errors">The Terminal Just Opens and Closes But There Are No Errors</h3>
 <p>If you double click to run your Python script, what happens? Does it open and close also? That means this tool has done its job correctly and the script is finishing just like it should.</p>
 <p>You most likely think the output should stay visible because you are always using IDLE or an IDE and that's what those tools do. Add a statement like <code>input()</code> at the end of your script to block execution and wait for you to press enter before closing. </p>
