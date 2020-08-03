@@ -149,8 +149,8 @@
 <p>This key will have a type of bytes, so if you want a string you can call <code>key.decode()</code> to convert from UTF-8 to Pythons string type.</p>
 <h3 id="storing-keys">Storing Keys</h3>
 <p>One way of keeping your keys safe is to keep them in a file. To do this we can simply create/overwrite a file and put the key in it.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;key.key&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
-<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="c1"># The key is type bytes still</span>
+<div class="codehilite"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;key.key&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>  <span class="c1"># Open the file as wb to write bytes</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>  <span class="c1"># The key is type bytes still</span>
 <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
 
@@ -160,8 +160,8 @@
 </blockquote>
 <h3 id="reading-keys">Reading Keys</h3>
 <p>If you have previously saved your key using the method I showed, you can read the key back out using the following code.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;key.key&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
-<span class="n">key</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># The key will be type bytes</span>
+<div class="codehilite"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;key.key&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>  <span class="c1"># Open the file as wb to read bytes</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c1"># The key will be type bytes</span>
 <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
 
@@ -170,14 +170,13 @@
 <h3 id="generating-a-key-from-a-password">Generating a Key From A Password</h3>
 <p>If you want to base your key of a string that the user can input or some other form of input, you can create a key using this input.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
-<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">cryptography.hazmat.backends</span> <span class="kn">import</span> <span class="n">default_backend</span>
 <span class="kn">from</span> <span class="nn">cryptography.hazmat.primitives</span> <span class="kn">import</span> <span class="n">hashes</span>
 <span class="kn">from</span> <span class="nn">cryptography.hazmat.primitives.kdf.pbkdf2</span> <span class="kn">import</span> <span class="n">PBKDF2HMAC</span>
 
-<span class="n">password_provided</span> <span class="o">=</span> <span class="s2">&quot;password&quot;</span> <span class="c1"># This is input in the form of a string</span>
-<span class="n">password</span> <span class="o">=</span> <span class="n">password_provided</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span> <span class="c1"># Convert to type bytes</span>
-<span class="n">salt</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;salt_&#39;</span> <span class="c1"># CHANGE THIS - recommend using a key from os.urandom(16), must be of type bytes</span>
+<span class="n">password_provided</span> <span class="o">=</span> <span class="s2">&quot;password&quot;</span>  <span class="c1"># This is input in the form of a string</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">password_provided</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>  <span class="c1"># Convert to type bytes</span>
+<span class="n">salt</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;salt_&#39;</span>  <span class="c1"># CHANGE THIS - recommend using a key from os.urandom(16), must be of type bytes</span>
 <span class="n">kdf</span> <span class="o">=</span> <span class="n">PBKDF2HMAC</span><span class="p">(</span>
     <span class="n">algorithm</span><span class="o">=</span><span class="n">hashes</span><span class="o">.</span><span class="n">SHA256</span><span class="p">(),</span>
     <span class="n">length</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
@@ -185,7 +184,7 @@
     <span class="n">iterations</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span>
     <span class="n">backend</span><span class="o">=</span><span class="n">default_backend</span><span class="p">()</span>
 <span class="p">)</span>
-<span class="n">key</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">kdf</span><span class="o">.</span><span class="n">derive</span><span class="p">(</span><span class="n">password</span><span class="p">))</span> <span class="c1"># Can only use kdf once</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">kdf</span><span class="o">.</span><span class="n">derive</span><span class="p">(</span><span class="n">password</span><span class="p">))</span>  <span class="c1"># Can only use kdf once</span>
 </code></pre></div>
 
 
@@ -199,7 +198,7 @@
 <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;my deep dark secret&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="n">encrypted</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="n">encrypted</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>  <span class="c1"># Encrypt the bytes. The returning object is of type bytes</span>
 </code></pre></div>
 
 
@@ -210,7 +209,7 @@
 <span class="n">encrypted</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;...encrypted bytes...&quot;</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="n">decrypted</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
+<span class="n">decrypted</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>  <span class="c1"># Decrypt the bytes. The returning object is of type bytes</span>
 </code></pre></div>
 
 
@@ -221,11 +220,11 @@
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">cryptography.fernet</span> <span class="kn">import</span> <span class="n">Fernet</span><span class="p">,</span> <span class="n">InvalidToken</span>
 <span class="n">encrypted</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;...encrypted bytes...&quot;</span>
 
-<span class="n">f</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">incorrect_key</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">incorrect_key</span><span class="p">)</span>  <span class="c1"># An example of providing the incorrect key</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">decrypted</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valid Key - Successfully decrypted&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="n">InvalidToken</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="k">except</span> <span class="n">InvalidToken</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># Catch any InvalidToken exceptions if the correct key was not provided</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid Key - Unsuccessfully decrypted&quot;</span><span class="p">)</span>
 </code></pre></div>
 
@@ -233,12 +232,12 @@
 <h2 id="demonstration">Demonstration</h2>
 <p>To show this in action, here is a properly constructed example.</p>
 <div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">cryptography.fernet</span> <span class="kn">import</span> <span class="n">Fernet</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;my deep dark secret&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">key</span> <span class="o">=</span> <span class="n">Fernet</span><span class="o">.</span><span class="n">generate_key</span><span class="p">()</span> <span class="c1"># Store this key or get if you already have it</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;my deep dark secret&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>  <span class="c1"># .encode() is used to turn the string to bytes</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">key</span> <span class="o">=</span> <span class="n">Fernet</span><span class="o">.</span><span class="n">generate_key</span><span class="p">()</span>  <span class="c1"># Store this key or get if you already have it</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">encrypted</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">decrypted</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">message</span> <span class="o">==</span> <span class="n">decrypted</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">message</span> <span class="o">==</span> <span class="n">decrypted</span>  <span class="c1"># The original message and decrypted bytes are the same</span>
 <span class="kc">True</span>
 <span class="o">&gt;&gt;&gt;</span>
 </code></pre></div>
@@ -253,15 +252,15 @@
 <span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;test.encrypted&#39;</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c1"># Read the bytes of the input file</span>
 
 <span class="n">fernet</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 <span class="n">encrypted</span> <span class="o">=</span> <span class="n">fernet</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>  <span class="c1"># Write the encrypted bytes to the output file</span>
 
-<span class="c1"># You can delete input_file if you want</span>
+<span class="c1"># Note: You can delete input_file here if you want</span>
 </code></pre></div>
 
 
@@ -272,16 +271,16 @@
 <span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;test.txt&#39;</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c1"># Read the bytes of the encrypted file</span>
 
 <span class="n">fernet</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">decrypted</span> <span class="o">=</span> <span class="n">fernet</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">decrypted</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">decrypted</span><span class="p">)</span>  <span class="c1"># Write the decrypted bytes to the output file</span>
 
-    <span class="c1"># You can delete input_file if you want</span>
+    <span class="c1"># Note: You can delete input_file here if you want</span>
 <span class="k">except</span> <span class="n">InvalidToken</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid Key - Unsuccessfully decrypted&quot;</span><span class="p">)</span>
 </code></pre></div>
