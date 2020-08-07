@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Aug 2020 04:26:09 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2020 06:13:23 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -67,7 +67,7 @@ For bug reports please include:
       <guid isPermaLink="false">https://nitratine.net/blog/post/colour/</guid>
       <category>Apps</category>
       <enclosure url="https://nitratine.net/posts/colour/feature.png" length="0" type="image/png"/>
-      <pubDate>Sat, 18 Nov 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 18 Nov 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Finding Emotion In Music With Python</title>
@@ -196,7 +196,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/finding-emotion-in-music-with-python/</guid>
       <category>Investigations</category>
       <enclosure url="https://nitratine.net/posts/finding-emotion-in-music-with-python/mining-results.png" length="0" type="image/png"/>
-      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Interesting Sites</title>
@@ -253,7 +253,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/interesting-sites/</guid>
       <category>General</category>
       <enclosure url="https://nitratine.net/posts/interesting-sites/Rome1.jpg" length="0" type="image/jpg"/>
-      <pubDate>Wed, 06 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 06 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Randomly Generating Numbers to Fulfil an Integer Range</title>
@@ -1423,7 +1423,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/randomly-generating-numbers-to-fulfil-an-integer-range/</guid>
       <category>Investigations</category>
       <enclosure url="https://nitratine.net/posts/randomly-generating-numbers-to-fulfil-an-integer-range/graph2.png" length="0" type="image/png"/>
-      <pubDate>Thu, 07 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Convert .py to .exe</title>
@@ -1534,7 +1534,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/convert-py-to-exe/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/convert-py-to-exe/youtube-thumbnail.jpg" length="0" type="image/jpg"/>
-      <pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>How To Setup Python's PIP</title>
@@ -1600,7 +1600,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-setup-pythons-pip/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/how-to-setup-pythons-pip/youtube-thumbnail.jpg" length="0" type="image/jpg"/>
-      <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 13 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Get WiFi Passwords With Python</title>
@@ -1715,7 +1715,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/get-wifi-passwords-with-python/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/get-wifi-passwords-with-python/feature.jpg" length="0" type="image/jpg"/>
-      <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 13 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>How To Get Mouse Clicks With Python</title>
@@ -1864,7 +1864,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-get-mouse-clicks-with-python/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/how-to-get-mouse-clicks-with-python/youtube-thumbnail.jpg" length="0" type="image/jpg"/>
-      <pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 14 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Python Keylogger</title>
@@ -1979,7 +1979,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/python-keylogger/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/python-keylogger/feature.jpg" length="0" type="image/jpg"/>
-      <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 15 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Simulate Keypresses In Python</title>
@@ -2120,7 +2120,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/simulate-keypresses-in-python/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/simulate-keypresses-in-python/feature.jpg" length="0" type="image/jpg"/>
-      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Quick Script</title>
@@ -2180,7 +2180,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/quick-script/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/quick-script/gui1.png" length="0" type="image/png"/>
-      <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Lucy In The Sky With Emotion</title>
@@ -2274,7 +2274,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/lucy-in-the-sky-with-emotion/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/lucy-in-the-sky-with-emotion/visualiser5.jpg" length="0" type="image/jpg"/>
-      <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 21 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Spotify Playlist Downloader</title>
@@ -2309,7 +2309,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/spotify-playlist-downloader/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/spotify-playlist-downloader/feature.jpg" length="0" type="image/jpg"/>
-      <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 21 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>MP3-iTunes Downloader</title>
@@ -2344,7 +2344,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/mp3-itunes-downloader/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/mp3-itunes-downloader/gui1.png" length="0" type="image/png"/>
-      <pubDate>Thu, 21 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 21 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Adding Snow to Your Website</title>
@@ -2426,7 +2426,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/adding-snow-to-your-website/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/adding-snow-to-your-website/feature.png" length="0" type="image/png"/>
-      <pubDate>Sun, 31 Dec 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 31 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Change File Modification Time In Python</title>
@@ -2506,7 +2506,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/change-file-modification-time-in-python/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/change-file-modification-time-in-python/feature.png" length="0" type="image/png"/>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>The Nitratine Project</title>
@@ -2710,7 +2710,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/the-nitratine-project/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/the-nitratine-project/nitratine1.jpg" length="0" type="image/jpg"/>
-      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 10 Jan 2018 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>How to Make Hotkeys in Python</title>
@@ -3053,7 +3053,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-make-hotkeys-in-python/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/how-to-make-hotkeys-in-python/feature.jpg" length="0" type="image/jpg"/>
-      <pubDate>Sat, 13 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 13 Jan 2018 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Simulate Mouse Events In Python</title>
@@ -3176,7 +3176,7 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/simulate-mouse-events-in-python/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/simulate-mouse-events-in-python/feature.jpg" length="0" type="image/jpg"/>
-      <pubDate>Sat, 13 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 13 Jan 2018 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>How to Send an Email With Python</title>
@@ -3423,7 +3423,7 @@ Make another string which is the plain-text version of the HTML and then attach 
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-send-an-email-with-python/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/how-to-send-an-email-with-python/youtube-thumbnail.jpg" length="0" type="image/jpg"/>
-      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Python Retweet Bot</title>
@@ -3634,7 +3634,7 @@ Make another string which is the plain-text version of the HTML and then attach 
       <guid isPermaLink="false">https://nitratine.net/blog/post/python-retweet-bot/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/python-retweet-bot/feature.png" length="0" type="image/png"/>
-      <pubDate>Fri, 26 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 26 Jan 2018 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Python Auto Clicker</title>
@@ -3833,7 +3833,7 @@ Make another string which is the plain-text version of the HTML and then attach 
       <guid isPermaLink="false">https://nitratine.net/blog/post/python-auto-clicker/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/python-auto-clicker/feature.jpg" length="0" type="image/jpg"/>
-      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 09 Feb 2018 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Auto Py To Exe</title>
@@ -3969,7 +3969,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/auto-py-to-exe/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/auto-py-to-exe/feature.png" length="0" type="image/png"/>
-      <pubDate>Sat, 10 Mar 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 10 Mar 2018 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Hit Counter</title>
@@ -4057,7 +4057,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/hit-counter/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/hit-counter/feature.png" length="0" type="image/png"/>
-      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Github Badges</title>
@@ -4166,7 +4166,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/github-badges/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/github-badges/static.png" length="0" type="image/png"/>
-      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>My Desktop Backgrounds</title>
@@ -4213,7 +4213,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/my-desktop-backgrounds/</guid>
       <category>General</category>
       <enclosure url="https://nitratine.net/posts/my-desktop-backgrounds/lhc-blocks.jpg" length="0" type="image/jpg"/>
-      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>How To Add a Custom Domain To a GitHub Pages Site</title>
@@ -4276,7 +4276,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-add-a-custom-domain-to-a-github-pages-site/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-add-a-custom-domain-to-a-github-pages-site/existing-resource-records.png" length="0" type="image/png"/>
-      <pubDate>Sun, 29 Apr 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 29 Apr 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Python Threading Basics</title>
@@ -4525,7 +4525,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/python-threading-basics/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/python-threading-basics/youtube-thumbnail.jpg" length="0" type="image/jpg"/>
-      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 03 May 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Python GUI Using Chrome</title>
@@ -4789,7 +4789,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/python-gui-using-chrome/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/python-gui-using-chrome/youtube-thumbnail.jpg" length="0" type="image/jpg"/>
-      <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 May 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Python SQLite3 Basics</title>
@@ -4952,7 +4952,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/python-sqlite3-basics/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/python-sqlite3-basics/youtube-thumbnail.jpg" length="0" type="image/jpg"/>
-      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 06 May 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Price Per Unit</title>
@@ -5005,7 +5005,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/price-per-unit/</guid>
       <category>Apps</category>
       <enclosure url="https://nitratine.net/posts/price-per-unit/FeatureGraphic.jpg" length="0" type="image/jpg"/>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Putting auto-py-to-exe on PyPI</title>
@@ -5061,7 +5061,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/putting-auto-py-to-exe-on-pypi/</guid>
       <category>General</category>
       <enclosure url="https://nitratine.net/posts/putting-auto-py-to-exe-on-pypi/feature.jpg" length="0" type="image/jpg"/>
-      <pubDate>Mon, 09 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 09 Jul 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Media Picker</title>
@@ -5101,7 +5101,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/media-picker/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/media-picker/interface.jpg" length="0" type="image/jpg"/>
-      <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 15 Jul 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Python GUI's with PyQt</title>
@@ -5275,7 +5275,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/python-guis-with-pyqt/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/python-guis-with-pyqt/youtube-thumbnail.jpg" length="0" type="image/jpg"/>
-      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 17 Jul 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>How to Clean a Twitter Account with jQuery</title>
@@ -5418,7 +5418,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-clean-a-twitter-account-with-jquery/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-clean-a-twitter-account-with-jquery/followers.png" length="0" type="image/png"/>
-      <pubDate>Sun, 12 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Aug 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Multi Clipboard</title>
@@ -5505,7 +5505,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/multi-clipboard/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/multi-clipboard/main-gui-with-settings-shown.png" length="0" type="image/png"/>
-      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>University of Waikato Moodle Resource Work Around Ignorer</title>
@@ -5538,7 +5538,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/uow-moodle-rwa-ignorer/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/uow-moodle-rwa-ignorer/target.png" length="0" type="image/png"/>
-      <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 08 Sep 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Am I A Participant</title>
@@ -5569,7 +5569,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/am-i-a-participant/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/am-i-a-participant/feature.png" length="0" type="image/png"/>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Encryption and Decryption in Python</title>
@@ -5776,7 +5776,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/encryption-and-decryption-in-python/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/encryption-and-decryption-in-python/youtube-thumbnail.jpg" length="0" type="image/jpg"/>
-      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 16 Sep 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Asymmetric Encryption and Decryption in Python</title>
@@ -6026,7 +6026,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/asymmetric-encryption-and-decryption-in-python/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/asymmetric-encryption-and-decryption-in-python/feature.png" length="0" type="image/png"/>
-      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 16 Sep 2018 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Issues When Using auto-py-to-exe</title>
@@ -6307,7 +6307,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/issues-when-using-auto-py-to-exe/</guid>
       <category>General</category>
       <enclosure url="https://nitratine.net/posts/issues-when-using-auto-py-to-exe/feature.png" length="0" type="image/png"/>
-      <pubDate>Sat, 17 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 17 Nov 2018 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Python Size and Time Cache Decorator</title>
@@ -6407,7 +6407,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/python-size-and-time-cache-decorator/</guid>
       <category>General</category>
       <enclosure url="https://nitratine.net/posts/python-size-and-time-cache-decorator/feature.png" length="0" type="image/png"/>
-      <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Python Requests Tutorial</title>
@@ -6589,7 +6589,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/python-requests-tutorial/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/python-requests-tutorial/feature.png" length="0" type="image/png"/>
-      <pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 04 Apr 2019 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Google Publisher Toolbar: Please copy this code</title>
@@ -6649,7 +6649,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/google-publisher-toolbar-please-copy-this-code/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/google-publisher-toolbar-please-copy-this-code/message.png" length="0" type="image/png"/>
-      <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 24 Apr 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>How to Hash Files in Python</title>
@@ -6735,7 +6735,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-hash-files-in-python/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-hash-files-in-python/feature.png" length="0" type="image/png"/>
-      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 07 May 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>JavaScript Date Methods Return Values</title>
@@ -6828,7 +6828,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/javascript-date-methods-return-values/</guid>
       <category>Tools</category>
       <enclosure url="https://nitratine.net/posts/javascript-date-methods-return-values/feature.png" length="0" type="image/png"/>
-      <pubDate>Wed, 08 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 08 May 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Python Encryption and Decryption with PyCryptodome</title>
@@ -7255,7 +7255,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/python-encryption-and-decryption-with-pycryptodome/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/python-encryption-and-decryption-with-pycryptodome/feature.png" length="0" type="image/png"/>
-      <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 14 May 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Fix: 'python' is not recognized as an internal or external command</title>
@@ -7411,7 +7411,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/fix-python-is-not-recognized-as-an-internal-or-external-command/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/fix-python-is-not-recognized-as-an-internal-or-external-command/feature.png" length="0" type="image/png"/>
-      <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 15 May 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>How To Hash Passwords In Python</title>
@@ -7612,7 +7612,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-hash-passwords-in-python/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-hash-passwords-in-python/feature.png" length="0" type="image/png"/>
-      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 20 May 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>How to Import a PyQt5 .ui File in a Python GUI</title>
@@ -7838,7 +7838,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-import-a-pyqt5-ui-file-in-a-python-gui/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-import-a-pyqt5-ui-file-in-a-python-gui/feature.png" length="0" type="image/png"/>
-      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 26 May 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>How to Create Dialogs in Python</title>
@@ -8134,7 +8134,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-create-dialogs-in-python/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-create-dialogs-in-python/question-dialogs.png" length="0" type="image/png"/>
-      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 26 May 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>XOR Python Byte Strings</title>
@@ -8277,7 +8277,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/xor-python-byte-strings/</guid>
       <category>Snippets</category>
       <enclosure url="https://nitratine.net/posts/xor-python-byte-strings/feature.png" length="0" type="image/png"/>
-      <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 08 Jun 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Remove Columns in a CSV File With Python</title>
@@ -8324,7 +8324,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/remove-columns-in-a-csv-file-with-python/</guid>
       <category>Tools</category>
       <enclosure url="https://nitratine.net/posts/remove-columns-in-a-csv-file-with-python/feature.png" length="0" type="image/png"/>
-      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>New Zealand Cyber Security Challenge 2019 Round 0 Solutions</title>
@@ -8479,7 +8479,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/new-zealand-cyber-security-challenge-2019-round-0-solutions/</guid>
       <category>General</category>
       <enclosure url="https://nitratine.net/posts/new-zealand-cyber-security-challenge-2019-round-0-solutions/feature.png" length="0" type="image/png"/>
-      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Understanding The Python Root Folder</title>
@@ -8558,7 +8558,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/understanding-the-python-root-folder/</guid>
       <category>General</category>
       <enclosure url="https://nitratine.net/posts/understanding-the-python-root-folder/feature.png" length="0" type="image/png"/>
-      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Emotionify</title>
@@ -8592,7 +8592,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/emotionify/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/emotionify/feature.png" length="0" type="image/png"/>
-      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 09 Jul 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Useful Online Tools For Developers</title>
@@ -8735,7 +8735,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/useful-online-tools-for-developers/</guid>
       <category>Tools</category>
       <enclosure url="https://nitratine.net/posts/useful-online-tools-for-developers/feature.png" length="0" type="image/png"/>
-      <pubDate>Sun, 08 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 08 Sep 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Spotify Lyrics Viewer</title>
@@ -8766,7 +8766,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/spotify-lyrics-viewer/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/spotify-lyrics-viewer/feature.png" length="0" type="image/png"/>
-      <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 07 Nov 2019 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>Who's On My Network</title>
@@ -8856,7 +8856,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/whos-on-my-network/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/whos-on-my-network/feature.png" length="0" type="image/png"/>
-      <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 04 Apr 2020 00:00:00 +1300</pubDate>
     </item>
     <item>
       <title>How to Detect Key Presses In Python</title>
@@ -9031,7 +9031,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-detect-key-presses-in-python/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-detect-key-presses-in-python/demo2.png" length="0" type="image/png"/>
-      <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>Monopoly Money</title>
@@ -9083,7 +9083,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/monopoly-money/</guid>
       <category>Projects</category>
       <enclosure url="https://nitratine.net/posts/monopoly-money/feature.png" length="0" type="image/png"/>
-      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>How to get Stored WiFi Passwords in Windows</title>
@@ -9139,7 +9139,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-get-stored-wifi-passwords-in-windows/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-get-stored-wifi-passwords-in-windows/feature.png" length="0" type="image/png"/>
-      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 12 May 2020 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>How to Use pynput's Mouse and Keyboard Listener at the Same Time</title>
@@ -9261,7 +9261,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-use-pynputs-mouse-and-keyboard-listener-at-the-same-time/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-use-pynputs-mouse-and-keyboard-listener-at-the-same-time/feature.png" length="0" type="image/png"/>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 May 2020 00:00:00 +1200</pubDate>
     </item>
     <item>
       <title>How to Manage Multiple Python Distributions</title>
@@ -9421,7 +9421,7 @@ C:\Python37\python.exe
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-manage-multiple-python-distributions/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-manage-multiple-python-distributions/feature.png" length="0" type="image/png"/>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 May 2020 00:00:00 +1200</pubDate>
     </item>
   </channel>
 </rss>
