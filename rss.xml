@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Sat, 08 Aug 2020 09:59:04 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2020 11:09:02 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -2302,16 +2302,9 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;li&gt;&lt;a href="#gui-emotion-detection"&gt;GUI - Emotion Detection&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#gui-valence-energy-graph"&gt;GUI - Valence Energy Graph&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#visualiser"&gt;Visualiser&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#installation-and-setup"&gt;Installation and Setup&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#issues"&gt;Issues&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href="#installation-and-setup"&gt;Installation and Setup&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#usage"&gt;Usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#credits"&gt;Credits&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#developers"&gt;Developers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#project-managers"&gt;Project Managers&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href="#credits"&gt;Credits&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -2353,8 +2346,8 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;li&gt;Read about the issues below&lt;/li&gt;
 &lt;li&gt;Run main.py&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h4 id="issues"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#issues"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Issues&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Issues&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;Currently, the visualiser cannot take in dynamic input for audio. CSV files are still read in dynamically and will change based on what song is selected when the visualise button is clicked.&lt;/p&gt;
 &lt;p&gt;This means music that was used in the building of the visualiser will be the only audio that the visualiser plays, however the data that the visualiser reads from the CSV to manipulate some functions will still be used.&lt;/p&gt;
 &lt;p&gt;To temporarily fix this so incorrect data is not displayed can be easily fixed by commenting out lines 153 to 155 in main.py. This will disable the CSV wiring so the original CSV file will still be passing the correct data.&lt;/p&gt;
@@ -2375,8 +2368,8 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;/ul&gt;
 &lt;h3 id="credits"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#credits"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Credits&lt;/span&gt;&lt;/h3&gt;
-&lt;h4 id="developers"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#developers"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Developers&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Developers&lt;/span&gt;&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/basedrhys"&gt;Rhys Compton&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/DylanExton"&gt;Dylan Exton&lt;/a&gt;&lt;/li&gt;
@@ -2385,8 +2378,8 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;li&gt;&lt;a href="https://github.com/brentvollebregt"&gt;Brent Vollebregt&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Woodsy1FD"&gt;Jack Woods&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id="project-managers"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#project-managers"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Project Managers&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Project Managers&lt;/span&gt;&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/swikrit"&gt;Swikrit Khanal&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/shash873"&gt;Sash Sinha&lt;/a&gt;&lt;/li&gt;
@@ -2722,8 +2715,8 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id="datajson-sample"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#datajson-sample"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;data.json sample:&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;data.json sample:&lt;/span&gt;&lt;/h4&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="nt"&gt;&amp;quot;title&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Colour&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
   &lt;span class="nt"&gt;&amp;quot;description&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;This app is based off the goal of obtaining all 16,777,216 colours by randomly generating colours when taping the screen.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -2732,8 +2725,8 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4 id="viewhtml-sample"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#viewhtml-sample"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;view.html sample:&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;view.html sample:&lt;/span&gt;&lt;/h4&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;extends&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;SKELETON.html&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 
 &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;block&lt;/span&gt; &lt;span class="n"&gt;head&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
@@ -2757,8 +2750,8 @@ While creating this program, I discovered a way that could give hints to what em
 
 
 &lt;p&gt;Here we can see that the two blocks are extended from SKELETON.html. The article CSS file is added and relevant data passed to the template has been used including date, views, description and title; these are pulled from data.json.&lt;/p&gt;
-&lt;h4 id="article-layout-example"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#article-layout-example"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Article Layout Example&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Article Layout Example&lt;/span&gt;&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;articles&lt;ul&gt;
 &lt;li&gt;apps&lt;ul&gt;
@@ -4087,8 +4080,8 @@ Make another string which is the plain-text version of the HTML and then attach 
 &lt;p&gt;&lt;em&gt;To have the interface displayed in the images, you will need chrome. If chrome is not installed or --no-chrome is supplied, the default browser will be used.&lt;/em&gt;&lt;/p&gt;
 &lt;h3 id="installation-and-usage"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#installation-and-usage"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installation and Usage&lt;/span&gt;&lt;/h3&gt;
-&lt;h4 id="installing-via-pypi"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#installing-via-pypi"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing Via &lt;a href="https://pypi.org/project/auto-py-to-exe/"&gt;PyPI&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing Via &lt;a href="https://pypi.org/project/auto-py-to-exe/"&gt;PyPI&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;You can install this project using PyPI:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ pip install auto-py-to-exe
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -4112,8 +4105,8 @@ $ python setup.py install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4 id="running-locally-via-github-no-install"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#running-locally-via-github-no-install"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Running Locally Via &lt;a href="https://github.com/brentvollebregt/auto-py-to-exe"&gt;Github&lt;/a&gt; (no install)&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Running Locally Via &lt;a href="https://github.com/brentvollebregt/auto-py-to-exe"&gt;Github&lt;/a&gt; (no install)&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;You can run this project locally by following these steps:
 1. Clone/download the &lt;a href="https://github.com/brentvollebregt/auto-py-to-exe"&gt;repo&lt;/a&gt;
 2. Open cmd/terminal and cd into the project
@@ -5439,21 +5432,14 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
 &lt;li&gt;&lt;a href="#setting-up-the-environment"&gt;Setting up the Environment&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#using-the-designer"&gt;Using the Designer&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="#locating"&gt;Locating&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#using-the-designer_1"&gt;Using the Designer&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#creating-a-simple-window"&gt;Creating a Simple Window&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href="#using-the-designer_1"&gt;Using the Designer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href="#converting-ui-to-py"&gt;Converting .ui to .py&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#running-the-output-and-hooking-up-the-button"&gt;Running the Output and Hooking up the Button&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#more-advanced-example"&gt;More Advanced Example&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="#creating-interface"&gt;Creating Interface&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#connecting-events-to-methods"&gt;Connecting Events to Methods&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#linking-the-image-button"&gt;Linking the Image Button&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#linking-the-add-to-list-button"&gt;Linking the Add to List Button&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href="#connecting-events-to-methods"&gt;Connecting Events to Methods&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -5497,8 +5483,8 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
 &lt;p&gt;You will now be shown an empty window in the middle of the designer's window with widget options on the left and some other windows to the right.&lt;/p&gt;
 &lt;p&gt;On the left, you can drag widgets from the drop-downs onto the MainWindow object in the centre. On the right, in the Object Inspector, you can see the current widgets in your window. Right below that is the Property Editor that allows you to modify the widget currently selected.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Window Labeled" src="/posts/python-guis-with-pyqt/window-labeled.png" /&gt;&lt;/p&gt;
-&lt;h4 id="creating-a-simple-window"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#creating-a-simple-window"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Creating a Simple Window&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Creating a Simple Window&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;For this example, we will be just putting a button that prints "Hello World!" when pressed in the Window; soon we will work with a larger example when the basics are out of the way.&lt;/p&gt;
 &lt;p&gt;First, make your window a bit smaller by clicking and dragging the bottom right of the window (or any part on the edge) to change the size as you would do on any other window. Now find the "Push Button" widget under the Buttons section (on the left) and drag it into the window anywhere. You can double click on the button now to rename the text in it; set it to "Print Message".&lt;/p&gt;
 &lt;p&gt;You may now want to change the size of the button, to do this click on the button until there are blue squares on each of its corners and edges. Use these blue squares to re-size the button to a size you want.&lt;/p&gt;
@@ -5574,8 +5560,8 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
 &lt;p&gt;Your converted .py code should currently look something like this: &lt;em&gt;&lt;a href="/posts/python-guis-with-pyqt/MainWindowAdvanced1.py"&gt;Code download: MainWindowAdvanced1.py&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;If you open your .py file in IDLE, you can see that the names we gave each widget have passed through to the names of the actual objects. I also recommend running the code now to make sure it works.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Object names in code" src="/posts/python-guis-with-pyqt/object-names-in-code.png" /&gt;&lt;/p&gt;
-&lt;h4 id="linking-the-image-button"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#linking-the-image-button"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Linking the Image Button&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Linking the Image Button&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;First, you will want to create a class definition called &lt;code&gt;setImage&lt;/code&gt;; make sure this takes self as it is a class definition. In this method, we want to ask the user for an image (not just any file). If they provide a file, we then need to create a pixmap object and then set the pixmap object to the image label. Before we set it, it is ideal to scale the image to fit inside the label without stretching and aligning it to the centre. Your method will look like this:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setImage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;fileName&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;QtWidgets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;QFileDialog&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getOpenFileName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Select Image&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Image Files (*.png *.jpg *jpeg *.bmp)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Ask for file&lt;/span&gt;
@@ -5594,8 +5580,8 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
 
 
 &lt;p&gt;Run the script and make sure that your button works. Initially, the label will be clear but each time you select a file it should change to the selected file.&lt;/p&gt;
-&lt;h4 id="linking-the-add-to-list-button"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#linking-the-add-to-list-button"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Linking the Add to List Button&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Linking the Add to List Button&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;We will now need to create another class definition called &lt;code&gt;addItem&lt;/code&gt; like before. In this method, we need to get the value of the lineEdit object and then clear it. We can then simply add the value we just got to the listWidget. After you have done that, the method should look like this:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;addItem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lineEdit&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# Get the value of the lineEdit&lt;/span&gt;
@@ -5789,8 +5775,8 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/ul&gt;
 &lt;h3 id="installation-and-usage"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#installation-and-usage"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installation and Usage&lt;/span&gt;&lt;/h3&gt;
-&lt;h4 id="installing-via-pypi"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#installing-via-pypi"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing Via &lt;a href="https://pypi.org/project/multi-clipboard/"&gt;PyPi&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing Via &lt;a href="https://pypi.org/project/multi-clipboard/"&gt;PyPi&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;To install the package from PyPI, execute:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="go"&gt;python -m pip install multi-clipboard&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -5801,8 +5787,8 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4 id="installing-via-the-repository"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#installing-via-the-repository"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing Via the &lt;a href="https://github.com/brentvollebregt/multi-clipboard"&gt;Repository&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing Via the &lt;a href="https://github.com/brentvollebregt/multi-clipboard"&gt;Repository&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;You can install this project using this repository by following these steps:
 1. Clone/download the &lt;a href="https://github.com/brentvollebregt/multi-clipboard"&gt;repository&lt;/a&gt;
 2. Open cmd/terminal and cd into multi-clipboard using &lt;code&gt;cd multi-clipboard&lt;/code&gt;
@@ -5812,8 +5798,8 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4 id="running-the-package-from-source"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#running-the-package-from-source"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Running the Package From &lt;a href="https://github.com/brentvollebregt/auto-py-to-exe/archive/master.zip"&gt;Source&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Running the Package From &lt;a href="https://github.com/brentvollebregt/auto-py-to-exe/archive/master.zip"&gt;Source&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;Don't want to have to install the package? Follow these steps:
 1. Clone/download the &lt;a href="https://github.com/brentvollebregt/multi-clipboard"&gt;repository&lt;/a&gt;
 2. Open cmd/terminal and cd into multi-clipboard using &lt;code&gt;cd multi-clipboard&lt;/code&gt;
@@ -6433,18 +6419,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;li&gt;&lt;a href="#the-layout-of-the-interface-and-what-things-do"&gt;The Layout of the Interface and What Things Do&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#general-steps"&gt;General Steps&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#debugging"&gt;Debugging&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#how-to-fix-specific-issues"&gt;How to Fix Specific Issues&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#fatal-error-failed-to-execute"&gt;Fatal Error: failed to execute &lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#permissionerror-errno-13-permission-denied"&gt;PermissionError: [Errno 13] Permission denied: ...&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#recursionerror"&gt;RecursionError&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#attributeerror-module-enum-has-no-attribute-intflag"&gt;AttributeError: module 'enum' has no attribute 'IntFlag'&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#modulenotfounderror-no-module-named-x-importerror-no-module-named-x"&gt;ModuleNotFoundError: No module named x / ImportError: No module named x&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#err_connection_refused"&gt;ERR_CONNECTION_REFUSED&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#command-python-setuppy-egg_info-failed-with-error-code-1"&gt;Command "python setup.py egg_info" failed with error code 1&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#filenotfounderror"&gt;FileNotFoundError&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#structerror-unpack-requires-a-buffer-of-16-bytes"&gt;struct.error: unpack requires a buffer of 16 bytes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href="#how-to-fix-specific-issues"&gt;How to Fix Specific Issues&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href="#general-questions-constantly-asked"&gt;General Questions Constantly Asked&lt;/a&gt;&lt;ul&gt;
@@ -6460,15 +6435,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/li&gt;
 &lt;li&gt;&lt;a href="#additional-information-and-explanations"&gt;Additional Information and Explanations&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="#using-concurrentfutures"&gt;Using concurrent.futures&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#the-difference-between-one-directory-and-one-file"&gt;The Difference Between One Directory and One File&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#demonstration-of-files-references-after-packaging"&gt;Demonstration of Files References After Packaging&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#running-this-un-packaged-py"&gt;Running this un-packaged (.py)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#running-this-when-packaged-using-one-directory"&gt;Running this when packaged using one directory&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#running-this-when-packaged-using-one-file"&gt;Running this when packaged using one file&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href="#the-difference-between-one-directory-and-one-file"&gt;The Difference Between One Directory and One File&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#the-one-file-resource-wrapper"&gt;The one-file Resource Wrapper&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -6556,35 +6523,35 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;h3 id="how-to-fix-specific-issues"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#how-to-fix-specific-issues"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How to Fix Specific Issues&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;These are some of the issues I have come across or others have asked me about and ways to fix them.&lt;/p&gt;
-&lt;h4 id="fatal-error-failed-to-execute"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#fatal-error-failed-to-execute"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Fatal Error: failed to execute &lt;script.py&gt;&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Fatal Error: failed to execute &lt;script.py&gt;&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;This means something has gone wrong as it's giving you a visual warning about it; this is not an error, it's a warning; the real error has been printed to stdout/stderr. If you open the executable using the terminal or something else that will preserve the console output, you will most likely see a Python error telling you what went wrong. Fixing this and repackaging is the solution to this issue.&lt;/p&gt;
-&lt;h4 id="permissionerror-errno-13-permission-denied"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#permissionerror-errno-13-permission-denied"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;PermissionError: [Errno 13] Permission denied: ...&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;PermissionError: [Errno 13] Permission denied: ...&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;This occurs because you are trying to modify files in a directory you do not have access to. A way to fix this is to run the script with admin privileges by opening cmd as admin and then running &lt;code&gt;auto-py-to-exe&lt;/code&gt; one you have cd'ed to the directory you want the output to be in.&lt;/p&gt;
 &lt;p&gt;One reason this could occur is that you have opened cmd and am in System32. Make sure you do not accidentally modify files in this directory so make sure you are in a directory where you want to write files to when running &lt;code&gt;auto-py-to-exe&lt;/code&gt;.&lt;/p&gt;
-&lt;h4 id="recursionerror"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#recursionerror"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;RecursionError&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;RecursionError&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;This error is now prevented by the application by default by setting the recursion limit to 5000. If you want to disable this, there is an option in the &lt;em&gt;Settings&lt;/em&gt; tab to.&lt;/p&gt;
-&lt;h4 id="attributeerror-module-enum-has-no-attribute-intflag"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#attributeerror-module-enum-has-no-attribute-intflag"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AttributeError: module 'enum' has no attribute 'IntFlag'&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AttributeError: module 'enum' has no attribute 'IntFlag'&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;Try executing &lt;code&gt;python -m pip uninstall enum34&lt;/code&gt; to stop enum conflicts. This is also a fix for the similar issue "Fatal Python error: Py_Initialize: unable to load the file system codec".&lt;/p&gt;
-&lt;h4 id="modulenotfounderror-no-module-named-x-importerror-no-module-named-x"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#modulenotfounderror-no-module-named-x-importerror-no-module-named-x"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ModuleNotFoundError: No module named x / ImportError: No module named x&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ModuleNotFoundError: No module named x / ImportError: No module named x&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;This means a particular module ('x' in this case) was not added to the package. I have seen this occur with packages in the pandas library and win32api; as long as you can identify the package (e.g. 'x'), then it is very easy to fix.&lt;/p&gt;
 &lt;p&gt;To fix this in the UI, open the advanced tab and find the &lt;code&gt;--hidden-import&lt;/code&gt; input. Simply paste the module name into this input and then repackage. If the original error is still appearing, you have done this incorrectly.&lt;/p&gt;
 &lt;p&gt;For example, if you are missing &lt;code&gt;pandas._libs.tslib&lt;/code&gt;, add 'pandas._libs.tslib' into the input by --hidden-import. Additionally, you can add more than one module, for example, &lt;code&gt;pandas._libs.tslib, win32api&lt;/code&gt;. &lt;em&gt;(See the question mark by the input for more information)&lt;/em&gt;.&lt;/p&gt;
-&lt;h4 id="err_connection_refused"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#err_connection_refused"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ERR_CONNECTION_REFUSED&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ERR_CONNECTION_REFUSED&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;You need to be connected to the internet. This error appears when you cannot reach the servers.&lt;/p&gt;
-&lt;h4 id="command-python-setuppy-egg_info-failed-with-error-code-1"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#command-python-setuppy-egg_info-failed-with-error-code-1"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Command "python setup.py egg_info" failed with error code 1&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Command "python setup.py egg_info" failed with error code 1&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;Update setuptools using &lt;code&gt;pip install --upgrade setuptools&lt;/code&gt;.&lt;/p&gt;
-&lt;h4 id="filenotfounderror"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#filenotfounderror"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;FileNotFoundError&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;FileNotFoundError&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;Make sure the file you are referencing actually exists, this error says that the file you are referencing doesn't exist. If you are using one-file mode, make sure you have followed the necessary steps.&lt;/p&gt;
-&lt;h4 id="structerror-unpack-requires-a-buffer-of-16-bytes"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#structerror-unpack-requires-a-buffer-of-16-bytes"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;struct.error: unpack requires a buffer of 16 bytes&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;struct.error: unpack requires a buffer of 16 bytes&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;This typically occurs when you have supplied &lt;code&gt;--icon&lt;/code&gt; / &lt;code&gt;-i&lt;/code&gt; with a file that is not a &lt;code&gt;.ico&lt;/code&gt; file. Please note that simply changing the extension of a file to .ico does not make it a .ico file; you will need to use a converter of some sort to convert your file (e.g. png, jpg) into a .ico.&lt;/p&gt;
 &lt;h2 id="general-questions-constantly-asked"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#general-questions-constantly-asked"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;General Questions Constantly Asked&lt;/span&gt;&lt;/h2&gt;
@@ -6673,8 +6640,8 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;p&gt;One directory puts all your files in one folder. You can easily add and remove files like you normally would in a folder. When your script modifies a file in its folder, the file will still be modified when you run the script again.&lt;/p&gt;
 &lt;p&gt;One file mode is a bit different, instead of putting all the files in a folder, it puts them in something like a zip file which is contained in the end executable. When you run the executable, the files contained internally are unpacked to a new temporary directory. Due to one file unpacking on startup, it is a lot slower to start.&lt;/p&gt;
 &lt;p&gt;Also due to the files being unpacked to a new temporary directory on execution, the files that you modified added that were in the same directory as the executable will not be there on the next run because they are now in a different unknown folder. This means when creating files, you will want to use an absolute path that is not where the project files are (could use something like APPDATA on Windows).&lt;/p&gt;
-&lt;h4 id="demonstration-of-files-references-after-packaging"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#demonstration-of-files-references-after-packaging"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Demonstration of Files References After Packaging&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Demonstration of Files References After Packaging&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;I made a small Python file that finds where it is located and then tries to print the contents of a file if it exists otherwise will create a new one.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;getattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;frozen&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="c1"&gt;# we are running in a bundle&lt;/span&gt;
@@ -6699,14 +6666,14 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h5 id="running-this-un-packaged-py"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#running-this-un-packaged-py"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Running this un-packaged (.py)&lt;/span&gt;&lt;/h5&gt;
+&lt;h5&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Running this un-packaged (.py)&lt;/span&gt;&lt;/h5&gt;
 &lt;p&gt;The first time it will create a file beside the script. Every time it is run, the new line will be added and this will be shown in the output. This means When you modify a file, it will stay modified.&lt;/p&gt;
-&lt;h5 id="running-this-when-packaged-using-one-directory"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#running-this-when-packaged-using-one-directory"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Running this when packaged using one directory&lt;/span&gt;&lt;/h5&gt;
+&lt;h5&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Running this when packaged using one directory&lt;/span&gt;&lt;/h5&gt;
 &lt;p&gt;The first time it will create a file in the directory (which will be beside the .exe). Every time it is run, the new line will be added and this will be shown in the output. This means When you modify a file, it will stay modified.&lt;/p&gt;
-&lt;h5 id="running-this-when-packaged-using-one-file"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#running-this-when-packaged-using-one-file"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Running this when packaged using one file&lt;/span&gt;&lt;/h5&gt;
+&lt;h5&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Running this when packaged using one file&lt;/span&gt;&lt;/h5&gt;
 &lt;p&gt;Every time this is run, it will create a new file in the temporary directory. This occurs because the .exe unpacks to a new directory every time it is run, so instead of finding old files (which can disappear any time because they are in the temp folder) you may as well use an absolute reference to somewhere else.&lt;/p&gt;
 &lt;h3 id="the-one-file-resource-wrapper"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#the-one-file-resource-wrapper"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;The one-file Resource Wrapper&lt;/span&gt;&lt;/h3&gt;
@@ -7107,10 +7074,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <content:encoded>&lt;div class="toc"&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="#what-does-it-mean-to-hash-a-file"&gt;What Does it Mean to Hash a File?&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#what-can-i-do-with-a-file-hash"&gt;What Can I Do With A File Hash?&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#what-can-i-not-do-with-a-file-hash"&gt;What Can I Not Do With A File Hash?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href="#what-can-i-do-with-a-file-hash"&gt;What Can I Do With A File Hash?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href="#supported-hashing-algorithms-in-python"&gt;Supported Hashing Algorithms in Python&lt;/a&gt;&lt;ul&gt;
@@ -7140,8 +7104,8 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;li&gt;&lt;strong&gt;Object keys&lt;/strong&gt;: Just like in the point "Stopping filename clashes", using hashes as object keys can help identify what objects match to which file.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Detecting changes in a file&lt;/strong&gt;: If you had a file hash before it was modified, you can re-hash the file and compare it against the original hash to see if it has been modified.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id="what-can-i-not-do-with-a-file-hash"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#what-can-i-not-do-with-a-file-hash"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What Can I Not Do With A File Hash?&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What Can I Not Do With A File Hash?&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;Even though you can compute a hash using a file, this does not mean you cannot get the original file back using this hash. Hashing is a one-way function (lossy) and is not an encryption scheme.&lt;/p&gt;
 &lt;h2 id="supported-hashing-algorithms-in-python"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#supported-hashing-algorithms-in-python"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Supported Hashing Algorithms in Python&lt;/span&gt;&lt;/h2&gt;
@@ -9327,10 +9291,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;li&gt;&lt;a href="#getting-the-tool-yourself"&gt;Getting the Tool Yourself&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#using-the-tool"&gt;Using The Tool&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="#scanning-your-network"&gt;Scanning Your Network&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#viewing-scans-and-creating-associations"&gt;Viewing Scans and Creating Associations&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#scans"&gt;Scans&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href="#viewing-scans-and-creating-associations"&gt;Viewing Scans and Creating Associations&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#devices"&gt;Devices&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#people"&gt;People&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#current"&gt;Current&lt;/a&gt;&lt;/li&gt;
@@ -9381,8 +9342,8 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;blockquote&gt;
 &lt;p&gt;Note: Text substitution has been done in these screenshots below so connections may not add up; this is not the tool. &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4 id="scans"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#scans"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Scans&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Scans&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;&lt;img alt="Who's On My Network Scan Screenshot" src="/posts/whos-on-my-network/scans-screenshot.png" /&gt;&lt;/p&gt;
 &lt;p&gt;The scans page shows scans that have been made.&lt;/p&gt;
 &lt;p&gt;On the scans page, you can select a date range and view all the scans in that period. When clicking on a scan (row on the table), you will be directed to more focused data on that scan, in particular, showing the time, network id used and details about each device.&lt;/p&gt;
@@ -9855,13 +9816,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/li&gt;
 &lt;li&gt;&lt;a href="#how-windows-decides-which-executable-to-execute"&gt;How Windows Decides Which Executable to Execute&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#solutions"&gt;Solutions&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#virtual-environments"&gt;Virtual Environments&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#setting-up-the-virtual-environment"&gt;Setting Up The Virtual Environment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#activating-the-virtual-environment"&gt;Activating The Virtual Environment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#deactivating-the-virtual-environment"&gt;Deactivating The Virtual Environment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#installing-dependencies"&gt;Installing Dependencies&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href="#virtual-environments"&gt;Virtual Environments&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#setting-up-your-path-environment-variable-in-an-expected-way"&gt;Setting up Your PATH Environment Variable in an Expected Way&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -9958,16 +9913,16 @@ C:\Python37\python.exe
 &lt;p&gt;This is my most recommended as you can be sure everything is where you expect it. &lt;/p&gt;
 &lt;p&gt;Virtual environments can solve the issue we're looking at because it sets up a folder structure for its own dependencies and executables and then adds the "Scripts" path of this environment to the beginning of the PATH environment variable so that the executables within will be found instead of other executables outside the environment.&lt;/p&gt;
 &lt;p&gt;There are many tutorials on setting up virtual environments in Python and there are many different modules you can use; but here are some basics using the Python 3 built-in venv:&lt;/p&gt;
-&lt;h4 id="setting-up-the-virtual-environment"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#setting-up-the-virtual-environment"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Setting Up The Virtual Environment&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Setting Up The Virtual Environment&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;To set up a virtual environment, open a terminal and execute the following:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python -m venv venv_folder
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This will ask Python's venv module to create a virtual environment in &lt;code&gt;venv_folder&lt;/code&gt;. You can substitute &lt;code&gt;venv_folder&lt;/code&gt; for a different folder name if you wish, the convention is to use a folder named &lt;code&gt;venv&lt;/code&gt; but I have used &lt;code&gt;venv_folder&lt;/code&gt; in this tutorial to better identify it as a folder. &lt;/p&gt;
-&lt;h4 id="activating-the-virtual-environment"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#activating-the-virtual-environment"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Activating The Virtual Environment&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Activating The Virtual Environment&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;Before activating the virtual environment, executing &lt;code&gt;python&lt;/code&gt; and &lt;code&gt;pip&lt;/code&gt; will still use the globally setup distribution(s). To use the virtual environment executables, you need to activate it.&lt;/p&gt;
 &lt;p&gt;While beside the &lt;code&gt;venv_folder&lt;/code&gt; folder (or whatever you named it) in cmd, execute:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;venv_folder/Scripts/activate
@@ -9978,8 +9933,8 @@ C:\Python37\python.exe
 &lt;p&gt;If your folder was named &lt;code&gt;venv&lt;/code&gt;, call &lt;code&gt;venv/Scripts/activate&lt;/code&gt; (or substitute for a different name).&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Now when you execute &lt;code&gt;where python&lt;/code&gt; and &lt;code&gt;where pip&lt;/code&gt;, you will see that executables from this virtual environment are being used. This is because the Scripts folder in the virtual environment has been added to the start of the PATH variable; you can see this by executing &lt;code&gt;echo %PATH%&lt;/code&gt; again.&lt;/p&gt;
-&lt;h4 id="deactivating-the-virtual-environment"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#deactivating-the-virtual-environment"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Deactivating The Virtual Environment&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Deactivating The Virtual Environment&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;To deactivate the virtual environment, go back to the same folder in cmd beside &lt;code&gt;venv_folder&lt;/code&gt; and execute:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;venv_folder/Scripts/deactivate
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -9987,8 +9942,8 @@ C:\Python37\python.exe
 
 &lt;p&gt;Executing &lt;code&gt;where python&lt;/code&gt; and &lt;code&gt;where pip&lt;/code&gt; again, you will see that the original setup has been restored.&lt;/p&gt;
 &lt;p&gt;Also, since these methods only modify environment variables in the session, closing the terminal session will throw away the activation. You can easily reactivate the virtual environment by following the instructions above again.&lt;/p&gt;
-&lt;h4 id="installing-dependencies"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#installing-dependencies"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing Dependencies&lt;/span&gt;&lt;/h4&gt;
+&lt;h4&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#None"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing Dependencies&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;Now that you know how to set up, activate and deactivate a virtual environment, you can use this to be sure what &lt;code&gt;python&lt;/code&gt; and &lt;code&gt;pip&lt;/code&gt; you are executing.&lt;/p&gt;
 &lt;p&gt;To install dependencies, use the normal &lt;code&gt;pip install xyz&lt;/code&gt; and to run a Python script, use the normal &lt;code&gt;python my_file.py&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id="setting-up-your-path-environment-variable-in-an-expected-way"&gt;
