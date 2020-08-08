@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Aug 2020 21:50:27 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2020 09:17:16 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -93,7 +93,7 @@ For bug reports please include:
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;p&gt;Earlier this year, I and seven other students were given a project to visualise emotion in music. We decided to use Unity for visualisation and machine learning in Python to detect emotion. After days of planning and testing, I had a plan for the emotion detection half.&lt;/p&gt;
-&lt;p&gt;The project can be found on GitHub &lt;a href="https://github.com/shash678/Lucy-In-The-Sky-With-Emotion"&gt;here&lt;/a&gt;.
+&lt;p&gt;The project can be found on GitHub &lt;a href="https://github.com/brentvollebregt/Lucy-In-The-Sky-With-Emotion"&gt;here&lt;/a&gt;.
 While creating this program, I discovered a way that could give hints to what emotion the song is trying to portray using Spotify's API, some data mining and machine learning&lt;/p&gt;
 &lt;h2 id="planning"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#planning"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Planning&lt;/span&gt;&lt;/h2&gt;
@@ -225,7 +225,7 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;h2 id="rome"&gt;
-&lt;a href="https://www.ro.me/"&gt;ROME&lt;/a&gt;&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#rome"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
+&lt;a href="http://www.ro.me/"&gt;ROME&lt;/a&gt;&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#rome"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;This site first brings you to a loading page; just hit enter and let the resources load. For those that have a data cap, be aware that this site uses a lot of data.&lt;/p&gt;
 &lt;p&gt;This site demonstrates the design of good music and timing with human interaction. Unbelievably this has been made from JavaScript. Buildings, landscapes, animals, trees and so much more all created with Javascript.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Rome buildings" src="/posts/interesting-sites/Rome1.jpg" /&gt;
@@ -2283,7 +2283,8 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;li&gt;&lt;a href="https://github.com/brentvollebregt/quick-script/blob/master/scripts/ip_to_clipboard.py"&gt;Put IP on Clipboard&lt;/a&gt;: Will set your local IP to the clipboard.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/brentvollebregt/quick-script/blob/master/scripts/restart_window_explorer.py"&gt;Restart Windows Explorer&lt;/a&gt;: Restarts windows explorer.&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/brentvollebregt/quick-script/blob/master/scripts/ui_to_py_from_clipboard.py"&gt;UI to PY from Clipboard&lt;/a&gt;: Gets the current .ui file in the clipboard and will convert it to py using pyuic5 and stores it where the .ui file is located.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/brentvollebregt/quick-script/blob/master/open_clipboard_directory.py"&gt;Open Clipboard Directory&lt;/a&gt;: Open the location in the clipboard in windows explorer.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/brentvollebregt/quick-script/blob/master/scripts/open_clipboard_directory.py"&gt;Open Clipboard Directory&lt;/a&gt;: Open the location in the clipboard in windows explorer.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/brentvollebregt/quick-script/blob/master/scripts/type_clipboard.py"&gt;Type Clipboard&lt;/a&gt;: Type clipboard contents at a slow pace.&lt;/li&gt;
 &lt;/ul&gt;</content:encoded>
       <guid isPermaLink="false">https://nitratine.net/blog/post/quick-script/</guid>
       <category>Projects</category>
@@ -2379,7 +2380,7 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/basedrhys"&gt;Rhys Compton&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/DylanExton"&gt;Dylan Exton&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/ryancomp241"&gt;Ryan Le Quesne&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ryanlequesne"&gt;Ryan Le Quesne&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/minionsattle"&gt;Seattle Tupuhi&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/brentvollebregt"&gt;Brent Vollebregt&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/Woodsy1FD"&gt;Jack Woods&lt;/a&gt;&lt;/li&gt;
@@ -2388,7 +2389,7 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#project-managers"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Project Managers&lt;/span&gt;&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/swikrit"&gt;Swikrit Khanal&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/shash678"&gt;Sash Sinha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/shash873"&gt;Sash Sinha&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content:encoded>
       <guid isPermaLink="false">https://nitratine.net/blog/post/lucy-in-the-sky-with-emotion/</guid>
       <category>Projects</category>
@@ -3612,7 +3613,6 @@ Make another string which is the plain-text version of the HTML and then attach 
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#sources"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Sources&lt;/span&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://en.wikibooks.org/wiki/Python_Programming/Email"&gt;WikiBooks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://naelshiab.com/tutorial-send-email-python/"&gt;naelshiab.com&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://docs.python.org/3.4/library/email-examples.html"&gt;Python docs email examples&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;em&gt;Most recently modified on 15-7-18 ( added video )&lt;/em&gt;&lt;/p&gt;</content:encoded>
@@ -4399,8 +4399,8 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;?label=healthinesses&lt;/code&gt; : Override the default left-hand-side text&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://img.shields.io/github/tag/expressjs/express.svg" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;"&gt;  will become  &lt;img src="https://img.shields.io/github/tag/expressjs/express.svg?label=healthinesses" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;?logo=appveyor&lt;/code&gt; : Insert one of the &lt;a href="https://github.com/badges/shields/tree/gh-pages/logo"&gt;named logos&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://img.shields.io/github/tag/expressjs/express.svg" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;"&gt;  will become  &lt;img src="https://img.shields.io/github/tag/expressjs/express.svg?logo=appveyor" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;?logo=visual-studio-code&lt;/code&gt; : Insert a logo from &lt;a href="https://simpleicons.org/"&gt;simple-icons&lt;/a&gt; &lt;em&gt;(make any spaces '-')&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://img.shields.io/github/tag/expressjs/express.svg" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;"&gt;  will become  &lt;img src="https://img.shields.io/github/tag/expressjs/express.svg?logo=visual-studio-code" alt="Current GitHub tag" style="margin-bottom: -5px; display: inline-block;"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;?logo=data:image/png;base64,…&lt;/code&gt; : Insert custom logo image (≥ 14px high)&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;No example as the data for the png will be large.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;?logoWidth=40&lt;/code&gt; : Set the horizontal space to give to the logo&lt;/strong&gt;&lt;/p&gt;
@@ -4453,12 +4453,12 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
 &lt;h3 id="hills-material-design-wallpaper"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#hills-material-design-wallpaper"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Hills Material Design Wallpaper&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;img alt="Hills Material Design Wallpaper" src="/posts/my-desktop-backgrounds/hills-material-design-wallpaper.png" /&gt;&lt;/p&gt;
-&lt;p&gt;This is currently my favourite as it is so clean and has a very happy feel to it. Icons site nicely on it and it is very clear being 1920x1080. I found this in a Google Image search but &lt;a href="https://www.baltana.com/abstract/material-design-hd-desktop-wallpaper-23164.html"&gt;this is the origin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is currently my favourite as it is so clean and has a very happy feel to it. Icons site nicely on it and it is very clear being 1920x1080. I found this in a Google Image search but &lt;a href="http://www.baltana.com/abstract/material-design-hd-desktop-wallpaper-23164.html"&gt;this is the origin&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id="material-design-blue"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#material-design-blue"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Material Design Blue&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;img alt="Material Design Blue" src="/posts/my-desktop-backgrounds/material-design-blue.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;You will find I like material design and I used to try and design a lot of my projects to the specifications, this is obviously quite time-consuming so I settle for backgrounds, colours and icons.&lt;/p&gt;
-&lt;p&gt;This was also found by Google Image search but &lt;a href="https://wallpaperswide.com/material_design-wallpapers.html"&gt;originated here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This was also found by Google Image search but &lt;a href="http://wallpaperswide.com/material_design-wallpapers.html"&gt;originated here&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id="fluorescent-face"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#fluorescent-face"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Fluorescent Face&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;img alt="Fluorescent Face" src="/posts/my-desktop-backgrounds/fluorescent-face.jpg" /&gt;&lt;/p&gt;
@@ -5360,7 +5360,10 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
 
 &lt;h2 id="general-talk-about-the-process"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#general-talk-about-the-process"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;General Talk About the Process&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;I decided to create a &lt;a href="https://github.com/brentvollebregt/auto-py-to-exe-pypi"&gt;new repository&lt;/a&gt; for the package that would be &lt;a href="https://pypi.org/project/auto-py-to-exe/"&gt;hosted on PyPI&lt;/a&gt; as the video that I provided will still help people understand what is going on. In the old repo I have provided a link to the new one and added in the instructions for installation using pip.&lt;/p&gt;
+&lt;p&gt;I decided to create a new repository for the package that would be &lt;a href="https://pypi.org/project/auto-py-to-exe/"&gt;hosted on PyPI&lt;/a&gt; as the video that I provided will still help people understand what is going on. In the old repo I have provided a link to the new one and added in the instructions for installation using pip.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This new repo was later merged into the original repo&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;It took me a few hours to find out how to structure my package and have everything set up properly from the readme to the entry-points.&lt;/p&gt;
 &lt;p&gt;I use a lot of resources for finer details and looked at a lot of setup.py files but these resources would have been the most helpful:
 - &lt;a href="https://packaging.python.org/tutorials/packaging-projects/"&gt;Packaging Python Projects&lt;/a&gt;
@@ -7020,7 +7023,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;h2 id="this-is-only-the-basics"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#this-is-only-the-basics"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;This is Only The Basics&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;Please know that these are only the basics of the requests library and there is a lot more to offer from this library; this tutorial however, should help you understand what you need to do to request and send data.&lt;/p&gt;
-&lt;p&gt;If you want to read up more on this library, Google is full of answers but the docs at &lt;a href="https://docs.python-requests.org/en/master/user/quickstart/"&gt;docs.python-requests.org&lt;/a&gt; is great for reference material.&lt;/p&gt;
+&lt;p&gt;If you want to read up more on this library, Google is full of answers but the docs at &lt;a href="https://requests.readthedocs.io/en/master/user/quickstart/"&gt;requests.readthedocs.io&lt;/a&gt; is great for reference material.&lt;/p&gt;
 &lt;h2 id="i-dont-have-s-server-how-can-i-test-these"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#i-dont-have-s-server-how-can-i-test-these"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;I Don't Have s Server, How Can I Test These?&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://hookbin.com/"&gt;hookbin.com&lt;/a&gt; is an amazing place to test requests. Simply create a new endpoint on the site (big pink button) and copy the URL at the top of the rendered page. Now whenever you make a request to that URL, refresh the page and you will be able to see the content of the request you made.&lt;/p&gt;</content:encoded>
@@ -7042,6 +7045,9 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;li&gt;&lt;a href="#executing-the-javascript"&gt;Executing the JavaScript&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: This extension no longer exists&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id="the-problem"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#the-problem"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;The Problem&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;When installing the latest version of the Chrome extension &lt;em&gt;Google Publisher Toolbar&lt;/em&gt; and then trying to connect/enable Google AdSense or Google Analytics, you may be given a prompt to "&lt;strong&gt;Please copy this code, switch to your application and paste it there:&lt;/strong&gt;" followed by a code that you can copy like in the image below.&lt;/p&gt;
@@ -7059,7 +7065,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#looking-at-the-source-of-the-extension"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Looking at the Source of the Extension&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;There are a &lt;a href="https://gist.github.com/paulirish/78d6c1406c901be02c2d"&gt;few options&lt;/a&gt; when trying to view a Chrome extensions source but I decided to take an online tool approach as it would streamline the process of extracting everything. I ended up using &lt;a href="https://robwu.nl/crxviewer/"&gt;robwu.nl/crxviewer/&lt;/a&gt; which simply asks for the URL of a Chrome extension (plus some other options).&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Loading the Google Publisher Toolbar URL into the CRXViewer" src="/posts/google-publisher-toolbar-please-copy-this-code/crxviewer.png" /&gt;&lt;/p&gt;
-&lt;p&gt;Providing it with the &lt;a href="https://chrome.google.com/webstore/detail/google-publisher-toolbar/omioeahgfecgfpfldejlnideemfidnkc"&gt;URL of Google Publisher Toolbar on the Chrome Web Store&lt;/a&gt; and leaving all the other options as default, I then clicked "Open in this viewer" to view the source of the extension.&lt;/p&gt;
+&lt;p&gt;Providing it with the URL of Google Publisher Toolbar on the Chrome Web Store &lt;em&gt;(not available anymore)&lt;/em&gt; and leaving all the other options as default, I then clicked "Open in this viewer" to view the source of the extension.&lt;/p&gt;
 &lt;h2 id="looking-for-what-should-be-executed"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#looking-for-what-should-be-executed"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Looking for what Should be Executed&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;When the source first loads, it may appear to have a lot of files, but many of them are translations for different languages. The best way to get a hint of what to look for is to look at the &lt;code&gt;manifest.json&lt;/code&gt; file. Viewing this file gives details like the name, version, icons and what scripts are run where; this is definitely the place for insight into what I was looking for.&lt;/p&gt;
@@ -8349,7 +8355,6 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;li&gt;&lt;a href="#color-picker-dialog"&gt;Color Picker Dialog&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#credit"&gt;Credit&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;h2 id="why-are-these-dialogs-useful"&gt;
@@ -8629,10 +8634,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;As an example of the output, if I select cyan, I will get &lt;code&gt;((0.0, 255.99609375, 255.99609375), '#00ffff')&lt;/code&gt;. The numbers are large as they are floats but this means 0 red, 256 green and 256 blue. We can also see that the second value in the tuple is the hex value for cyan.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Color Dialog" src="/posts/how-to-create-dialogs-in-python/color-dialog.png" /&gt;&lt;/p&gt;
-&lt;h2 id="credit"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#credit"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Credit&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;While using a lot of dialogs in my own projects I have always looked around other sites, but recently I found a page called &lt;a href="https://interactivepython.org/runestone/static/CS152f17/GUIandEventDrivenProgramming/02_standard_dialog_boxes.html"&gt;How to Think Like a Computer Scientist: Interactive Edition&lt;/a&gt; which is a great beginner level tutorial for Python which covers many things. This site made me aware of some dialogs I didn't even realise existed so I give credit to the creator.&lt;/p&gt;</content:encoded>
+&lt;p&gt;&lt;img alt="Color Dialog" src="/posts/how-to-create-dialogs-in-python/color-dialog.png" /&gt;&lt;/p&gt;</content:encoded>
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-create-dialogs-in-python/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-create-dialogs-in-python/question-dialogs.png" length="0" type="image/png"/>
@@ -8949,7 +8951,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This gives text = &lt;code&gt;GET ./e51d35ed.bin&lt;/code&gt;. Making an anchor tag on the page again to go to that relative URL as I did previously, the &lt;a href="https://nzcsc.org.nz/competition/2019/r0/2/challenge/e51d35ed.bin"&gt;file&lt;/a&gt; is downloaded.&lt;/p&gt;
+&lt;p&gt;This gives text = &lt;code&gt;GET ./e51d35ed.bin&lt;/code&gt;. Making an anchor tag on the page again to go to that relative URL as I did previously, this downloaded the file.&lt;/p&gt;
 &lt;p&gt;This file is 50KB in size and was the end of the line for me unfortunately. No magic bytes match this file and &lt;a href="https://hexed.it/"&gt;hexedit&lt;/a&gt; couldn't tell me the file type. I tried many things with this file but nothing gave a flag. I did notice though that there were no bytes in the file that had a value above 127; not sure if this hinted anything.&lt;/p&gt;
 &lt;h3 id="challenge-3"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#challenge-3"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Challenge 3&lt;/span&gt;&lt;/h3&gt;
@@ -9248,11 +9250,11 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;li&gt;Breaks on blobs but is clean to use&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="https://sqliteviewer.flowsoft7.com/"&gt;SQLite Viewer (doesn't break on blobs)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://sqliteviewer.flowsoft7.com/"&gt;SQLite Viewer (doesn't break on blobs)&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;Similar to the one above but doesn't break on blobs (not as nice-looking)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sqlfiddle.com"&gt;Test small SQL commands (MySQL, Oracle, PostgreSQL, SQLite, MS SQL Server)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.sqlfiddle.com"&gt;Test small SQL commands (MySQL, Oracle, PostgreSQL, SQLite, MS SQL Server)&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;Build a small schema and then execute commands based on the schema creation&lt;/li&gt;
 &lt;li&gt;Restricted to internal request character length &lt;/li&gt;
 &lt;/ul&gt;
@@ -9272,7 +9274,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#miscellaneous"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Miscellaneous&lt;/span&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://meyerweb.com/eric/tools/dencoder/"&gt;Basic URL decoder and encoder&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://jsonviewer.stack.hu/"&gt;JSON viewer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://jsonviewer.stack.hu/"&gt;JSON viewer&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://regex101.com/"&gt;Regular expression testing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://curl.trillworks.com/"&gt;Convert cURL commands to Python request calls (and other languages)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://webhook.site/#!/07372fd5-f335-4263-97bd-a8fa974ed148"&gt;Webhooks that you can set the response on&lt;/a&gt;&lt;/li&gt;
