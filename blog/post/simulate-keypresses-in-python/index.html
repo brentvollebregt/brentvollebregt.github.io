@@ -1,16 +1,202 @@
-<!DOCTYPE html><html lang="en"> <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link rel="shortcut icon" href="/static/img/favicon.ico"><link rel="icon" type="image/png" href="/static/img/favicon-384x384.png" sizes="384x384"><link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/simulate-keypresses-in-python/"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"><link rel="stylesheet" href="/static/css/base.css"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-117153268-2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config','UA-117153268-2');</script><script defer src="https://instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script><title>Simulate Keypresses In Python - Nitratine</title><link rel="stylesheet" href="/static/css/pygments.css"><meta name="description" content="This demonstrates how to press keys with Python. Using pynput we are able to simulate key presses into any window. This will show you how to press and release a key, type special keys and type a sentence."><meta name="author" content="Brent Vollebregt"><meta property="og:title" content="Simulate Keypresses In Python"><meta property="og:description" content="This demonstrates how to press keys with Python. Using pynput we are able to simulate key presses into any window. This will show you how to press and release a key, type special keys and type a sentence."><meta property="og:image" content="/posts/simulate-keypresses-in-python/feature.jpg"><meta property="og:url" content="https://nitratine.net/blog/post/simulate-keypresses-in-python/"><meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><link rel="stylesheet" href="/static/css/blog.css"></head> <body> <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top"> <div class="container"> <a class="navbar-brand" href="/"> <img src="/static/img/logo.png" width="145" height="30" class="d-inline-block align-top" alt="Brand Icon"> </a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse justify-content-between" id="navbar"> <ul class="navbar-nav mr-auto"> <li class="nav-item "> <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">Blog</a> </li> <li class="nav-item"> <a class="nav-link" href="https://www.youtube.com/PyTutorials">YouTube</a> </li> <li class="nav-item"> <a class="nav-link" href="https://github.com/brentvollebregt">GitHub</a> </li> <li class="nav-item "> <a class="nav-link" href="/about/">About</a> </li> </ul> </div> </div> </nav> <main role="main" class="container my-4"> <div class="row"> <div class="col-blog-content blog-main"> <h1 class="blog-post-title">Simulate Keypresses In Python</h1> <div class="mb-2"> <a href="/blog/archive/#2017" class="text-muted">16 Dec 2017</a> <a href="/blog/categories/#YouTube" class="badge badge-primary ml-2">YouTube</a> <a href="/blog/tags/#python" class="badge badge-warning">python</a> <a href="/blog/tags/#keyboard" class="badge badge-warning">keyboard</a> <a href="/blog/tags/#pynput" class="badge badge-warning">pynput</a> <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits"> </div> <p class="lead">This demonstrates how to press keys with Python. Using pynput we are able to simulate key presses into any window. This will show you how to press and release a key, type special keys and type a sentence.</p> <hr class="mt-3 mb-0"> <div class="post-content mt-3"> <div class="toc"> <ul> <li><a href="#pip">PIP</a></li> <li><a href="#installing-pynput">Installing Pynput</a></li> <li><a href="#simulating-keys">Simulating Keys</a><ul> <li><a href="#pressing-and-releasing-keys">Pressing and Releasing Keys</a></li> <li><a href="#pressing-and-releasing-special-keys">Pressing and Releasing Special Keys</a></li> <li><a href="#typing-multiple-keys">Typing Multiple Keys</a></li> <li><a href="#putting-a-random-delay-between-each-keypress">Putting A Random Delay Between Each Keypress</a></li> </ul> </li> <li><a href="#common-issues-and-questions">Common Issues and Questions</a><ul> <li><a href="#how-can-i-use-the-keyboard-and-mouse-controllers-at-the-same-time">How can I use the keyboard and mouse controllers at the same time?</a></li> <li><a href="#modulenotfounderrorimporterror-no-module-named-pynput">ModuleNotFoundError/ImportError : No module named 'pynput'</a></li> <li><a href="#i-got-a-syntaxerror">I got a SyntaxError</a></li> <li><a href="#the-key-presses-work-in-notepad-but-not-my-game">The Key Presses Work in Notepad But Not My Game</a></li> </ul> </li> </ul> </div> <p> <div class="embedded_yt my-3"> <div> <iframe allow="autoplay; encrypted-media" allowfullscreen src="https://www.youtube.com/embed/DTnz8wA6wpw"></iframe> </div> </div> </p> <h2 id="pip"> <span style="position:relative"><a class="anchor" href="#pip"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>PIP</span></h2> <p>If you haven't used or setup pip before, go to my tutorial at <a href="/blog/post/how-to-setup-pythons-pip/">how-to-setup-pythons-pip</a> to setup pip.</p> <h2 id="installing-pynput"> <span style="position:relative"><a class="anchor" href="#installing-pynput"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Installing Pynput</span></h2> <p>We will be using the pynput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p> <p><img alt="Installing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput1.png"></p> <p>To double-check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p> <p><img alt="Testing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput2.png"></p> <h2 id="simulating-keys"> <span style="position:relative"><a class="anchor" href="#simulating-keys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Simulating Keys</span></h2> <p>Create a new script and save it somewhere so you can easily run the script. Import <code>Key</code> and <code>Controller</code> from <code>pynput.keyboard</code>.</p> <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Controller</span>
-</code></pre></div> <p>Make a variable called keyboard and set it to an instance of <code>Controller</code>. Now using the keyboard variable we can press and release keys.</p> <div class="codehilite"><pre><span></span><code><span class="n">keyboard</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">()</span>
-</code></pre></div> <h3 id="pressing-and-releasing-keys"> <span style="position:relative"><a class="anchor" href="#pressing-and-releasing-keys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Pressing and Releasing Keys</span></h3> <p>Using <code>keyboard.press</code> we can press keys and with <code>keyboard.release</code> we can release a key. This allows us to type a key by pressing and releasing. You can only supply this method with one key at a time. Here is an example of how to type the letter 'a'.</p> <div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="/static/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/static/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/simulate-keypresses-in-python/">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/css/base.css"><!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117153268-2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-117153268-2');
+        </script><!-- instant.page -->
+        <script defer src="https://instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+        
+
+<title>Simulate Keypresses In Python - Nitratine</title>
+<link rel="stylesheet" href="/static/css/pygments.css">
+
+<meta name="description" content="This demonstrates how to press keys with Python. Using pynput we are able to simulate key presses into any window. This will show you how to press and release a key, type special keys and type a sentence.">
+<meta name="author" content="Brent Vollebregt">
+<meta property="og:title" content="Simulate Keypresses In Python">
+<meta property="og:description" content="This demonstrates how to press keys with Python. Using pynput we are able to simulate key presses into any window. This will show you how to press and release a key, type special keys and type a sentence.">
+<meta property="og:image" content="/posts/simulate-keypresses-in-python/feature.jpg">
+<meta property="og:url" content="https://nitratine.net/blog/post/simulate-keypresses-in-python/">
+<meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="stylesheet" href="/static/css/blog.css">
+
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="/static/img/logo.png" width="145" height="30" class="d-inline-block align-top" alt="Brand Icon">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/blog/">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.youtube.com/PyTutorials">YouTube</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/brentvollebregt">GitHub</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/about/">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main role="main" class="container my-4">
+
+            
+ <div class="row">
+
+    <div class="col-blog-content blog-main">
+        
+<h1 class="blog-post-title">Simulate Keypresses In Python</h1>
+<div class="mb-2">
+    <a href="/blog/archive/#2017" class="text-muted">16 Dec 2017</a>
+    <a href="/blog/categories/#YouTube" class="badge badge-primary ml-2">YouTube</a>
+    
+    <a href="/blog/tags/#python" class="badge badge-warning">python</a>
+    
+    <a href="/blog/tags/#keyboard" class="badge badge-warning">keyboard</a>
+    
+    <a href="/blog/tags/#pynput" class="badge badge-warning">pynput</a>
+    
+    <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
+</div>
+<p class="lead">This demonstrates how to press keys with Python. Using pynput we are able to simulate key presses into any window. This will show you how to press and release a key, type special keys and type a sentence.</p>
+<hr class="mt-3 mb-0">
+
+
+
+<div class="post-content mt-3">
+    <div class="toc">
+<ul>
+<li><a href="#pip">PIP</a></li>
+<li><a href="#installing-pynput">Installing Pynput</a></li>
+<li><a href="#simulating-keys">Simulating Keys</a><ul>
+<li><a href="#pressing-and-releasing-keys">Pressing and Releasing Keys</a></li>
+<li><a href="#pressing-and-releasing-special-keys">Pressing and Releasing Special Keys</a></li>
+<li><a href="#typing-multiple-keys">Typing Multiple Keys</a></li>
+<li><a href="#putting-a-random-delay-between-each-keypress">Putting A Random Delay Between Each Keypress</a></li>
+</ul>
+</li>
+<li><a href="#common-issues-and-questions">Common Issues and Questions</a><ul>
+<li><a href="#how-can-i-use-the-keyboard-and-mouse-controllers-at-the-same-time">How can I use the keyboard and mouse controllers at the same time?</a></li>
+<li><a href="#modulenotfounderrorimporterror-no-module-named-pynput">ModuleNotFoundError/ImportError : No module named 'pynput'</a></li>
+<li><a href="#i-got-a-syntaxerror">I got a SyntaxError</a></li>
+<li><a href="#the-key-presses-work-in-notepad-but-not-my-game">The Key Presses Work in Notepad But Not My Game</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>
+<div class="embedded_yt my-3">
+<div>
+<iframe allow="autoplay; encrypted-media" allowfullscreen="" src="https://www.youtube.com/embed/DTnz8wA6wpw"></iframe>
+</div>
+</div>
+</p>
+<h2 id="pip">
+<span style="position:relative"><a class="anchor" href="#pip"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>PIP</span></h2>
+<p>If you haven't used or setup pip before, go to my tutorial at <a href="/blog/post/how-to-setup-pythons-pip/">how-to-setup-pythons-pip</a> to setup pip.</p>
+<h2 id="installing-pynput">
+<span style="position:relative"><a class="anchor" href="#installing-pynput"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Installing Pynput</span></h2>
+<p>We will be using the pynput module to listen to mouse events. To install this module execute <code>pip install pynput</code> in cmd. Watch the output to make sure no errors have occurred; it will tell you when the module has been successfully installed.</p>
+<p><img alt="Installing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput1.png" /></p>
+<p>To double-check that it was installed successfully, open up IDLE and execute the command <code>import pynput</code>; no errors should occur.</p>
+<p><img alt="Testing pynput" src="/posts/how-to-get-mouse-clicks-with-python/pynput2.png" /></p>
+<h2 id="simulating-keys">
+<span style="position:relative"><a class="anchor" href="#simulating-keys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Simulating Keys</span></h2>
+<p>Create a new script and save it somewhere so you can easily run the script. Import <code>Key</code> and <code>Controller</code> from <code>pynput.keyboard</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Controller</span>
+</code></pre></div>
+
+
+<p>Make a variable called keyboard and set it to an instance of <code>Controller</code>. Now using the keyboard variable we can press and release keys.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">()</span>
+</code></pre></div>
+
+
+<h3 id="pressing-and-releasing-keys">
+<span style="position:relative"><a class="anchor" href="#pressing-and-releasing-keys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Pressing and Releasing Keys</span></h3>
+<p>Using <code>keyboard.press</code> we can press keys and with <code>keyboard.release</code> we can release a key. This allows us to type a key by pressing and releasing. You can only supply this method with one key at a time. Here is an example of how to type the letter 'a'.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-</code></pre></div> <h3 id="pressing-and-releasing-special-keys"> <span style="position:relative"><a class="anchor" href="#pressing-and-releasing-special-keys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Pressing and Releasing Special Keys</span></h3> <p>For special keys that can't be put into a string like shift or control, you will need to refer to the page <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">here</a> to look at the Key class for supported keys. Using these in the press or release methods will press/release the key matching it. For example, if I wanted to press the Windows key, I would look at <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">that page</a> for the key. 'cmd' has the description <em>"A generic command button. On PC platforms, this corresponds to the Super key or Windows key, and on Mac it corresponds to the Command key"</em> which is what I am looking for. Now for the code.</p> <div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">cmd</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h3 id="pressing-and-releasing-special-keys">
+<span style="position:relative"><a class="anchor" href="#pressing-and-releasing-special-keys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Pressing and Releasing Special Keys</span></h3>
+<p>For special keys that can't be put into a string like shift or control, you will need to refer to the page <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">here</a> to look at the Key class for supported keys. Using these in the press or release methods will press/release the key matching it. For example, if I wanted to press the Windows key, I would look at <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">that page</a> for the key. 'cmd' has the description <em>"A generic command button. On PC platforms, this corresponds to the Super key or Windows key, and on Mac it corresponds to the Command key"</em> which is what I am looking for. Now for the code.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">cmd</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">cmd</span><span class="p">)</span>
-</code></pre></div> <p>This method also allows us to press a key while holding another key, for example, ctrl+c to copy. To do this we will need to press ctrl, press and release c and then release ctrl.</p> <div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">ctrl</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>This method also allows us to press a key while holding another key, for example, ctrl+c to copy. To do this we will need to press ctrl, press and release c and then release ctrl.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">ctrl</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">ctrl</span><span class="p">)</span>
-</code></pre></div> <p>Here are a few other common special keys:</p> <ul> <li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.alt_l">Key.alt_l</a>: Left ALT</li> <li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.backspace">Key.backspace</a>: Backspace</li> <li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.ctrl_l">Key.ctrl_l</a>: Left Ctrl</li> <li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.delete">Key.delete</a>: Delete</li> <li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.enter">Key.enter</a>: Enter</li> <li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.esc">Key.esc</a>: Escape</li> <li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.f1">Key.f1</a>: F1</li> <li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.f5">Key.f5</a>: F5</li> <li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.media_play_pause">Key.media_play_pause</a>: Play/Pause</li> <li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.page_down">Key.page_down</a>: Page Down</li> <li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.up">Key.up</a>: Up Arrow Key</li> <li>The rest can be found in the <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">pynput docs for the Key class</a>.</li> </ul> <h3 id="typing-multiple-keys"> <span style="position:relative"><a class="anchor" href="#typing-multiple-keys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Typing Multiple Keys</span></h3> <p>A cool feature supplied by the class is the type method. This method allows us to type more than one key at a time but it has to be a string of characters. So if we wanted to type "Nitratine" we would execute:</p> <div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="s1">&#39;Nitratine&#39;</span><span class="p">)</span>
-</code></pre></div> <p>This method does also support spaces but when it comes to enters, use a new line character (\n) and a tab character (\t) for tabs.</p> <div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="s1">&#39;This is one line.</span><span class="se">\n</span><span class="s1">And this is the next line.</span><span class="se">\n\t</span><span class="s1">This line has been tabbed in.&#39;</span><span class="p">)</span>
-</code></pre></div> <h3 id="putting-a-random-delay-between-each-keypress"> <span style="position:relative"><a class="anchor" href="#putting-a-random-delay-between-each-keypress"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Putting A Random Delay Between Each Keypress</span></h3> <p>To put a random delay between each keypress, you can use <code>time.sleep</code> with a random number passed to it. Here is a small example function I made:</p> <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+</code></pre></div>
+
+
+<p>Here are a few other common special keys:</p>
+<ul>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.alt_l">Key.alt_l</a>: Left ALT</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.backspace">Key.backspace</a>: Backspace</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.ctrl_l">Key.ctrl_l</a>: Left Ctrl</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.delete">Key.delete</a>: Delete</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.enter">Key.enter</a>: Enter</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.esc">Key.esc</a>: Escape</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.f1">Key.f1</a>: F1</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.f5">Key.f5</a>: F5</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.media_play_pause">Key.media_play_pause</a>: Play/Pause</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.page_down">Key.page_down</a>: Page Down</li>
+<li><a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key.up">Key.up</a>: Up Arrow Key</li>
+<li>The rest can be found in the <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">pynput docs for the Key class</a>.</li>
+</ul>
+<h3 id="typing-multiple-keys">
+<span style="position:relative"><a class="anchor" href="#typing-multiple-keys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Typing Multiple Keys</span></h3>
+<p>A cool feature supplied by the class is the type method. This method allows us to type more than one key at a time but it has to be a string of characters. So if we wanted to type "Nitratine" we would execute:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="s1">&#39;Nitratine&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>This method does also support spaces but when it comes to enters, use a new line character (\n) and a tab character (\t) for tabs.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="s1">&#39;This is one line.</span><span class="se">\n</span><span class="s1">And this is the next line.</span><span class="se">\n\t</span><span class="s1">This line has been tabbed in.&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h3 id="putting-a-random-delay-between-each-keypress">
+<span style="position:relative"><a class="anchor" href="#putting-a-random-delay-between-each-keypress"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Putting A Random Delay Between Each Keypress</span></h3>
+<p>To put a random delay between each keypress, you can use <code>time.sleep</code> with a random number passed to it. Here is a small example function I made:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Controller</span>
 
@@ -23,8 +209,245 @@
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>  <span class="c1"># Sleep for the amount of seconds generated</span>
 
 <span class="n">type_string_with_delay</span><span class="p">(</span><span class="s2">&quot;This is my string typed with a delay&quot;</span><span class="p">)</span>
-</code></pre></div> <h2 id="common-issues-and-questions"> <span style="position:relative"><a class="anchor" href="#common-issues-and-questions"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Common Issues and Questions</span></h2> <h3 id="how-can-i-use-the-keyboard-and-mouse-controllers-at-the-same-time"> <span style="position:relative"><a class="anchor" href="#how-can-i-use-the-keyboard-and-mouse-controllers-at-the-same-time"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>How can I use the keyboard and mouse controllers at the same time?</span></h3> <p>When you import the classes, Controller will be set to the last one imported. To show what the issue was, ask yourself, what controller did you use to set the mouse and what one to set the keyboard? You would have used the same, but they need to be from the different classes. So then you should use:</p> <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Controller</span> <span class="k">as</span> <span class="n">KeyboardController</span>
+</code></pre></div>
+
+
+<h2 id="common-issues-and-questions">
+<span style="position:relative"><a class="anchor" href="#common-issues-and-questions"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Common Issues and Questions</span></h2>
+<h3 id="how-can-i-use-the-keyboard-and-mouse-controllers-at-the-same-time">
+<span style="position:relative"><a class="anchor" href="#how-can-i-use-the-keyboard-and-mouse-controllers-at-the-same-time"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>How can I use the keyboard and mouse controllers at the same time?</span></h3>
+<p>When you import the classes, Controller will be set to the last one imported. To show what the issue was, ask yourself, what controller did you use to set the mouse and what one to set the keyboard? You would have used the same, but they need to be from the different classes.  So then you should use:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Controller</span> <span class="k">as</span> <span class="n">KeyboardController</span>
 <span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Controller</span> <span class="k">as</span> <span class="n">MouseController</span>
-</code></pre></div> <p>Now when you want to use the controller for the mouse use MouseController and KeyboardController for the keyboard.</p> <div class="codehilite"><pre><span></span><code><span class="err">keyboard = KeyboardController()</span>
+</code></pre></div>
+
+
+<p>Now when you want to use the controller for the mouse use MouseController and KeyboardController for the keyboard.</p>
+<div class="codehilite"><pre><span></span><code><span class="err">keyboard = KeyboardController()</span>
 <span class="err">mouse = MouseController()</span>
-</code></pre></div> <h3 id="modulenotfounderrorimporterror-no-module-named-pynput"> <span style="position:relative"><a class="anchor" href="#modulenotfounderrorimporterror-no-module-named-pynput"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>ModuleNotFoundError/ImportError : No module named 'pynput'</span></h3> <p>Did you install pynput? This error will not occur if you installed it properly. If you have multiple versions of Python, make sure you are installing pynput on the same version as what you are running the script with.</p> <h3 id="i-got-a-syntaxerror"> <span style="position:relative"><a class="anchor" href="#i-got-a-syntaxerror"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>I got a SyntaxError</span></h3> <p>Syntax errors are caused by you and there is nothing I can offer to fix it apart from telling you to read the error. They always say where the error is in the output using a ^. Generally, people that get this issue have incorrect indentation, brackets in the wrong place or something spelt wrong. You can read about SyntaxError on Python's docs <a href="https://docs.python.org/2/tutorial/errors.html#syntax-errors">here</a>.</p> <h3 id="the-key-presses-work-in-notepad-but-not-my-game"> <span style="position:relative"><a class="anchor" href="#the-key-presses-work-in-notepad-but-not-my-game"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>The Key Presses Work in Notepad But Not My Game</span></h3> <p>pynput uses a Win32API function called <code>SendInput</code>. The SendInput function will insert input events into the same queue as a hardware device but the events are marked with a <code>LLMHF_INJECTED</code> flag that can be detected by hooks and <a href="https://stackoverflow.com/a/19383403">then filtered</a>. To avoid this flag you probably have to write a custom driver <em>(ref: <a href="https://stackoverflow.com/a/44931001">stackoverflow/Anders</a>)</em>.</p> <p>It would be ideal for most games to look for these events if they want to reduce 'bot' activity as it stops packages like these being used.</p> </div> <nav class="blog-pagination text-center mb-5 mt-4"> <a class="btn btn-outline-primary mt-1" href="/blog/post/python-keylogger/">&larr; Python Keylogger</a> <a class="btn btn-outline-primary mt-1" href="/blog/post/quick-script/">Quick Script &rarr;</a> </nav> <div id="disqus_thread"></div> <script>var disqus_config=function(){this.page.url='https://nitratine.net/blog/post/simulate-keypresses-in-python/';this.page.identifier='https://nitratine.net/blog/post/simulate-keypresses-in-python/';};(function(){var d=document,s=d.createElement('script');s.src='//nitratine.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script> <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript> </div> <aside class="col-blog-sidebar blog-sidebar"> <div class="card p-3 mb-3 bg-light"> <span class="h4 text-center text-lg-left">About</span> <p class="mb-0">Owner of <a href="https://www.youtube.com/PyTutorials">PyTutorials</a> and creator of <a href="https://github.com/brentvollebregt/auto-py-to-exe">auto-py-to-exe</a>. I enjoy making quick tutorials for people new to particular topics in Python and tools that help fix small things.</p> </div> <div class="input-group mb-3"> <input id="sidebar-search" type="text" class="form-control" placeholder="Search" aria-label="Search"> <div class="input-group-append"> <button id="sidebar-search-submit" class="btn btn-outline-primary" type="button">Search</button> </div> </div> <script>let searchUrl="/search/";</script> <script type="text/javascript" defer src="/static/js/search.js"></script> <div class="card p-3 mb-3 bg-light"> <span class="h4 text-center text-lg-left">Categories</span> <ol class="list-unstyled mb-0 text-center text-lg-left"> <li> <a href="/blog/categories/#Apps">&#x1F4F1; Apps <span class="badge badge-primary ml-3">2</span> </a> </li> <li> <a href="/blog/categories/#General">&#x1F4F0; General <span class="badge badge-primary ml-3">7</span> </a> </li> <li> <a href="/blog/categories/#Investigations">&#x1F50D; Investigations <span class="badge badge-primary ml-3">2</span> </a> </li> <li> <a href="/blog/categories/#Projects">&#x1F4BE; Projects <span class="badge badge-primary ml-3">15</span> </a> </li> <li> <a href="/blog/categories/#Snippets">&#x2702; Snippets <span class="badge badge-primary ml-3">1</span> </a> </li> <li> <a href="/blog/categories/#Tools">&#x1F6E0; Tools <span class="badge badge-primary ml-3">3</span> </a> </li> <li> <a href="/blog/categories/#Tutorials">&#x1F4D6; Tutorials <span class="badge badge-primary ml-3">19</span> </a> </li> <li> <a href="/blog/categories/#YouTube">&#x1F3A5; YouTube <span class="badge badge-primary ml-3">15</span> </a> </li> </ol> </div> <div class="card p-3 mb-3 bg-light"> <span class="h4 text-center text-lg-left">PyTutorials on YouTube</span> <script src="https://apis.google.com/js/platform.js"></script> <div style="text-align: center"> <div class="g-ytsubscribe" data-channel="PrivateSplat" data-layout="full" data-count="default"></div> </div> </div> <div class="card p-3 mb-3 bg-light"> <span class="h4 text-center text-lg-left">Recent Videos</span> <div id="recent-yt-videos" class="yt_video_container"> <img src="https://img.youtube.com/vi/H8t4DJ3Tdrg/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=H8t4DJ3Tdrg', '_blank')"> <img src="https://img.youtube.com/vi/ksW59gYEl6Q/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=ksW59gYEl6Q', '_blank')"> <img src="https://img.youtube.com/vi/YPiHBtddefI/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=YPiHBtddefI', '_blank')"> <img src="https://img.youtube.com/vi/SQj17D1Q_6s/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=SQj17D1Q_6s', '_blank')"> <img src="https://img.youtube.com/vi/2kbeBzEQfXE/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=2kbeBzEQfXE', '_blank')"> <img src="https://img.youtube.com/vi/5JSloPGocSY/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=5JSloPGocSY', '_blank')"> </div> </div> <div class="card p-3 mb-3 bg-light"> <span class="h4 text-center text-lg-left">Featured Sites</span> <div class="featured-sites"> <a title="Emotionify" href="https://emotionify.nitratine.net/"> <img src="/static/img/featured-sites/emotionify.png" alt="Emotionify"> </a> <a title="Spotify Lyrics Viewer" href="https://spotify-lyrics-viewer.nitratine.net/"> <img src="/static/img/featured-sites/spotify-lyrics-viewer.png" alt="Spotify Lyrics Viewer"> </a> <a title="Hit Counter" href="https://hitcounter.pythonanywhere.com/"> <img src="/static/img/featured-sites/hit-counter.png" alt="Hit Counter"> </a> <a title="Monopoly Money" href="https://monopoly-money.nitratine.net/"> <img src="/posts/monopoly-money/banner.png" alt="Monopoly Money"> </a> </div> </div> </aside> </div> </main> <footer class="bg-dark py-4 px-1"> <div class="container"> <div class="d-flex justify-content-center"> <div class="top-group"> <div class="link-group"> <p class="header">Navigate</p> <a aria-current="page" class href="/">Home</a> <a href="/blog/">Blog</a> <a class="ml-2" href="/blog/categories/">Categories</a> <a class="ml-2" href="/blog/tags/">Tags</a> <a class="ml-2" href="/blog/archive/">Archive</a> <a href="/portfolio/">Portfolio</a> <a href="/about/">About</a> </div> <div class="link-group"> <p class="header">Popular Projects</p> <a href="/blog/post/auto-py-to-exe/">auto-py-to-exe</a> <a href="/blog/post/hit-counter/">hit-counter</a> <a href="/blog/post/whos-on-my-network/">whos-on-my-network</a> <a href="/blog/post/monopoly-money/">monopoly-money</a> </div> <div class="link-group"> <p class="header">Follow</p> <a href="https://github.com/brentvollebregt" class="with-icon"> <img src="/static/img/icons/github.svg" alt="GitHub Logo" style="filter: invert(1);"> GitHub </a> <a href="https://www.youtube.com/c/PyTutorials" class="with-icon"> <img src="/static/img/icons/youtube.svg" alt="YouTube Logo"> YouTube </a> <a href="/rss.xml" class="with-icon"><img src="/static/img/icons/rss.svg" alt="RSS Logo"> Nitratine RSS Feed </a> </div> </div> </div> <div class="mx-4"> <hr> </div> <p class="text-center m-0"> <small>© 2020 Brent Vollebregt</small> </p> </div> </footer> <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> </body> </html>
+</code></pre></div>
+
+
+<h3 id="modulenotfounderrorimporterror-no-module-named-pynput">
+<span style="position:relative"><a class="anchor" href="#modulenotfounderrorimporterror-no-module-named-pynput"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>ModuleNotFoundError/ImportError : No module named 'pynput'</span></h3>
+<p>Did you install pynput? This error will not occur if you installed it properly. If you have multiple versions of Python, make sure you are installing pynput on the same version as what you are running the script with.</p>
+<h3 id="i-got-a-syntaxerror">
+<span style="position:relative"><a class="anchor" href="#i-got-a-syntaxerror"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>I got a SyntaxError</span></h3>
+<p>Syntax errors are caused by you and there is nothing I can offer to fix it apart from telling you to read the error. They always say where the error is in the output using a ^. Generally, people that get this issue have incorrect indentation, brackets in the wrong place or something spelt wrong. You can read about SyntaxError on Python's docs <a href="https://docs.python.org/2/tutorial/errors.html#syntax-errors">here</a>.</p>
+<h3 id="the-key-presses-work-in-notepad-but-not-my-game">
+<span style="position:relative"><a class="anchor" href="#the-key-presses-work-in-notepad-but-not-my-game"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>The Key Presses Work in Notepad But Not My Game</span></h3>
+<p>pynput uses a Win32API function called <code>SendInput</code>. The SendInput function will insert input events into the same queue as a hardware device but the events are marked with a <code>LLMHF_INJECTED</code> flag that can be detected by hooks and <a href="https://stackoverflow.com/a/19383403">then filtered</a>. To avoid this flag you probably have to write a custom driver <em>(ref: <a href="https://stackoverflow.com/a/44931001">stackoverflow/Anders</a>)</em>.</p>
+<p>It would be ideal for most games to look for these events if they want to reduce 'bot' activity as it stops packages like these being used.</p>
+</div>
+
+<nav class="blog-pagination text-center mb-5 mt-4">
+    
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/python-keylogger/">&larr; Python Keylogger</a>
+    
+    
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/quick-script/">Quick Script &rarr;</a>
+    
+</nav>
+
+
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function() {
+        this.page.url = 'https://nitratine.net/blog/post/simulate-keypresses-in-python/'; // Your page's canonical URL variable
+        this.page.identifier = 'https://nitratine.net/blog/post/simulate-keypresses-in-python/'; // Your page's unique identifier variable
+    };
+    (function() {
+        var d = document,
+            s = d.createElement('script');
+        s.src = '//nitratine.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+    </div>
+
+    <aside class="col-blog-sidebar blog-sidebar">
+
+        <div class="card p-3 mb-3 bg-light">
+            <span class="h4 text-center text-lg-left">About</span>
+            <p class="mb-0">Owner of <a href="https://www.youtube.com/PyTutorials">PyTutorials</a> and creator of <a href="https://github.com/brentvollebregt/auto-py-to-exe">auto-py-to-exe</a>. I enjoy making quick tutorials for people new to particular topics in Python and tools that help fix small things.</p>
+        </div>
+
+        <div class="input-group mb-3">
+            <input id="sidebar-search" type="text" class="form-control" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+                <button id="sidebar-search-submit" class="btn btn-outline-primary" type="button">Search</button>
+            </div>
+        </div>
+        <script>let searchUrl = "/search/";</script>
+        <script type="text/javascript" defer src="/static/js/search.js"></script>
+
+        <div class="card p-3 mb-3 bg-light">
+            <span class="h4 text-center text-lg-left">Categories</span>
+            <ol class="list-unstyled mb-0 text-center text-lg-left">
+                
+                    <li>
+                    <a href="/blog/categories/#Apps">&#x1F4F1; Apps
+                        <span class="badge badge-primary ml-3">2</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#General">&#x1F4F0; General
+                        <span class="badge badge-primary ml-3">7</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#Investigations">&#x1F50D; Investigations
+                        <span class="badge badge-primary ml-3">2</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#Projects">&#x1F4BE; Projects
+                        <span class="badge badge-primary ml-3">15</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#Snippets">&#x2702; Snippets
+                        <span class="badge badge-primary ml-3">1</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#Tools">&#x1F6E0; Tools
+                        <span class="badge badge-primary ml-3">3</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#Tutorials">&#x1F4D6; Tutorials
+                        <span class="badge badge-primary ml-3">19</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#YouTube">&#x1F3A5; YouTube
+                        <span class="badge badge-primary ml-3">15</span>
+                    </a>
+                </li>
+                
+            </ol>
+        </div>
+
+        <div class="card p-3 mb-3 bg-light">
+            <span class="h4 text-center text-lg-left">PyTutorials on YouTube</span>
+            <script src="https://apis.google.com/js/platform.js"></script>
+            <div style="text-align: center">
+                <div class="g-ytsubscribe" data-channel="PrivateSplat" data-layout="full" data-count="default"></div>
+            </div>
+        </div>
+
+        <div class="card p-3 mb-3 bg-light">
+            <span class="h4 text-center text-lg-left">Recent Videos</span>
+            <div id="recent-yt-videos" class="yt_video_container">
+                
+                    <img src="https://img.youtube.com/vi/H8t4DJ3Tdrg/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=H8t4DJ3Tdrg', '_blank')">
+                
+                    <img src="https://img.youtube.com/vi/ksW59gYEl6Q/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=ksW59gYEl6Q', '_blank')">
+                
+                    <img src="https://img.youtube.com/vi/YPiHBtddefI/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=YPiHBtddefI', '_blank')">
+                
+                    <img src="https://img.youtube.com/vi/SQj17D1Q_6s/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=SQj17D1Q_6s', '_blank')">
+                
+                    <img src="https://img.youtube.com/vi/2kbeBzEQfXE/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=2kbeBzEQfXE', '_blank')">
+                
+                    <img src="https://img.youtube.com/vi/5JSloPGocSY/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=5JSloPGocSY', '_blank')">
+                
+            </div>
+        </div>
+
+        <div class="card p-3 mb-3 bg-light">
+            <span class="h4 text-center text-lg-left">Featured Sites</span>
+            <div class="featured-sites">
+                
+                    <a title="Emotionify" href="https://emotionify.nitratine.net/">
+                        <img src="/static/img/featured-sites/emotionify.png" alt="Emotionify" />
+                    </a>
+                
+                    <a title="Spotify Lyrics Viewer" href="https://spotify-lyrics-viewer.nitratine.net/">
+                        <img src="/static/img/featured-sites/spotify-lyrics-viewer.png" alt="Spotify Lyrics Viewer" />
+                    </a>
+                
+                    <a title="Hit Counter" href="https://hitcounter.pythonanywhere.com/">
+                        <img src="/static/img/featured-sites/hit-counter.png" alt="Hit Counter" />
+                    </a>
+                
+                    <a title="Monopoly Money" href="https://monopoly-money.nitratine.net/">
+                        <img src="/posts/monopoly-money/banner.png" alt="Monopoly Money" />
+                    </a>
+                
+            </div>
+        </div>
+    </aside>
+
+</div>
+
+
+        </main>
+
+        <footer class="bg-dark py-4 px-1">
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <div class="top-group">
+                        <div class="link-group">
+                            <p class="header">Navigate</p>
+                            <a aria-current="page" class="" href="/">Home</a>
+                            <a href="/blog/">Blog</a>
+                            <a class="ml-2" href="/blog/categories/">Categories</a>
+                            <a class="ml-2" href="/blog/tags/">Tags</a>
+                            <a class="ml-2" href="/blog/archive/">Archive</a>
+                            <a href="/portfolio/">Portfolio</a>
+                            <a href="/about/">About</a>
+                        </div>
+
+                        <div class="link-group">
+                            <p class="header">Popular Projects</p>
+                            <a href="/blog/post/auto-py-to-exe/">auto-py-to-exe</a>
+                            <a href="/blog/post/hit-counter/">hit-counter</a>
+                            <a href="/blog/post/whos-on-my-network/">whos-on-my-network</a>
+                            <a href="/blog/post/monopoly-money/">monopoly-money</a>
+                        </div>
+
+                        <div class="link-group">
+                            <p class="header">Follow</p>
+                            <a href="https://github.com/brentvollebregt" class="with-icon">
+                                <img src="/static/img/icons/github.svg" alt="GitHub Logo" style="filter: invert(1);" />
+                                GitHub
+                            </a>
+                            <a href="https://www.youtube.com/c/PyTutorials" class="with-icon">
+                                <img src="/static/img/icons/youtube.svg" alt="YouTube Logo" />
+                                YouTube
+                            </a>
+                            <a href="/rss.xml" class="with-icon"
+                            ><img src="/static/img/icons/rss.svg" alt="RSS Logo"/>
+                                Nitratine RSS Feed
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mx-4">
+                    <hr/>
+                </div>
+
+                <p class="text-center m-0">
+                    <small>© 2020 Brent Vollebregt</small>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
+</html>
