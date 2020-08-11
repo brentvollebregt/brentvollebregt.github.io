@@ -99,14 +99,21 @@
 <li><a href="#setting-up-the-environment">Setting up the Environment</a></li>
 <li><a href="#using-the-designer">Using the Designer</a><ul>
 <li><a href="#locating">Locating</a></li>
-<li><a href="#using-the-designer_1">Using the Designer</a></li>
+<li><a href="#using-the-designer_1">Using the Designer</a><ul>
+<li><a href="#creating-a-simple-window">Creating a Simple Window</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#converting-ui-to-py">Converting .ui to .py</a></li>
 <li><a href="#running-the-output-and-hooking-up-the-button">Running the Output and Hooking up the Button</a></li>
 <li><a href="#more-advanced-example">More Advanced Example</a><ul>
 <li><a href="#creating-interface">Creating Interface</a></li>
-<li><a href="#connecting-events-to-methods">Connecting Events to Methods</a></li>
+<li><a href="#connecting-events-to-methods">Connecting Events to Methods</a><ul>
+<li><a href="#linking-the-image-button">Linking the Image Button</a></li>
+<li><a href="#linking-the-add-to-list-button">Linking the Add to List Button</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -150,8 +157,8 @@
 <p>You will now be shown an empty window in the middle of the designer's window with widget options on the left and some other windows to the right.</p>
 <p>On the left, you can drag widgets from the drop-downs onto the MainWindow object in the centre. On the right, in the Object Inspector, you can see the current widgets in your window. Right below that is the Property Editor that allows you to modify the widget currently selected.</p>
 <p><img alt="Window Labeled" src="/posts/python-guis-with-pyqt/window-labeled.png" /></p>
-<h4>
-<span style="position:relative"><a class="anchor" href="#None"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Creating a Simple Window</span></h4>
+<h4 id="creating-a-simple-window">
+<span style="position:relative"><a class="anchor" href="#creating-a-simple-window"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Creating a Simple Window</span></h4>
 <p>For this example, we will be just putting a button that prints "Hello World!" when pressed in the Window; soon we will work with a larger example when the basics are out of the way.</p>
 <p>First, make your window a bit smaller by clicking and dragging the bottom right of the window (or any part on the edge) to change the size as you would do on any other window. Now find the "Push Button" widget under the Buttons section (on the left) and drag it into the window anywhere. You can double click on the button now to rename the text in it; set it to "Print Message".</p>
 <p>You may now want to change the size of the button, to do this click on the button until there are blue squares on each of its corners and edges. Use these blue squares to re-size the button to a size you want.</p>
@@ -227,8 +234,8 @@
 <p>Your converted .py code should currently look something like this: <em><a href="/posts/python-guis-with-pyqt/MainWindowAdvanced1.py">Code download: MainWindowAdvanced1.py</a></em></p>
 <p>If you open your .py file in IDLE, you can see that the names we gave each widget have passed through to the names of the actual objects. I also recommend running the code now to make sure it works.</p>
 <p><img alt="Object names in code" src="/posts/python-guis-with-pyqt/object-names-in-code.png" /></p>
-<h4>
-<span style="position:relative"><a class="anchor" href="#None"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Linking the Image Button</span></h4>
+<h4 id="linking-the-image-button">
+<span style="position:relative"><a class="anchor" href="#linking-the-image-button"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Linking the Image Button</span></h4>
 <p>First, you will want to create a class definition called <code>setImage</code>; make sure this takes self as it is a class definition. In this method, we want to ask the user for an image (not just any file). If they provide a file, we then need to create a pixmap object and then set the pixmap object to the image label. Before we set it, it is ideal to scale the image to fit inside the label without stretching and aligning it to the centre. Your method will look like this:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">setImage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="n">fileName</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QFileDialog</span><span class="o">.</span><span class="n">getOpenFileName</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Select Image&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Image Files (*.png *.jpg *jpeg *.bmp)&quot;</span><span class="p">)</span> <span class="c1"># Ask for file</span>
@@ -247,8 +254,8 @@
 
 
 <p>Run the script and make sure that your button works. Initially, the label will be clear but each time you select a file it should change to the selected file.</p>
-<h4>
-<span style="position:relative"><a class="anchor" href="#None"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Linking the Add to List Button</span></h4>
+<h4 id="linking-the-add-to-list-button">
+<span style="position:relative"><a class="anchor" href="#linking-the-add-to-list-button"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Linking the Add to List Button</span></h4>
 <p>We will now need to create another class definition called <code>addItem</code> like before. In this method, we need to get the value of the lineEdit object and then clear it. We can then simply add the value we just got to the listWidget. After you have done that, the method should look like this:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">addItem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="c1"># Get the value of the lineEdit</span>

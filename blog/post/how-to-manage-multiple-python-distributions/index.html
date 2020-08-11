@@ -99,7 +99,13 @@
 </li>
 <li><a href="#how-windows-decides-which-executable-to-execute">How Windows Decides Which Executable to Execute</a></li>
 <li><a href="#solutions">Solutions</a><ul>
-<li><a href="#virtual-environments">Virtual Environments</a></li>
+<li><a href="#virtual-environments">Virtual Environments</a><ul>
+<li><a href="#setting-up-the-virtual-environment">Setting Up The Virtual Environment</a></li>
+<li><a href="#activating-the-virtual-environment">Activating The Virtual Environment</a></li>
+<li><a href="#deactivating-the-virtual-environment">Deactivating The Virtual Environment</a></li>
+<li><a href="#installing-dependencies">Installing Dependencies</a></li>
+</ul>
+</li>
 <li><a href="#setting-up-your-path-environment-variable-in-an-expected-way">Setting up Your PATH Environment Variable in an Expected Way</a></li>
 </ul>
 </li>
@@ -196,16 +202,16 @@ C:\Python37\python.exe
 <p>This is my most recommended as you can be sure everything is where you expect it. </p>
 <p>Virtual environments can solve the issue we're looking at because it sets up a folder structure for its own dependencies and executables and then adds the "Scripts" path of this environment to the beginning of the PATH environment variable so that the executables within will be found instead of other executables outside the environment.</p>
 <p>There are many tutorials on setting up virtual environments in Python and there are many different modules you can use; but here are some basics using the Python 3 built-in venv:</p>
-<h4>
-<span style="position:relative"><a class="anchor" href="#None"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Setting Up The Virtual Environment</span></h4>
+<h4 id="setting-up-the-virtual-environment">
+<span style="position:relative"><a class="anchor" href="#setting-up-the-virtual-environment"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Setting Up The Virtual Environment</span></h4>
 <p>To set up a virtual environment, open a terminal and execute the following:</p>
 <div class="codehilite"><pre><span></span><code>python -m venv venv_folder
 </code></pre></div>
 
 
 <p>This will ask Python's venv module to create a virtual environment in <code>venv_folder</code>. You can substitute <code>venv_folder</code> for a different folder name if you wish, the convention is to use a folder named <code>venv</code> but I have used <code>venv_folder</code> in this tutorial to better identify it as a folder. </p>
-<h4>
-<span style="position:relative"><a class="anchor" href="#None"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Activating The Virtual Environment</span></h4>
+<h4 id="activating-the-virtual-environment">
+<span style="position:relative"><a class="anchor" href="#activating-the-virtual-environment"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Activating The Virtual Environment</span></h4>
 <p>Before activating the virtual environment, executing <code>python</code> and <code>pip</code> will still use the globally setup distribution(s). To use the virtual environment executables, you need to activate it.</p>
 <p>While beside the <code>venv_folder</code> folder (or whatever you named it) in cmd, execute:</p>
 <div class="codehilite"><pre><span></span><code>venv_folder/Scripts/activate
@@ -216,8 +222,8 @@ C:\Python37\python.exe
 <p>If your folder was named <code>venv</code>, call <code>venv/Scripts/activate</code> (or substitute for a different name).</p>
 </blockquote>
 <p>Now when you execute <code>where python</code> and <code>where pip</code>, you will see that executables from this virtual environment are being used. This is because the Scripts folder in the virtual environment has been added to the start of the PATH variable; you can see this by executing <code>echo %PATH%</code> again.</p>
-<h4>
-<span style="position:relative"><a class="anchor" href="#None"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Deactivating The Virtual Environment</span></h4>
+<h4 id="deactivating-the-virtual-environment">
+<span style="position:relative"><a class="anchor" href="#deactivating-the-virtual-environment"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Deactivating The Virtual Environment</span></h4>
 <p>To deactivate the virtual environment, go back to the same folder in cmd beside <code>venv_folder</code> and execute:</p>
 <div class="codehilite"><pre><span></span><code>venv_folder/Scripts/deactivate
 </code></pre></div>
@@ -225,8 +231,8 @@ C:\Python37\python.exe
 
 <p>Executing <code>where python</code> and <code>where pip</code> again, you will see that the original setup has been restored.</p>
 <p>Also, since these methods only modify environment variables in the session, closing the terminal session will throw away the activation. You can easily reactivate the virtual environment by following the instructions above again.</p>
-<h4>
-<span style="position:relative"><a class="anchor" href="#None"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Installing Dependencies</span></h4>
+<h4 id="installing-dependencies">
+<span style="position:relative"><a class="anchor" href="#installing-dependencies"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Installing Dependencies</span></h4>
 <p>Now that you know how to set up, activate and deactivate a virtual environment, you can use this to be sure what <code>python</code> and <code>pip</code> you are executing.</p>
 <p>To install dependencies, use the normal <code>pip install xyz</code> and to run a Python script, use the normal <code>python my_file.py</code>.</p>
 <h3 id="setting-up-your-path-environment-variable-in-an-expected-way">
