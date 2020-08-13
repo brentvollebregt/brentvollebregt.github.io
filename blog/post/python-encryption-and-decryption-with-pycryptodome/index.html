@@ -161,8 +161,8 @@
 <p>If no errors appeared it has been installed correctly.</p>
 <h2 id="what-is-aes">
 <span style="position:relative"><a class="anchor" href="#what-is-aes"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>What is AES?</span></h2>
-<p>In this tutorial, I'll be using the implementation of <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">Advanced Encryption Standard</a> (AES) to encrypt strings and files. If you do not know what AES is, I highly recommend you understand what it is and how it works before you continue with the examples. Not understanding the different modes of AES and how it is designed could lead to insecure encryptions.</p>
-<p>AES has a block size of 128 bits and this implementation of AES supports 3 sizes of keys, 16, 24 or 32 bytes long respectively for <em>AES-128</em>, <em>AES-192</em> or <em>AES-256</em>. Many modes are <a href="https://pycryptodome.readthedocs.io/en/latest/src/cipher/aes.html">supported by this implementation of AES</a>, including:</p>
+<p>In this tutorial, I'll be using an implementation of <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">Advanced Encryption Standard</a> (AES) to encrypt strings and files. If you don't know what AES is, I highly recommend you understand what it is and how it works before you continue with the examples. Not understanding the different modes of AES and how it is designed could lead to insecure encryptions.</p>
+<p>AES has a block size of 128 bits and this implementation of AES supports 3 sizes of keys, 16, 24 or 32 bytes long for <em>AES-128</em>, <em>AES-192</em> or <em>AES-256</em> respectively. Many modes are <a href="https://pycryptodome.readthedocs.io/en/latest/src/cipher/aes.html">supported by this implementation of AES</a>, including:</p>
 <ul>
 <li>CBC: Cipher-Block Chaining</li>
 <li>CFB: Cipher FeedBack</li>
@@ -175,7 +175,7 @@
 </blockquote>
 <h2 id="generating-a-key">
 <span style="position:relative"><a class="anchor" href="#generating-a-key"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Generating A Key</span></h2>
-<p>Keys that are used in AES must be 128, 192, or 256 bits in size (respectively for <em>AES-128</em>, <em>AES-192</em> or <em>AES-256</em>). PyCryptodome supplies a function at <code>Crypto.Random.get_random_bytes</code> that returns a random byte string of a length we decide. To use this, import the function and pass a length to the function:</p>
+<p>Keys that are used in AES must be 128, 192, or 256 bits in size (for <em>AES-128</em>, <em>AES-192</em> or <em>AES-256</em> respectively). PyCryptodome supplies a function at <code>Crypto.Random.get_random_bytes</code> that returns a random byte string of a length we decide. To use this, import the function and pass a length to the function:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
 <span class="n">key</span> <span class="o">=</span> <span class="n">get_random_bytes</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="c1"># 32 bytes * 8 = 256 bits (1 byte = 8 bits)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -621,7 +621,7 @@
                 
                     <li>
                     <a href="/blog/categories/#Tutorials">&#x1F4D6; Tutorials
-                        <span class="badge badge-primary ml-3">19</span>
+                        <span class="badge badge-primary ml-3">20</span>
                     </a>
                 </li>
                 
