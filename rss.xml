@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Aug 2020 06:06:27 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 06:16:04 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -10093,7 +10093,7 @@ C:\Python37\python.exe
 &lt;blockquote&gt;
 &lt;p&gt;scrypt has been used instead of PBKDF2 because in addition to being computationally expensive, it is also memory intensive and therefore more secure against the risk of custom ASICs.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;em&gt;scrypt&lt;/em&gt; is different to the SHA family (ie. &lt;em&gt;SHA-256&lt;/em&gt; and &lt;em&gt;SHA-512&lt;/em&gt;) because it also takes a salt and a work factor. Providing a salt that will mean that the same hash does not map to the same password every time, thus preventing &lt;a href="https://en.wikipedia.org/wiki/Rainbow_table"&gt;rainbow table&lt;/a&gt; lookups. A work factor is also specified to make the transformation more computationally difficult which means the key is harder to brute force.&lt;/p&gt;
+&lt;p&gt;scrypt is different to the SHA family (ie. &lt;em&gt;SHA-256&lt;/em&gt; and &lt;em&gt;SHA-512&lt;/em&gt;) because it also takes a salt and a work factor. Providing a salt that will mean that the same hash does not map to the same password every time, thus preventing &lt;a href="https://en.wikipedia.org/wiki/Rainbow_table"&gt;rainbow table&lt;/a&gt; lookups. A work factor is also specified to make the transformation more computationally difficult which means the key is harder to brute force.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;You can read more about the differences between password hashes differ and secure hashes in &lt;a href="https://crypto.stackexchange.com/a/35279"&gt;this reply on Stack Exchange&lt;/a&gt; - in this example PBKDF2 is compared to SHA-512 rather than scrypt.&lt;/p&gt;
 &lt;/blockquote&gt;
