@@ -119,13 +119,13 @@
 </ul>
 </div>
 <blockquote>
-<p>This tutorial is a follow on from <a href="/blog/post/python-encryption-and-decryption-with-pycryptodome/">Python Encryption and Decryption with PyCryptodome</a> which covers a high level view of the usage of the Python PyCryptodome library. If you have already read this, there will be a bit of duplicate reading but I recommend at least skimming just in case you miss something.</p>
+<p>This tutorial is a follow on from <a href="/blog/post/python-encryption-and-decryption-with-pycryptodome/">Python Encryption and Decryption with PyCryptodome</a> which covers a high-level view of the usage of the Python PyCryptodome library. If you have already read this, there will be a bit of duplicate reading but I recommend at least skimming just in case you miss something.</p>
 </blockquote>
 <h2 id="what-is-aes-and-gcm-mode">
 <span style="position:relative"><a class="anchor" href="#what-is-aes-and-gcm-mode"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>What is AES and GCM Mode?</span></h2>
 <p><a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">Advanced Encryption Standard</a> (AES) is a fast, secure and very popular block cipher that is commonly used to encrypt electronic data. AES has three different block ciphers: <em>AES-128</em> (128 bit), <em>AES-192</em> (192 bit) and <em>AES-256</em> (256 bit) - each cipher is named after the key length they use for encryption and decryption. Each of these ciphers encrypt and decrypt the data in 128-bit blocks but they use different sizes of cryptographic keys.</p>
 <p>AES supports many different "modes". Modes are the internal algorithm used to encrypt data; each mode can potentially have different inputs and outputs but they always have a single input for data to encrypt and a single output for encrypted data along with an input key.</p>
-<p><a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode"><em>GCM</em></a> is a mode of AES that uses the <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_(CTR)">CTR (counter) mode</a> to encrypt data and uses Galois mode for authentication. Aside from the CTR mode which is used to encrypt the data, Galois mode authentication allows us to check at the end of decryption that the message has not been tampered with. GCM is well known for it's speed and that it's a mode that it's patent-free.</p>
+<p><a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode"><em>GCM</em></a> is a mode of AES that uses the <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_(CTR)">CTR (counter) mode</a> to encrypt data and uses Galois mode for authentication. Aside from the CTR mode which is used to encrypt the data, Galois mode authentication allows us to check at the end of decryption that the message has not been tampered with. GCM is well known for its speed and that it's a mode that it's patent-free.</p>
 <p>In this tutorial, I'll be using an implementation of AES in <a href="https://pycryptodome.readthedocs.io/en/latest/">PyCryptodome</a> to encrypt strings and files. Many modes are supported <a href="https://pycryptodome.readthedocs.io/en/latest/src/cipher/aes.html">by this implementation of AES</a>, including CBC, CFB and GCM which we will be using. I chose PyCryptodome as it is well documented and is similar to an older package <em>PyCrypto</em> that died a while ago.</p>
 <h2 id="what-is-pycryptodome">
 <span style="position:relative"><a class="anchor" href="#what-is-pycryptodome"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>What is <a href="https://pycryptodome.readthedocs.io/en/latest/">PyCryptodome</a></span></h2>
@@ -166,14 +166,14 @@
 <li><a href="/blog/post/python-encryption-and-decryption-with-pycryptodome/#storing-a-key">How to store and read the randomly generated key</a></li>
 <li><a href="/blog/post/python-encryption-and-decryption-with-pycryptodome/#generating-a-key-from-a-password">How to generate a key from a password</a></li>
 </ul>
-<p>For this tutorial I'll just go over how to generate a key from a password as it is the most popular method. You are still free to use a randomly generate key as demonstrated in the links above - they will still work with these examples.</p>
+<p>For this tutorial, I'll just go over how to generate a key from a password as it is the most popular method. You are still free to use a randomly generated key as demonstrated in the links above - they will still work with these examples.</p>
 <p>When generating a key from a password, we need to take a string provided by the user and create an appropriately sized byte sequence; the method used must produce the same output for the same inputs. To do this we can use <code>Crypto.Protocol.KDF.scrypt</code> (<a href="https://pycryptodome.readthedocs.io/en/latest/src/protocol/kdf.html#scrypt">API reference</a>). <em>scrypt</em> allows us to generate a key of any length by simply passing a password and <em>salt</em>. </p>
 <blockquote>
-<p>scrypt has been used instead of PBKDF2 because in addition to being computationally expensive, it is also memory intensive and therefore more secure against the risk of custom ASICs.</p>
+<p>scrypt has been used instead of PBKDF2 because, in addition to being computationally expensive, it is also memory intensive and therefore more secure against the risk of custom ASICs.</p>
 </blockquote>
-<p>scrypt is different to the SHA family (ie. <em>SHA-256</em> and <em>SHA-512</em>) because it also takes a salt and a work factor. Providing a salt that will mean that the same hash does not map to the same password every time, thus preventing <a href="https://en.wikipedia.org/wiki/Rainbow_table">rainbow table</a> lookups. A work factor is also specified to make the transformation more computationally difficult which means the key is harder to brute force.</p>
+<p>scrypt is different from the SHA family (ie. <em>SHA-256</em> and <em>SHA-512</em>) because it also takes a salt and a work factor. Providing a salt that will mean that the same hash does not map to the same password every time, thus preventing <a href="https://en.wikipedia.org/wiki/Rainbow_table">rainbow table</a> lookups. A work factor is also specified to make the transformation more computationally difficult which means the key is harder to brute force.</p>
 <blockquote>
-<p>You can read more about the differences between password hashes differ and secure hashes in <a href="https://crypto.stackexchange.com/a/35279">this reply on Stack Exchange</a> - in this example PBKDF2 is compared to SHA-512 rather than scrypt.</p>
+<p>You can read more about the differences between password hashes differ and secure hashes in <a href="https://crypto.stackexchange.com/a/35279">this reply on Stack Exchange</a> - in this example, PBKDF2 is compared to SHA-512 rather than scrypt.</p>
 </blockquote>
 <h3 id="generating-a-salt">
 <span style="position:relative"><a class="anchor" href="#generating-a-salt"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Generating a Salt</span></h3>
@@ -189,7 +189,7 @@
 
 
 <p>This is a random sequence of bytes that has been generated. For every object (like files) you will encrypt, you should generate a new salt for it to be combined with the password by scrypt. This will mean the same password does not create the same key for multiple objects.</p>
-<p>It's safe to store this generated salt with the encrypted output and in this tutorial I'll show you how to store them with the output and then read them back out. </p>
+<p>It's safe to store this generated salt with the encrypted output and in this tutorial, I'll show you how to store them with the output and then read them back out. </p>
 <h3 id="generating-the-key-using-scrypt">
 <span style="position:relative"><a class="anchor" href="#generating-the-key-using-scrypt"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Generating the Key Using scrypt</span></h3>
 <p>Now that you have generated a salt, we can generate a key using the password being provided. Passing the password provided by the user, the salt that you just generated as well as declaring the output length, we can get the key.</p>
@@ -243,7 +243,7 @@
 <li>Use <code>scrypt</code> to convert the salt and password into a key we can use.</li>
 <li>Open a new file and write the salt out.<ul>
 <li>We write the salt to the output file first as we will need it when decrypting later.</li>
-<li>Putting it in this file allows to keep the correct salt with the encrypted data.</li>
+<li>Putting it in this file allows us to keep the correct salt with the encrypted data.</li>
 <li>Putting it at the top of the file means we can easily read it out before decrypting (we know the length as it's always the same).</li>
 </ul>
 </li>
@@ -285,7 +285,7 @@
 <li>Just like when we read the file slowly to encrypt</li>
 </ul>
 </li>
-<li>Finally read the tag and verify the decryption.</li>
+<li>Finally, read the tag and verify the decryption.</li>
 </ol>
 <h2 id="encryption">
 <span style="position:relative"><a class="anchor" href="#encryption"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Encryption</span></h2>
@@ -397,6 +397,8 @@
         <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-manage-multiple-python-distributions/">&larr; How to Manage Multiple Pyth...</a>
     
     
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/python-file-backup-script/">Python File Backup Script &rarr;</a>
+    
 </nav>
 
 
@@ -471,7 +473,7 @@
                 
                     <li>
                     <a href="/blog/categories/#Tools">&#x1F6E0; Tools
-                        <span class="badge badge-primary ml-3">3</span>
+                        <span class="badge badge-primary ml-3">4</span>
                     </a>
                 </li>
                 

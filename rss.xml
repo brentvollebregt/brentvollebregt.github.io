@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Aug 2020 06:55:40 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 12:00:35 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -10045,13 +10045,13 @@ C:\Python37\python.exe
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;blockquote&gt;
-&lt;p&gt;This tutorial is a follow on from &lt;a href="/blog/post/python-encryption-and-decryption-with-pycryptodome/"&gt;Python Encryption and Decryption with PyCryptodome&lt;/a&gt; which covers a high level view of the usage of the Python PyCryptodome library. If you have already read this, there will be a bit of duplicate reading but I recommend at least skimming just in case you miss something.&lt;/p&gt;
+&lt;p&gt;This tutorial is a follow on from &lt;a href="/blog/post/python-encryption-and-decryption-with-pycryptodome/"&gt;Python Encryption and Decryption with PyCryptodome&lt;/a&gt; which covers a high-level view of the usage of the Python PyCryptodome library. If you have already read this, there will be a bit of duplicate reading but I recommend at least skimming just in case you miss something.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id="what-is-aes-and-gcm-mode"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#what-is-aes-and-gcm-mode"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What is AES and GCM Mode?&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard"&gt;Advanced Encryption Standard&lt;/a&gt; (AES) is a fast, secure and very popular block cipher that is commonly used to encrypt electronic data. AES has three different block ciphers: &lt;em&gt;AES-128&lt;/em&gt; (128 bit), &lt;em&gt;AES-192&lt;/em&gt; (192 bit) and &lt;em&gt;AES-256&lt;/em&gt; (256 bit) - each cipher is named after the key length they use for encryption and decryption. Each of these ciphers encrypt and decrypt the data in 128-bit blocks but they use different sizes of cryptographic keys.&lt;/p&gt;
 &lt;p&gt;AES supports many different "modes". Modes are the internal algorithm used to encrypt data; each mode can potentially have different inputs and outputs but they always have a single input for data to encrypt and a single output for encrypted data along with an input key.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode"&gt;&lt;em&gt;GCM&lt;/em&gt;&lt;/a&gt; is a mode of AES that uses the &lt;a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_(CTR)"&gt;CTR (counter) mode&lt;/a&gt; to encrypt data and uses Galois mode for authentication. Aside from the CTR mode which is used to encrypt the data, Galois mode authentication allows us to check at the end of decryption that the message has not been tampered with. GCM is well known for it's speed and that it's a mode that it's patent-free.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode"&gt;&lt;em&gt;GCM&lt;/em&gt;&lt;/a&gt; is a mode of AES that uses the &lt;a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Counter_(CTR)"&gt;CTR (counter) mode&lt;/a&gt; to encrypt data and uses Galois mode for authentication. Aside from the CTR mode which is used to encrypt the data, Galois mode authentication allows us to check at the end of decryption that the message has not been tampered with. GCM is well known for its speed and that it's a mode that it's patent-free.&lt;/p&gt;
 &lt;p&gt;In this tutorial, I'll be using an implementation of AES in &lt;a href="https://pycryptodome.readthedocs.io/en/latest/"&gt;PyCryptodome&lt;/a&gt; to encrypt strings and files. Many modes are supported &lt;a href="https://pycryptodome.readthedocs.io/en/latest/src/cipher/aes.html"&gt;by this implementation of AES&lt;/a&gt;, including CBC, CFB and GCM which we will be using. I chose PyCryptodome as it is well documented and is similar to an older package &lt;em&gt;PyCrypto&lt;/em&gt; that died a while ago.&lt;/p&gt;
 &lt;h2 id="what-is-pycryptodome"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#what-is-pycryptodome"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What is &lt;a href="https://pycryptodome.readthedocs.io/en/latest/"&gt;PyCryptodome&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
@@ -10092,14 +10092,14 @@ C:\Python37\python.exe
 &lt;li&gt;&lt;a href="/blog/post/python-encryption-and-decryption-with-pycryptodome/#storing-a-key"&gt;How to store and read the randomly generated key&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="/blog/post/python-encryption-and-decryption-with-pycryptodome/#generating-a-key-from-a-password"&gt;How to generate a key from a password&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;For this tutorial I'll just go over how to generate a key from a password as it is the most popular method. You are still free to use a randomly generate key as demonstrated in the links above - they will still work with these examples.&lt;/p&gt;
+&lt;p&gt;For this tutorial, I'll just go over how to generate a key from a password as it is the most popular method. You are still free to use a randomly generated key as demonstrated in the links above - they will still work with these examples.&lt;/p&gt;
 &lt;p&gt;When generating a key from a password, we need to take a string provided by the user and create an appropriately sized byte sequence; the method used must produce the same output for the same inputs. To do this we can use &lt;code&gt;Crypto.Protocol.KDF.scrypt&lt;/code&gt; (&lt;a href="https://pycryptodome.readthedocs.io/en/latest/src/protocol/kdf.html#scrypt"&gt;API reference&lt;/a&gt;). &lt;em&gt;scrypt&lt;/em&gt; allows us to generate a key of any length by simply passing a password and &lt;em&gt;salt&lt;/em&gt;. &lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;scrypt has been used instead of PBKDF2 because in addition to being computationally expensive, it is also memory intensive and therefore more secure against the risk of custom ASICs.&lt;/p&gt;
+&lt;p&gt;scrypt has been used instead of PBKDF2 because, in addition to being computationally expensive, it is also memory intensive and therefore more secure against the risk of custom ASICs.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;scrypt is different to the SHA family (ie. &lt;em&gt;SHA-256&lt;/em&gt; and &lt;em&gt;SHA-512&lt;/em&gt;) because it also takes a salt and a work factor. Providing a salt that will mean that the same hash does not map to the same password every time, thus preventing &lt;a href="https://en.wikipedia.org/wiki/Rainbow_table"&gt;rainbow table&lt;/a&gt; lookups. A work factor is also specified to make the transformation more computationally difficult which means the key is harder to brute force.&lt;/p&gt;
+&lt;p&gt;scrypt is different from the SHA family (ie. &lt;em&gt;SHA-256&lt;/em&gt; and &lt;em&gt;SHA-512&lt;/em&gt;) because it also takes a salt and a work factor. Providing a salt that will mean that the same hash does not map to the same password every time, thus preventing &lt;a href="https://en.wikipedia.org/wiki/Rainbow_table"&gt;rainbow table&lt;/a&gt; lookups. A work factor is also specified to make the transformation more computationally difficult which means the key is harder to brute force.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;You can read more about the differences between password hashes differ and secure hashes in &lt;a href="https://crypto.stackexchange.com/a/35279"&gt;this reply on Stack Exchange&lt;/a&gt; - in this example PBKDF2 is compared to SHA-512 rather than scrypt.&lt;/p&gt;
+&lt;p&gt;You can read more about the differences between password hashes differ and secure hashes in &lt;a href="https://crypto.stackexchange.com/a/35279"&gt;this reply on Stack Exchange&lt;/a&gt; - in this example, PBKDF2 is compared to SHA-512 rather than scrypt.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id="generating-a-salt"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#generating-a-salt"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Generating a Salt&lt;/span&gt;&lt;/h3&gt;
@@ -10115,7 +10115,7 @@ C:\Python37\python.exe
 
 
 &lt;p&gt;This is a random sequence of bytes that has been generated. For every object (like files) you will encrypt, you should generate a new salt for it to be combined with the password by scrypt. This will mean the same password does not create the same key for multiple objects.&lt;/p&gt;
-&lt;p&gt;It's safe to store this generated salt with the encrypted output and in this tutorial I'll show you how to store them with the output and then read them back out. &lt;/p&gt;
+&lt;p&gt;It's safe to store this generated salt with the encrypted output and in this tutorial, I'll show you how to store them with the output and then read them back out. &lt;/p&gt;
 &lt;h3 id="generating-the-key-using-scrypt"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#generating-the-key-using-scrypt"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Generating the Key Using scrypt&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;Now that you have generated a salt, we can generate a key using the password being provided. Passing the password provided by the user, the salt that you just generated as well as declaring the output length, we can get the key.&lt;/p&gt;
@@ -10169,7 +10169,7 @@ C:\Python37\python.exe
 &lt;li&gt;Use &lt;code&gt;scrypt&lt;/code&gt; to convert the salt and password into a key we can use.&lt;/li&gt;
 &lt;li&gt;Open a new file and write the salt out.&lt;ul&gt;
 &lt;li&gt;We write the salt to the output file first as we will need it when decrypting later.&lt;/li&gt;
-&lt;li&gt;Putting it in this file allows to keep the correct salt with the encrypted data.&lt;/li&gt;
+&lt;li&gt;Putting it in this file allows us to keep the correct salt with the encrypted data.&lt;/li&gt;
 &lt;li&gt;Putting it at the top of the file means we can easily read it out before decrypting (we know the length as it's always the same).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -10211,7 +10211,7 @@ C:\Python37\python.exe
 &lt;li&gt;Just like when we read the file slowly to encrypt&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Finally read the tag and verify the decryption.&lt;/li&gt;
+&lt;li&gt;Finally, read the tag and verify the decryption.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="encryption"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#encryption"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Encryption&lt;/span&gt;&lt;/h2&gt;
@@ -10320,6 +10320,109 @@ C:\Python37\python.exe
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/python-gcm-encryption-tutorial/decryption-flow-diagram.png" length="0" type="image/png"/>
       <pubDate>Thu, 13 Aug 2020 00:00:00 +1200</pubDate>
+    </item>
+    <item>
+      <title>Python File Backup Script</title>
+      <link>https://nitratine.net/blog/post/python-file-backup-script/</link>
+      <description>This script allows you to backup a file or folder as a zip file into a backup folder. It is designed to be run periodically for backing up something like an SQLite database.</description>
+      <content:encoded>&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#background"&gt;Background&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#what-this-script-does"&gt;What This Script Does&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#script"&gt;Script&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id="background"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#background"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Background&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Yesterday I may have dropped a few too many rows from a demo-prod database as I was frantically trying to fix crazy response times from the &lt;a href="https://hitcounter.pythonanywhere.com/"&gt;demo instance&lt;/a&gt; of &lt;a href="https://github.com/brentvollebregt/hit-counter"&gt;hit-counter&lt;/a&gt;. After figuring out the crazy response times were due to the amount of traffic coming in, and sorting it out, I thought it would be a good idea to clean the database of URLs that had less than 3 counts against it in hope to improve performance on the home page (a good 2/3 of the database).&lt;/p&gt;
+&lt;p&gt;I downloaded the database, performed some operations and uploaded it to the server for it to immediately start being used (overwriting over the older version). I'm still not quite sure what went wrong; I probably deleted the SQLite WAL file or my SQLite client played me - but whatever it was, I had lost a significant amount of data at some point because when I viewed the stats on the home page after reloading the server, it looked very wrong.&lt;/p&gt;
+&lt;p&gt;I tried to think when I last backed up this database and remembered it was a couple of months ago and I had put the SQLite file in Google Drive. Using the version of the database I had just butchered and this embarrassingly old backup, I took the max counts for all URLs from both databases to try to reconstruct what I could of the original. This was probably the best result I could get at the time.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Although, at the time of writing this, I have just remembered that the recycling bin exists for this exact reason... Identifying the database I originally downloaded and performing some operations on the current database has helped me reconstruct the original database that only excludes counts from the time I was originally modifying it. I'm much happier with the result now.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Did I learn my lesson? Yes.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Run &lt;code&gt;PRAGMA schema.wal_checkpoint;&lt;/code&gt; before deleting WAL files.&lt;/li&gt;
+&lt;li&gt;Copy SQLite files before you try to do some dangerous operations on them and delete them when you are confident all is well.&lt;/li&gt;
+&lt;li&gt;Keep backups of the database in the first place!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="what-this-script-does"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#what-this-script-does"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What This Script Does&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This script is lesson #3 - backup the database. This script will take a folder or file, zip it, and store it in a different directory with the timestamp. A maximum backup count has also been added to delete older backups when a limit is reached.&lt;/p&gt;
+&lt;p&gt;This script is designed to be run periodically by something like CRON and works on both Linux and Windows.&lt;/p&gt;
+&lt;p&gt;The script takes three parameters that are hard-coded as constants at the top of the script:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;OBJECT_TO_BACKUP&lt;/code&gt;: The file or folder to be zipped up and put into &lt;code&gt;BACKUP_DIRECTORY&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;BACKUP_DIRECTORY&lt;/code&gt;: The directory to store the backup zips in.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MAX_BACKUP_AMOUNT&lt;/code&gt;: The maximum about of backed-up zips to have in &lt;code&gt;BACKUP_DIRECTORY&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This script follows a basic process:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Validate that the file/folder we are about to backup exists.&lt;/li&gt;
+&lt;li&gt;Validate the backup directory exists and create if required.&lt;/li&gt;
+&lt;li&gt;Gets the amount of past backup zips in the backup directory already and removes the oldest files if required to be under &lt;code&gt;MAX_BACKUP_AMOUNT&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Create the zip for the file/folder in &lt;code&gt;BACKUP_DIRECTORY&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Python 3.6+ is required to run this file due to the usage of f-strings and pathlib&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="script"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#script"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Script&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pathlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;zipfile&lt;/span&gt;
+
+
+&lt;span class="n"&gt;OBJECT_TO_BACKUP&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/home/server/data.db&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# The file or directory to backup&lt;/span&gt;
+&lt;span class="n"&gt;BACKUP_DIRECTORY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/home/server/backup&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# The location to store the backups in&lt;/span&gt;
+&lt;span class="n"&gt;MAX_BACKUP_AMOUNT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;  &lt;span class="c1"&gt;# The maximum amount of backups to have in BACKUP_DIRECTORY&lt;/span&gt;
+
+
+&lt;span class="n"&gt;object_to_backup_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OBJECT_TO_BACKUP&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;backup_directory_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;BACKUP_DIRECTORY&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;object_to_backup_path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# Validate the object we are about to backup exists before we continue&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Validate the backup directory exists and create if required&lt;/span&gt;
+&lt;span class="n"&gt;backup_directory_path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parents&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exist_ok&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Get the amount of past backup zips in the backup directory already&lt;/span&gt;
+&lt;span class="n"&gt;existing_backups&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;backup_directory_path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iterdir&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_file&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;suffix&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.zip&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;startswith&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;backup-&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Enforce max backups and delete oldest if there will be too many after the new backup&lt;/span&gt;
+&lt;span class="n"&gt;oldest_to_newest_backup_by_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;existing_backups&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;oldest_to_newest_backup_by_name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;MAX_BACKUP_AMOUNT&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="c1"&gt;# &amp;gt;= because we will have another soon&lt;/span&gt;
+    &lt;span class="n"&gt;backup_to_delete&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;oldest_to_newest_backup_by_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;backup_to_delete&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unlink&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create zip file (for both file and folder options)&lt;/span&gt;
+&lt;span class="n"&gt;backup_file_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;backup-&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strftime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;%m%Y%H%M%S&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s1"&gt;-&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;object_to_backup_path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s1"&gt;.zip&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;zip_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;zipfile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ZipFile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;backup_directory_path&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;backup_file_name&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;object_to_backup_path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_file&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c1"&gt;# If the object to write is a file, write the file&lt;/span&gt;
+    &lt;span class="n"&gt;zip_file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="n"&gt;object_to_backup_path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;absolute&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+        &lt;span class="n"&gt;arcname&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;object_to_backup_path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;compress_type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;zipfile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ZIP_DEFLATED&lt;/span&gt;
+    &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="n"&gt;object_to_backup_path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_dir&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c1"&gt;# If the object to write is a directory, write all the files&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;object_to_backup_path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;**/*&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_file&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+            &lt;span class="n"&gt;zip_file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+                &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;absolute&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+                &lt;span class="n"&gt;arcname&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;relative_to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;object_to_backup_path&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;
+                &lt;span class="n"&gt;compress_type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;zipfile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ZIP_DEFLATED&lt;/span&gt;
+            &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# Close the created zip file&lt;/span&gt;
+&lt;span class="n"&gt;zip_file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded>
+      <guid isPermaLink="false">https://nitratine.net/blog/post/python-file-backup-script/</guid>
+      <category>Tools</category>
+      <enclosure url="https://nitratine.net/posts/python-file-backup-script/feature.png" length="0" type="image/png"/>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +1200</pubDate>
     </item>
   </channel>
 </rss>
