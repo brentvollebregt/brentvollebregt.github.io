@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Aug 2020 11:23:36 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 06:06:27 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -10027,7 +10027,7 @@ C:\Python37\python.exe
 &lt;li&gt;&lt;a href="#installing-pycryptodome"&gt;Installing PyCryptodome&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#generating-a-key"&gt;Generating A Key&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="#generating-a-salt"&gt;Generating a Salt&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#generating-the-key-using-pbkdf2"&gt;Generating the Key Using PBKDF2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#generating-the-key-using-scrypt"&gt;Generating the Key Using scrypt&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href="#source-and-storage-planning"&gt;Source and Storage Planning&lt;/a&gt;&lt;ul&gt;
@@ -10089,13 +10089,13 @@ C:\Python37\python.exe
 &lt;li&gt;&lt;a href="/blog/post/python-encryption-and-decryption-with-pycryptodome/#generating-a-key-from-a-password"&gt;How to generate a key from a password&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;For this tutorial I'll just go over how to generate a key from a password as it is the most popular method. You are still free to use a randomly generate key as demonstrated in the links above - they will still work with these examples.&lt;/p&gt;
-&lt;p&gt;When generating a key from a password, we need to take a string provided by the user and create an appropriately sized byte sequence; the method used must produce the same output for the same inputs. To do this we can use &lt;code&gt;Crypto.Protocol.KDF.PBKDF2&lt;/code&gt; (&lt;a href="https://pycryptodome.readthedocs.io/en/latest/src/protocol/kdf.html#Crypto.Protocol.KDF.PBKDF2"&gt;API reference&lt;/a&gt;). PBKDF2 allows us to generate a key of any length by simply passing a password and &lt;em&gt;salt&lt;/em&gt;. &lt;/p&gt;
+&lt;p&gt;When generating a key from a password, we need to take a string provided by the user and create an appropriately sized byte sequence; the method used must produce the same output for the same inputs. To do this we can use &lt;code&gt;Crypto.Protocol.KDF.scrypt&lt;/code&gt; (&lt;a href="https://pycryptodome.readthedocs.io/en/latest/src/protocol/kdf.html#scrypt"&gt;API reference&lt;/a&gt;). &lt;em&gt;scrypt&lt;/em&gt; allows us to generate a key of any length by simply passing a password and &lt;em&gt;salt&lt;/em&gt;. &lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;PBKDF2 is used because PBKDF1 can only generate keys up to 160 bits long.&lt;/p&gt;
+&lt;p&gt;scrypt has been used instead of PBKDF2 because in addition to being computationally expensive, it is also memory intensive and therefore more secure against the risk of custom ASICs.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;PBKDF2 is different to the SHA family (ie. &lt;em&gt;SHA-256&lt;/em&gt; and &lt;em&gt;SHA-512&lt;/em&gt;) because it also takes a salt and a work factor. Providing a salt that will mean that the same hash does not map to the same password every time, thus preventing &lt;a href="https://en.wikipedia.org/wiki/Rainbow_table"&gt;rainbow table&lt;/a&gt; lookups. A work factor is also specified to make the transformation more computationally difficult which means the key is harder to brute force.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;scrypt&lt;/em&gt; is different to the SHA family (ie. &lt;em&gt;SHA-256&lt;/em&gt; and &lt;em&gt;SHA-512&lt;/em&gt;) because it also takes a salt and a work factor. Providing a salt that will mean that the same hash does not map to the same password every time, thus preventing &lt;a href="https://en.wikipedia.org/wiki/Rainbow_table"&gt;rainbow table&lt;/a&gt; lookups. A work factor is also specified to make the transformation more computationally difficult which means the key is harder to brute force.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;You can read more about the differences between password hashes differ and secure hashes in &lt;a href="https://crypto.stackexchange.com/a/35279"&gt;this reply on Stack Exchange&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can read more about the differences between password hashes differ and secure hashes in &lt;a href="https://crypto.stackexchange.com/a/35279"&gt;this reply on Stack Exchange&lt;/a&gt; - in this example PBKDF2 is compared to SHA-512 rather than scrypt.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id="generating-a-salt"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#generating-a-salt"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Generating a Salt&lt;/span&gt;&lt;/h3&gt;
@@ -10110,22 +10110,26 @@ C:\Python37\python.exe
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This is a random sequence of bytes that has been generated. For every object (like files) you will encrypt, you should generate a new salt for it to be combined with the password by PBKDF2. This will mean the same password does not create the same key for multiple objects.&lt;/p&gt;
+&lt;p&gt;This is a random sequence of bytes that has been generated. For every object (like files) you will encrypt, you should generate a new salt for it to be combined with the password by scrypt. This will mean the same password does not create the same key for multiple objects.&lt;/p&gt;
 &lt;p&gt;It's safe to store this generated salt with the encrypted output and in this tutorial I'll show you how to store them with the output and then read them back out. &lt;/p&gt;
-&lt;h3 id="generating-the-key-using-pbkdf2"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#generating-the-key-using-pbkdf2"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Generating the Key Using PBKDF2&lt;/span&gt;&lt;/h3&gt;
+&lt;h3 id="generating-the-key-using-scrypt"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#generating-the-key-using-scrypt"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Generating the Key Using scrypt&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;Now that you have generated a salt, we can generate a key using the password being provided. Passing the password provided by the user, the salt that you just generated as well as declaring the output length, we can get the key.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;Crypto.Protocol.KDF&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;PBKDF2&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;Crypto.Protocol.KDF&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;
 
 &lt;span class="n"&gt;salt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;b&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;...&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# Salt you generated&lt;/span&gt;
 &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;password123&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# Password provided by the user, can use input() to get this&lt;/span&gt;
 
-&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;PBKDF2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;salt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dkLen&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Your key that you can encrypt with&lt;/span&gt;
+&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;salt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key_len&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Your key that you can encrypt with&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now in &lt;code&gt;key&lt;/code&gt;, you will have the key that you can use in encryption - you can view it using &lt;code&gt;print(key)&lt;/code&gt;. You do not have to store this key now as you can see that this can be generated every time regarding the user provides the same password as long as you use the same salt (which we will be storing with the encrypted file/object).&lt;/p&gt;
-&lt;p&gt;In the example above, &lt;code&gt;dkLen&lt;/code&gt; has been set to 32; this is the length of the key that we want to be output. 32 has been used because 32 * 8 bits (8 bits = 1 byte) is 256, this means we will be using AES-256 when providing the key generated by this function.&lt;/p&gt;
+&lt;p&gt;In the example above, &lt;code&gt;key_len&lt;/code&gt; has been set to 32; this is the length of the key that we want to be output. 32 has been used because 32 * 8 bits (8 bits = 1 byte) is 256, this means we will be using AES-256 when providing the key generated by this function.&lt;/p&gt;
+&lt;p&gt;I also passed values for &lt;code&gt;N&lt;/code&gt;, &lt;code&gt;r&lt;/code&gt; and &lt;code&gt;p&lt;/code&gt; which can be found in the &lt;a href="https://pycryptodome.readthedocs.io/en/latest/src/protocol/kdf.html#scrypt"&gt;docs for scrypt&lt;/a&gt;. &lt;code&gt;N&lt;/code&gt; is the work factor (CPU/Memory cost) which will determine how long it takes to calculate the output - 2^14 will be &amp;lt;100ms whereas 2^20 will be &amp;lt;5s on today's machines. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I have left &lt;code&gt;N&lt;/code&gt; as &lt;code&gt;2**17&lt;/code&gt; to keep people happy about the timing of encryption - in the case of blind copy and paste. If you're implementing this in a critical system or want to add have scrypt return a slightly more secure derivation, I recommend bumping &lt;code&gt;N&lt;/code&gt; to &lt;code&gt;2**20&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id="source-and-storage-planning"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#source-and-storage-planning"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Source and Storage Planning&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;Before we begin, we need to do a bit of planning of what is being encrypted (the source) and any transformations required, the inputs and outputs for both encryption and decryption and storing values we need to remember with the encrypted file.&lt;/p&gt;
@@ -10158,7 +10162,7 @@ C:\Python37\python.exe
 &lt;p&gt;&lt;img alt="Encryption Flow Diagram" src="/posts/python-gcm-encryption-tutorial/encryption-flow-diagram.png" /&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Generate a new salt.&lt;/li&gt;
-&lt;li&gt;Use &lt;code&gt;PBKDF2&lt;/code&gt; to convert the salt and password into a key we can use.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;scrypt&lt;/code&gt; to convert the salt and password into a key we can use.&lt;/li&gt;
 &lt;li&gt;Open a new file and write the salt out.&lt;ul&gt;
 &lt;li&gt;We write the salt to the output file first as we will need it when decrypting later.&lt;/li&gt;
 &lt;li&gt;Putting it in this file allows to keep the correct salt with the encrypted data.&lt;/li&gt;
@@ -10193,7 +10197,7 @@ C:\Python37\python.exe
 &lt;li&gt;The salt we generated was 32 bytes long, so calling &lt;code&gt;.read(32)&lt;/code&gt; will get the salt out of the encrypted file.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Use &lt;code&gt;PBKDF2&lt;/code&gt; to convert the salt and password into a key again.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;scrypt&lt;/code&gt; to convert the salt and password into a key again.&lt;/li&gt;
 &lt;li&gt;Read the nonce from the source file like we did for the salt.&lt;ul&gt;
 &lt;li&gt;AES GCM always generates a nonce that is 16 bytes long, so calling &lt;code&gt;.read(16)&lt;/code&gt; will get the nonce out of the encrypted file.&lt;/li&gt;
 &lt;/ul&gt;
@@ -10209,7 +10213,7 @@ C:\Python37\python.exe
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#encryption"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Encryption&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;Crypto.Random&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_random_bytes&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;Crypto.Cipher&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AES&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;Crypto.Protocol.KDF&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;PBKDF2&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;Crypto.Protocol.KDF&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;
 
 &lt;span class="n"&gt;BUFFER_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt;  &lt;span class="c1"&gt;# The size in bytes that we read, encrypt and write to at once&lt;/span&gt;
 
@@ -10224,7 +10228,7 @@ C:\Python37\python.exe
 &lt;span class="n"&gt;file_out&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;output_filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;wb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# wb = write bytes. Required to write the encrypted data&lt;/span&gt;
 
 &lt;span class="n"&gt;salt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_random_bytes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Generate salt&lt;/span&gt;
-&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;PBKDF2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;salt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dkLen&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Generate a key using the password and salt&lt;/span&gt;
+&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;salt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key_len&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Generate a key using the password and salt&lt;/span&gt;
 &lt;span class="n"&gt;file_out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;salt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Write the salt to the top of the output file&lt;/span&gt;
 
 &lt;span class="n"&gt;cipher&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AES&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;AES&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;MODE_GCM&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Create a cipher object to encrypt data&lt;/span&gt;
@@ -10253,7 +10257,7 @@ C:\Python37\python.exe
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
 
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;Crypto.Cipher&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;AES&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;Crypto.Protocol.KDF&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;PBKDF2&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;Crypto.Protocol.KDF&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;
 
 &lt;span class="n"&gt;BUFFER_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt;  &lt;span class="c1"&gt;# The size in bytes that we read, encrypt and write to at once&lt;/span&gt;
 
@@ -10269,7 +10273,7 @@ C:\Python37\python.exe
 
 &lt;span class="c1"&gt;# Read salt and generate key&lt;/span&gt;
 &lt;span class="n"&gt;salt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file_in&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# The salt we generated was 32 bits long&lt;/span&gt;
-&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;PBKDF2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;salt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dkLen&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Generate a key using the password and salt again&lt;/span&gt;
+&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;scrypt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;salt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key_len&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Generate a key using the password and salt again&lt;/span&gt;
 
 &lt;span class="c1"&gt;# Read nonce and create cipher&lt;/span&gt;
 &lt;span class="n"&gt;nonce&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file_in&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# The nonce is 16 bytes long&lt;/span&gt;
