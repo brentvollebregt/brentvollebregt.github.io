@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Aug 2020 12:00:35 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2020 00:26:53 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -2699,7 +2699,7 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;li&gt;Flask (pip install Flask)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Clone or download the git repo at &lt;a href="https://github.com/brentvollebregt/nitratine-old"&gt;https://github.com/brentvollebregt/nitratine-old&lt;/a&gt; and cd into the project&lt;/li&gt;
+&lt;li&gt;Clone or download the git repo at &lt;a href="https://github.com/brentvollebregt/nitratine.net"&gt;github.com/brentvollebregt/nitratine.net&lt;/a&gt; and cd into the project&lt;/li&gt;
 &lt;li&gt;Checkout the v1 branch: &lt;code&gt;git checkout v1&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run server.py&lt;/li&gt;
 &lt;li&gt;Go to /admin&lt;ul&gt;
