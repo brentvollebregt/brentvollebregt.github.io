@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Sat, 15 Aug 2020 00:26:53 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2020 08:09:26 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -124,7 +124,7 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This meant all we needed to do was get the Spotify id for each song our program took in by looking at the tags the song had. I used &lt;a href="https://github.com/quodlibet/mutagen"&gt;mutagen&lt;/a&gt; to strip the tags of the .mp3 files and I then passed this to the search() method in the &lt;a href="https://github.com/plamere/spotipy"&gt;Spotipy&lt;/a&gt; library to the the Spotify id.&lt;/p&gt;
+&lt;p&gt;This meant all we needed to do was get the Spotify id for each song our program took in by looking at the tags the song had. I used &lt;a href="https://github.com/quodlibet/mutagen"&gt;mutagen&lt;/a&gt; to strip the tags of the .mp3 files and I then passed this to the search() method in the &lt;a href="https://github.com/plamere/spotipy"&gt;Spotipy&lt;/a&gt; library to get the Spotify id.&lt;/p&gt;
 &lt;h2 id="gathering-data"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#gathering-data"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Gathering Data&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;The only piece left was now the data to compare each new song to. I had thought to scrape public Spotify playlist created by people with 'happy' and 'sad' in the titles. With all these songs, I then got their valence and energy and placed them on a plane. This process created the plane below.&lt;/p&gt;
@@ -1996,7 +1996,7 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Then create a definition for keypresses called on_press which takes key as a parameter. In this definition, we want to log the key using the logging info method. The key will need to be casted to a string before logging it.&lt;/p&gt;
+&lt;p&gt;Then create a definition for keypresses called on_press which takes key as a parameter. In this definition, we want to log the key using the logging info method. The key will need to be cast to a string before logging it.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;on_press&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -2593,7 +2593,7 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;You will now need to locate the file you want to edit and create a time object to set to the file. To create one, we will first break it down into it's simpler parts.&lt;/p&gt;
+&lt;p&gt;You will now need to locate the file you want to edit and create a time object to set to the file. To create one, we will first break it down into its simpler parts.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;fileLocation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2017&lt;/span&gt;
 &lt;span class="n"&gt;month&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;
@@ -2940,7 +2940,7 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Next we need to the the combinations to look out for. I this example I will use Shift + A. I will need to use two variants, Shift + A and Shift + a so the combination will be detected no matter what order they are pressed. If A is pressed first, 'a' will be given to the listener but if shift is pressed before A then 'A' will be given to the listener. Make a list called COMBINATIONS and add the keys in sets as shown below.&lt;/p&gt;
+&lt;p&gt;Next we need to declare the combinations to look out for. I this example I will use Shift + A. I will need to use two variants, Shift + A and Shift + a so the combination will be detected no matter what order they are pressed. If A is pressed first, 'a' will be given to the listener but if shift is pressed before A then 'A' will be given to the listener. Make a list called COMBINATIONS and add the keys in sets as shown below.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# The key combination to check&lt;/span&gt;
 &lt;span class="n"&gt;COMBINATIONS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
     &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;keyboard&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Key&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shift&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;keyboard&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;KeyCode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;char&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)},&lt;/span&gt;
@@ -3580,7 +3580,7 @@ Make another string which is the plain-text version of the HTML and then attach 
 
 &lt;span class="c1"&gt;# Loop over each email to send to&lt;/span&gt;
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;send_to_email&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;send_to_emails&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="c1"&gt;# Setup MIMEMultipart for each email address (if we don&amp;#39;t do this, the emails will concat on each email sent)&lt;/span&gt;
+    &lt;span class="c1"&gt;# Setup MIMEMultipart for each email address (if we don&amp;#39;t do this, the emails will concatenate on each email sent)&lt;/span&gt;
     &lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MIMEMultipart&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
     &lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;From&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;email&lt;/span&gt;
     &lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;To&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;send_to_email&lt;/span&gt;
@@ -4970,7 +4970,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
 &lt;h3 id="synchronous-returns"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#synchronous-returns"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Synchronous Returns&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;When calling a JavaScript function from Python, we can get the return value directly using a double pair of brackets; for example:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;return_value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;eel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js_random&lt;/span&gt;&lt;span class="p"&gt;()()&lt;/span&gt;  &lt;span class="c1"&gt;# This immeadiately returns the value&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;return_value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;eel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js_random&lt;/span&gt;&lt;span class="p"&gt;()()&lt;/span&gt;  &lt;span class="c1"&gt;# This immediately returns the value&lt;/span&gt;
 &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Got this from Javascript: &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;return_value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -8692,7 +8692,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;You can see that the result of the bitwise operation on two bits will be a 1 if they are different and 0 if they are the same. &lt;/p&gt;
-&lt;p&gt;When applying this operator to values longer than one bit, each bit is compared with it's corresponding in the other value; for example:&lt;/p&gt;
+&lt;p&gt;When applying this operator to values longer than one bit, each bit is compared with its corresponding in the other value; for example:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="How to XOR Bits Demonstration" src="/posts/xor-python-byte-strings/example-xor-bits.png" /&gt;&lt;/p&gt;
 &lt;p&gt;It's also common to see this operator being used on numbers represented in binary, decimal and hex:&lt;/p&gt;
 &lt;ul&gt;

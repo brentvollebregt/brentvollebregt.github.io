@@ -298,7 +298,7 @@ Make another string which is the plain-text version of the HTML and then attach 
 
 <span class="c1"># Loop over each email to send to</span>
 <span class="k">for</span> <span class="n">send_to_email</span> <span class="ow">in</span> <span class="n">send_to_emails</span><span class="p">:</span>
-    <span class="c1"># Setup MIMEMultipart for each email address (if we don&#39;t do this, the emails will concat on each email sent)</span>
+    <span class="c1"># Setup MIMEMultipart for each email address (if we don&#39;t do this, the emails will concatenate on each email sent)</span>
     <span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEMultipart</span><span class="p">()</span>
     <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">email</span>
     <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">send_to_email</span>
