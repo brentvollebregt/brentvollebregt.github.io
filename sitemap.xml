@@ -2,6 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
+    <loc>https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-pil/</loc>
+    <lastmod>2020-08-24</lastmod>
+</url>
+
+<url>
     <loc>https://nitratine.net/blog/post/python-beautiful-soup-basics-tutorial/</loc>
     <lastmod>2020-08-24</lastmod>
 </url>

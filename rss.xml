@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Aug 2020 06:44:25 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2020 09:48:58 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -11140,6 +11140,141 @@ C:\Python37\python.exe
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/python-beautiful-soup-basics-tutorial/feature.png" length="0" type="image/png"/>
       <pubDate>Sat, 22 Aug 2020 00:00:00 +1200</pubDate>
+    </item>
+    <item>
+      <title>How To Take A Screenshot In Python Using PIL</title>
+      <link>https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-pil/</link>
+      <description>In this tutorial, I will demonstrate how to take a screenshot using PIL in Python. Window, macOS and Linux are all supported.</description>
+      <content:encoded>&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#what-is-pil"&gt;What Is PIL?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#installing-pil"&gt;Installing PIL&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#i-cant-import-pil"&gt;I Can't Import PIL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#taking-a-screenshot"&gt;Taking A Screenshot&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#viewing-the-screenshot"&gt;Viewing The Screenshot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#saving-the-screenshot"&gt;Saving The Screenshot&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#saving-to-a-file-object"&gt;Saving To A File Object&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#taking-a-screenshot-of-a-different-display"&gt;Taking A Screenshot Of A Different Display&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id="what-is-pil"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#what-is-pil"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What Is PIL?&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;PIL (Python Imaging Library) is a Python library that adds support for opening, manipulating, and saving many different image file formats. It has a very friendly API with lots of help online including &lt;a href="https://pillow.readthedocs.io/en/stable/index.html"&gt;good documentation&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;PIL supports Windows macOS and Linux and supports many versions of Python; see the installation notes to identify which version of PIL you will need for the version of Python you are using. At the time of wiring this, PIL 7 has been released and supports Python 3.8 - 3.5.&lt;/p&gt;
+&lt;h2 id="installing-pil"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#installing-pil"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing PIL&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;To install PIL, execute the following in a terminal:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;python -m pip install pip&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;To install an older version of PIL, execute &lt;code&gt;python -m pip install pip=&amp;lt;version&amp;gt;&lt;/code&gt; eg. &lt;code&gt;python -m pip install pip=7.2.0&lt;/code&gt;. You can find older versions released in the &lt;a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html"&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To validate it was installed correctly, go to IDLE or a python shell and execute:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If no import error is raised, it was installed successfully.&lt;/p&gt;
+&lt;h3 id="i-cant-import-pil"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#i-cant-import-pil"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;I Can't Import PIL&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Make sure you have executed the install command above; if you're not sure you have executed it already, it is safe to execute it a second time.&lt;/p&gt;
+&lt;p&gt;If there were no errors when installing it and it says PIL is installed successfully, make sure you're 100% sure that you installed PIL in the same distribution of Python that you're trying to import it in. Go to my tutorial on &lt;a href="https://nitratine.net/blog/post/how-to-manage-multiple-python-distributions/"&gt;How to Manage Multiple Python Distributions&lt;/a&gt; if you're having some issues or are unsure about this.&lt;/p&gt;
+&lt;h2 id="taking-a-screenshot"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#taking-a-screenshot"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Taking A Screenshot&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;To take a screenshot, we first need to import the &lt;a href="https://pillow.readthedocs.io/en/stable/reference/ImageGrab.html"&gt;&lt;code&gt;ImageGrab&lt;/code&gt;&lt;/a&gt; module from PIL.&lt;/p&gt;
+&lt;p&gt;After we have the &lt;code&gt;ImageGrab&lt;/code&gt; module, we can call &lt;code&gt;.grab()&lt;/code&gt; to take a screenshot&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
+
+&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;On Linux, you must be using PIL 7.1.0 or higher for this to work; &lt;a href="https://pillow.readthedocs.io/en/stable/releasenotes/7.1.0.html#x11-imagegrab-grab"&gt;see release notes&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="viewing-the-screenshot"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#viewing-the-screenshot"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Viewing The Screenshot&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;To view the screenshot, we can call &lt;code&gt;.show()&lt;/code&gt; on the returned &lt;a href="https://pillow.readthedocs.io/en/stable/reference/Image.html"&gt;Image object&lt;/a&gt;. For example, using the code from above:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
+
+&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;screenshot&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Executing this will open the screenshot in your default image viewer. If you have more than one display, you will notice that this screenshot is only of the first display; I will expand on this further &lt;a href="#taking-a-screenshot-of-a-different-display"&gt;below&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here is an example of a screenshot I took:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Screenshot Main Monitor" src="/posts/how-to-take-a-screenshot-in-python-using-pil/screenshot-main-monitor.png" /&gt;&lt;/p&gt;
+&lt;h3 id="saving-the-screenshot"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#saving-the-screenshot"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Saving The Screenshot&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Saving images in PIL is very easy, calling &lt;code&gt;.save()&lt;/code&gt; on the returned Image object will allow us to save the image into a file. &lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
+
+&lt;span class="n"&gt;filepath&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;my_image.png&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;screenshot&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;PNG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Equivalent to `screenshot.save(filepath, format=&amp;#39;PNG&amp;#39;)`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now if you go and open the file &lt;code&gt;filepath&lt;/code&gt; ("my_image.png" in the current working directory for this example), you will see the screenshot has been saved.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you provide a file path with an extension of a supported image format, you can omit the format.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id="saving-to-a-file-object"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#saving-to-a-file-object"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Saving To A File Object&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;If you have a file already open in write mode or want to save the image to a file object, you can pass that instead of the filename. For example:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
+
+&lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;my_file.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;screenshot&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;PNG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Save the image to the file object as a PNG&lt;/span&gt;
+
+&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# Make sure to close the file when you&amp;#39;re done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;io&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BytesIO&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
+
+&lt;span class="n"&gt;bytes_io&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BytesIO&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;screenshot&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;bytes_io&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;PNG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Save the image to bytes_io as a PNG&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Do what you want with the bytes_io object&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id="taking-a-screenshot-of-a-different-display"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#taking-a-screenshot-of-a-different-display"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Taking A Screenshot Of A Different Display&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Back when we took a screenshot using &lt;code&gt;ImageGrab.grab()&lt;/code&gt;, it only captured the main display. To take a screenshot of all displays, we can pass &lt;code&gt;all_screens=True&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
+
+&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;all_screens&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;Please note that &lt;code&gt;all_screens&lt;/code&gt; is currently only supported in Windows&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Now when you call &lt;code&gt;screenshot.show()&lt;/code&gt;, you will see that multiple monitors are now displayed. Here is an example of my monitors:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Screenshot All Monitors" src="/posts/how-to-take-a-screenshot-in-python-using-pil/screenshot-all-monitors.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Now that you have this larger image, you can crop it using other methods in PIL: &lt;a href="https://stackoverflow.com/a/58350508"&gt;How to crop an image using PIL&lt;/a&gt;.&lt;/p&gt;</content:encoded>
+      <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-pil/</guid>
+      <category>Tutorials</category>
+      <enclosure url="https://nitratine.net/posts/how-to-take-a-screenshot-in-python-using-pil/screenshot-main-monitor.png" length="0" type="image/png"/>
+      <pubDate>Mon, 24 Aug 2020 00:00:00 +1200</pubDate>
     </item>
   </channel>
 </rss>
