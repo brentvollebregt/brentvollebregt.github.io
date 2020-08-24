@@ -113,12 +113,12 @@
 </div>
 <h2 id="what-is-pil">
 <span style="position:relative"><a class="anchor" href="#what-is-pil"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>What Is PIL?</span></h2>
-<p>PIL (Python Imaging Library) is a Python library that adds support for opening, manipulating, and saving many different image file formats. It has a very friendly API with lots of help online including <a href="https://pillow.readthedocs.io/en/stable/index.html">good documentation</a>. </p>
+<p>PIL (Python Imaging Library / Pillow) is a Python library that adds support for opening, manipulating, and saving many different image file formats. It has a very friendly API with lots of help online including <a href="https://pillow.readthedocs.io/en/stable/index.html">good documentation</a>. </p>
 <p>PIL supports Windows macOS and Linux and supports many versions of Python; see the installation notes to identify which version of PIL you will need for the version of Python you are using. At the time of wiring this, PIL 7 has been released and supports Python 3.8 - 3.5.</p>
 <h2 id="installing-pil">
 <span style="position:relative"><a class="anchor" href="#installing-pil"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Installing PIL</span></h2>
 <p>To install PIL, execute the following in a terminal:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">python -m pip install pip</span>
+<div class="codehilite"><pre><span></span><code><span class="err">python -m pip install Pillow</span>
 </code></pre></div>
 
 
@@ -141,7 +141,7 @@
 <p>After we have the <code>ImageGrab</code> module, we can call <code>.grab()</code> to take a screenshot</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
 
-<span class="n">screenshot</span> <span class="o">=</span> <span class="n">ImageGrab</span><span class="o">.</span><span class="n">grab</span><span class="p">()</span>
+<span class="n">screenshot</span> <span class="o">=</span> <span class="n">ImageGrab</span><span class="o">.</span><span class="n">grab</span><span class="p">()</span>  <span class="c1"># Take the screenshot</span>
 </code></pre></div>
 
 
@@ -154,7 +154,7 @@
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
 
 <span class="n">screenshot</span> <span class="o">=</span> <span class="n">ImageGrab</span><span class="o">.</span><span class="n">grab</span><span class="p">()</span>
-<span class="n">screenshot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">screenshot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Show the image using the default image viewer</span>
 </code></pre></div>
 
 
@@ -209,7 +209,7 @@
 <p>Back when we took a screenshot using <code>ImageGrab.grab()</code>, it only captured the main display. To take a screenshot of all displays, we can pass <code>all_screens=True</code>:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
 
-<span class="n">screenshot</span> <span class="o">=</span> <span class="n">ImageGrab</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="n">all_screens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">screenshot</span> <span class="o">=</span> <span class="n">ImageGrab</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="n">all_screens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Take a screenshot that includes all screens</span>
 </code></pre></div>
 
 
