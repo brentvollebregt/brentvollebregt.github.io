@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="/static/img/favicon.ico">
+        <link rel="icon" type="image/png" href="/static/img/favicon-384x384.png" sizes="384x384">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png"><meta name="theme-color" content="#343a40"><link rel="canonical" href="https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-mss/">
+        <link rel="alternate" type="application/rss+xml" title="RSS Feed for nitratine.net" href="/rss.xml">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/css/base.css"><!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117153268-2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-117153268-2');
+        </script><!-- instant.page -->
+        <script defer src="https://instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+        
+
+<title>How To Take A Screenshot In Python Using MSS - Nitratine</title>
+<link rel="stylesheet" href="/static/css/pygments.css">
+
+<meta name="description" content="In this tutorial, I will demonstrate how to take a screenshot using MSS in Python. This library can take screenshots of all displays individually and supports Window, macOS and Linux.">
+<meta name="author" content="Brent Vollebregt">
+<meta property="og:title" content="How To Take A Screenshot In Python Using MSS">
+<meta property="og:description" content="In this tutorial, I will demonstrate how to take a screenshot using MSS in Python. This library can take screenshots of all displays individually and supports Window, macOS and Linux.">
+<meta property="og:image" content="/posts/how-to-take-a-screenshot-in-python-using-mss/screenshot-mon-1.png">
+<meta property="og:url" content="https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-mss/">
+<meta name="twitter:card" content="summary"><script data-ad-client="ca-pub-6407227183932047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="stylesheet" href="/static/css/blog.css">
+
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="/static/img/logo.png" width="145" height="30" class="d-inline-block align-top" alt="Brand Icon">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/blog/">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.youtube.com/PyTutorials">YouTube</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/brentvollebregt">GitHub</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/about/">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main role="main" class="container my-4">
+
+            
+ <div class="row">
+
+    <div class="col-blog-content blog-main">
+        
+<h1 class="blog-post-title">How To Take A Screenshot In Python Using MSS</h1>
+<div class="mb-2">
+    <a href="/blog/archive/#2020" class="text-muted">24 Aug 2020</a>
+    <a href="/blog/categories/#Tutorials" class="badge badge-primary ml-2">Tutorials</a>
+    
+    <a href="/blog/tags/#python" class="badge badge-warning">python</a>
+    
+    <a href="/blog/tags/#screenshot" class="badge badge-warning">screenshot</a>
+    
+    <a href="/blog/tags/#pil" class="badge badge-warning">pil</a>
+    
+    <img src="https://hitcounternitratine.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
+</div>
+<p class="lead">In this tutorial, I will demonstrate how to take a screenshot using MSS in Python. This library can take screenshots of all displays individually and supports Window, macOS and Linux.</p>
+<hr class="mt-3 mb-0">
+
+
+
+<div class="post-content mt-3">
+    <div class="toc">
+<ul>
+<li><a href="#what-is-mss">What Is MSS?</a></li>
+<li><a href="#installing-mss">Installing MSS</a><ul>
+<li><a href="#i-cant-import-mss">I Can't Import MSS</a></li>
+</ul>
+</li>
+<li><a href="#taking-a-screenshot">Taking A Screenshot</a><ul>
+<li><a href="#viewing-the-screenshot-using-pil">Viewing The Screenshot (Using PIL)</a></li>
+<li><a href="#saving-the-screenshot-to-a-file">Saving The Screenshot To A File</a><ul>
+<li><a href="#saving-to-a-file-object">Saving To A File Object</a></li>
+</ul>
+</li>
+<li><a href="#example">Example</a></li>
+</ul>
+</li>
+<li><a href="#taking-a-screenshot-of-a-different-display">Taking A Screenshot Of A Different Display</a><ul>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<blockquote>
+<p>This tutorial is symmetrical to my tutorial <a href="/blog/post/how-to-take-a-screenshot-in-python-using-pil/">How To Take A Screenshot In Python Using PIL</a>. If you would rather use PIL and only need to take a screenshot of one display, you may find using PIL easier.</p>
+</blockquote>
+<h2 id="what-is-mss">
+<span style="position:relative"><a class="anchor" href="#what-is-mss"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>What Is MSS?</span></h2>
+<p>MSS is an ultra-fast cross-platform multiple screenshots module in pure python using ctypes. It supports Python 3.5 and above and is very basic and limited for what it does.</p>
+<p>MSS would be used over PIL to take screenshots as it supports specifying the display to capture and can capture screenshots of all displays - currently, PIL can only capture the main display on macOS and Linux.</p>
+<p>Although MSS is used instead of PIL to take the screenshot, it doesn't mean you can't use PIL after taking the screenshot to manipulate the image further - MSS only supports taking screenshots.</p>
+<blockquote>
+<p>In my opinion, the API for this library is not great - however is has great multi-platform support and supports multiple monitors with ease! Pairing it with PIL makes it worth it.</p>
+</blockquote>
+<h2 id="installing-mss">
+<span style="position:relative"><a class="anchor" href="#installing-mss"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Installing MSS</span></h2>
+<p>To install MSS, execute the following in a terminal:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">python -m pip install mss</span>
+</code></pre></div>
+
+
+<p>To validate it was installed correctly, go to IDLE or a python shell and execute:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
+</code></pre></div>
+
+
+<p>If no import error is raised, it was installed successfully.</p>
+<p>You might also find it helpful to install PIL for this tutorial but it is not required for basic operations:</p>
+<div class="codehilite"><pre><span></span><code><span class="err">python -m pip install Pillow</span>
+</code></pre></div>
+
+
+<h3 id="i-cant-import-mss">
+<span style="position:relative"><a class="anchor" href="#i-cant-import-mss"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>I Can't Import MSS</span></h3>
+<p>Make sure you have executed the install command above; if you're not sure you have executed it already, it is safe to execute it a second time.</p>
+<p>If there were no errors when installing it and it says MSS is installed successfully, make sure you're 100% sure that you installed MSS in the same distribution of Python that you're trying to import it in. Go to my tutorial on <a href="https://nitratine.net/blog/post/how-to-manage-multiple-python-distributions/">How to Manage Multiple Python Distributions</a> if you're having some issues or are unsure about this.</p>
+<h2 id="taking-a-screenshot">
+<span style="position:relative"><a class="anchor" href="#taking-a-screenshot"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Taking A Screenshot</span></h2>
+<p>To take a screenshot and keep it in memory, we first need to import mss and identify the monitor we want to capture, then we can call <code>.shot()</code> on the instance of <code>mss.mss</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
+
+<span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>  <span class="c1"># Create a new mss.mss instance</span>
+    <span class="n">monitor_1</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">monitors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Identify the display to capture</span>
+    <span class="n">screenshot</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="n">monitor_1</span><span class="p">)</span>  <span class="c1"># Take the screenshot</span>
+</code></pre></div>
+
+
+<h3 id="viewing-the-screenshot-using-pil">
+<span style="position:relative"><a class="anchor" href="#viewing-the-screenshot-using-pil"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Viewing The Screenshot (Using PIL)</span></h3>
+<p>If you have PIL installed, we can do some quick translations to turn this returned object into a <code>PIL.Image</code> object to then show:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
+<span class="kn">import</span> <span class="nn">mss</span>
+
+<span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>
+    <span class="n">monitor_1</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">monitors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">screenshot</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="n">monitor_1</span><span class="p">)</span>
+
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">frombytes</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">bgra</span><span class="p">,</span> <span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;BGRX&quot;</span><span class="p">)</span>  <span class="c1"># Convert to PIL.Image</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Show the image using the default image viewer</span>
+</code></pre></div>
+
+
+<h3 id="saving-the-screenshot-to-a-file">
+<span style="position:relative"><a class="anchor" href="#saving-the-screenshot-to-a-file"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Saving The Screenshot To A File</span></h3>
+<p>MSS by default supports saving the screenshot to a file as soon as it's been taken. By simply defining the destination of the file, we can execute:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
+
+<span class="n">output_filename</span> <span class="o">=</span> <span class="s1">&#39;screenshot.png&#39;</span>
+
+<span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>
+    <span class="n">mss_instance</span><span class="o">.</span><span class="n">shot</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="n">output_filename</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>However, if you want to save the image we translated to a PIL object above, we can do: </p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
+<span class="kn">import</span> <span class="nn">mss</span>
+
+<span class="n">output_filename</span> <span class="o">=</span> <span class="s1">&#39;screenshot.png&#39;</span>
+
+<span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>
+    <span class="n">monitor_1</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">monitors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">screenshot</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="n">monitor_1</span><span class="p">)</span>
+
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">frombytes</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">bgra</span><span class="p">,</span> <span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;BGRX&quot;</span><span class="p">)</span>  <span class="c1"># Convert to PIL.Image</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">output_filename</span><span class="p">,</span> <span class="s2">&quot;PNG&quot;</span><span class="p">)</span>  <span class="c1"># Save the image</span>
+</code></pre></div>
+
+
+<h4 id="saving-to-a-file-object">
+<span style="position:relative"><a class="anchor" href="#saving-to-a-file-object"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Saving To A File Object</span></h4>
+<p>If you want to save the screenshot to a file object, we can use something very similar to the PIL method above to store a PNG:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
+<span class="kn">import</span> <span class="nn">mss</span>
+
+<span class="n">bytes_io</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>
+    <span class="n">monitor_1</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">monitors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">screenshot</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="n">monitor_1</span><span class="p">)</span>
+
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">frombytes</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">bgra</span><span class="p">,</span> <span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;BGRX&quot;</span><span class="p">)</span>  <span class="c1"># Convert to PIL.Image</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">bytes_io</span><span class="p">,</span> <span class="s2">&quot;PNG&quot;</span><span class="p">)</span>  <span class="c1"># Save to the bytes_io object</span>
+</code></pre></div>
+
+
+<h3 id="example">
+<span style="position:relative"><a class="anchor" href="#example"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Example</span></h3>
+<p><img alt="Screenshot Single" src="/posts/how-to-take-a-screenshot-in-python-using-mss/screenshot-mon-1.png" /></p>
+<h2 id="taking-a-screenshot-of-a-different-display">
+<span style="position:relative"><a class="anchor" href="#taking-a-screenshot-of-a-different-display"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Taking A Screenshot Of A Different Display</span></h2>
+<p>In the above examples, you would have seen that I was using monitor 1 by calling <code>mss_instance.monitors[1]</code> to get the screenshot. </p>
+<p>Using the basic <code>mss_instance.shot</code> and passing a monitor number to it, we can tell MSS what monitor to capture:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
+
+<span class="n">output_filename</span> <span class="o">=</span> <span class="s1">&#39;screenshot.png&#39;</span>
+<span class="n">monitor</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Save a screenshot of monitor 2</span>
+
+<span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>
+    <span class="n">mss_instance</span><span class="o">.</span><span class="n">shot</span><span class="p">(</span><span class="n">mon</span><span class="o">=</span><span class="n">monitor</span><span class="p">,</span> <span class="n">monoutput</span><span class="o">=</span><span class="n">output_filename</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>However, if you want to have a PIL Image object but don't want to have to save and then read the file (because that is slow), we will need to first identify the monitor position and dimensions.</p>
+<p>Looking at <code>mss_instance.monitors</code> will give us the monitor information we need:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
+
+<span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mss_instance</span><span class="o">.</span><span class="n">monitors</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Output:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1440</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">3360</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">1080</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">1920</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">1080</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1440</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">:</span> <span class="mi">174</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">1440</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">900</span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+
+
+<blockquote>
+<p>Your output could look different to mine, and that's ok; this is a representation of my monitor layout.</p>
+</blockquote>
+<p>In the output above, we can see three "monitors". I only have two monitors, but MSS is advertising all my monitors combined in one shot as the first monitor <code>mss_instance.monitors[0]</code>. This means when you want to screenshot only a monitor by itself, start at 1.</p>
+<p>Once you identify the display to capture, you can then take the screenshot using <code>mss_instance.grab</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
+<span class="kn">import</span> <span class="nn">mss</span>
+
+<span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>
+    <span class="n">monitor_1</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">monitors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">screenshot</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="n">monitor_1</span><span class="p">)</span>
+
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">frombytes</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">bgra</span><span class="p">,</span> <span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;BGRX&quot;</span><span class="p">)</span>  <span class="c1"># Convert to PIL.Image</span>
+    <span class="c1"># Use img as you please</span>
+</code></pre></div>
+
+
+<h3 id="examples">
+<span style="position:relative"><a class="anchor" href="#examples"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Examples</span></h3>
+<p>Monitor 0 (All Together):</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
+<span class="kn">import</span> <span class="nn">mss</span>
+
+<span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>
+    <span class="n">monitor</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">monitors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">screenshot</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="n">monitor</span><span class="p">)</span>
+
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">frombytes</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">bgra</span><span class="p">,</span> <span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;BGRX&quot;</span><span class="p">)</span>  <span class="c1"># Convert to PIL.Image</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;output.png&#39;</span><span class="p">,</span> <span class="s1">&#39;PNG&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><img alt="Screenshot Monitor 0" src="/posts/how-to-take-a-screenshot-in-python-using-mss/screenshot-mon-0.png" /></p>
+<p>Monitor 1:</p>
+<p><img alt="Screenshot Monitor 1" src="/posts/how-to-take-a-screenshot-in-python-using-mss/screenshot-mon-1.png" /></p>
+<p>Monitor 2:</p>
+<p><img alt="Screenshot Monitor 2" src="/posts/how-to-take-a-screenshot-in-python-using-mss/screenshot-mon-2.png" /></p>
+</div>
+
+<nav class="blog-pagination text-center mb-5 mt-4">
+    
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-take-a-screenshot-in-python-using-pil/">&larr; How To Take A Screenshot In...</a>
+    
+    
+</nav>
+
+
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function() {
+        this.page.url = 'https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-mss/'; // Your page's canonical URL variable
+        this.page.identifier = 'https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-mss/'; // Your page's unique identifier variable
+    };
+    (function() {
+        var d = document,
+            s = d.createElement('script');
+        s.src = '//nitratine.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+    </div>
+
+    <aside class="col-blog-sidebar blog-sidebar">
+
+        <div class="card p-3 mb-3 bg-light">
+            <span class="h4 text-center text-lg-left">About</span>
+            <p class="mb-0">Owner of <a href="https://www.youtube.com/PyTutorials">PyTutorials</a> and creator of <a href="https://github.com/brentvollebregt/auto-py-to-exe">auto-py-to-exe</a>. I enjoy making quick tutorials for people new to particular topics in Python and tools that help fix small things.</p>
+        </div>
+
+        <div class="input-group mb-3">
+            <input id="sidebar-search" type="text" class="form-control" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+                <button id="sidebar-search-submit" class="btn btn-outline-primary" type="button">Search</button>
+            </div>
+        </div>
+        <script>let searchUrl = "/search/";</script>
+        <script type="text/javascript" defer src="/static/js/search.js"></script>
+
+        <div class="card p-3 mb-3 bg-light">
+            <span class="h4 text-center text-lg-left">Categories</span>
+            <ol class="list-unstyled mb-0 text-center text-lg-left">
+                
+                    <li>
+                    <a href="/blog/categories/#Apps">&#x1F4F1; Apps
+                        <span class="badge badge-primary ml-3">2</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#General">&#x1F4F0; General
+                        <span class="badge badge-primary ml-3">7</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#Investigations">&#x1F50D; Investigations
+                        <span class="badge badge-primary ml-3">2</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#Projects">&#x1F4BE; Projects
+                        <span class="badge badge-primary ml-3">15</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#Snippets">&#x2702; Snippets
+                        <span class="badge badge-primary ml-3">1</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#Tools">&#x1F6E0; Tools
+                        <span class="badge badge-primary ml-3">4</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#Tutorials">&#x1F4D6; Tutorials
+                        <span class="badge badge-primary ml-3">23</span>
+                    </a>
+                </li>
+                
+                    <li>
+                    <a href="/blog/categories/#YouTube">&#x1F3A5; YouTube
+                        <span class="badge badge-primary ml-3">15</span>
+                    </a>
+                </li>
+                
+            </ol>
+        </div>
+
+        <div class="card p-3 mb-3 bg-light">
+            <span class="h4 text-center text-lg-left">PyTutorials on YouTube</span>
+            <script src="https://apis.google.com/js/platform.js"></script>
+            <div style="text-align: center">
+                <div class="g-ytsubscribe" data-channel="PrivateSplat" data-layout="full" data-count="default"></div>
+            </div>
+        </div>
+
+        <div class="card p-3 mb-3 bg-light">
+            <span class="h4 text-center text-lg-left">Recent Videos</span>
+            <div id="recent-yt-videos" class="yt_video_container">
+                
+                    <img src="https://img.youtube.com/vi/H8t4DJ3Tdrg/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=H8t4DJ3Tdrg', '_blank')">
+                
+                    <img src="https://img.youtube.com/vi/ksW59gYEl6Q/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=ksW59gYEl6Q', '_blank')">
+                
+                    <img src="https://img.youtube.com/vi/YPiHBtddefI/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=YPiHBtddefI', '_blank')">
+                
+                    <img src="https://img.youtube.com/vi/SQj17D1Q_6s/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=SQj17D1Q_6s', '_blank')">
+                
+                    <img src="https://img.youtube.com/vi/2kbeBzEQfXE/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=2kbeBzEQfXE', '_blank')">
+                
+                    <img src="https://img.youtube.com/vi/5JSloPGocSY/mqdefault.jpg" alt="Recent video thumbnail" onclick="window.open('https://www.youtube.com/watch?v=5JSloPGocSY', '_blank')">
+                
+            </div>
+        </div>
+
+        <div class="card p-3 mb-3 bg-light">
+            <span class="h4 text-center text-lg-left">Featured Sites</span>
+            <div class="featured-sites">
+                
+                    <a title="Emotionify" href="https://emotionify.nitratine.net/">
+                        <img src="/static/img/featured-sites/emotionify.png" alt="Emotionify" />
+                    </a>
+                
+                    <a title="Spotify Lyrics Viewer" href="https://spotify-lyrics-viewer.nitratine.net/">
+                        <img src="/static/img/featured-sites/spotify-lyrics-viewer.png" alt="Spotify Lyrics Viewer" />
+                    </a>
+                
+                    <a title="Hit Counter" href="https://hitcounter.pythonanywhere.com/">
+                        <img src="/static/img/featured-sites/hit-counter.png" alt="Hit Counter" />
+                    </a>
+                
+                    <a title="Monopoly Money" href="https://monopoly-money.nitratine.net/">
+                        <img src="/posts/monopoly-money/banner.png" alt="Monopoly Money" />
+                    </a>
+                
+            </div>
+        </div>
+    </aside>
+
+</div>
+
+
+        </main>
+
+        <footer class="bg-dark py-4 px-1">
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <div class="top-group">
+                        <div class="link-group">
+                            <p class="header">Navigate</p>
+                            <a aria-current="page" class="" href="/">Home</a>
+                            <a href="/blog/">Blog</a>
+                            <a class="ml-2" href="/blog/categories/">Categories</a>
+                            <a class="ml-2" href="/blog/tags/">Tags</a>
+                            <a class="ml-2" href="/blog/archive/">Archive</a>
+                            <a href="/portfolio/">Portfolio</a>
+                            <a href="/about/">About</a>
+                        </div>
+
+                        <div class="link-group">
+                            <p class="header">Popular Projects</p>
+                            <a href="/blog/post/auto-py-to-exe/">auto-py-to-exe</a>
+                            <a href="/blog/post/hit-counter/">hit-counter</a>
+                            <a href="/blog/post/whos-on-my-network/">whos-on-my-network</a>
+                            <a href="/blog/post/monopoly-money/">monopoly-money</a>
+                        </div>
+
+                        <div class="link-group">
+                            <p class="header">Follow</p>
+                            <a href="https://github.com/brentvollebregt" class="with-icon">
+                                <img src="/static/img/icons/github.svg" alt="GitHub Logo" style="filter: invert(1);" />
+                                GitHub
+                            </a>
+                            <a href="https://www.youtube.com/c/PyTutorials" class="with-icon">
+                                <img src="/static/img/icons/youtube.svg" alt="YouTube Logo" />
+                                YouTube
+                            </a>
+                            <a rel="alternate" type="application/rss+xml" href="/rss.xml" class="with-icon">
+                                <img src="/static/img/icons/rss.svg" alt="RSS Logo"/>
+                                Nitratine RSS Feed
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mx-4">
+                    <hr/>
+                </div>
+
+                <p class="text-center m-0">
+                    <small>© 2020 Brent Vollebregt</small>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
+</html>

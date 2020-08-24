@@ -83,6 +83,8 @@
     
     <a href="/blog/tags/#python" class="badge badge-warning">python</a>
     
+    <a href="/blog/tags/#screenshot" class="badge badge-warning">screenshot</a>
+    
     <a href="/blog/tags/#pil" class="badge badge-warning">pil</a>
     
     <img src="https://hitcounternitratine.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
@@ -108,7 +110,10 @@
 </li>
 </ul>
 </li>
-<li><a href="#taking-a-screenshot-of-a-different-display">Taking A Screenshot Of A Different Display</a></li>
+<li><a href="#taking-a-screenshot-of-a-different-display">Taking A Screenshot Of A Different Display</a><ul>
+<li><a href="#using-mss-to-screenshot-each-displays">Using MSS to Screenshot Each Displays</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <h2 id="what-is-pil">
@@ -219,12 +224,17 @@
 <p>Now when you call <code>screenshot.show()</code>, you will see that multiple monitors are now displayed. Here is an example of my monitors:</p>
 <p><img alt="Screenshot All Monitors" src="/posts/how-to-take-a-screenshot-in-python-using-pil/screenshot-all-monitors.png" /></p>
 <p>Now that you have this larger image, you can crop it using other methods in PIL: <a href="https://stackoverflow.com/a/58350508">How to crop an image using PIL</a>.</p>
+<h3 id="using-mss-to-screenshot-each-displays">
+<span style="position:relative"><a class="anchor" href="#using-mss-to-screenshot-each-displays"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Using MSS to Screenshot Each Displays</span></h3>
+<p>I also have a tutorial <a href="/blog/post/how-to-take-a-screenshot-in-python-using-mss/">How To Take A Screenshot In Python Using MSS</a> which goes over how to take screenshots using the <a href="https://python-mss.readthedocs.io/index.html">Python MSS library</a>. The tutorial is very similar, however MSS has better support for screenshots of different individual displays (including macOS and Windows).</p>
 </div>
 
 <nav class="blog-pagination text-center mb-5 mt-4">
     
         <a class="btn btn-outline-primary mt-1" href="/blog/post/python-beautiful-soup-basics-tutorial/">&larr; Python Beautiful Soup Basic...</a>
     
+    
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-take-a-screenshot-in-python-using-mss/">How To Take A Screenshot In... &rarr;</a>
     
 </nav>
 
@@ -306,7 +316,7 @@
                 
                     <li>
                     <a href="/blog/categories/#Tutorials">&#x1F4D6; Tutorials
-                        <span class="badge badge-primary ml-3">22</span>
+                        <span class="badge badge-primary ml-3">23</span>
                     </a>
                 </li>
                 
