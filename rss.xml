@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Fri, 28 Aug 2020 11:18:28 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2020 12:16:49 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -12044,7 +12044,7 @@ client/node_modules
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-serve-react-from-a-python-server/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-serve-react-from-a-python-server/feature.png" length="0" type="image/png"/>
-      <pubDate>Tue, 25 Aug 2020 00:00:00 +1200</pubDate>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +1200</pubDate>
     </item>
   </channel>
 </rss>
