@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Fri, 28 Aug 2020 12:16:49 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2020 21:53:00 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -11490,8 +11490,8 @@ C:\Python37\python.exe
       <pubDate>Mon, 24 Aug 2020 00:00:00 +1200</pubDate>
     </item>
     <item>
-      <title>How To Serve React From A Python Server</title>
-      <link>https://nitratine.net/blog/post/how-to-serve-react-from-a-python-server/</link>
+      <title>How To Serve A React App From A Python Server</title>
+      <link>https://nitratine.net/blog/post/how-to-serve-a-react-app-from-a-python-server/</link>
       <description>In this tutorial, I explain how to serve a React application from a Python Flask server and how we can set up a postbuild script to automatically move the build React app to the server after a build.</description>
       <content:encoded>&lt;div class="toc"&gt;
 &lt;ul&gt;
@@ -12041,9 +12041,9 @@ client/node_modules
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="c1"&gt;# If the script that was run is this script (we have not been imported)&lt;/span&gt;
     &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# Start the server&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded>
-      <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-serve-react-from-a-python-server/</guid>
+      <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-serve-a-react-app-from-a-python-server/</guid>
       <category>Tutorials</category>
-      <enclosure url="https://nitratine.net/posts/how-to-serve-react-from-a-python-server/feature.png" length="0" type="image/png"/>
+      <enclosure url="https://nitratine.net/posts/how-to-serve-a-react-app-from-a-python-server/feature.png" length="0" type="image/png"/>
       <pubDate>Sat, 29 Aug 2020 00:00:00 +1200</pubDate>
     </item>
   </channel>

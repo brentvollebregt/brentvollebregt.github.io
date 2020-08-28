@@ -2,7 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-    <loc>https://nitratine.net/blog/post/how-to-serve-react-from-a-python-server/</loc>
+    <loc>https://nitratine.net/blog/post/how-to-serve-a-react-app-from-a-python-server/</loc>
     <lastmod>2020-08-28</lastmod>
 </url>
 
