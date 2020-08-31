@@ -606,10 +606,10 @@
 
 <h4 id="getting-the-attributes-of-the-current-tag">
 <span style="position:relative"><a class="anchor" href="#getting-the-attributes-of-the-current-tag"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Getting The Attributes Of The Current Tag</span></h4>
-<p>To get the attributes inside the current tag, we can access them using <code>tag.atts</code>. This will return something that looks and functions like a dictionary.</p>
+<p>To get the attributes inside the current tag, we can access them using <code>tag.attrs</code>. This will return something that looks and functions like a dictionary.</p>
 <div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">element</span>
 <span class="go">&lt;p class=&quot;class_a, class_b, class_c&quot; id=&quot;some_id&quot; title=&quot;My Title&quot;&gt;&lt;/p&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">element</span><span class="o">.</span><span class="n">atts</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">element</span><span class="o">.</span><span class="n">attrs</span>
 <span class="go">{&#39;id&#39;: &#39;some_id&#39;, &#39;class&#39;: [&#39;class_a,&#39;, &#39;class_b,&#39;, &#39;class_c&#39;], &#39;title&#39;: &#39;My Title&#39;}</span>
 </code></pre></div>
 
@@ -810,7 +810,7 @@
         <a class="btn btn-outline-primary mt-1" href="/blog/post/python-file-backup-script/">&larr; Python File Backup Script</a>
     
     
-        <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-take-a-screenshot-in-python-using-pil/">How To Take A Screenshot In... &rarr;</a>
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-take-a-screenshot-in-python-using-mss/">How To Take A Screenshot In... &rarr;</a>
     
 </nav>
 
