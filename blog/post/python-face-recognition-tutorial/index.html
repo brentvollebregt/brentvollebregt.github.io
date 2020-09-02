@@ -85,6 +85,8 @@
     
     <a href="/blog/tags/#facial-recognition" class="badge badge-warning">facial-recognition</a>
     
+    <a href="/blog/tags/#pil" class="badge badge-warning">pil</a>
+    
     <img src="https://hitcounternitratine.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
 </div>
 <p class="lead">In this tutorial, I explain the setup and usage of the Python face_recognition library. This library can be used to detect faces using Python and identify facial features.</p>
@@ -118,11 +120,14 @@
 <li><a href="#final-code-for-this-section_1">Final Code For This Section</a></li>
 </ul>
 </li>
-<li><a href="#identifying-facial-features">Identifying Facial Features</a></li>
+<li><a href="#identifying-facial-features">Identifying Facial Features</a><ul>
+<li><a href="#final-code-for-this-section_2">Final Code For This Section</a></li>
+</ul>
+</li>
 <li><a href="#matching-detected-faces">Matching Detected Faces</a><ul>
 <li><a href="#getting-face-encodings">Getting Face Encodings</a></li>
 <li><a href="#checking-for-matches">Checking For Matches</a></li>
-<li><a href="#final-code-for-this-section_2">Final Code For This Section</a></li>
+<li><a href="#final-code-for-this-section_3">Final Code For This Section</a></li>
 </ul>
 </li>
 <li><a href="#additional-pil-help">Additional PIL Help</a></li>
@@ -529,6 +534,35 @@ development.  You need to install Visual Studio for C++.
 
 
 <p><img alt="Single Person With Facial Markings" src="/posts/python-face-recognition-tutorial/single-person-facial-markings.png" /></p>
+<h3 id="final-code-for-this-section_2">
+<span style="position:relative"><a class="anchor" href="#final-code-for-this-section_2"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Final Code For This Section</span></h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">face_recognition</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageDraw</span>
+
+<span class="c1"># Load the image and detect face landmarks for each face within</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">face_recognition</span><span class="o">.</span><span class="n">load_image_file</span><span class="p">(</span><span class="s1">&#39;single-person.jpg&#39;</span><span class="p">)</span>
+<span class="n">face_landmarks_list</span> <span class="o">=</span> <span class="n">face_recognition</span><span class="o">.</span><span class="n">face_landmarks</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+<span class="c1"># Make a PIL image from the loaded image and then get a drawing object</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
+<span class="n">img_draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+<span class="c1"># Draw all the features for the first face</span>
+<span class="n">face_landmarks</span> <span class="o">=</span> <span class="n">face_landmarks_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Get the first object corresponding to the first face</span>
+<span class="n">img_draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">face_landmarks</span><span class="p">[</span><span class="s1">&#39;chin&#39;</span><span class="p">])</span>
+<span class="n">img_draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">face_landmarks</span><span class="p">[</span><span class="s1">&#39;left_eyebrow&#39;</span><span class="p">])</span>
+<span class="n">img_draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">face_landmarks</span><span class="p">[</span><span class="s1">&#39;right_eyebrow&#39;</span><span class="p">])</span>
+<span class="n">img_draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">face_landmarks</span><span class="p">[</span><span class="s1">&#39;nose_bridge&#39;</span><span class="p">])</span>
+<span class="n">img_draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">face_landmarks</span><span class="p">[</span><span class="s1">&#39;nose_tip&#39;</span><span class="p">])</span>
+<span class="n">img_draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">face_landmarks</span><span class="p">[</span><span class="s1">&#39;left_eye&#39;</span><span class="p">])</span>
+<span class="n">img_draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">face_landmarks</span><span class="p">[</span><span class="s1">&#39;right_eye&#39;</span><span class="p">])</span>
+<span class="n">img_draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">face_landmarks</span><span class="p">[</span><span class="s1">&#39;top_lip&#39;</span><span class="p">])</span>
+<span class="n">img_draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">face_landmarks</span><span class="p">[</span><span class="s1">&#39;bottom_lip&#39;</span><span class="p">])</span>
+
+<span class="n">img_with_face_landmarks</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Show the image for the current iteration</span>
+</code></pre></div>
+
+
 <h2 id="matching-detected-faces">
 <span style="position:relative"><a class="anchor" href="#matching-detected-faces"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Matching Detected Faces</span></h2>
 <p>The face_recognition library also provides the function <a href="https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.compare_faces"><code>face_recognition.compare_faces</code></a> which can be used to compare detected faces to see if they match.</p>
@@ -641,8 +675,8 @@ development.  You need to install Visual Studio for C++.
 <p>Each line is one comparison (stored in <code>matches</code>) and each boolean corresponds to a known face encoding and whether it matched the unknown face encoding.</p>
 <p>From the values above, we can see that the first unknown face in the group image matched both known face encodings and the other three unknown faces didn't match either encoding. Using more than once face encoding can allow you to calculate a better probability but will cost you in speed. </p>
 <p>If you run this on the other image, everything returns false.</p>
-<h3 id="final-code-for-this-section_2">
-<span style="position:relative"><a class="anchor" href="#final-code-for-this-section_2"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Final Code For This Section</span></h3>
+<h3 id="final-code-for-this-section_3">
+<span style="position:relative"><a class="anchor" href="#final-code-for-this-section_3"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Final Code For This Section</span></h3>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">face_recognition</span>
 
 
