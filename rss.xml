@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Sep 2020 03:41:59 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2020 04:17:16 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -2418,7 +2418,7 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;li&gt;Clone this repository: &lt;code&gt;git clone https://github.com/brentvollebregt/mp3-iTunes.git&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;cd into the directory: &lt;code&gt;cd mp3-iTunes&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Install the requirements: &lt;code&gt;pip install -r requirements.txt&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Go to &lt;a href="https://ffmpeg.zeranoe.com/builds/"&gt;https://ffmpeg.zeranoe.com/builds/&lt;/a&gt; and download ffmpeg.&lt;/li&gt;
+&lt;li&gt;Go to &lt;a href="https://ffmpeg.org/download.html"&gt;https://ffmpeg.org/download.html&lt;/a&gt; and download ffmpeg.&lt;/li&gt;
 &lt;li&gt;Extract the files and copy ffmpeg.exe, ffplay.exe and ffprobe.exe from the /bin folder to the location of music_downloader_with_YT_iTunes.py &lt;em&gt;(you can also put these in a location that is referenced by the PATH variable if you wish)&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="usage"&gt;
@@ -2461,7 +2461,7 @@ While creating this program, I discovered a way that could give hints to what em
 &lt;li&gt;Install the requirements. &lt;code&gt;pip install requirements.txt&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Go to &lt;a href="https://developer.spotify.com/my-applications"&gt;https://developer.spotify.com/my-applications&lt;/a&gt; and create an app to get a client_id and client_secret key pair&lt;/li&gt;
 &lt;li&gt;Put these keys in settings.json&lt;/li&gt;
-&lt;li&gt;Go to &lt;a href="https://ffmpeg.zeranoe.com/builds/"&gt;https://ffmpeg.zeranoe.com/builds/&lt;/a&gt; and download ffmpeg.&lt;/li&gt;
+&lt;li&gt;Go to &lt;a href="https://ffmpeg.org/download.html"&gt;https://ffmpeg.org/download.html&lt;/a&gt; and download ffmpeg.&lt;/li&gt;
 &lt;li&gt;Extract the files from the zip and copy ffmpeg.exe, ffplay.exe and ffprobe.exe from the /bin folder to the location of spotify_album_downloader.py &lt;em&gt;(you can also put these in a location that is referenced by the PATH variable if you wish)&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="usage"&gt;
@@ -10518,10 +10518,10 @@ C:\Python37\python.exe
 &lt;p&gt;The variable &lt;code&gt;html&lt;/code&gt; will have your data now like the &lt;a href="#string-literal"&gt;String literal&lt;/a&gt; example.&lt;/p&gt;
 &lt;h3 id="http-request"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#http-request"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP Request&lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;If you want to get a webpage, you can use something like the &lt;a href="https://requests.readthedocs.io/en/master/"&gt;&lt;code&gt;requests&lt;/code&gt; library&lt;/a&gt; to get the page. Say you want to get &lt;a href="http://testing-ground.scraping.pro/table"&gt;http://testing-ground.scraping.pro/table&lt;/a&gt;, you would do:&lt;/p&gt;
+&lt;p&gt;If you want to get a webpage, you can use something like the &lt;a href="https://requests.readthedocs.io/en/master/"&gt;&lt;code&gt;requests&lt;/code&gt; library&lt;/a&gt; to get the page. Say you want to get &lt;a href="http://example.com/"&gt;http://example.com/&lt;/a&gt;, you would do:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
 
-&lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://testing-ground.scraping.pro/table&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://example.com/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# The html variable now has the HTML document in it &lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -11073,7 +11073,7 @@ C:\Python37\python.exe
 &lt;h3 id="example-2-read-a-single-value-on-the-page"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#example-2-read-a-single-value-on-the-page"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Example 2 - Read A Single Value On The Page&lt;/span&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Data source: &lt;a href="http://testing-ground.scraping.pro/whoami"&gt;testing-ground.scraping.pro/whoami&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Data source: testing-ground.scraping.pro/whoami &lt;em&gt;(No longer exists)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;Target: Read IP address&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;HTML preview (cut down version):&lt;/p&gt;
