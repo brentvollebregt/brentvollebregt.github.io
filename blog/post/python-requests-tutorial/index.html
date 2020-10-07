@@ -126,12 +126,11 @@
 <h2 id="making-a-simple-request">
 <span style="position:relative"><a class="anchor" href="#making-a-simple-request"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Making a Simple Request</span></h2>
 <p>Just like your browser does, you can request a web page using Python. Get the URL of a website and use the following code to download the content of the page.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://nitratine.net/blog/&#39;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>When executing this, a lot of text should be printed. This is the content returned by the site requested, in the case of using the URL demonstrated above, the content will be HTML that renders my blog feed.</p>
 <p>In this example, I have called <code>requests.get</code> passing my URL to be fetched. This function then returns a <code>requests.models.Response</code> object. Using the <code>.text</code> attribute, I can look at the data that was returned by the URL I called.</p>
@@ -152,19 +151,18 @@
 <h3 id="json">
 <span style="position:relative"><a class="anchor" href="#json"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>.json()</span></h3>
 <p>If a site returns a JSON response, you can call <code>.json()</code> on the <code>Response</code> object to convert the JSON object in the response to a Python dictionary.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://jsonplaceholder.typicode.com/todos/1&#39;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Title: &#39;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
 <p>This saves the effort on deserializing the .text value using the <a href="https://docs.python.org/3/library/ast.html#ast.literal_eval">ast module</a>. </p>
 <h2 id="downloading-an-image-and-other-files">
 <span style="position:relative"><a class="anchor" href="#downloading-an-image-and-other-files"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Downloading an Image and Other Files</span></h2>
 <p>Just like downloading a web page, you can also download other files like images or videos. Simply find the URL of the image/other file <em>(make sure it is the URL of the file, not the URL of the page it's on)</em> and use it like before; but this time put the content into a file.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">file_destination</span> <span class="o">=</span> <span class="s1">&#39;nitratine-logo.png&#39;</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://nitratine.net/static/img/logo.png&quot;</span>
@@ -174,9 +172,8 @@
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>If you expect the file to be large (or just want to use a stream), you can use a stream to write to the output file as you receive the data. This means as the data comes in, it is written to the output file so the data does not have to sit in memory.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">file_destination</span> <span class="o">=</span> <span class="s1">&#39;multi-clipboard.gif&#39;</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://nitratine.net/posts/multi-clipboard/multi-clipboard.gif&#39;</span>
@@ -188,7 +185,6 @@
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span> <span class="c1"># Write each chunk received to a file</span>
 </code></pre></div>
 
-
 <blockquote>
 <p>These examples have been modified from <a href="https://stackoverflow.com/a/13137873">stackoverflow.com/a/13137873</a></p>
 </blockquote>
@@ -196,33 +192,30 @@
 <span style="position:relative"><a class="anchor" href="#different-methods"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Different Methods</span></h2>
 <p>When making a request to a URL/URI, different 'methods' can be used. These tell the server what sort of action you want to perform. HTTP defines actions like GET, POST, PUT, DELETE and many others.</p>
 <p>To use these different methods, simply replace the <code>.get</code> with <code>.post</code>/<code>.put</code>/<code>.delete</code> or whatever method you are using. For example, if I wanted to delete a record in a REST API, I could use:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;https://jsonplaceholder.typicode.com/posts/1&#39;</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span> <span class="c1"># Check for HTTP 200 (OK)</span>
 </code></pre></div>
 
-
 <h2 id="parameters-in-urls">
 <span style="position:relative"><a class="anchor" href="#parameters-in-urls"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Parameters in URLs</span></h2>
 <p>Instead of constructing a URL to add parameters to it, the requests module offers a method to add them automatically for you. Simply create your key-value pairs in a Python dictionary and then pass this to the <code>params</code> argument in the request method. For example:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;key1&#39;</span> <span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span> <span class="p">:</span> <span class="s1">&#39;value2&#39;</span> <span class="p">}</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/get&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>To show that the parameters were added to the url, we can verify it using a PreparedRequest.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;key1&#39;</span> <span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span> <span class="p">:</span> <span class="s1">&#39;value2&#39;</span> <span class="p">}</span>
 <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="s1">&#39;https://httpbin.org/get&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
 <span class="n">prepared</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span> <span class="c1"># Get a PreparedRequest object</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">prepared</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
 </code></pre></div>
-
 
 <blockquote>
 <p>The output of the above script is "https://httpbin.org/get?key1=value1&amp;key2=value2" as expected.</p>
@@ -233,38 +226,35 @@
 <h3 id="form-encoded-body">
 <span style="position:relative"><a class="anchor" href="#form-encoded-body"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Form Encoded Body</span></h3>
 <p>In cases where you want to send some form-encoded data (like a HTML form would submit), we can pass key-value pairs as we used above to the <code>data</code> parameter. The dictionary of your data will be form-encoded when the request is made. For example:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">body_data</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;key1&#39;</span> <span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span> <span class="p">:</span> <span class="s1">&#39;value2&#39;</span> <span class="p">}</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://example.com/create-something&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">body_data</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h3 id="json-body">
 <span style="position:relative"><a class="anchor" href="#json-body"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>JSON Body</span></h3>
 <p>Today, JSON bodies are becoming more popular over form-encoded key-value pairs; this is due to how much more compact JSON is over XML (XML and JSON are typically used to carry larger payloads). Fortunately, JSON bodies are as easy to create in the request module as form-encoded are.</p>
 <p>Instead of passing your dictionary to the <code>data</code> parameter, pass it to <code>json</code>. When the request is made, the <code>Content-Type</code> header will automatically be set to <code>application/json</code> to tell the server that this is a JSON request.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">body_data</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;key1&#39;</span> <span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span> <span class="p">:</span> <span class="s1">&#39;value2&#39;</span> <span class="p">}</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://example.com/create-something&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body_data</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h3 id="raw-body">
 <span style="position:relative"><a class="anchor" href="#raw-body"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Raw Body</span></h3>
 <p>In the cases where you want to specify exactly what is in the body manually, simply provide the string to the <code>body</code> parameter. For example:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">body_data</span> <span class="o">=</span> <span class="s2">&quot;This is my body&quot;</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://example.com/create-something&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">body_data</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h2 id="custom-headers">
 <span style="position:relative"><a class="anchor" href="#custom-headers"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Custom headers</span></h2>
 <p>Previously I discussed that the <code>Content-Type</code> header will automatically be set to <code>application/json</code> when passing data to <code>json</code>. We can set headers manually is a very similar way to how we have been sending data. Once again, create the header key-value pairs in a Python dictionary and then pass them to the <code>headers</code> parameter.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">header_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;User-Agent&#39;</span> <span class="p">:</span> <span class="s1">&#39;Python requests&#39;</span><span class="p">,</span>
@@ -272,7 +262,6 @@
 <span class="p">}</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://example.com/&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header_data</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h2 id="this-is-only-the-basics">
 <span style="position:relative"><a class="anchor" href="#this-is-only-the-basics"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>This is Only The Basics</span></h2>

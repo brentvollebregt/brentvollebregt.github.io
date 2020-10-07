@@ -117,7 +117,7 @@ While creating this program, I discovered a way that could give hints to what em
 <p>In previous research, I had found a <a href="https://www.youtube.com/watch?v=eK0M_6LXtKo">YouTube video that looked at emotion detection in music in realtime</a>. Looking in other papers and similar creations like it, I had discovered that there were two things to make this plane; valence and energy. These two properties can be found under different names but in general, they stood for the musical positiveness given off by the song and the speed and intensity of the song.</p>
 <p>Luckily Spotify had already calculated these values and due to it being such a big platform, I could rely on the data; unlike a lot of other sites I tested with. By simply querying "https://api.spotify.com/v1/audio-features/{id}" and passing an authorization token, I was given back data in JSON format.</p>
 <p>An example of the JSON response can be found in the <a href="https://developer.spotify.com/web-api/get-audio-features/">Spotify API documentation</a>.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="json codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;danceability&quot;</span> <span class="p">:</span> <span class="mf">0.735</span><span class="p">,</span>
     <span class="nt">&quot;energy&quot;</span> <span class="p">:</span> <span class="mf">0.578</span><span class="p">,</span>
     <span class="nt">&quot;key&quot;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
@@ -139,7 +139,6 @@ While creating this program, I discovered a way that could give hints to what em
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>This meant all we needed to do was get the Spotify id for each song our program took in by looking at the tags the song had. I used <a href="https://github.com/quodlibet/mutagen">mutagen</a> to strip the tags of the .mp3 files and I then passed this to the search() method in the <a href="https://github.com/plamere/spotipy">Spotipy</a> library to get the Spotify id.</p>
 <h2 id="gathering-data">
 <span style="position:relative"><a class="anchor" href="#gathering-data"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Gathering Data</span></h2>
@@ -153,7 +152,7 @@ While creating this program, I discovered a way that could give hints to what em
 <h3 id="getting-tags-of-mp3s">
 <span style="position:relative"><a class="anchor" href="#getting-tags-of-mp3s"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Getting Tags of MP3s</span></h3>
 <p>This code gets ID3 tags from MP3 files. To get mutagen, execute the command 'pip install mutagen' in a terminal/cmd.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">mutagen.id3</span> <span class="kn">import</span> <span class="n">ID3</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">mutagen.id3</span> <span class="kn">import</span> <span class="n">ID3</span>
 <span class="kn">from</span> <span class="nn">mutagen.mp3</span> <span class="kn">import</span> <span class="n">MP3</span>
 
 <span class="n">song_location</span> <span class="o">=</span> <span class="s1">&#39;song.mp3&#39;</span>
@@ -163,11 +162,10 @@ While creating this program, I discovered a way that could give hints to what em
 <span class="n">album</span> <span class="o">=</span> <span class="n">audio</span><span class="p">[</span><span class="s1">&#39;TALB&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div>
 
-
 <h3 id="tags-to-spotify-id">
 <span style="position:relative"><a class="anchor" href="#tags-to-spotify-id"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Tags to Spotify ID</span></h3>
 <p>This code will search Spotify for the title and artist and return the closest Spotify ID. Note this will not always be 100% correct but Spotify has a large library of songs.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">spotipy</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">spotipy</span>
 <span class="kn">from</span> <span class="nn">spotipy.oauth2</span> <span class="kn">import</span> <span class="n">SpotifyClientCredentials</span>
 
 <span class="c1"># Make your own Spotify app at https://beta.developer.spotify.com/dashboard/applications</span>
@@ -195,12 +193,11 @@ While creating this program, I discovered a way that could give hints to what em
         <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Cannot Find URI&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>This example will return "spotify:track:0BCPKOYdS2jbQ8iyB56Zns" regarding you have provided a client_id and client_secret. This URI/ID relates to Clocks by Coldplay in Spotify's database.</p>
 <h3 id="getting-audio-data">
 <span style="position:relative"><a class="anchor" href="#getting-audio-data"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Getting Audio Data</span></h3>
 <p>In the project I gathered audio data in blocks of 50; this example will only demonstrate one URI at a time. To get data of many songs at once pass a list of URI's to sp.audio_features().</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">spotipy</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">spotipy</span>
 <span class="kn">from</span> <span class="nn">spotipy.oauth2</span> <span class="kn">import</span> <span class="n">SpotifyClientCredentials</span>
 
 <span class="c1"># Make your own Spotify app at https://beta.developer.spotify.com/dashboard/applications</span>
@@ -215,7 +212,6 @@ While creating this program, I discovered a way that could give hints to what em
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Energy:&#39;</span><span class="p">,</span> <span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;energy&#39;</span><span class="p">])</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Calence:&#39;</span><span class="p">,</span> <span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;valence&#39;</span><span class="p">])</span>
 </code></pre></div>
-
 
 <p>This example should return: Energy: 0.749, Valence: 0.261</p>
 <h2 id="conclusion">

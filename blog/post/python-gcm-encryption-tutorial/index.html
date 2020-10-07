@@ -148,14 +148,12 @@
 <h2 id="installing-pycryptodome">
 <span style="position:relative"><a class="anchor" href="#installing-pycryptodome"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Installing PyCryptodome</span></h2>
 <p>The easiest way to install this library is to use pip. Open up the terminal/cmd and execute:</p>
-<div class="codehilite"><pre><span></span><code><span class="go">python -m pip install pycryptodome</span>
+<div class="console codehilite"><pre><span></span><code><span class="go">python -m pip install pycryptodome</span>
 </code></pre></div>
-
 
 <p>To make sure it installed correctly, open IDLE and execute:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pycryptodome</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pycryptodome</span>
 </code></pre></div>
-
 
 <p>If no errors appeared it has been installed correctly.</p>
 <h2 id="generating-a-key">
@@ -178,29 +176,26 @@
 <h3 id="generating-a-salt">
 <span style="position:relative"><a class="anchor" href="#generating-a-salt"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Generating a Salt</span></h3>
 <p>A <a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">salt</a> is <em>random data that is used as an additional input to a one-way function that "hashes" data</em>. To generate a salt, we can use the function <code>Crypto.Random.get_random_bytes</code> provided by PyCryptodome:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
 <span class="n">salt</span> <span class="o">=</span> <span class="n">get_random_bytes</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>If you execute <code>print(salt)</code> you will see something like the following</p>
-<div class="codehilite"><pre><span></span><code><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x8a\xfe\x1f\xa7</span><span class="s1">aY}</span><span class="se">\xa3</span><span class="s1">It=</span><span class="se">\xc3\xcc</span><span class="s1">T</span><span class="se">\xc8\x94\xc1</span><span class="s1">1%w]A</span><span class="se">\xb7\x87</span><span class="s1">G</span><span class="se">\xd8\xba\x9e\xf8\xec</span><span class="s1">&amp;</span><span class="se">\xf0</span><span class="s1">&#39;</span>
+<div class="python codehilite"><pre><span></span><code><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x8a\xfe\x1f\xa7</span><span class="s1">aY}</span><span class="se">\xa3</span><span class="s1">It=</span><span class="se">\xc3\xcc</span><span class="s1">T</span><span class="se">\xc8\x94\xc1</span><span class="s1">1%w]A</span><span class="se">\xb7\x87</span><span class="s1">G</span><span class="se">\xd8\xba\x9e\xf8\xec</span><span class="s1">&amp;</span><span class="se">\xf0</span><span class="s1">&#39;</span>
 </code></pre></div>
-
 
 <p>This is a random sequence of bytes that has been generated. For every object (like files) you will encrypt, you should generate a new salt for it to be combined with the password by scrypt. This will mean the same password does not create the same key for multiple objects.</p>
 <p>It's safe to store this generated salt with the encrypted output and in this tutorial, I'll show you how to store them with the output and then read them back out. </p>
 <h3 id="generating-the-key-using-scrypt">
 <span style="position:relative"><a class="anchor" href="#generating-the-key-using-scrypt"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Generating the Key Using scrypt</span></h3>
 <p>Now that you have generated a salt, we can generate a key using the password being provided. Passing the password provided by the user, the salt that you just generated as well as declaring the output length, we can get the key.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Protocol.KDF</span> <span class="kn">import</span> <span class="n">scrypt</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Protocol.KDF</span> <span class="kn">import</span> <span class="n">scrypt</span>
 
 <span class="n">salt</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;...&#39;</span>  <span class="c1"># Salt you generated</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;password123&#39;</span>  <span class="c1"># Password provided by the user, can use input() to get this</span>
 
 <span class="n">key</span> <span class="o">=</span> <span class="n">scrypt</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">salt</span><span class="p">,</span> <span class="n">key_len</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">17</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Your key that you can encrypt with</span>
 </code></pre></div>
-
 
 <p>Now in <code>key</code>, you will have the key that you can use in encryption - you can view it using <code>print(key)</code>. You do not have to store this key now as you can see that this can be generated every time regarding the user provides the same password as long as you use the same salt (which we will be storing with the encrypted file/object).</p>
 <p>In the example above, <code>key_len</code> has been set to 32; this is the length of the key that we want to be output. 32 has been used because 32 * 8 bits (8 bits = 1 byte) is 256, this means we will be using AES-256 when providing the key generated by this function.</p>
@@ -215,24 +210,21 @@
 <span style="position:relative"><a class="anchor" href="#identifying-your-source-and-transformations"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Identifying Your Source and Transformations</span></h3>
 <p>In this example below, I will show you how to encrypt a file. If you are not using a file though, it may still be able to be encrypted.</p>
 <p>If your object is in the form of bytes (<code>type(your_bytes_object) == bytes</code>) then you will have something like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">your_bytes_object</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xad</span><span class="s1">d</span><span class="se">\x8d</span><span class="s1">-</span><span class="se">\xef\xd5</span><span class="s1">I</span><span class="se">\xe2</span><span class="s1">u</span><span class="se">\x19\xb6\x00\xc0</span><span class="s1">+</span><span class="se">\xad</span><span class="s1">...&#39;</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">your_bytes_object</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xad</span><span class="s1">d</span><span class="se">\x8d</span><span class="s1">-</span><span class="se">\xef\xd5</span><span class="s1">I</span><span class="se">\xe2</span><span class="s1">u</span><span class="se">\x19\xb6\x00\xc0</span><span class="s1">+</span><span class="se">\xad</span><span class="s1">...&#39;</span>
 </code></pre></div>
 
-
 <p>To make this readable, we can convert it to a <code>BytesIO</code> object using the following</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">io</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">io</span>
 <span class="n">file_object</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">your_bytes_object</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>Now <code>file_object</code> will look like a file because we can perform file-like operations on it like when we use <code>open</code> and call <code>.read()</code>.</p>
 <p>If you have a string (<code>type(your_bytes_object) == str</code>), call <code>.encode()</code> on it to convert it to bytes and then follow the step above. Note that when the data is decrypted, you will need to call <code>.decode()</code> on the output bytes to turn it back into a string.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">io</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="n">my_string_to_encrypt</span> <span class="o">=</span> <span class="s1">&#39;Wow! This is a cool string.&#39;</span>
 <span class="n">file</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">my_string_to_encrypt</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
 </code></pre></div>
-
 
 <h3 id="encryption-planning">
 <span style="position:relative"><a class="anchor" href="#encryption-planning"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Encryption Planning</span></h3>
@@ -289,7 +281,7 @@
 </ol>
 <h2 id="encryption">
 <span style="position:relative"><a class="anchor" href="#encryption"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Encryption</span></h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span>
 <span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
 <span class="kn">from</span> <span class="nn">Crypto.Protocol.KDF</span> <span class="kn">import</span> <span class="n">scrypt</span>
 
@@ -328,11 +320,10 @@
 <span class="n">file_out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p>The file <code>output_filename</code> will now have the encrypted data in it.</p>
 <h2 id="decrypting">
 <span style="position:relative"><a class="anchor" href="#decrypting"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Decrypting</span></h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
 <span class="kn">from</span> <span class="nn">Crypto.Protocol.KDF</span> <span class="kn">import</span> <span class="n">scrypt</span>
@@ -387,7 +378,6 @@
 <span class="n">file_in</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="n">file_out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
-
 
 <p>The file <code>output_filename</code> will now have the original data in it.</p>
 </div>

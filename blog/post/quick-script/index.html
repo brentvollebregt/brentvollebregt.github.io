@@ -132,7 +132,7 @@
 <h3 id="configuration-settingsjson">
 <span style="position:relative"><a class="anchor" href="#configuration-settingsjson"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Configuration (settings.json)</span></h3>
 <p>This file is located by quick-script.py and keeps a record of settings and script run counts.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="python codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="s2">&quot;close_on_run&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
     <span class="s2">&quot;run_count&quot;</span><span class="p">:</span> <span class="p">{},</span>
     <span class="s2">&quot;stay_on_top&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
@@ -140,11 +140,10 @@
 <span class="p">}</span>
 </code></pre></div>
 
-
 <h3 id="python-script-files">
 <span style="position:relative"><a class="anchor" href="#python-script-files"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Python script files</span></h3>
 <p>To make a script appear in the UI they need to be in the /scripts/ folder. The script needs four main features; name, description, tags and a main method which returns True on success. An example of a script is shown here:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;Example Script&quot;</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">NAME</span> <span class="o">=</span> <span class="s2">&quot;Example Script&quot;</span>
 <span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;Run example script&quot;</span>
 <span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s2">&quot;script&quot;</span><span class="p">]</span>
 
@@ -152,7 +151,6 @@
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;This is an example script&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div>
-
 
 <p>The scripts can be named anything as long as they are in /scripts/ with a .py extension. The script does not have to have name, description or tags, they will just be rendered as none.</p>
 <p>A parameter can be added to the main() method and as long as there is only one parameter required, the window class will be passed to main() so the method will now have access to the window and can use functions like dialogCritical().</p>

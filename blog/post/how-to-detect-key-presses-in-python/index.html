@@ -123,71 +123,62 @@
 <h2 id="building-the-script">
 <span style="position:relative"><a class="anchor" href="#building-the-script"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Building the Script</span></h2>
 <p>Create a new python file and save it with a .py file extension. You will first want to import Listener from pynput.keyboard.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Listener</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Listener</span>
 </code></pre></div>
 
-
 <p>Setup the listener by creating an instance in a <code>with</code> statement and using it's <code>.join()</code> method to join it to the main thread.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">Listener</span><span class="p">()</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
+<div class="python codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">Listener</span><span class="p">()</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
     <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p>Create three methods; on_press and on_release with the parameters as shown below.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">pass</span>
 
 <span class="k">def</span> <span class="nf">on_release</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">pass</span>
 </code></pre></div>
 
-
 <p>Link these methods to the listener instance with the function names as the args; I have named the methods as they are defined in the listener class. Now when an action occurs, one of these methods will be run.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">Listener</span><span class="p">(</span><span class="n">on_press</span><span class="o">=</span><span class="n">on_press</span><span class="p">,</span> <span class="n">on_release</span><span class="o">=</span><span class="n">on_release</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
+<div class="python codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">Listener</span><span class="p">(</span><span class="n">on_press</span><span class="o">=</span><span class="n">on_press</span><span class="p">,</span> <span class="n">on_release</span><span class="o">=</span><span class="n">on_release</span><span class="p">)</span> <span class="k">as</span> <span class="n">listener</span><span class="p">:</span>
 </code></pre></div>
 
-
 <p>To make sure these are running, add some print statements to each method. Save and run the script. Press a few keys, you should see output like below.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key pressed&quot;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">on_release</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key released&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p><img alt="Keys pressed demonstration" src="/posts/how-to-detect-key-presses-in-python/demo1.png" /></p>
 <p>Using these print statements and the parameters provided, we can give more information when printing. Run this again to make sure it is working properly (example output below).</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key pressed: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">on_release</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key released: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
 </code></pre></div>
 
-
 <p><img alt="Keys pressed demonstration with data" src="/posts/how-to-detect-key-presses-in-python/demo2.png" /></p>
 <p>If you want this script to be run in the background. Click File -&gt; Save As and save it with a .pyw file extension. Now when it is run outside IDLE there will be no console window and it will not look like it is running. But to make sure the console doesn't appear, we need to first remove the print statements.</p>
 <p>Import logging and set up the basic configuration as I have below. After that, change all print statements to logging.info.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;key_log.txt&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;key_log.txt&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Key pressed: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">on_release</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Key released: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
 </code></pre></div>
 
-
 <p>Now when the script is run, nothing should be printed to the console. This is because it is all being saved to the file declared in the basic configuration.</p>
 <p>Save and close IDLE. Open the file named key_log.txt next to your python script; all the events should be logged in here. For example, here is one of my logs typing <code>Wow!</code>:</p>
-<div class="codehilite"><pre><span></span><code>2020-04-07 22:52:58,233: Key pressed: Key.shift
+<div class="text codehilite"><pre><span></span><code>2020-04-07 22:52:58,233: Key pressed: Key.shift
 2020-04-07 22:52:58,514: Key pressed: &#39;W&#39;
 2020-04-07 22:52:58,649: Key released: Key.shift
 2020-04-07 22:52:58,649: Key released: &#39;w&#39;
@@ -201,7 +192,6 @@
 2020-04-07 22:52:59,853: Key released: Key.shift
 </code></pre></div>
 
-
 <blockquote>
 <p>The actual location of this file will be in the current working directory of where you run the script from</p>
 </blockquote>
@@ -211,7 +201,7 @@
 <p>As stated <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#monitoring-the-keyboard">here in the pynput docs on readthedocs.io</a>, we can call <code>pynput.keyboard.Listener.stop</code> anywhere in the script to stop the thread or return False from a callback to stop the listener. As shown in my video, we can also just call <code>listener.stop()</code> in one of the definitions due to the fact that that the listener is now in scope and is an instance os Listener.</p>
 <h2 id="final-script">
 <span style="position:relative"><a class="anchor" href="#final-script"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Final Script</span></h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Listener</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Listener</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="c1"># Setup logging</span>
@@ -227,11 +217,10 @@
     <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>  <span class="c1"># Join the listener thread to the main thread to keep waiting for keys</span>
 </code></pre></div>
 
-
 <h2 id="making-things-a-bit-more-readable">
 <span style="position:relative"><a class="anchor" href="#making-things-a-bit-more-readable"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Making Things a Bit More Readable</span></h2>
 <p>Everything being on a new line with both key presses and releases can be very helpful for identifying sequences but can be a bit hard to read. Here is a modified script that can put everything on one line and enters when enter is pressed.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Listener</span><span class="p">,</span> <span class="n">Key</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Listener</span><span class="p">,</span> <span class="n">Key</span>
 
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;key_log.txt&quot;</span>  <span class="c1"># The file to write characters to</span>
 
@@ -257,14 +246,12 @@
     <span class="n">listener</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>  <span class="c1"># Join the thread to the main thread</span>
 </code></pre></div>
 
-
 <p>Here is a sample of some of the output:</p>
-<div class="codehilite"><pre><span></span><code>[shift]I am typing this in notepad
+<div class="text codehilite"><pre><span></span><code>[shift]I am typing this in notepad
 [shift]Here is a new line
 [shift]Opps, [shift]I spelt that wro[backspace][backspace]ro[backspace][backspace]ord incorrectly
 [shift]Here as [backspace][backspace]re some special keys[shift]:[shift][ctrl_l][alt_l][alt_r][ctrl_r][shift_r]
 </code></pre></div>
-
 
 <h2 id="common-issues-and-questions">
 <span style="position:relative"><a class="anchor" href="#common-issues-and-questions"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Common Issues and Questions</span></h2>

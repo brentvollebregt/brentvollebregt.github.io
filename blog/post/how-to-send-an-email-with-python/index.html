@@ -127,7 +127,7 @@
 <h2 id="simple-email">
 <span style="position:relative"><a class="anchor" href="#simple-email"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Simple Email</span></h2>
 <p>To start, we will use the <a href="https://docs.python.org/3/library/smtplib.html">smtplib module</a> which comes with python, so no need to install it using <a href="/blog/post/how-to-setup-pythons-pip/">pip</a>.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
 
 <span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;myaddress@gmail.com&#39;</span> <span class="c1"># Your email</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;password&#39;</span> <span class="c1"># Your email account password</span>
@@ -141,7 +141,6 @@
 <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span> <span class="c1"># Logout of the email server</span>
 </code></pre></div>
 
-
 <p>By changing the initial variables at the top, the email will be sent. Make sure to change:
 - 'email' to your email address
 - 'password' to your email address password
@@ -152,7 +151,7 @@
 <h2 id="better-layouts">
 <span style="position:relative"><a class="anchor" href="#better-layouts"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Better Layouts</span></h2>
 <p>We will now add a subject, sender and receiver using the <a href="https://docs.python.org/3/library/email.html">email module</a>. This module is also already in python so no need to use pip.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
 <span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
 <span class="kn">from</span> <span class="nn">email.mime.multipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
 
@@ -178,7 +177,6 @@
 <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p>Replacing the previous variables again and setting the new variable 'subject' to the subject line, the email will now send with a subject line when run.</p>
 <p><img alt="Better Email Example" src="/posts/how-to-send-an-email-with-python/email-example-2.png" /></p>
 <p>The image above shows the email that I received. It now has a subject and has a <code>to</code> header if you click the little down arrow by 'me'.</p>
@@ -186,7 +184,7 @@
 <span style="position:relative"><a class="anchor" href="#attachments"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Attachments</span></h2>
 <p>There are quite a few ways to attach files to an email, but this is one of the simpler ways. This time we will use an encoder and MIMEMultipart from the email module and os.path to simply get the filename from the provided path.</p>
 <p>This method supports text files, images, videos, audio and pdfs.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
 <span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
 <span class="kn">from</span> <span class="nn">email.mime.multipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
 <span class="kn">from</span> <span class="nn">email.mime.base</span> <span class="kn">import</span> <span class="n">MIMEBase</span>
@@ -226,7 +224,6 @@
 <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p>Once again, replacing the previous variables but setting the new variable 'file_location' to the location of the tile that you want to send, the email will now send with the file attached.</p>
 <p><img alt="Attachment Email Example" src="/posts/how-to-send-an-email-with-python/email-example-3.png" /></p>
 <p>The image above shows the email that I received. It now has a file named 'test.py' that I declared in the script attached to the email.</p>
@@ -234,7 +231,7 @@
 <span style="position:relative"><a class="anchor" href="#html-in-emails"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>HTML in Emails</span></h2>
 <p>If you want to add things like links or CSS formatting to the email, you will need to prepare HTML text for the email.
 Make another string which is the plain-text version of the HTML and then attach them both to the MIMEMultipart object to be sent later on.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
 <span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
 <span class="kn">from</span> <span class="nn">email.mime.multipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
 
@@ -262,14 +259,13 @@ Make another string which is the plain-text version of the HTML and then attach 
 <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p>As needed before, change the variables at the top but also messageHTML and messagePlain this time, the email will now be displayed using the HTML provided.</p>
 <p><img alt="Attachment Email Example" src="/posts/how-to-send-an-email-with-python/email-example-4.png" /></p>
 <p>The image above shows that I received the email with the link and inline CSS colouring on the specified text.</p>
 <h2 id="sending-to-multiple-emails">
 <span style="position:relative"><a class="anchor" href="#sending-to-multiple-emails"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Sending to Multiple Emails</span></h2>
 <p>If you want to send the same email to many email addresses, the best method would be to first create all the objects you want in the email, login and then make each <code>MIMEMultipart</code> individually for each email.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">smtplib</span>
 <span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
 <span class="kn">from</span> <span class="nn">email.mime.multipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
 <span class="kn">from</span> <span class="nn">email.mime.base</span> <span class="kn">import</span> <span class="n">MIMEBase</span>
@@ -316,9 +312,8 @@ Make another string which is the plain-text version of the HTML and then attach 
 <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p>This method also makes sure that everyone that receives the email will not see the email of everyone else that the email was sent to. If you want to send one email to many addresses and let each recipient see who the email was sent to, you can simply set <code>msg['To']</code> to the recipient emails split by commas and then call <code>server.send_message</code> to send the email, passing <code>msg</code> not as a string. </p>
-<div class="codehilite"><pre><span></span><code><span class="n">send_to_emails</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;recipient_1@gmail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;recipient_2@gmail.com&#39;</span><span class="p">]</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">send_to_emails</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;recipient_1@gmail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;recipient_2@gmail.com&#39;</span><span class="p">]</span>
 
 <span class="c1"># Was: msg[&#39;To&#39;] = send_to_email</span>
 <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">send_to_emails</span><span class="p">)</span>
@@ -326,7 +321,6 @@ Make another string which is the plain-text version of the HTML and then attach 
 <span class="c1"># Was: server.sendmail(email, send_to_email, text) where text = msg.as_string()</span>
 <span class="n">server</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> 
 </code></pre></div>
-
 
 <blockquote>
 <p>These lines are examples of lines switched in examples above excluding the snippet in "Sending to Multiple Emails"</p>

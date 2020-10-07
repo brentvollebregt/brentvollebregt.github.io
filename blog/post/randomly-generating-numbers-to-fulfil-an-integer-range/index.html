@@ -124,7 +124,7 @@
 <h2 id="creating-an-initial-method">
 <span style="position:relative"><a class="anchor" href="#creating-an-initial-method"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Creating An Initial Method</span></h2>
 <p>Sitting in my girlfriend's English lecture at Victoria University seemed like the best place to start this. The plan was to make a definition that took a range integer and randomly generates values until all values in the range were found. It would then return how many generations it took to get all values. To check when I had all values, I sorted the list using pythons built-in list sort and then checked if it was identical to a generated list containing 1 to the range in order which was created using the range function in list comprehension.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
 
 <span class="k">def</span> <span class="nf">get_generation</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
     <span class="n">aim</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
@@ -154,7 +154,6 @@
     <span class="nb">print</span> <span class="p">(</span><span class="n">range_aim</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">total</span><span class="o">/</span><span class="n">runs</span><span class="p">)</span>
     <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 </code></pre></div>
-
 
 <p>This script was clean and was easy to use; all I had to do was change the four runs, min_, max_ and step_ variables to change looping for average calculation and the integers tested.</p>
 <h2 id="testing-small-numbers">
@@ -391,7 +390,7 @@
 <h3 id="removing-sort">
 <span style="position:relative"><a class="anchor" href="#removing-sort"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Removing .sort()</span></h3>
 <p>I changed the get_generation method to get rid of the .sort() list function. This new method removes the need for a target list as it compares the length of the list to the target range. If both are equal this means that we have generated all the values in the range and can break out of the loop. This can be done as the list is checked before a value is added to make sure the value isn't in there.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_generation</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_generation</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
     <span class="n">generation_count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">generated</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -403,7 +402,6 @@
                 <span class="k">break</span>
     <span class="k">return</span> <span class="n">generation_count</span>
 </code></pre></div>
-
 
 <p>The new results from the profiler while using this method for 1000 runs at a 2000 range are as follows.</p>
 <table>
@@ -500,7 +498,7 @@
 <h3 id="method-to-test">
 <span style="position:relative"><a class="anchor" href="#method-to-test"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Method to Test</span></h3>
 <p>To test the two methods, it would be best to 'pull them apart' and use the exact same numbers on them to see what sort of speed increase there really is. My plan is to generate random numbers in a certain range, make sure all numbers in the range are located in the list and then run them through the two methods. This will mean exactly the same data is being passed through to ensure a fairer test. I created a small script to generate random numbers in a range and stop when all the required numbers are present. I moved this method and created modified versions of the methods I was testing allowing them to take in the new list of numbers only. I then timed the two methods. The script and data are as follows.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
 <span class="k">def</span> <span class="nf">generate_testing_data</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
@@ -549,7 +547,6 @@
     <span class="n">new_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
     <span class="nb">print</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">old_time</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">new_time</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h3 id="results">
 <span style="position:relative"><a class="anchor" href="#results"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Results</span></h3>
@@ -676,7 +673,7 @@
 <span style="position:relative"><a class="anchor" href="#method"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Method</span></h3>
 <p>After some quick planning, I completed the new script to how I had planned. Some quick testing and formatting of the CSV output then had it ready to be fully run.</p>
 <p>This did in-fact speed up the process of getting the data but threads were not called as fast as expected and it still did have difficulty on higher numbers. To give a bit of feedback I added a method to look at what was running and provide more useful messages. With this output, I noted that threads were peaking at just over 270, this wasn't currently an issue, just interesting. This was the final script for the threading version.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
 <span class="k">class</span> <span class="nc">Generation_Thread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
@@ -750,7 +747,6 @@
                 <span class="k">break</span>
     <span class="n">status</span><span class="p">(</span><span class="s2">&quot;Started &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">range_value</span><span class="p">))</span>
 </code></pre></div>
-
 
 <h3 id="results_1">
 <span style="position:relative"><a class="anchor" href="#results_1"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Results</span></h3>

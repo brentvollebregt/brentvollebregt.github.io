@@ -119,14 +119,13 @@
 <p>Some of these dialogs make sounds as you would typically find with dialogs displaying an error</p>
 </blockquote>
 <p>In these examples, I will be referencing a <code>parent</code>. This parent is a <code>tkinter.Tk</code> object which acts as the "base" of the dialogs. Using a parent also allows you to <strong>set an icon</strong> on the dialog window and task-bar item. Here is an example:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">tkinter</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">tkinter</span>
 
 <span class="n">parent</span> <span class="o">=</span> <span class="n">tkinter</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span> <span class="c1"># Create the object</span>
 <span class="n">parent</span><span class="o">.</span><span class="n">overrideredirect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Avoid it appearing and then disappearing quickly</span>
 <span class="n">parent</span><span class="o">.</span><span class="n">iconbitmap</span><span class="p">(</span><span class="s2">&quot;PythonIcon.ico&quot;</span><span class="p">)</span> <span class="c1"># Set an icon (this is optional - must be in a .ico format)</span>
 <span class="n">parent</span><span class="o">.</span><span class="n">withdraw</span><span class="p">()</span> <span class="c1"># Hide the window as we do not want to see this one</span>
 </code></pre></div>
-
 
 <blockquote>
 <p>When using an icon like this, the .ico must be an icon format - do not just rename the file.</p>
@@ -138,7 +137,7 @@
 <h3 id="message-dialogs">
 <span style="position:relative"><a class="anchor" href="#message-dialogs"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Message Dialogs</span></h3>
 <p>Message dialogs are a simple way to display a message with a title. There are three types of dialogs that simply provide an "OK" button; information, warning and error. Each of these dialogs display a title, message and icon that corresponds to the type of dialog.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">messagebox</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">messagebox</span>
 
 <span class="c1"># After creating parent...</span>
 
@@ -146,7 +145,6 @@
 <span class="n">warn</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s1">&#39;Warning Title&#39;</span><span class="p">,</span> <span class="s1">&#39;A simple message with a warning icon&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
 <span class="n">error</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s1">&#39;Error Title&#39;</span><span class="p">,</span> <span class="s1">&#39;A simple message with an error icon&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>Looking at the values of each <code>info</code>, <code>warn</code> and <code>error</code> after executing the lines, you will notice that they all have been assigned value "ok". If the user clicks the OK button or even closes the window using the cross, these dialogs will always return "ok".</p>
 <table>
@@ -179,7 +177,7 @@
 <h3 id="question-dialogs">
 <span style="position:relative"><a class="anchor" href="#question-dialogs"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Question Dialogs</span></h3>
 <p>Question dialogs allow you to ask a user a particular question with a title and have them reply in one of two ways (or three in one case).</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">messagebox</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">messagebox</span>
 
 <span class="c1"># After creating parent...</span>
 
@@ -188,7 +186,6 @@
 <span class="n">yesno</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">askyesno</span><span class="p">(</span><span class="s1">&#39;Question Title&#39;</span><span class="p">,</span> <span class="s1">&#39;Are you sure you want to undo?&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span> <span class="c1"># Yes / No</span>
 <span class="n">yesnocancel</span> <span class="o">=</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">askyesnocancel</span><span class="p">(</span><span class="s1">&#39;Question Title&#39;</span><span class="p">,</span> <span class="s1">&#39;Are you sure you want to undo?&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span> <span class="c1"># Yes / No / Cancel</span>
 </code></pre></div>
-
 
 <table>
 <thead>
@@ -245,7 +242,7 @@
 <h3 id="input-dialogs">
 <span style="position:relative"><a class="anchor" href="#input-dialogs"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Input Dialogs</span></h3>
 <p>Input dialogs ask for a particular type of value; in this case that is either of type string, integer or float. Unfortunately like all the other dialogs, the icon from the parent will not be used due to how these dialogs are constructed. If you plan on consistently taking input from a user I recommend creating your own input dialog.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">simpledialog</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">simpledialog</span>
 
 <span class="c1"># After creating parent...</span>
 
@@ -253,7 +250,6 @@
 <span class="n">integer_value</span> <span class="o">=</span> <span class="n">simpledialog</span><span class="o">.</span><span class="n">askinteger</span><span class="p">(</span><span class="s1">&#39;Dialog Title&#39;</span><span class="p">,</span> <span class="s1">&#39;What is your age?&#39;</span><span class="p">,</span> <span class="n">minvalue</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxvalue</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
 <span class="n">float_value</span> <span class="o">=</span> <span class="n">simpledialog</span><span class="o">.</span><span class="n">askfloat</span><span class="p">(</span><span class="s1">&#39;Dialog Title&#39;</span><span class="p">,</span> <span class="s1">&#39;What is your salary?&#39;</span><span class="p">,</span> <span class="n">minvalue</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">maxvalue</span><span class="o">=</span><span class="mf">100000.0</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
 </code></pre></div>
-
 
 <table>
 <thead>
@@ -289,7 +285,7 @@
 <h3 id="file-folder-dialogs">
 <span style="position:relative"><a class="anchor" href="#file-folder-dialogs"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>File / Folder Dialogs</span></h3>
 <p>File and folder dialogs allow you to ask the user select a folder, single file, multiple files or chose a location to save a file as.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">filedialog</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">filedialog</span>
 
 <span class="c1"># After creating parent...</span>
 
@@ -304,7 +300,6 @@
 <span class="c1"># Ask the user to select a single file name for saving.</span>
 <span class="n">save_as</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">asksaveasfilename</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Save as&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
 </code></pre></div>
-
 
 <table>
 <thead>
@@ -343,28 +338,25 @@
 </tbody>
 </table>
 <p>When using any of these file dialog calls, you can also supply a string to the parameter <code>initialdir</code> which will put the user in a particular directory when the dialog first opens; for example:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">directory_to_start_from</span> <span class="o">=</span> <span class="s1">&#39;C:/Users/User/Downloads/&#39;</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">directory_to_start_from</span> <span class="o">=</span> <span class="s1">&#39;C:/Users/User/Downloads/&#39;</span>
 <span class="n">directory</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askdirectory</span><span class="p">(</span><span class="n">initialdir</span><span class="o">=</span><span class="n">directory_to_start_from</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Please select a folder:&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>When asking for a file to open or save as, you can specify what type of files the user can select (based off file extension) using the <code>filetypes</code> argument. This argument takes a list of tuples, where each of these tuples contain a string of the group name and a string of file extensions separated by <code>;</code> if required. The tuple that is the first in the list is the default selection. An example of the usage of <code>filetypes</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">file_types</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Python files&#39;</span><span class="p">,</span> <span class="s1">&#39;*.py;*.pyw&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;All files&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)]</span> <span class="c1"># Initially can select any .py or .pyw files but can change the selection to anything (*)</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">file_types</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Python files&#39;</span><span class="p">,</span> <span class="s1">&#39;*.py;*.pyw&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;All files&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)]</span> <span class="c1"># Initially can select any .py or .pyw files but can change the selection to anything (*)</span>
 <span class="n">file_name</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askopenfilename</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Select a file&#39;</span><span class="p">,</span> <span class="n">filetypes</span><span class="o">=</span><span class="n">file_types</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><img alt="File Dialogs" src="/posts/how-to-create-dialogs-in-python/file-dialogs.png" /></p>
 <h3 id="color-picker-dialog">
 <span style="position:relative"><a class="anchor" href="#color-picker-dialog"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Color Picker Dialog</span></h3>
 <p>Color pickers are used to ask a user to select a color. These aren't seen in may places but when a color needs to be selected, this is a great option as it contains everything needed.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">colorchooser</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">colorchooser</span>
 
 <span class="c1"># After creating parent...</span>
 
 <span class="n">color</span> <span class="o">=</span> <span class="n">colorchooser</span><span class="o">.</span><span class="n">askcolor</span><span class="p">(</span><span class="n">initialcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span> <span class="c1"># Returns a tuple</span>
 </code></pre></div>
-
 
 <table>
 <thead>

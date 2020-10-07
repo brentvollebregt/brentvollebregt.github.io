@@ -131,20 +131,17 @@
 <h2 id="installing-mss">
 <span style="position:relative"><a class="anchor" href="#installing-mss"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Installing MSS</span></h2>
 <p>To install MSS, execute the following in a terminal:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">python -m pip install mss</span>
+<div class="terminal codehilite"><pre><span></span><code><span class="err">python -m pip install mss</span>
 </code></pre></div>
-
 
 <p>To validate it was installed correctly, go to IDLE or a python shell and execute:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
 </code></pre></div>
-
 
 <p>If no import error is raised, it was installed successfully.</p>
 <p>You might also find it helpful to install PIL for this tutorial but it is not required for basic operations:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">python -m pip install Pillow</span>
+<div class="terminal codehilite"><pre><span></span><code><span class="err">python -m pip install Pillow</span>
 </code></pre></div>
-
 
 <h3 id="i-cant-import-mss">
 <span style="position:relative"><a class="anchor" href="#i-cant-import-mss"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>I Can't Import MSS</span></h3>
@@ -153,18 +150,17 @@
 <h2 id="taking-a-screenshot">
 <span style="position:relative"><a class="anchor" href="#taking-a-screenshot"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Taking A Screenshot</span></h2>
 <p>To take a screenshot and keep it in memory, we first need to import mss and identify the monitor we want to capture, then we can call <code>.shot()</code> on the instance of <code>mss.mss</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
 
 <span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>  <span class="c1"># Create a new mss.mss instance</span>
     <span class="n">monitor_1</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">monitors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Identify the display to capture</span>
     <span class="n">screenshot</span> <span class="o">=</span> <span class="n">mss_instance</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="n">monitor_1</span><span class="p">)</span>  <span class="c1"># Take the screenshot</span>
 </code></pre></div>
 
-
 <h3 id="viewing-the-screenshot-using-pil">
 <span style="position:relative"><a class="anchor" href="#viewing-the-screenshot-using-pil"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Viewing The Screenshot (Using PIL)</span></h3>
 <p>If you have PIL installed, we can do some quick translations to turn this returned object into a <code>PIL.Image</code> object to then show:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
 <span class="kn">import</span> <span class="nn">mss</span>
 
 <span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>
@@ -175,11 +171,10 @@
     <span class="n">img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Show the image using the default image viewer</span>
 </code></pre></div>
 
-
 <h3 id="saving-the-screenshot-to-a-file">
 <span style="position:relative"><a class="anchor" href="#saving-the-screenshot-to-a-file"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Saving The Screenshot To A File</span></h3>
 <p>MSS by default supports saving the screenshot to a file as soon as it's been taken. By simply defining the destination of the file, we can execute:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
 
 <span class="n">output_filename</span> <span class="o">=</span> <span class="s1">&#39;screenshot.png&#39;</span>
 
@@ -187,9 +182,8 @@
     <span class="n">mss_instance</span><span class="o">.</span><span class="n">shot</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="n">output_filename</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>However, if you want to save the image we translated to a PIL object above, we can do: </p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
 <span class="kn">import</span> <span class="nn">mss</span>
 
 <span class="n">output_filename</span> <span class="o">=</span> <span class="s1">&#39;screenshot.png&#39;</span>
@@ -202,11 +196,10 @@
     <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">output_filename</span><span class="p">,</span> <span class="s2">&quot;PNG&quot;</span><span class="p">)</span>  <span class="c1"># Save the image</span>
 </code></pre></div>
 
-
 <h4 id="saving-to-a-file-object">
 <span style="position:relative"><a class="anchor" href="#saving-to-a-file-object"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Saving To A File Object</span></h4>
 <p>If you want to save the screenshot to a file object, we can use something very similar to the PIL method above to store a PNG:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
 <span class="kn">import</span> <span class="nn">mss</span>
 
@@ -220,7 +213,6 @@
     <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">bytes_io</span><span class="p">,</span> <span class="s2">&quot;PNG&quot;</span><span class="p">)</span>  <span class="c1"># Save to the bytes_io object</span>
 </code></pre></div>
 
-
 <h3 id="example">
 <span style="position:relative"><a class="anchor" href="#example"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Example</span></h3>
 <p><img alt="Screenshot Single" src="/posts/how-to-take-a-screenshot-in-python-using-mss/screenshot-mon-1.png" /></p>
@@ -228,7 +220,7 @@
 <span style="position:relative"><a class="anchor" href="#taking-a-screenshot-of-a-different-display"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Taking A Screenshot Of A Different Display</span></h2>
 <p>In the above examples, you would have seen that I was using monitor 1 by calling <code>mss_instance.monitors[1]</code> to get the screenshot. </p>
 <p>Using the basic <code>mss_instance.shot</code> and passing a monitor number to it, we can tell MSS what monitor to capture:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
 
 <span class="n">output_filename</span> <span class="o">=</span> <span class="s1">&#39;screenshot.png&#39;</span>
 <span class="n">monitor</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Save a screenshot of monitor 2</span>
@@ -237,31 +229,28 @@
     <span class="n">mss_instance</span><span class="o">.</span><span class="n">shot</span><span class="p">(</span><span class="n">mon</span><span class="o">=</span><span class="n">monitor</span><span class="p">,</span> <span class="n">monoutput</span><span class="o">=</span><span class="n">output_filename</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>However, if you want to have a PIL Image object but don't want to have to save and then read the file (because that is slow), we will need to first identify the monitor position and dimensions.</p>
 <p>Looking at <code>mss_instance.monitors</code> will give us the monitor information we need:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mss</span>
 
 <span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">mss_instance</span><span class="o">.</span><span class="n">monitors</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>Output:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">[</span>
+<div class="python codehilite"><pre><span></span><code><span class="p">[</span>
     <span class="p">{</span><span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1440</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">3360</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">1080</span><span class="p">},</span>
     <span class="p">{</span><span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">1920</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">1080</span><span class="p">},</span>
     <span class="p">{</span><span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1440</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">:</span> <span class="mi">174</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">1440</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">900</span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div>
 
-
 <blockquote>
 <p>Your output could look different to mine, and that's ok; this is a representation of my monitor layout.</p>
 </blockquote>
 <p>In the output above, we can see three "monitors". I only have two monitors, but MSS is advertising all my monitors combined in one shot as the first monitor <code>mss_instance.monitors[0]</code>. This means when you want to screenshot only a monitor by itself, start at 1.</p>
 <p>Once you identify the display to capture, you can then take the screenshot using <code>mss_instance.grab</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
 <span class="kn">import</span> <span class="nn">mss</span>
 
 <span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>
@@ -272,11 +261,10 @@
     <span class="c1"># Use img as you please</span>
 </code></pre></div>
 
-
 <h3 id="examples">
 <span style="position:relative"><a class="anchor" href="#examples"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Examples</span></h3>
 <p>Monitor 0 (All Together):</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Will need to make sure PIL is installed</span>
 <span class="kn">import</span> <span class="nn">mss</span>
 
 <span class="k">with</span> <span class="n">mss</span><span class="o">.</span><span class="n">mss</span><span class="p">()</span> <span class="k">as</span> <span class="n">mss_instance</span><span class="p">:</span>
@@ -286,7 +274,6 @@
     <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">frombytes</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">.</span><span class="n">bgra</span><span class="p">,</span> <span class="s2">&quot;raw&quot;</span><span class="p">,</span> <span class="s2">&quot;BGRX&quot;</span><span class="p">)</span>  <span class="c1"># Convert to PIL.Image</span>
     <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;output.png&#39;</span><span class="p">,</span> <span class="s1">&#39;PNG&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><img alt="Screenshot Monitor 0" src="/posts/how-to-take-a-screenshot-in-python-using-mss/screenshot-mon-0.png" /></p>
 <p>Monitor 1:</p>

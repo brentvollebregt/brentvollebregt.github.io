@@ -135,40 +135,35 @@
 <h2 id="simulating-mouse-events">
 <span style="position:relative"><a class="anchor" href="#simulating-mouse-events"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Simulating Mouse Events</span></h2>
 <p>Create a new script and save it somewhere so you can easily run the script. Import <code>Button</code> and <code>Controller</code> from <code>pynput.mouse</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Controller</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Controller</span>
 </code></pre></div>
-
 
 <p>Make a variable called <code>mouse</code> and set it to an instance of <code>Controller</code>. Now using the <code>mouse</code> variable we can control the mouse.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">mouse</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">()</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">mouse</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">()</span>
 </code></pre></div>
-
 
 <h3 id="finding-the-position-of-the-mouse">
 <span style="position:relative"><a class="anchor" href="#finding-the-position-of-the-mouse"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Finding the Position of the Mouse</span></h3>
 <p>To find the position of the mouse we can use <code>mouse.position</code>. This will return a tuple of two integers. The first integer is the x position and the second integer is the y position. This is relative to the top left of the screen; x getting bigger is going right and y getting bigger is going down.</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Current position: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">position</span><span class="p">))</span>
+<div class="python codehilite"><pre><span></span><code><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Current position: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">position</span><span class="p">))</span>
 </code></pre></div>
-
 
 <h3 id="setting-the-position-of-the-mouse">
 <span style="position:relative"><a class="anchor" href="#setting-the-position-of-the-mouse"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Setting the Position of the Mouse</span></h3>
 <p>To set the position of the mouse we can use <code>mouse.position</code> again. By setting this to an x and y point, the mouse position will be updated immediately.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">mouse</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">mouse</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h3 id="moving-the-mouse-relative-to-its-position">
 <span style="position:relative"><a class="anchor" href="#moving-the-mouse-relative-to-its-position"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Moving the Mouse Relative to Its Position</span></h3>
 <p>Instead of getting the mouses position and calculating where it needs to be moved to, if you want to move it a distance relative to the current position, we can use <code>mouse.move</code>. Passing an x and y integers to this will move the mouse relative to its current position. For example, if I wanted to move it to the right by 20 pixels and up by 13 pixels, I would use:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">mouse</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">)</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">mouse</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h3 id="clicking-buttons-on-the-mouse">
 <span style="position:relative"><a class="anchor" href="#clicking-buttons-on-the-mouse"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Clicking Buttons on the Mouse</span></h3>
 <p>To click buttons on the mouse, we would use <code>mouse.click</code>. Passing a button from the Button class imported and an integer, we can perform single, double and triple clicks for any button.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Click the left button</span>
+<div class="python codehilite"><pre><span></span><code><span class="c1"># Click the left button</span>
 <span class="n">mouse</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">Button</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Click the right button</span>
 <span class="n">mouse</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">Button</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -180,24 +175,21 @@
 <span class="n">mouse</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">Button</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h3 id="pressing-and-releasing-buttons">
 <span style="position:relative"><a class="anchor" href="#pressing-and-releasing-buttons"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Pressing and Releasing Buttons</span></h3>
 <p>We can also click a button using press and release methods. This would also allow us to drag an object by pressing, moving and then releasing. To press we would use the mouse.press method and to release we would use the <code>mouse.release</code> method. Both these methods need a button passed which can include the left, middle and right as shown above. More buttons can also be included depending on what operating system is being used.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">mouse</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Button</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">mouse</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Button</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
 <span class="n">mouse</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">Button</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h3 id="scrolling">
 <span style="position:relative"><a class="anchor" href="#scrolling"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Scrolling</span></h3>
 <p>To scroll we need to use the <code>mouse.scroll</code> passing two integers for horizontal and vertical scroll. The first integer is for horizontal which is left to right scroll; a positive integer will scroll right vice versa. The second integer is for vertical which is up to down scroll; a positive integer will scroll up vice versa.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Scroll up two steps</span>
+<div class="python codehilite"><pre><span></span><code><span class="c1"># Scroll up two steps</span>
 <span class="n">mouse</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1"># Scroll right five steps</span>
 <span class="n">mouse</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>Depending on your mouse settings, you may need to use bigger step values to see movement in the scroll. I have witnessed this myself and sometimes may need to use around 100 steps to move my mouse.</p>
 <h2 id="common-issues-and-questions">
@@ -205,16 +197,14 @@
 <h3 id="how-can-i-use-the-keyboard-and-mouse-controllers-at-the-same-time">
 <span style="position:relative"><a class="anchor" href="#how-can-i-use-the-keyboard-and-mouse-controllers-at-the-same-time"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>How can I use the keyboard and mouse controllers at the same time?</span></h3>
 <p>When you import the classes, Controller will be set to the last one imported. To show what the issue was, ask yourself, what controller did you use to set the mouse and what one to set the keyboard? You would have used the same, but they need to be from the different classes.  So then you should use:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Controller</span> <span class="k">as</span> <span class="n">KeyboardController</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Controller</span> <span class="k">as</span> <span class="n">KeyboardController</span>
 <span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Controller</span> <span class="k">as</span> <span class="n">MouseController</span>
 </code></pre></div>
-
 
 <p>Now when you want to use the controller for the mouse use MouseController and KeyboardController for the keyboard.</p>
 <div class="codehilite"><pre><span></span><code><span class="err">keyboard = KeyboardController()</span>
 <span class="err">mouse = MouseController()</span>
 </code></pre></div>
-
 
 <h3 id="modulenotfounderrorimporterror-no-module-named-pynput">
 <span style="position:relative"><a class="anchor" href="#modulenotfounderrorimporterror-no-module-named-pynput"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>ModuleNotFoundError/ImportError: No module named 'pynput'</span></h3>
