@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Wed, 07 Oct 2020 05:33:04 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2020 03:19:50 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -1584,77 +1584,6 @@ While creating this program, I discovered a way that could give hints to what em
       <pubDate>Mon, 11 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
-      <title>How To Setup Python's PIP</title>
-      <link>https://nitratine.net/blog/post/how-to-setup-pythons-pip/</link>
-      <description>This tutorial demonstrates how to set up Python's PIP. PIP is a package manager for pip that allows you to download third-party modules easily. I explain how to find your scripts folder and how to find pip.</description>
-      <content:encoded>&lt;div class="toc"&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#setting-up"&gt;Setting Up&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#a-shortcut"&gt;A Shortcut&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#usage"&gt;Usage&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#common-issues-and-questions"&gt;Common Issues and Questions&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#when-editing-the-path-variable-i-can-only-edit-the-variable"&gt;When editing the PATH variable, I can only edit the variable&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#it-still-isnt-working"&gt;It Still Isn't Working&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;p&gt;
-&lt;div class="embedded_yt my-3"&gt;
-&lt;div&gt;
-&lt;iframe allow="autoplay; encrypted-media" allowfullscreen="" src="https://www.youtube.com/embed/cm6WDGAzDPM"&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/p&gt;
-&lt;h2 id="setting-up"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#setting-up"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Setting Up&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;If you haven't used pip before on your computer, go to cmd and type 'pip'. If not errors appear you can move to the next step. If pip is not recognised, you need to set it up. Regarding you have python installed (you would not believe some of the comments on this video), open windows explorer (file search) and right-click on computer in the side menu.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Properties for this pc" src="/posts/how-to-setup-pythons-pip/demo1.png" /&gt;&lt;/p&gt;
-&lt;p&gt;Now click on "Advanced system settings" in the sidebar in the control panel.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Advanced system settings" src="/posts/how-to-setup-pythons-pip/demo2.png" /&gt;&lt;/p&gt;
-&lt;p&gt;In the new window, make sure you are in the "Advanced" tab (top) and then click the "Environment Variables" button.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Advanced tab and environmental variables button" src="/posts/how-to-setup-pythons-pip/demo3.png" /&gt;&lt;/p&gt;
-&lt;p&gt;In the new window that just appeared, go to the second section - "System variables" and scroll down until you find the "Path" variable. Click on it and then click the edit button below.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Path variable location" src="/posts/how-to-setup-pythons-pip/demo4.png" /&gt;&lt;/p&gt;
-&lt;p&gt;Now in the new window, click new on the right and put the folder location of your python scripts folder in. If you don't know where your python scripts folder is can execute this in a python shell or script.&lt;/p&gt;
-&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;executable&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;\Scripts&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img alt="Adding script folder location" src="/posts/how-to-setup-pythons-pip/demo5.png" /&gt;&lt;/p&gt;
-&lt;p&gt;Now type 'pip' in cmd to make sure you have done this correctly. No errors should appear.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;If you are using an older version of Windows, you will be presented with a one-line input field. Add a semicolon ';' to the end of the text current in the field and then add the path as you would have in the area before. &lt;code&gt;&amp;lt;current text&amp;gt;;&amp;lt;path&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="a-shortcut"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#a-shortcut"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;A Shortcut&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;A while ago I made a script that automatically sets up the &lt;code&gt;python&lt;/code&gt; and &lt;code&gt;pip&lt;/code&gt; commands on Windows by putting their directories on the users PATH variable automatically.&lt;/p&gt;
-&lt;p&gt;You can find this script in my &lt;a href="/blog/post/fix-python-is-not-recognized-as-an-internal-or-external-command/"&gt;"Fix: 'python' is not recognized as an internal or external command"&lt;/a&gt; post. &lt;/p&gt;
-&lt;h2 id="usage"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#usage"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Usage&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;You can now use commands like &lt;code&gt;pip install pynput&lt;/code&gt; to install a package or "pip list" to look at all packages installed.&lt;/p&gt;
-&lt;p&gt;Some useful commands:
-- &lt;code&gt;pip install [package]&lt;/code&gt;: install a package like pynput or pyinstaller
-- &lt;code&gt;pip uninstall [package]&lt;/code&gt;: removes an installed package
-- &lt;code&gt;pip list&lt;/code&gt;: shows install packages
-- &lt;code&gt;pip show [package]&lt;/code&gt;: shows information about an install package
-- &lt;code&gt;pip install [package] --upgrade&lt;/code&gt;:  Updates a package&lt;/p&gt;
-&lt;p&gt;You can find packages from projects on &lt;a href="https://github.com/"&gt;GitHub&lt;/a&gt; or &lt;a href="https://pypi.python.org/pypi"&gt;PyPI&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id="common-issues-and-questions"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#common-issues-and-questions"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Common Issues and Questions&lt;/span&gt;&lt;/h2&gt;
-&lt;h3 id="when-editing-the-path-variable-i-can-only-edit-the-variable"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#when-editing-the-path-variable-i-can-only-edit-the-variable"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;When editing the PATH variable, I can only edit the variable&lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;Add a ';' to the end and then put in the folder location, then apply/save it. This input is like this because you are using an older version of Windows.&lt;/p&gt;
-&lt;h3 id="it-still-isnt-working"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#it-still-isnt-working"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;It Still Isn't Working&lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;Regarding you followed the instructions properly, this will work. One other method to call pip is by calling &lt;code&gt;python -m pip&lt;/code&gt;. Using this allows us to call pip when the scripts folder is not in the PATH variable. Note that the directory of python.exe must be in the PATH variable for this to work (which means calling &lt;code&gt;python&lt;/code&gt; in cmd must work first).&lt;/p&gt;</content:encoded>
-      <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-setup-pythons-pip/</guid>
-      <category>YouTube</category>
-      <enclosure url="https://nitratine.net/posts/how-to-setup-pythons-pip/youtube-thumbnail.jpg" length="0" type="image/jpg"/>
-      <pubDate>Wed, 13 Dec 2017 00:00:00 +1300</pubDate>
-    </item>
-    <item>
       <title>Get WiFi Passwords With Python</title>
       <link>https://nitratine.net/blog/post/get-wifi-passwords-with-python/</link>
       <description>This script searches windows for wifi passwords with python already known and displays them alongside the network name. It will not find passwords that your computer doesn't already know. This is useful for the occasions that you forget your WiFi password.</description>
@@ -1764,6 +1693,77 @@ While creating this program, I discovered a way that could give hints to what em
       <guid isPermaLink="false">https://nitratine.net/blog/post/get-wifi-passwords-with-python/</guid>
       <category>YouTube</category>
       <enclosure url="https://nitratine.net/posts/get-wifi-passwords-with-python/feature.jpg" length="0" type="image/jpg"/>
+      <pubDate>Wed, 13 Dec 2017 00:00:00 +1300</pubDate>
+    </item>
+    <item>
+      <title>How To Setup Python's PIP</title>
+      <link>https://nitratine.net/blog/post/how-to-setup-pythons-pip/</link>
+      <description>This tutorial demonstrates how to set up Python's PIP. PIP is a package manager for pip that allows you to download third-party modules easily. I explain how to find your scripts folder and how to find pip.</description>
+      <content:encoded>&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#setting-up"&gt;Setting Up&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#a-shortcut"&gt;A Shortcut&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#usage"&gt;Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#common-issues-and-questions"&gt;Common Issues and Questions&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#when-editing-the-path-variable-i-can-only-edit-the-variable"&gt;When editing the PATH variable, I can only edit the variable&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#it-still-isnt-working"&gt;It Still Isn't Working&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;
+&lt;div class="embedded_yt my-3"&gt;
+&lt;div&gt;
+&lt;iframe allow="autoplay; encrypted-media" allowfullscreen="" src="https://www.youtube.com/embed/cm6WDGAzDPM"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;h2 id="setting-up"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#setting-up"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Setting Up&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;If you haven't used pip before on your computer, go to cmd and type 'pip'. If not errors appear you can move to the next step. If pip is not recognised, you need to set it up. Regarding you have python installed (you would not believe some of the comments on this video), open windows explorer (file search) and right-click on computer in the side menu.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Properties for this pc" src="/posts/how-to-setup-pythons-pip/demo1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Now click on "Advanced system settings" in the sidebar in the control panel.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Advanced system settings" src="/posts/how-to-setup-pythons-pip/demo2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;In the new window, make sure you are in the "Advanced" tab (top) and then click the "Environment Variables" button.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Advanced tab and environmental variables button" src="/posts/how-to-setup-pythons-pip/demo3.png" /&gt;&lt;/p&gt;
+&lt;p&gt;In the new window that just appeared, go to the second section - "System variables" and scroll down until you find the "Path" variable. Click on it and then click the edit button below.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Path variable location" src="/posts/how-to-setup-pythons-pip/demo4.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Now in the new window, click new on the right and put the folder location of your python scripts folder in. If you don't know where your python scripts folder is can execute this in a python shell or script.&lt;/p&gt;
+&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dirname&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;executable&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;\Scripts&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img alt="Adding script folder location" src="/posts/how-to-setup-pythons-pip/demo5.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Now type 'pip' in cmd to make sure you have done this correctly. No errors should appear.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you are using an older version of Windows, you will be presented with a one-line input field. Add a semicolon ';' to the end of the text current in the field and then add the path as you would have in the area before. &lt;code&gt;&amp;lt;current text&amp;gt;;&amp;lt;path&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="a-shortcut"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#a-shortcut"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;A Shortcut&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;A while ago I made a script that automatically sets up the &lt;code&gt;python&lt;/code&gt; and &lt;code&gt;pip&lt;/code&gt; commands on Windows by putting their directories on the users PATH variable automatically.&lt;/p&gt;
+&lt;p&gt;You can find this script in my &lt;a href="/blog/post/fix-python-is-not-recognized-as-an-internal-or-external-command/"&gt;"Fix: 'python' is not recognized as an internal or external command"&lt;/a&gt; post. &lt;/p&gt;
+&lt;h2 id="usage"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#usage"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Usage&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;You can now use commands like &lt;code&gt;pip install pynput&lt;/code&gt; to install a package or "pip list" to look at all packages installed.&lt;/p&gt;
+&lt;p&gt;Some useful commands:
+- &lt;code&gt;pip install [package]&lt;/code&gt;: install a package like pynput or pyinstaller
+- &lt;code&gt;pip uninstall [package]&lt;/code&gt;: removes an installed package
+- &lt;code&gt;pip list&lt;/code&gt;: shows install packages
+- &lt;code&gt;pip show [package]&lt;/code&gt;: shows information about an install package
+- &lt;code&gt;pip install [package] --upgrade&lt;/code&gt;:  Updates a package&lt;/p&gt;
+&lt;p&gt;You can find packages from projects on &lt;a href="https://github.com/"&gt;GitHub&lt;/a&gt; or &lt;a href="https://pypi.python.org/pypi"&gt;PyPI&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="common-issues-and-questions"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#common-issues-and-questions"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Common Issues and Questions&lt;/span&gt;&lt;/h2&gt;
+&lt;h3 id="when-editing-the-path-variable-i-can-only-edit-the-variable"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#when-editing-the-path-variable-i-can-only-edit-the-variable"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;When editing the PATH variable, I can only edit the variable&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Add a ';' to the end and then put in the folder location, then apply/save it. This input is like this because you are using an older version of Windows.&lt;/p&gt;
+&lt;h3 id="it-still-isnt-working"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#it-still-isnt-working"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;It Still Isn't Working&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Regarding you followed the instructions properly, this will work. One other method to call pip is by calling &lt;code&gt;python -m pip&lt;/code&gt;. Using this allows us to call pip when the scripts folder is not in the PATH variable. Note that the directory of python.exe must be in the PATH variable for this to work (which means calling &lt;code&gt;python&lt;/code&gt; in cmd must work first).&lt;/p&gt;</content:encoded>
+      <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-setup-pythons-pip/</guid>
+      <category>YouTube</category>
+      <enclosure url="https://nitratine.net/posts/how-to-setup-pythons-pip/youtube-thumbnail.jpg" length="0" type="image/jpg"/>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +1300</pubDate>
     </item>
     <item>
@@ -5204,7 +5204,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
 &lt;p&gt;I use a lot of resources for finer details and looked at a lot of setup.py files but these resources would have been the most helpful:
 - &lt;a href="https://packaging.python.org/tutorials/packaging-projects/"&gt;Packaging Python Projects&lt;/a&gt;
 - &lt;a href="https://jonemo.github.io/neubertify/2017/09/13/publishing-your-first-pypi-package/"&gt;Publishing your First PyPI Package by/for the Absolute Beginner&lt;/a&gt;
-- &lt;a href="https://github.com/kennethreitz/setup.py"&gt;GitHub/kennethreitz/setup.py&lt;/a&gt;&lt;/p&gt;
+- &lt;a href="https://github.com/navdeep-G/setup.py"&gt;GitHub/kennethreitz/setup.py&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id="issues-with-entry-points"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#issues-with-entry-points"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Issues With Entry-points&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;One issue I sat on for a bit was an error message saying &lt;em&gt;EntryPoint must be in 'name=module:attrs [extras]' format&lt;/em&gt;. I had provided &lt;em&gt;auto-py-to-exe=auto-py-to-exe.__main__:run&lt;/em&gt; which followed the pattern provided.&lt;/p&gt;
@@ -6651,7 +6651,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/div&gt;
 &lt;h2 id="introduction"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#introduction"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Introduction&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;The &lt;a href="https://github.com/requests/requests"&gt;&lt;code&gt;requests&lt;/code&gt;&lt;/a&gt; Python package is an HTTP library created by &lt;a href="https://github.com/kennethreitz"&gt;Kenneth Reitz&lt;/a&gt;. It is a very well known package in the Python community for making HTTP requests easy to create and call. This tutorial will cover the basics that you will need to know and will want to know when making HTTP requests in Python.&lt;/p&gt;
+&lt;p&gt;The &lt;a href="https://github.com/requests/requests"&gt;&lt;code&gt;requests&lt;/code&gt;&lt;/a&gt; Python package is an HTTP library created by Kenneth Reitz. It's a very well known package in the Python community for making HTTP requests easy to create and call. This tutorial will cover the basics that you will need to know and will want to know when making HTTP requests in Python.&lt;/p&gt;
 &lt;p&gt;Learning how to send HTTP requests allows you to query websites and API's for data or even a webpage so you can scrape data out with something like &lt;a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/"&gt;Beatifulsoup&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="installation"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#installation"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installation&lt;/span&gt;&lt;/h2&gt;
@@ -8517,6 +8517,55 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <pubDate>Sat, 08 Jun 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
+      <title>Remove Columns in a CSV File With Python</title>
+      <link>https://nitratine.net/blog/post/remove-columns-in-a-csv-file-with-python/</link>
+      <description>Need to remove columns from a large CSV file? Simply provide this script with the indexes of columns you want to be deleted and it will create a copy CSV file with those columns removed.</description>
+      <content:encoded>&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#what-is-this"&gt;What is This?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#code"&gt;Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#other-useful-and-related-csv-tools"&gt;Other Useful and Related CSV Tools&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id="what-is-this"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#what-is-this"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What is This?&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;This script takes an input CSV file and outputs a copy of the CSV file with particular columns removed. Provide &lt;code&gt;cols_to_remove&lt;/code&gt; with a list containing the indexes of &lt;strong&gt;columns&lt;/strong&gt; in the CSV file that you want to be removed (starting from index 0 - so the first column would be 0).&lt;/p&gt;
+&lt;p&gt;I have used indexes because they are easier to use programmatically and if I did use header titles, one character or space would have put it off. This method scales very well and can remove columns where MS Excel can't open a large file.&lt;/p&gt;
+&lt;h2 id="code"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#code"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Code&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;csv&lt;/span&gt;
+
+&lt;span class="n"&gt;input_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;input.csv&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;output_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;output.csv&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;cols_to_remove&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;# Column indexes to be removed (starts at 0)&lt;/span&gt;
+
+&lt;span class="n"&gt;cols_to_remove&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cols_to_remove&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;reverse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Reverse so we remove from the end first&lt;/span&gt;
+&lt;span class="n"&gt;row_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;# Current amount of rows processed&lt;/span&gt;
+
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;r&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;reader&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reader&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;output_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;newline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;writer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;reader&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;row_count&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+            &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\r&lt;/span&gt;&lt;span class="si"&gt;{0}&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;row_count&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Print rows processed&lt;/span&gt;
+            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;col_index&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;cols_to_remove&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="k"&gt;del&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;col_index&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+            &lt;span class="n"&gt;writer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writerow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="other-useful-and-related-csv-tools"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#other-useful-and-related-csv-tools"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Other Useful and Related CSV Tools&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/jrivero/1085501/a2401c345e8abb46f3623e08afbe36e59923f94e"&gt;CSV Splitter&lt;/a&gt;: Splits a CSV file into multiple files with a row limit per file&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/zblesk/csv-to-sqlite"&gt;CSV to Sqlite&lt;/a&gt;: A command-line tool that copies data from CSV files into a SQLite database.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded>
+      <guid isPermaLink="false">https://nitratine.net/blog/post/remove-columns-in-a-csv-file-with-python/</guid>
+      <category>Tools</category>
+      <enclosure url="https://nitratine.net/posts/remove-columns-in-a-csv-file-with-python/feature.png" length="0" type="image/png"/>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +1200</pubDate>
+    </item>
+    <item>
       <title>New Zealand Cyber Security Challenge 2019 Round 0 Solutions</title>
       <link>https://nitratine.net/blog/post/new-zealand-cyber-security-challenge-2019-round-0-solutions/</link>
       <description>These are my solutions to the challenges I solved in the New Zealand Cyber Security Challenge 2019 Round 0.</description>
@@ -8676,55 +8725,6 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
       <guid isPermaLink="false">https://nitratine.net/blog/post/new-zealand-cyber-security-challenge-2019-round-0-solutions/</guid>
       <category>General</category>
       <enclosure url="https://nitratine.net/posts/new-zealand-cyber-security-challenge-2019-round-0-solutions/feature.png" length="0" type="image/png"/>
-      <pubDate>Mon, 10 Jun 2019 00:00:00 +1200</pubDate>
-    </item>
-    <item>
-      <title>Remove Columns in a CSV File With Python</title>
-      <link>https://nitratine.net/blog/post/remove-columns-in-a-csv-file-with-python/</link>
-      <description>Need to remove columns from a large CSV file? Simply provide this script with the indexes of columns you want to be deleted and it will create a copy CSV file with those columns removed.</description>
-      <content:encoded>&lt;div class="toc"&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#what-is-this"&gt;What is This?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#code"&gt;Code&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#other-useful-and-related-csv-tools"&gt;Other Useful and Related CSV Tools&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;h2 id="what-is-this"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#what-is-this"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What is This?&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;This script takes an input CSV file and outputs a copy of the CSV file with particular columns removed. Provide &lt;code&gt;cols_to_remove&lt;/code&gt; with a list containing the indexes of &lt;strong&gt;columns&lt;/strong&gt; in the CSV file that you want to be removed (starting from index 0 - so the first column would be 0).&lt;/p&gt;
-&lt;p&gt;I have used indexes because they are easier to use programmatically and if I did use header titles, one character or space would have put it off. This method scales very well and can remove columns where MS Excel can't open a large file.&lt;/p&gt;
-&lt;h2 id="code"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#code"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Code&lt;/span&gt;&lt;/h2&gt;
-&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;csv&lt;/span&gt;
-
-&lt;span class="n"&gt;input_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;input.csv&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;output_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;output.csv&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;cols_to_remove&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;# Column indexes to be removed (starts at 0)&lt;/span&gt;
-
-&lt;span class="n"&gt;cols_to_remove&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cols_to_remove&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;reverse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Reverse so we remove from the end first&lt;/span&gt;
-&lt;span class="n"&gt;row_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;# Current amount of rows processed&lt;/span&gt;
-
-&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;r&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;reader&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reader&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;output_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;newline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;writer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;reader&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="n"&gt;row_count&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-            &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\r&lt;/span&gt;&lt;span class="si"&gt;{0}&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;row_count&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Print rows processed&lt;/span&gt;
-            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;col_index&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;cols_to_remove&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-                &lt;span class="k"&gt;del&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;col_index&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-            &lt;span class="n"&gt;writer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writerow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id="other-useful-and-related-csv-tools"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#other-useful-and-related-csv-tools"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Other Useful and Related CSV Tools&lt;/span&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://gist.github.com/jrivero/1085501/a2401c345e8abb46f3623e08afbe36e59923f94e"&gt;CSV Splitter&lt;/a&gt;: Splits a CSV file into multiple files with a row limit per file&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/zblesk/csv-to-sqlite"&gt;CSV to Sqlite&lt;/a&gt;: A command-line tool that copies data from CSV files into a SQLite database.&lt;/li&gt;
-&lt;/ul&gt;</content:encoded>
-      <guid isPermaLink="false">https://nitratine.net/blog/post/remove-columns-in-a-csv-file-with-python/</guid>
-      <category>Tools</category>
-      <enclosure url="https://nitratine.net/posts/remove-columns-in-a-csv-file-with-python/feature.png" length="0" type="image/png"/>
       <pubDate>Mon, 10 Jun 2019 00:00:00 +1200</pubDate>
     </item>
     <item>
@@ -10758,139 +10758,6 @@ C:\Python37\python.exe
       <pubDate>Sat, 22 Aug 2020 00:00:00 +1200</pubDate>
     </item>
     <item>
-      <title>How To Take A Screenshot In Python Using PIL</title>
-      <link>https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-pil/</link>
-      <description>In this tutorial, I will demonstrate how to take a screenshot using PIL in Python. Window, macOS and Linux are all supported.</description>
-      <content:encoded>&lt;div class="toc"&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="#what-is-pil"&gt;What Is PIL?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#installing-pil"&gt;Installing PIL&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#i-cant-import-pil"&gt;I Can't Import PIL&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="#taking-a-screenshot"&gt;Taking A Screenshot&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#viewing-the-screenshot"&gt;Viewing The Screenshot&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#saving-the-screenshot"&gt;Saving The Screenshot&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#saving-to-a-file-object"&gt;Saving To A File Object&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="#taking-a-screenshot-of-a-different-display"&gt;Taking A Screenshot Of A Different Display&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#using-mss-to-screenshot-each-displays"&gt;Using MSS to Screenshot Each Displays&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;h2 id="what-is-pil"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#what-is-pil"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What Is PIL?&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;PIL (Python Imaging Library / Pillow) is a Python library that adds support for opening, manipulating, and saving many different image file formats. It has a very friendly API with lots of help online including &lt;a href="https://pillow.readthedocs.io/en/stable/index.html"&gt;good documentation&lt;/a&gt;. &lt;/p&gt;
-&lt;p&gt;PIL supports Windows macOS and Linux and supports many versions of Python; see the installation notes to identify which version of PIL you will need for the version of Python you are using. At the time of wiring this, PIL 7 has been released and supports Python 3.8 - 3.5.&lt;/p&gt;
-&lt;h2 id="installing-pil"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#installing-pil"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing PIL&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;To install PIL, execute the following in a terminal:&lt;/p&gt;
-&lt;div class="terminal codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;python -m pip install Pillow&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;To install an older version of PIL, execute &lt;code&gt;python -m pip install pip=&amp;lt;version&amp;gt;&lt;/code&gt; eg. &lt;code&gt;python -m pip install pip=7.2.0&lt;/code&gt;. You can find older versions released in the &lt;a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html"&gt;release notes&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;To validate it was installed correctly, go to IDLE or a python shell and execute:&lt;/p&gt;
-&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;If no import error is raised, it was installed successfully.&lt;/p&gt;
-&lt;h3 id="i-cant-import-pil"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#i-cant-import-pil"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;I Can't Import PIL&lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;Make sure you have executed the install command above; if you're not sure you have executed it already, it is safe to execute it a second time.&lt;/p&gt;
-&lt;p&gt;If there were no errors when installing it and it says PIL is installed successfully, make sure you're 100% sure that you installed PIL in the same distribution of Python that you're trying to import it in. Go to my tutorial on &lt;a href="https://nitratine.net/blog/post/how-to-manage-multiple-python-distributions/"&gt;How to Manage Multiple Python Distributions&lt;/a&gt; if you're having some issues or are unsure about this.&lt;/p&gt;
-&lt;h2 id="taking-a-screenshot"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#taking-a-screenshot"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Taking A Screenshot&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;To take a screenshot, we first need to import the &lt;a href="https://pillow.readthedocs.io/en/stable/reference/ImageGrab.html"&gt;&lt;code&gt;ImageGrab&lt;/code&gt;&lt;/a&gt; module from PIL.&lt;/p&gt;
-&lt;p&gt;After we have the &lt;code&gt;ImageGrab&lt;/code&gt; module, we can call &lt;code&gt;.grab()&lt;/code&gt; to take a screenshot&lt;/p&gt;
-&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
-
-&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# Take the screenshot&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;On Linux, you must be using PIL 7.1.0 or higher for this to work; &lt;a href="https://pillow.readthedocs.io/en/stable/releasenotes/7.1.0.html#x11-imagegrab-grab"&gt;see release notes&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="viewing-the-screenshot"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#viewing-the-screenshot"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Viewing The Screenshot&lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;To view the screenshot, we can call &lt;code&gt;.show()&lt;/code&gt; on the returned &lt;a href="https://pillow.readthedocs.io/en/stable/reference/Image.html"&gt;Image object&lt;/a&gt;. For example, using the code from above:&lt;/p&gt;
-&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
-
-&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;screenshot&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# Show the image using the default image viewer&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Executing this will open the screenshot in your default image viewer. If you have more than one display, you will notice that this screenshot is only of the first display; I will expand on this further &lt;a href="#taking-a-screenshot-of-a-different-display"&gt;below&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Here is an example of a screenshot I took:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Screenshot Main Monitor" src="/posts/how-to-take-a-screenshot-in-python-using-pil/screenshot-main-monitor.png" /&gt;&lt;/p&gt;
-&lt;h3 id="saving-the-screenshot"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#saving-the-screenshot"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Saving The Screenshot&lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;Saving images in PIL is very easy, calling &lt;code&gt;.save()&lt;/code&gt; on the returned Image object will allow us to save the image into a file. &lt;/p&gt;
-&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
-
-&lt;span class="n"&gt;filepath&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;my_image.png&amp;#39;&lt;/span&gt;
-
-&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;screenshot&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;PNG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Equivalent to `screenshot.save(filepath, format=&amp;#39;PNG&amp;#39;)`&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Now if you go and open the file &lt;code&gt;filepath&lt;/code&gt; ("my_image.png" in the current working directory for this example), you will see the screenshot has been saved.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;If you provide a file path with an extension of a supported image format, you can omit the format.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id="saving-to-a-file-object"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#saving-to-a-file-object"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Saving To A File Object&lt;/span&gt;&lt;/h4&gt;
-&lt;p&gt;If you have a file already open in write mode or want to save the image to a file object, you can pass that instead of the filename. For example:&lt;/p&gt;
-&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
-
-&lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;my_file.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;screenshot&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;PNG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Save the image to the file object as a PNG&lt;/span&gt;
-
-&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# Make sure to close the file when you&amp;#39;re done&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;or&lt;/p&gt;
-&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;io&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BytesIO&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
-
-&lt;span class="n"&gt;bytes_io&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BytesIO&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-
-&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;screenshot&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;bytes_io&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;PNG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Save the image to bytes_io as a PNG&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Do what you want with the bytes_io object&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id="taking-a-screenshot-of-a-different-display"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#taking-a-screenshot-of-a-different-display"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Taking A Screenshot Of A Different Display&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;Back when we took a screenshot using &lt;code&gt;ImageGrab.grab()&lt;/code&gt;, it only captured the main display. To take a screenshot of all displays, we can pass &lt;code&gt;all_screens=True&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
-
-&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;all_screens&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Take a screenshot that includes all screens&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Please note that &lt;code&gt;all_screens&lt;/code&gt; is currently only supported in Windows&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Now when you call &lt;code&gt;screenshot.show()&lt;/code&gt;, you will see that multiple monitors are now displayed. Here is an example of my monitors:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Screenshot All Monitors" src="/posts/how-to-take-a-screenshot-in-python-using-pil/screenshot-all-monitors.png" /&gt;&lt;/p&gt;
-&lt;p&gt;Now that you have this larger image, you can crop it using other methods in PIL: &lt;a href="https://stackoverflow.com/a/58350508"&gt;How to crop an image using PIL&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id="using-mss-to-screenshot-each-displays"&gt;
-&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#using-mss-to-screenshot-each-displays"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Using MSS to Screenshot Each Displays&lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;I also have a tutorial &lt;a href="/blog/post/how-to-take-a-screenshot-in-python-using-mss/"&gt;How To Take A Screenshot In Python Using MSS&lt;/a&gt; which goes over how to take screenshots using the &lt;a href="https://python-mss.readthedocs.io/index.html"&gt;Python MSS library&lt;/a&gt;. The tutorial is very similar, however MSS has better support for screenshots of different individual displays (including macOS and Windows).&lt;/p&gt;</content:encoded>
-      <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-pil/</guid>
-      <category>Tutorials</category>
-      <enclosure url="https://nitratine.net/posts/how-to-take-a-screenshot-in-python-using-pil/screenshot-main-monitor.png" length="0" type="image/png"/>
-      <pubDate>Mon, 24 Aug 2020 00:00:00 +1200</pubDate>
-    </item>
-    <item>
       <title>How To Take A Screenshot In Python Using MSS</title>
       <link>https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-mss/</link>
       <description>In this tutorial, I will demonstrate how to take a screenshot using MSS in Python. This library can take screenshots of all displays individually and supports Window, macOS and Linux.</description>
@@ -11082,6 +10949,139 @@ C:\Python37\python.exe
       <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-mss/</guid>
       <category>Tutorials</category>
       <enclosure url="https://nitratine.net/posts/how-to-take-a-screenshot-in-python-using-mss/screenshot-mon-1.png" length="0" type="image/png"/>
+      <pubDate>Mon, 24 Aug 2020 00:00:00 +1200</pubDate>
+    </item>
+    <item>
+      <title>How To Take A Screenshot In Python Using PIL</title>
+      <link>https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-pil/</link>
+      <description>In this tutorial, I will demonstrate how to take a screenshot using PIL in Python. Window, macOS and Linux are all supported.</description>
+      <content:encoded>&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#what-is-pil"&gt;What Is PIL?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#installing-pil"&gt;Installing PIL&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#i-cant-import-pil"&gt;I Can't Import PIL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#taking-a-screenshot"&gt;Taking A Screenshot&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#viewing-the-screenshot"&gt;Viewing The Screenshot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#saving-the-screenshot"&gt;Saving The Screenshot&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#saving-to-a-file-object"&gt;Saving To A File Object&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#taking-a-screenshot-of-a-different-display"&gt;Taking A Screenshot Of A Different Display&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#using-mss-to-screenshot-each-displays"&gt;Using MSS to Screenshot Each Displays&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id="what-is-pil"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#what-is-pil"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What Is PIL?&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;PIL (Python Imaging Library / Pillow) is a Python library that adds support for opening, manipulating, and saving many different image file formats. It has a very friendly API with lots of help online including &lt;a href="https://pillow.readthedocs.io/en/stable/index.html"&gt;good documentation&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;PIL supports Windows macOS and Linux and supports many versions of Python; see the installation notes to identify which version of PIL you will need for the version of Python you are using. At the time of wiring this, PIL 7 has been released and supports Python 3.8 - 3.5.&lt;/p&gt;
+&lt;h2 id="installing-pil"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#installing-pil"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing PIL&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;To install PIL, execute the following in a terminal:&lt;/p&gt;
+&lt;div class="terminal codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;python -m pip install Pillow&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;To install an older version of PIL, execute &lt;code&gt;python -m pip install pip=&amp;lt;version&amp;gt;&lt;/code&gt; eg. &lt;code&gt;python -m pip install pip=7.2.0&lt;/code&gt;. You can find older versions released in the &lt;a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html"&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To validate it was installed correctly, go to IDLE or a python shell and execute:&lt;/p&gt;
+&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If no import error is raised, it was installed successfully.&lt;/p&gt;
+&lt;h3 id="i-cant-import-pil"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#i-cant-import-pil"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;I Can't Import PIL&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Make sure you have executed the install command above; if you're not sure you have executed it already, it is safe to execute it a second time.&lt;/p&gt;
+&lt;p&gt;If there were no errors when installing it and it says PIL is installed successfully, make sure you're 100% sure that you installed PIL in the same distribution of Python that you're trying to import it in. Go to my tutorial on &lt;a href="https://nitratine.net/blog/post/how-to-manage-multiple-python-distributions/"&gt;How to Manage Multiple Python Distributions&lt;/a&gt; if you're having some issues or are unsure about this.&lt;/p&gt;
+&lt;h2 id="taking-a-screenshot"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#taking-a-screenshot"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Taking A Screenshot&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;To take a screenshot, we first need to import the &lt;a href="https://pillow.readthedocs.io/en/stable/reference/ImageGrab.html"&gt;&lt;code&gt;ImageGrab&lt;/code&gt;&lt;/a&gt; module from PIL.&lt;/p&gt;
+&lt;p&gt;After we have the &lt;code&gt;ImageGrab&lt;/code&gt; module, we can call &lt;code&gt;.grab()&lt;/code&gt; to take a screenshot&lt;/p&gt;
+&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
+
+&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# Take the screenshot&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;On Linux, you must be using PIL 7.1.0 or higher for this to work; &lt;a href="https://pillow.readthedocs.io/en/stable/releasenotes/7.1.0.html#x11-imagegrab-grab"&gt;see release notes&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="viewing-the-screenshot"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#viewing-the-screenshot"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Viewing The Screenshot&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;To view the screenshot, we can call &lt;code&gt;.show()&lt;/code&gt; on the returned &lt;a href="https://pillow.readthedocs.io/en/stable/reference/Image.html"&gt;Image object&lt;/a&gt;. For example, using the code from above:&lt;/p&gt;
+&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
+
+&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;screenshot&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# Show the image using the default image viewer&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Executing this will open the screenshot in your default image viewer. If you have more than one display, you will notice that this screenshot is only of the first display; I will expand on this further &lt;a href="#taking-a-screenshot-of-a-different-display"&gt;below&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here is an example of a screenshot I took:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Screenshot Main Monitor" src="/posts/how-to-take-a-screenshot-in-python-using-pil/screenshot-main-monitor.png" /&gt;&lt;/p&gt;
+&lt;h3 id="saving-the-screenshot"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#saving-the-screenshot"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Saving The Screenshot&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Saving images in PIL is very easy, calling &lt;code&gt;.save()&lt;/code&gt; on the returned Image object will allow us to save the image into a file. &lt;/p&gt;
+&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
+
+&lt;span class="n"&gt;filepath&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;my_image.png&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;screenshot&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;PNG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Equivalent to `screenshot.save(filepath, format=&amp;#39;PNG&amp;#39;)`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now if you go and open the file &lt;code&gt;filepath&lt;/code&gt; ("my_image.png" in the current working directory for this example), you will see the screenshot has been saved.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you provide a file path with an extension of a supported image format, you can omit the format.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id="saving-to-a-file-object"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#saving-to-a-file-object"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Saving To A File Object&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;If you have a file already open in write mode or want to save the image to a file object, you can pass that instead of the filename. For example:&lt;/p&gt;
+&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
+
+&lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;my_file.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;screenshot&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;PNG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Save the image to the file object as a PNG&lt;/span&gt;
+
+&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# Make sure to close the file when you&amp;#39;re done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;io&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BytesIO&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
+
+&lt;span class="n"&gt;bytes_io&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BytesIO&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;screenshot&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;bytes_io&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;PNG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Save the image to bytes_io as a PNG&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Do what you want with the bytes_io object&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="taking-a-screenshot-of-a-different-display"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#taking-a-screenshot-of-a-different-display"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Taking A Screenshot Of A Different Display&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Back when we took a screenshot using &lt;code&gt;ImageGrab.grab()&lt;/code&gt;, it only captured the main display. To take a screenshot of all displays, we can pass &lt;code&gt;all_screens=True&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="python codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;PIL&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;
+
+&lt;span class="n"&gt;screenshot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ImageGrab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;all_screens&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Take a screenshot that includes all screens&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Please note that &lt;code&gt;all_screens&lt;/code&gt; is currently only supported in Windows&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Now when you call &lt;code&gt;screenshot.show()&lt;/code&gt;, you will see that multiple monitors are now displayed. Here is an example of my monitors:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Screenshot All Monitors" src="/posts/how-to-take-a-screenshot-in-python-using-pil/screenshot-all-monitors.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Now that you have this larger image, you can crop it using other methods in PIL: &lt;a href="https://stackoverflow.com/a/58350508"&gt;How to crop an image using PIL&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="using-mss-to-screenshot-each-displays"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#using-mss-to-screenshot-each-displays"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Using MSS to Screenshot Each Displays&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;I also have a tutorial &lt;a href="/blog/post/how-to-take-a-screenshot-in-python-using-mss/"&gt;How To Take A Screenshot In Python Using MSS&lt;/a&gt; which goes over how to take screenshots using the &lt;a href="https://python-mss.readthedocs.io/index.html"&gt;Python MSS library&lt;/a&gt;. The tutorial is very similar, however MSS has better support for screenshots of different individual displays (including macOS and Windows).&lt;/p&gt;</content:encoded>
+      <guid isPermaLink="false">https://nitratine.net/blog/post/how-to-take-a-screenshot-in-python-using-pil/</guid>
+      <category>Tutorials</category>
+      <enclosure url="https://nitratine.net/posts/how-to-take-a-screenshot-in-python-using-pil/screenshot-main-monitor.png" length="0" type="image/png"/>
       <pubDate>Mon, 24 Aug 2020 00:00:00 +1200</pubDate>
     </item>
     <item>
