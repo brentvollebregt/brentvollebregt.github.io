@@ -130,7 +130,7 @@
 <p>In the <code>manifest.json</code> file, under the <a href="https://developer.chrome.com/extensions/content_scripts"><code>content_scripts</code></a> key is a list of objects that describe what files that run in the context of web pages at particular URLs.</p>
 <p><img alt="content_scripts in the manifest.json" src="/posts/google-publisher-toolbar-please-copy-this-code/content-scripts.png" /></p>
 <p>Each object in this list contains a <code>matches</code> key; this contains a list of all the URL matches where particular scripts are allowed to run. In the same object under the <code>js</code> key is a list of all the scripts that can run on the matched URLs. In the screenshot above, the third object contains the following:</p>
-<div class="json codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;matches&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;https://accounts.google.com/o/oauth2/approval?*&quot;</span><span class="p">,</span>
         <span class="s2">&quot;https://accounts.google.com/o/oauth2/approval/v2/approvalnativeapp?*&quot;</span>

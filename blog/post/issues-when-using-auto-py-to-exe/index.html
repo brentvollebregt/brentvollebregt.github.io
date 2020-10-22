@@ -129,6 +129,7 @@
 <li><a href="#what-is-the-__pycache__-folder">What is the __pycache__ folder?</a></li>
 <li><a href="#my-antivirus-detected-the-exe-as-a-virus">My Antivirus Detected the exe as a Virus</a></li>
 <li><a href="#lots-of-warnings-appear-in-the-output">Lots of Warnings Appear in the Output</a></li>
+<li><a href="#the-output-executable-is-huge">The Output Executable is Huge</a></li>
 <li><a href="#vcruntime140dll-is-either-not-designed-to-run-on-windows-or-it-contains-an-error">"VCRUNTIME140.dll" is either not designed to run on Windows or it contains an error</a></li>
 </ul>
 </li>
@@ -163,11 +164,11 @@
 <h2 id="installation">
 <span style="position:relative"><a class="anchor" href="#installation"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Installation</span></h2>
 <p>To install auto-py-to-exe, make sure you have Python 3.4 or above installed. Ideally, you will also want Chrome installed but this is not a must; it will open in your default browser if Chrome is not found and the only thing different will be the interface size. Execute the following in the command prompt / terminal to install auto-py-to-exe:</p>
-<div class="console codehilite"><pre><span></span><code><span class="go">python -m pip install auto-py-to-exe</span>
+<div class="codehilite"><pre><span></span><code><span class="go">python -m pip install auto-py-to-exe</span>
 </code></pre></div>
 
 <p>Wait for this to finish and make sure that the last line contains "Successfully installed auto-py-to-exe" dash some version. You might get a message about your version of pip but you can ignore it. Now to run the project, execute the following in the terminal:</p>
-<div class="console codehilite"><pre><span></span><code><span class="go">auto-py-to-exe</span>
+<div class="codehilite"><pre><span></span><code><span class="go">auto-py-to-exe</span>
 </code></pre></div>
 
 <p>This will open auto-py-to-exe and the output will be saved in output/ in where your current working directory is.</p>
@@ -264,7 +265,7 @@
 <span style="position:relative"><a class="anchor" href="#how-do-i-convert-all-my-python-files"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>How do I Convert All My Python Files?</span></h3>
 <p>Add the entry point in the script location. PyInstaller searches for imports to get the rest of the Python files required to run, so as long as you use the <code>import</code> keyword, your files will be added.</p>
 <p>For example, if you have a layout like:</p>
-<div class="text codehilite"><pre><span></span><code>📂root
+<div class="codehilite"><pre><span></span><code>📂root
  ┣ 📂my_package
  ┃ ┣ 📜__init__.py
  ┃ ┣ 📜__main__.py
@@ -274,7 +275,7 @@
 
 <p>Then package <code>start.py</code> - PyInstaller will find the rest as long as you are using the <code>import</code> keyword.</p>
 <p>If you don't have something like <code>start.py</code> and use your application like a module (<code>python -m [module_name]</code>) then create a file like <code>start.py</code> which imports the package and runs it as you would expect. For example, this is what I do with <code>auto-py-to-exe</code>:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">my_package</span> <span class="kn">import</span> <span class="n">__main__</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">my_package</span> <span class="kn">import</span> <span class="n">__main__</span>
 
 <span class="n">__main__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;__main__&#39;</span> <span class="c1"># Make it look like `my_package.__main__` is the main script</span>
 <span class="n">__main__</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>  <span class="c1"># Call your main function if required</span>
@@ -290,7 +291,7 @@
 <p>This occurs because the path that these executables are located in is not on your path; thus cmd doesn't know where to look for them. You need to add these paths to the PATH environment variable so cmd knows where to look for the executable you are trying to execute.</p>
 <p>I created a script that can help set up these paths automatically, which can be found in my "<a href="/blog/post/fix-python-is-not-recognized-as-an-internal-or-external-command/">Fix: 'python' is not recognized as an internal or external command</a>" post. </p>
 <p>If you want a more manual approach to understand what is occurring, watch my <a href="https://youtu.be/cm6WDGAzDPM">video on how to setup Pythons PIP</a>. This will show you how to add the <code>\Scripts</code> folder, but I also recommend you add the root Python directory (same path without '\Scripts') so the <code>python</code> command will work. The paths you will need to add can be found using the commands below:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
 
 <span class="c1"># If &#39;python&#39; is not recognised</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">))</span>
@@ -320,6 +321,17 @@
 <span style="position:relative"><a class="anchor" href="#lots-of-warnings-appear-in-the-output"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Lots of Warnings Appear in the Output</span></h3>
 <p>These warnings can be ignored in most cases. I have not currently found a situation where these are an issue, after all, they are only warnings. These warnings typically match the format <code>WARNING: lib not found: api-ms-win-crt-&lt;specific dll&gt; dependency of &lt;file&gt;</code>.</p>
 <p>A YouTube user comment on the video related to this project that if you add <code>C:\Windows\System32\downlevel</code> to your PATH variable, these DLLS that were previously not being found can now be found. This is because the files missing are commonly found in this folder. Adding this folder to your path to now successfully locate these files can also speed up packaging times.</p>
+<h3 id="the-output-executable-is-huge">
+<span style="position:relative"><a class="anchor" href="#the-output-executable-is-huge"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>The Output Executable is Huge</span></h3>
+<p>Sometimes pyinstaller tries to be smart and will add packages it sees in your environment even if you are not using them in the project being packaged. This can lead to output executables being tens to hundreds of megabytes in size.</p>
+<p>To get around this, the easiest way would be to:</p>
+<ol>
+<li>Create a new/clean virtual environment</li>
+<li>Install auto-py-to-exe into it</li>
+<li>Install the required modules for your project</li>
+<li>Use the auto-py-to-exe in this virtual environment to package your script</li>
+</ol>
+<p>Doing this will mean pyinstaller doesn't see the packages you don't need bundled which can lead to smaller packages.</p>
 <h3 id="vcruntime140dll-is-either-not-designed-to-run-on-windows-or-it-contains-an-error">
 <span style="position:relative"><a class="anchor" href="#vcruntime140dll-is-either-not-designed-to-run-on-windows-or-it-contains-an-error"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>"VCRUNTIME140.dll" is either not designed to run on Windows or it contains an error</span></h3>
 <p>Try selecting the <code>--noupx</code> button in the advanced tab.</p>
@@ -329,11 +341,11 @@
 <h3 id="using-concurrentfutures">
 <span style="position:relative"><a class="anchor" href="#using-concurrentfutures"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Using <code>concurrent.futures</code></span></h3>
 <p>It was brought to my attention by <a href="https://github.com/William-Lake">William Lake</a> in <a href="https://github.com/brentvollebregt/auto-py-to-exe/issues/67">this GitHub issue</a> that when using <code>concurrent.futures</code> for any multi-threading/processing, it is recommended to add the following import:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">freeze_support</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">freeze_support</span>
 </code></pre></div>
 
 <p>and this line to your main:</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">freeze_support</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">freeze_support</span><span class="p">()</span>
 </code></pre></div>
 
 <p>William had stated that before adding these lines, he kept getting errors regarding <code>concurrent.futures</code> even though it worked fine before packaging.</p>
@@ -348,7 +360,7 @@
 <h4 id="demonstration-of-files-references-after-packaging">
 <span style="position:relative"><a class="anchor" href="#demonstration-of-files-references-after-packaging"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Demonstration of Files References After Packaging</span></h4>
 <p>I made a small Python file that finds where it is located and then tries to print the contents of a file if it exists otherwise will create a new one.</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
 <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s1">&#39;frozen&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span> <span class="c1"># we are running in a bundle</span>
     <span class="n">bundle_dir</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">_MEIPASS</span> <span class="c1"># This is where the files are unpacked to</span>
 <span class="k">else</span><span class="p">:</span> <span class="c1"># normal Python environment</span>
@@ -383,7 +395,7 @@
 <span style="position:relative"><a class="anchor" href="#the-one-file-resource-wrapper"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>The one-file Resource Wrapper</span></h3>
 <p>As described in the section above, non-python files that are bundled into an executable when using one-file mode need care when being referenced due to how they are un-packaged.</p>
 <p>In the interface, when one-file mode is selected and the additional files section is expanded, a note can be found that references a StackOverflow question regarding <a href="https://stackoverflow.com/questions/7674790/bundling-data-files-with-pyinstaller-onefile">"Bundling data files with PyInstaller (--onefile)"</a>. The first answer provides a nice snippet of code:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
 <span class="k">def</span> <span class="nf">resource_path</span><span class="p">(</span><span class="n">relative_path</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Get the absolute path to the resource, works for dev and for PyInstaller &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
@@ -401,7 +413,7 @@
 
 <nav class="blog-pagination text-center mb-5 mt-4">
     
-        <a class="btn btn-outline-primary mt-1" href="/blog/post/encryption-and-decryption-in-python/">&larr; Encryption and Decryption in Python</a>
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/asymmetric-encryption-and-decryption-in-python/">&larr; Asymmetric Encryption and D...</a>
     
     
         <a class="btn btn-outline-primary mt-1" href="/blog/post/python-size-and-time-cache-decorator/">Python Size and Time Cache ... &rarr;</a>

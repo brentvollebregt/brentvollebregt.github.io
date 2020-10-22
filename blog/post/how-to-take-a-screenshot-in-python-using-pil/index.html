@@ -123,14 +123,14 @@
 <h2 id="installing-pil">
 <span style="position:relative"><a class="anchor" href="#installing-pil"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Installing PIL</span></h2>
 <p>To install PIL, execute the following in a terminal:</p>
-<div class="terminal codehilite"><pre><span></span><code><span class="err">python -m pip install Pillow</span>
+<div class="codehilite"><pre><span></span><code><span class="err">python -m pip install Pillow</span>
 </code></pre></div>
 
 <blockquote>
 <p>To install an older version of PIL, execute <code>python -m pip install pip=&lt;version&gt;</code> eg. <code>python -m pip install pip=7.2.0</code>. You can find older versions released in the <a href="https://pillow.readthedocs.io/en/stable/releasenotes/index.html">release notes</a>.</p>
 </blockquote>
 <p>To validate it was installed correctly, go to IDLE or a python shell and execute:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">PIL</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">PIL</span>
 </code></pre></div>
 
 <p>If no import error is raised, it was installed successfully.</p>
@@ -142,7 +142,7 @@
 <span style="position:relative"><a class="anchor" href="#taking-a-screenshot"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Taking A Screenshot</span></h2>
 <p>To take a screenshot, we first need to import the <a href="https://pillow.readthedocs.io/en/stable/reference/ImageGrab.html"><code>ImageGrab</code></a> module from PIL.</p>
 <p>After we have the <code>ImageGrab</code> module, we can call <code>.grab()</code> to take a screenshot</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
 
 <span class="n">screenshot</span> <span class="o">=</span> <span class="n">ImageGrab</span><span class="o">.</span><span class="n">grab</span><span class="p">()</span>  <span class="c1"># Take the screenshot</span>
 </code></pre></div>
@@ -153,7 +153,7 @@
 <h3 id="viewing-the-screenshot">
 <span style="position:relative"><a class="anchor" href="#viewing-the-screenshot"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Viewing The Screenshot</span></h3>
 <p>To view the screenshot, we can call <code>.show()</code> on the returned <a href="https://pillow.readthedocs.io/en/stable/reference/Image.html">Image object</a>. For example, using the code from above:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
 
 <span class="n">screenshot</span> <span class="o">=</span> <span class="n">ImageGrab</span><span class="o">.</span><span class="n">grab</span><span class="p">()</span>
 <span class="n">screenshot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Show the image using the default image viewer</span>
@@ -165,7 +165,7 @@
 <h3 id="saving-the-screenshot">
 <span style="position:relative"><a class="anchor" href="#saving-the-screenshot"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Saving The Screenshot</span></h3>
 <p>Saving images in PIL is very easy, calling <code>.save()</code> on the returned Image object will allow us to save the image into a file. </p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
 
 <span class="n">filepath</span> <span class="o">=</span> <span class="s1">&#39;my_image.png&#39;</span>
 
@@ -180,7 +180,7 @@
 <h4 id="saving-to-a-file-object">
 <span style="position:relative"><a class="anchor" href="#saving-to-a-file-object"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Saving To A File Object</span></h4>
 <p>If you have a file already open in write mode or want to save the image to a file object, you can pass that instead of the filename. For example:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
 
 <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;my_file.png&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
 
@@ -191,7 +191,7 @@
 </code></pre></div>
 
 <p>or</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
 
 <span class="n">bytes_io</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">()</span>
@@ -205,7 +205,7 @@
 <h2 id="taking-a-screenshot-of-a-different-display">
 <span style="position:relative"><a class="anchor" href="#taking-a-screenshot-of-a-different-display"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Taking A Screenshot Of A Different Display</span></h2>
 <p>Back when we took a screenshot using <code>ImageGrab.grab()</code>, it only captured the main display. To take a screenshot of all displays, we can pass <code>all_screens=True</code>:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageGrab</span>
 
 <span class="n">screenshot</span> <span class="o">=</span> <span class="n">ImageGrab</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="n">all_screens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Take a screenshot that includes all screens</span>
 </code></pre></div>

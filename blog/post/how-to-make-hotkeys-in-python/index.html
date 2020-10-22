@@ -131,14 +131,14 @@
 <h2 id="creating-the-script">
 <span style="position:relative"><a class="anchor" href="#creating-the-script"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Creating the Script</span></h2>
 <p>First import keyboard from pynput and create a variable called current and set it to a set object to track what keys are pressed currently.</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput</span> <span class="kn">import</span> <span class="n">keyboard</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput</span> <span class="kn">import</span> <span class="n">keyboard</span>
 
 <span class="c1"># The currently active modifiers</span>
 <span class="n">current</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 </code></pre></div>
 
 <p>Next we will setup a listener for the keyboard and set on press and release methods to it. Setup the listener in a with statement and join the listener thread to the main thread using .join().</p>
-<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">pass</span>
 
 <span class="k">def</span> <span class="nf">on_release</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
@@ -149,7 +149,7 @@
 </code></pre></div>
 
 <p>Next we need to declare the combinations to look out for. I this example I will use Shift + A. I will need to use two variants, Shift + A and Shift + a so the combination will be detected no matter what order they are pressed. If A is pressed first, 'a' will be given to the listener but if shift is pressed before A then 'A' will be given to the listener. Make a list called COMBINATIONS and add the keys in sets as shown below.</p>
-<div class="python codehilite"><pre><span></span><code><span class="c1"># The key combination to check</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># The key combination to check</span>
 <span class="n">COMBINATIONS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span><span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">shift</span><span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">KeyCode</span><span class="p">(</span><span class="n">char</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)},</span>
     <span class="p">{</span><span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">shift</span><span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">KeyCode</span><span class="p">(</span><span class="n">char</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">)}</span>
@@ -157,12 +157,12 @@
 </code></pre></div>
 
 <p>Now create a method called execute. This is what will be executed when a combination is detected. You can put anything in here but for the demonstration I will print a simple string.</p>
-<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">execute</span><span class="p">():</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">execute</span><span class="p">():</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Do Something&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 <p>Now we will edit the on_press method. We need to first check if the key that has just been pressed is in any of the combinations that we have. If it is we need to add it to the current key set and then loop though all the combinations checking if all the keys in a particular combination are in the 'current' set. If one of the combinations has all their keys down, we need to call execute().</p>
-<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">key</span> <span class="ow">in</span> <span class="n">COMBO</span> <span class="k">for</span> <span class="n">COMBO</span> <span class="ow">in</span> <span class="n">COMBINATIONS</span><span class="p">]):</span>
         <span class="n">current</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">in</span> <span class="n">current</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">COMBO</span><span class="p">)</span> <span class="k">for</span> <span class="n">COMBO</span> <span class="ow">in</span> <span class="n">COMBINATIONS</span><span class="p">):</span>
@@ -173,7 +173,7 @@
 <p>In the current state, this script can provide multiple events for one combination detected. To prevent this, append <code>and not key in current</code> to the end of the initial if statement (before the colon).</p>
 </blockquote>
 <p>Finally we need to modify the on_release method and check that when a key is released, if it is in any of the combinations. If it is we need to removed it from the 'current' set.</p>
-<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_release</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">on_release</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">key</span> <span class="ow">in</span> <span class="n">COMBO</span> <span class="k">for</span> <span class="n">COMBO</span> <span class="ow">in</span> <span class="n">COMBINATIONS</span><span class="p">]):</span>
         <span class="n">current</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </code></pre></div>
@@ -185,7 +185,7 @@
 <span style="position:relative"><a class="anchor" href="#adding-hotkeys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Adding Hotkeys</span></h2>
 <p>To add more hotkeys or different hotkeys you will need to add another set of keys to the COMBINATIONS list. To do this use curly braces and make sure to separate the keys by commas. Also to make sure to split each set by a comma or you will be given an error when running the script.</p>
 <p>To use keys like shift and control, you need to provide the key. Keys can be found in the <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">documentation</a>. In this we can see that if we want to use shift, we need to use keyboard.Key.shift. Another example is the scroll lock: keyboard.Key.scroll_lock. To use characters on the keyboard like 'a', 'b', 'c' ect... you will need to use the method keyboard.KeyCode() passing the character as the char parameter. Examples follow below.</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">COMBINATIONS</span> <span class="o">=</span> <span class="p">[</span>
+<div class="codehilite"><pre><span></span><code><span class="n">COMBINATIONS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span><span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">shift</span><span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">KeyCode</span><span class="p">(</span><span class="n">char</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)},</span> <span class="c1"># Shift + a</span>
     <span class="p">{</span><span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">shift</span><span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">KeyCode</span><span class="p">(</span><span class="n">char</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">)},</span> <span class="c1"># Shift + A</span>
     <span class="p">{</span><span class="n">keyboard</span><span class="o">.</span><span class="n">Key</span><span class="o">.</span><span class="n">scroll_lock</span><span class="p">},</span> <span class="c1"># Scroll lock</span>
@@ -198,7 +198,7 @@
 <p>You can have as many keys as you like in one combination and accidentally adding two of the same combination will not cause any errors.</p>
 <h2 id="final-script">
 <span style="position:relative"><a class="anchor" href="#final-script"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Final Script</span></h2>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput</span> <span class="kn">import</span> <span class="n">keyboard</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput</span> <span class="kn">import</span> <span class="n">keyboard</span>
 
 <span class="c1"># The key combination to check</span>
 <span class="n">COMBINATIONS</span> <span class="o">=</span> <span class="p">[</span>
@@ -235,7 +235,7 @@
 </blockquote>
 <p>To get the vk, we can read the <code>vk</code> attribute in the <code>KeyCode</code> object provided by pynput in the <code>on_press</code> and <code>on_release</code>. Using the <code>vk</code> codes to track what keys are pressed will take a bit more effort but can simplify some things.</p>
 <p>Below is a script I developed to watch for <code>shift+a</code>. This will now be able to handle <code>shift+a</code> pressed in many different ways.</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput</span> <span class="kn">import</span> <span class="n">keyboard</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput</span> <span class="kn">import</span> <span class="n">keyboard</span>
 
 <span class="c1"># The key combinations to look for</span>
 <span class="n">COMBINATIONS</span> <span class="o">=</span> <span class="p">[</span>
@@ -288,7 +288,7 @@
 
 <p>At the top of this script you will see that the <code>COMBINATIONS</code> value looks a bit different. This is because <code>keyboard.KeyCode(char='a')</code> does not populate the <code>vk</code> attribute, so we need to find the <code>vk</code> code ourselves. </p>
 <p>Doing this can easily be done using a simple script. If you run the following and press a key, it will print out the <code>vk</code> code for the pressed key which you can then use in the script above.</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput</span> <span class="kn">import</span> <span class="n">keyboard</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput</span> <span class="kn">import</span> <span class="n">keyboard</span>
 
 <span class="k">def</span> <span class="nf">on_press</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="n">vk</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">vk</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s1">&#39;vk&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">key</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">vk</span>
@@ -357,7 +357,7 @@
 <span style="position:relative"><a class="anchor" href="#an-improved-script"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>An Improved Script</span></h2>
 <p>A lot of people had been asking for a solution that can handle different functions for different combinations. <a href="https://www.youtube.com/channel/UCzGG-Z4QAgkt2uYMH6VTpQQ">Christopher Walters</a> commented on the original video with a snippet that allowed users to declare a function per combination.</p>
 <p>I modified the original script and after revisions made to the original script, here is a script that can handle multiple combinations that execute their own function:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">KeyCode</span><span class="p">,</span> <span class="n">Listener</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">KeyCode</span><span class="p">,</span> <span class="n">Listener</span>
 
 
 <span class="k">def</span> <span class="nf">function_1</span><span class="p">():</span>
@@ -433,10 +433,10 @@
 
 <nav class="blog-pagination text-center mb-5 mt-4">
     
-        <a class="btn btn-outline-primary mt-1" href="/blog/post/simulate-mouse-events-in-python/">&larr; Simulate Mouse Events In Python</a>
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/the-nitratine-project/">&larr; The Nitratine Project</a>
     
     
-        <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-send-an-email-with-python/">How to Send an Email With Python &rarr;</a>
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/simulate-mouse-events-in-python/">Simulate Mouse Events In Python &rarr;</a>
     
 </nav>
 

@@ -134,29 +134,29 @@
 <h2 id="simulating-keys">
 <span style="position:relative"><a class="anchor" href="#simulating-keys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Simulating Keys</span></h2>
 <p>Create a new script and save it somewhere so you can easily run the script. Import <code>Key</code> and <code>Controller</code> from <code>pynput.keyboard</code>.</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Controller</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Controller</span>
 </code></pre></div>
 
 <p>Make a variable called keyboard and set it to an instance of <code>Controller</code>. Now using the keyboard variable we can press and release keys.</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">keyboard</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">()</span>
 </code></pre></div>
 
 <h3 id="pressing-and-releasing-keys">
 <span style="position:relative"><a class="anchor" href="#pressing-and-releasing-keys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Pressing and Releasing Keys</span></h3>
 <p>Using <code>keyboard.press</code> we can press keys and with <code>keyboard.release</code> we can release a key. This allows us to type a key by pressing and releasing. You can only supply this method with one key at a time. Here is an example of how to type the letter 'a'.</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 <h3 id="pressing-and-releasing-special-keys">
 <span style="position:relative"><a class="anchor" href="#pressing-and-releasing-special-keys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Pressing and Releasing Special Keys</span></h3>
 <p>For special keys that can't be put into a string like shift or control, you will need to refer to the page <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">here</a> to look at the Key class for supported keys. Using these in the press or release methods will press/release the key matching it. For example, if I wanted to press the Windows key, I would look at <a href="https://pynput.readthedocs.io/en/latest/keyboard.html#pynput.keyboard.Key">that page</a> for the key. 'cmd' has the description <em>"A generic command button. On PC platforms, this corresponds to the Super key or Windows key, and on Mac it corresponds to the Command key"</em> which is what I am looking for. Now for the code.</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">cmd</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">cmd</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">cmd</span><span class="p">)</span>
 </code></pre></div>
 
 <p>This method also allows us to press a key while holding another key, for example, ctrl+c to copy. To do this we will need to press ctrl, press and release c and then release ctrl.</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">ctrl</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">ctrl</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">Key</span><span class="o">.</span><span class="n">ctrl</span><span class="p">)</span>
@@ -180,17 +180,17 @@
 <h3 id="typing-multiple-keys">
 <span style="position:relative"><a class="anchor" href="#typing-multiple-keys"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Typing Multiple Keys</span></h3>
 <p>A cool feature supplied by the class is the type method. This method allows us to type more than one key at a time but it has to be a string of characters. So if we wanted to type "Nitratine" we would execute:</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="s1">&#39;Nitratine&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="s1">&#39;Nitratine&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 <p>This method does also support spaces but when it comes to enters, use a new line character (\n) and a tab character (\t) for tabs.</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="s1">&#39;This is one line.</span><span class="se">\n</span><span class="s1">And this is the next line.</span><span class="se">\n\t</span><span class="s1">This line has been tabbed in.&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">keyboard</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="s1">&#39;This is one line.</span><span class="se">\n</span><span class="s1">And this is the next line.</span><span class="se">\n\t</span><span class="s1">This line has been tabbed in.&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 <h3 id="putting-a-random-delay-between-each-keypress">
 <span style="position:relative"><a class="anchor" href="#putting-a-random-delay-between-each-keypress"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Putting A Random Delay Between Each Keypress</span></h3>
 <p>To put a random delay between each keypress, you can use <code>time.sleep</code> with a random number passed to it. Here is a small example function I made:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Controller</span>
 
@@ -210,7 +210,7 @@
 <h3 id="how-can-i-use-the-keyboard-and-mouse-controllers-at-the-same-time">
 <span style="position:relative"><a class="anchor" href="#how-can-i-use-the-keyboard-and-mouse-controllers-at-the-same-time"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>How can I use the keyboard and mouse controllers at the same time?</span></h3>
 <p>When you import the classes, Controller will be set to the last one imported. To show what the issue was, ask yourself, what controller did you use to set the mouse and what one to set the keyboard? You would have used the same, but they need to be from the different classes.  So then you should use:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Controller</span> <span class="k">as</span> <span class="n">KeyboardController</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pynput.keyboard</span> <span class="kn">import</span> <span class="n">Key</span><span class="p">,</span> <span class="n">Controller</span> <span class="k">as</span> <span class="n">KeyboardController</span>
 <span class="kn">from</span> <span class="nn">pynput.mouse</span> <span class="kn">import</span> <span class="n">Button</span><span class="p">,</span> <span class="n">Controller</span> <span class="k">as</span> <span class="n">MouseController</span>
 </code></pre></div>
 

@@ -139,7 +139,7 @@
 <p>Before generating the key using <code>pbkdf2_hmac</code>, you need to generate a random salt. Salts make the search space larger in the case of brute-forcing and adds difficulty for rainbow tables; using a salt only requires you to do a little more work and store an extra random byte sequence.</p>
 <p>Salts do not need to be hidden, encrypted or hashed; this is because they are simply combined with the password to make the input cover a larger range. This combination is done by the <code>pbkdf2_hmac</code> so do not do it yourself.</p>
 <p>To generate a salt, use the <code>os.urandom</code> function as it returns random bytes suitable for cryptographic use. This function does not use pseudo-random number generators so the return value is unpredictable; exactly what is required.</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">salt</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
 </code></pre></div>
@@ -151,7 +151,7 @@
 <h3 id="hashing">
 <span style="position:relative"><a class="anchor" href="#hashing"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Hashing</span></h3>
 <p>Now that the basics of these concepts are out of the way, we can get down to executing some code. The best way to learn is by example and application, so here is an example:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">salt</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="c1"># Remember this</span>
@@ -166,7 +166,7 @@
 </code></pre></div>
 
 <p>Since no key length was provided, the digest size of the hash algorithm is used; in this case, we use SHA-256 so the size will be 64 bytes. If you require a longer key for something like using this key in AES, pass the desired key size to <code>dklen</code> after the iteration in <code>hashlib.pbkdf2_hmac</code>; for example:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">salt</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="c1"># Remember this</span>
@@ -188,7 +188,7 @@
 <span style="position:relative"><a class="anchor" href="#storing-the-hash-and-salt"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Storing the Hash and Salt</span></h3>
 <p>From the snippets above, you need to store the salt and key. In terms of storage, you can use any method; JSON, SQL, CSV or even a raw text file. Make sure you do not store the password as that is the goal of all of this, not having to store the actual password.</p>
 <p>If you are restricted to only one field for storage, you can add the salt and password together and then store them. When reading them out, you can then separate them as you know the length of the salt and key. For example:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">hashlib</span>
 
 <span class="c1"># Example generation</span>
@@ -209,7 +209,7 @@
 <h2 id="verification">
 <span style="position:relative"><a class="anchor" href="#verification"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Verification</span></h2>
 <p>After the user has supplied their password for the first time and you generated a salt for them, computed the key using the password and salt and then stored this password and salt, you can now check if further passwords are correct.</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
 
 <span class="n">salt</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span> <span class="c1"># Get the salt you stored for *this* user</span>
 <span class="n">key</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span> <span class="c1"># Get this users key calculated</span>
@@ -233,7 +233,7 @@
 <p>Regarding you used the snippet above to generate the first key, executing this should produce "Password is incorrect"; this is good because the passwords do not match. When running this again but with the correct password this time, the script should output "Password is correct" as the passwords match.</p>
 <h2 id="example-of-adding-a-user-and-verifying">
 <span style="position:relative"><a class="anchor" href="#example-of-adding-a-user-and-verifying"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Example of Adding a User and Verifying</span></h2>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">users</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># A simple demo storage</span>
@@ -297,7 +297,7 @@
         <a class="btn btn-outline-primary mt-1" href="/blog/post/fix-python-is-not-recognized-as-an-internal-or-external-command/">&larr; Fix: &#39;python&#39; is not recogn...</a>
     
     
-        <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-create-dialogs-in-python/">How to Create Dialogs in Python &rarr;</a>
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-import-a-pyqt5-ui-file-in-a-python-gui/">How to Import a PyQt5 .ui F... &rarr;</a>
     
 </nav>
 

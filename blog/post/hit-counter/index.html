@@ -123,17 +123,17 @@
 <h3 id="getting-an-svg">
 <span style="position:relative"><a class="anchor" href="#getting-an-svg"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Getting an SVG</span></h3>
 <p>To get an image for the current URL (for example is image is being requested by www.example.com), simply get the image as you normally would:</p>
-<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://hitcounter.pythonanywhere.com/count/tag.svg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Hits&quot;</span><span class="p">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://hitcounter.pythonanywhere.com/count/tag.svg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Hits&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
 
 <p>In this example, a hit would be added to the websites count on the server. To stop this from occurring but still get the SVG file, use:</p>
-<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://hitcounter.pythonanywhere.com/nocount/tag.svg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Hits&quot;</span><span class="p">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://hitcounter.pythonanywhere.com/nocount/tag.svg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Hits&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
 
 <h3 id="getting-the-count-raw">
 <span style="position:relative"><a class="anchor" href="#getting-the-count-raw"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Getting the Count Raw</span></h3>
 <p>If you don't want the SVG file but still want the count to use in something else, you can do a GET request to <code>/count</code> or as before <code>/nocount</code> to not add a count. For Example:</p>
-<div class="javascript codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">xmlHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">xmlHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
 <span class="nx">xmlHttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;https://hitcounter.pythonanywhere.com/count&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 <span class="nx">xmlHttp</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 <span class="nx">count</span> <span class="o">=</span> <span class="nx">xmlHttp</span><span class="p">.</span><span class="nx">responseText</span><span class="p">;</span>
@@ -143,11 +143,11 @@
 <span style="position:relative"><a class="anchor" href="#getting-a-count-for-a-site-that-isnt-me"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Getting a Count For a Site That Isn't Me</span></h3>
 <p>There may be circumstances that the referrer may not be sent or you may want to request an SVG or count for another site. To do this, add a query with <code>url</code> as the name and the URL you want to get (encoded obviously).</p>
 <p>For example, getting an SVG:</p>
-<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://hitcounter.pythonanywhere.com/nocount/tag.svg?url=www.example.com&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Hits&quot;</span><span class="p">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://hitcounter.pythonanywhere.com/nocount/tag.svg?url=www.example.com&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Hits&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
 
 <p>And if you want to get the count:</p>
-<div class="javascript codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">targetUrl</span> <span class="o">=</span> <span class="s1">&#39;www.example.com&#39;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">targetUrl</span> <span class="o">=</span> <span class="s1">&#39;www.example.com&#39;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">query</span> <span class="o">=</span> <span class="s1">&#39;?url=&#39;</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">targetUrl</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">xmlHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
 <span class="nx">xmlHttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;https://hitcounter.pythonanywhere.com/nocount&#39;</span> <span class="o">+</span> <span class="nx">query</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
@@ -166,7 +166,7 @@
 <span style="position:relative"><a class="anchor" href="#hosting-your-own-server"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Hosting Your Own Server</span></h2>
 <p>Running this server is very easy, simply clone the repo (or download the files) and run <code>server.py</code></p>
 <p>I host this on pythonaywhere.com; to do this make sure you have cloned the repo into the filesystem and then create a new project. Modify the "WSGI configuration file" under the "Code" header in the "Web" tab. Change line 16 to import your script and restart the application using the green button at the top.</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">server</span> <span class="kn">import</span> <span class="n">app</span> <span class="k">as</span> <span class="n">application</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">server</span> <span class="kn">import</span> <span class="n">app</span> <span class="k">as</span> <span class="n">application</span>
 </code></pre></div>
 
 <p>If you want to enable HTTPS on pythonaywhere, uncomment lines 5 and 8 in server.py to enable flask_sslify (is already installed on pythonaywhere, so you don't need to install it)</p>
@@ -203,7 +203,7 @@
         <a class="btn btn-outline-primary mt-1" href="/blog/post/github-badges/">&larr; Github Badges</a>
     
     
-        <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-add-a-custom-domain-to-a-github-pages-site/">How To Add a Custom Domain ... &rarr;</a>
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/my-desktop-backgrounds/">My Desktop Backgrounds &rarr;</a>
     
 </nav>
 

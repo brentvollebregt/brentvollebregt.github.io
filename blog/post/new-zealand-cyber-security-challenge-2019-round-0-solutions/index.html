@@ -156,7 +156,7 @@
 </tbody>
 </table>
 <p>It was pretty easy to guess that the last row contained the flag and we could assume all the other rows used the same key. Since <em>[plaintext XOR key = cipher-text]</em> then <em>[cipher-text XOR plaintext = key]</em>; this means we only need one cipher-text and it's corresponding plain text to get the key. Using Python, I could get the key using this method:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
 
 <span class="n">base64_ciphertext</span> <span class="o">=</span> <span class="s1">&#39;bVkmcyU2L14RKiBjMiddVSY9YzgrVV40&#39;</span>
 <span class="n">plaintext</span> <span class="o">=</span> <span class="s1">&#39;The flag is hidden below&#39;</span>
@@ -170,7 +170,7 @@
 </code></pre></div>
 
 <p>The key produced from this was <code>91CSCZN91CSCZN91CSCZN91C</code>. We can see this repeats so we could say <code>91CSCZN</code> is the "base key" that repeats. Now to use this key on the final row, since <code>bxor</code> will zip to whatever byte string is the shortest, we do not have to make the key the correct size.</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
 
 <span class="n">base64_ciphertext</span> <span class="o">=</span> <span class="s1">&#39;X10iNHk5fQ4HIGBxPnwPU3c=&#39;</span>
 <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;91CSCZN91CSCZN91CSCZN91C&#39;</span>
@@ -188,7 +188,7 @@
 <h3 id="challenge-2_1">
 <span style="position:relative"><a class="anchor" href="#challenge-2_1"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Challenge 2*</span></h3>
 <p>In the DOM of challenge 2, there is another ciphertext hidden: <code>fnQXc211KwwAJ2B2PyoXUyo9</code>. Using the key on this:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
 
 <span class="n">base64_ciphertext</span> <span class="o">=</span> <span class="s1">&#39;fnQXc211KwwAJ2B2PyoXUyo9&#39;</span>
 <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;91CSCZN91CSCZN91CSCZN91C&#39;</span>
@@ -238,7 +238,7 @@
 <span style="position:relative"><a class="anchor" href="#challenge-6_1"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Challenge 6*</span></h3>
 <p>Using the <code>validate</code> I had gotten from the .ova file, I opened up Kali Linux and put it in a proper disassembler. Running the program then stopped as it waited for input. I noticed a few commands above the breakpoint, that there had been a value constructed: <code>https://nzcsc.org.nz/competition/2019/r0/6/challenge/server.php?key=72a145aff16bb741310d7c953070807b</code>.</p>
 <p>Requesting this using Python gave the flag:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://nzcsc.org.nz/competition/2019/r0/6/challenge/server.php?key=72a145aff16bb741310d7c953070807b&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>

@@ -115,11 +115,11 @@
 <h2 id="the-issue-potential-confusion">
 <span style="position:relative"><a class="anchor" href="#the-issue-potential-confusion"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>The Issue / Potential Confusion</span></h2>
 <p>Quite often, I get comments from people telling me that a module doesn't work, that they have installed the library/module:</p>
-<div class="bash codehilite"><pre><span></span><code>pip install xyz
+<div class="codehilite"><pre><span></span><code>pip install xyz
 </code></pre></div>
 
 <p>And then executed <code>python file.py</code> which says something like the following:</p>
-<div class="pytb codehilite"><pre><span></span><code><span class="gt">Traceback (most recent call last):</span>
+<div class="codehilite"><pre><span></span><code><span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;file.py&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
     <span class="kn">import</span> <span class="nn">xyz</span>
 <span class="gr">ModuleNotFoundError</span>: <span class="n">No module named &#39;xyz&#39;</span>
@@ -135,22 +135,22 @@
 <span style="position:relative"><a class="anchor" href="#identification"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Identification</span></h2>
 <p>Aside from the situation outlined above, there are better methods of proving that this is the case. The best method in my opinion, would be to identify where the <code>pip</code> and <code>python</code> executables are and check if they are in the same Python distribution. To do this, you can use the <code>where</code> command in Windows.</p>
 <p>For example, to identify what executable is executed when I execute <code>python</code>, I would execute:</p>
-<div class="bash codehilite"><pre><span></span><code>where python
+<div class="codehilite"><pre><span></span><code>where python
 </code></pre></div>
 
 <p>This will print one or more paths. When I execute it for example, the following is printed:</p>
-<div class="text codehilite"><pre><span></span><code>C:\Python37\python.exe
+<div class="codehilite"><pre><span></span><code>C:\Python37\python.exe
 </code></pre></div>
 
 <blockquote>
 <p>Most people will find that they have only one path in this returned list. If you have more than one printed, use the top one; I discuss why more than one path may be returned later.</p>
 </blockquote>
 <p>To find the location of pip, I would then execute:</p>
-<div class="bash codehilite"><pre><span></span><code>where pip
+<div class="codehilite"><pre><span></span><code>where pip
 </code></pre></div>
 
 <p>Which would then output one or more paths. In my case, it has output:</p>
-<div class="text codehilite"><pre><span></span><code>C:\Python37\Scripts\pip.exe
+<div class="codehilite"><pre><span></span><code>C:\Python37\Scripts\pip.exe
 </code></pre></div>
 
 <h3 id="checking-that-these-executables-are-from-the-same-distributions">
@@ -158,7 +158,7 @@
 <p>Using the paths returned from these two <code>where</code> calls, you can then see if they both belong to the same distribution or not.</p>
 <p>Typically a Python distribution has a root folder which contains python.exe and a Script folder which contains pip.exe. Using my example, you can see that my paths follow the pattern as the Python root is "C:\Python37\".</p>
 <p>In the case you have paths that do not have a common root folder like:</p>
-<div class="text codehilite"><pre><span></span><code>&gt; where python
+<div class="codehilite"><pre><span></span><code>&gt; where python
 C:\path\to\distribution1\python.exe
 
 &gt; where pip
@@ -172,14 +172,14 @@ C:\a\different\path\to\distribution2\Scripts\pip.exe
 <p><code>where</code> prints the paths of executables that the terminal has identified with the name you provided; the top file path is always the one that is executed.</p>
 <p>The terminal has found these by searching the PATH environment variable. The PATH environment variable is a string that contains directories to look at when searching for executables that can be executed. This means you can make an executable/.exe available to use in cmd by adding the folder that it's located in to the PATH environment variable.</p>
 <p>To look at your PATH environment variable, execute:</p>
-<div class="bash codehilite"><pre><span></span><code><span class="nb">echo</span> %PATH%
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span> %PATH%
 </code></pre></div>
 
 <blockquote>
 <p>To modify your PATH environment variable, look at my tutorial on <a href="/blog/post/how-to-setup-pythons-pip/">How To Setup Python's PIP</a>. In this post, I show you how to add a path to the PATH environment variable.</p>
 </blockquote>
 <p>When I'm in a virtual environment and execute <code>where python</code>, I get the following output:</p>
-<div class="text codehilite"><pre><span></span><code>C:\Users\Brent\GitHub\nitratine.net\venv\Scripts\python.exe
+<div class="codehilite"><pre><span></span><code>C:\Users\Brent\GitHub\nitratine.net\venv\Scripts\python.exe
 C:\Python37\python.exe
 </code></pre></div>
 
@@ -197,7 +197,7 @@ C:\Python37\python.exe
 <h4 id="setting-up-the-virtual-environment">
 <span style="position:relative"><a class="anchor" href="#setting-up-the-virtual-environment"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Setting Up The Virtual Environment</span></h4>
 <p>To set up a virtual environment, open a terminal and execute the following:</p>
-<div class="bash codehilite"><pre><span></span><code>python -m venv venv_folder
+<div class="codehilite"><pre><span></span><code>python -m venv venv_folder
 </code></pre></div>
 
 <p>This will ask Python's venv module to create a virtual environment in <code>venv_folder</code>. You can substitute <code>venv_folder</code> for a different folder name if you wish, the convention is to use a folder named <code>venv</code> but I have used <code>venv_folder</code> in this tutorial to better identify it as a folder. </p>
@@ -205,7 +205,7 @@ C:\Python37\python.exe
 <span style="position:relative"><a class="anchor" href="#activating-the-virtual-environment"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Activating The Virtual Environment</span></h4>
 <p>Before activating the virtual environment, executing <code>python</code> and <code>pip</code> will still use the globally setup distribution(s). To use the virtual environment executables, you need to activate it.</p>
 <p>While beside the <code>venv_folder</code> folder (or whatever you named it) in cmd, execute:</p>
-<div class="bash codehilite"><pre><span></span><code>venv_folder/Scripts/activate
+<div class="codehilite"><pre><span></span><code>venv_folder/Scripts/activate
 </code></pre></div>
 
 <blockquote>
@@ -215,7 +215,7 @@ C:\Python37\python.exe
 <h4 id="deactivating-the-virtual-environment">
 <span style="position:relative"><a class="anchor" href="#deactivating-the-virtual-environment"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Deactivating The Virtual Environment</span></h4>
 <p>To deactivate the virtual environment, go back to the same folder in cmd beside <code>venv_folder</code> and execute:</p>
-<div class="bash codehilite"><pre><span></span><code>venv_folder/Scripts/deactivate
+<div class="codehilite"><pre><span></span><code>venv_folder/Scripts/deactivate
 </code></pre></div>
 
 <p>Executing <code>where python</code> and <code>where pip</code> again, you will see that the original setup has been restored.</p>
@@ -228,7 +228,7 @@ C:\Python37\python.exe
 <span style="position:relative"><a class="anchor" href="#setting-up-your-path-environment-variable-in-an-expected-way"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Setting up Your PATH Environment Variable in an Expected Way</span></h3>
 <p>If you don't want to deal with virtual environments, you could just set your PATH environment variable to make sure you get the correct <code>python</code> and <code>pip</code> each time.</p>
 <p>To do this, first identify the root of the Python distribution you want to use. If you already have access to the <code>python</code> executable or IDLE you want to use, execute the following in it:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">))</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;\Scripts</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span>

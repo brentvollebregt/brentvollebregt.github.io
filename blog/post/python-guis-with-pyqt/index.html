@@ -131,7 +131,7 @@
 <p>For this tutorial, you will need a version of Python equal to or above 3.5. I do however recommend to get a more recent version than 3.5 as I had issues with 3.5.2; a simple upgrade to 3.6.6 fixed this. If you don't know where to get Python, <a href="https://www.python.org/downloads/">look here</a>.</p>
 <p>Now you will want to install pyqt5 and pyqt5-tools. To do this, we can use pip. Call the two commands <code>python -m pip install pyqt5</code> and <code>python -m pip install pyqt5-tools</code>. After each command completes, make sure to verify that they installed properly by checking if it says they were installed successfully.</p>
 <p>You should now be able to execute the following in Python with no errors:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">PyQt5</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">PyQt5</span>
 </code></pre></div>
 
 <blockquote>
@@ -143,7 +143,7 @@
 <h3 id="locating">
 <span style="position:relative"><a class="anchor" href="#locating"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Locating</span></h3>
 <p>First, we need to locate where they are now, to do this we can run the following code in Python:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">site</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">site</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">site</span><span class="o">.</span><span class="n">getsitepackages</span><span class="p">())</span>
 </code></pre></div>
 
@@ -168,7 +168,7 @@
 <span style="position:relative"><a class="anchor" href="#converting-ui-to-py"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Converting .ui to .py</span></h2>
 <p>Now that we have our .ui file, we can convert it into Python code so we can modify and run it.</p>
 <p>To do this we need to locate pyuic5. pyuic5 converts .ui to .py in one simple command and is located in the 'Scripts' folder in your Python distribution. If you don't know where this is, execute the following:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">))</span>
 </code></pre></div>
@@ -184,12 +184,12 @@
 <p>Run the code and then wait for the GUI to appear; it currently won't do anything when you press the button so we will set that up.</p>
 <p>Go back into the code for this GUI and look in the setupUi definition. You should see a class variable called <code>self.pushButton</code> which later has its text set to "Print Message" in the retranslateUi definition below. This is the object of our button that we need to make do something.</p>
 <p>First, we need to create our method, this method can be in the global scope or in the class scope, for simplicity I will put it in the class scope. After the retranslateUi definition, create a new class called <code>printMessage</code> that takes self as an argument since it is part of the class now. Inside this put what you want the script do to when you press the button, for this example, I will print "Hello World!".</p>
-<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">printMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">printMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 <p>Now that you have created the method to run, we can attach it to the button. Using the button variable we found before, we can call .clicked.connect() on it passing in the name of our method we just created (make sure to remember <code>self.</code> for class variables). Put this line at the bottom of the setupUi definition so it will be executed when the GUI is built.</p>
-<div class="python codehilite"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">pushButton</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">printMessage</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">pushButton</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">printMessage</span><span class="p">)</span>
 </code></pre></div>
 
 <blockquote>
@@ -233,7 +233,7 @@
 <h4 id="linking-the-image-button">
 <span style="position:relative"><a class="anchor" href="#linking-the-image-button"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Linking the Image Button</span></h4>
 <p>First, you will want to create a class definition called <code>setImage</code>; make sure this takes self as it is a class definition. In this method, we want to ask the user for an image (not just any file). If they provide a file, we then need to create a pixmap object and then set the pixmap object to the image label. Before we set it, it is ideal to scale the image to fit inside the label without stretching and aligning it to the centre. Your method will look like this:</p>
-<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">setImage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">setImage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="n">fileName</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QFileDialog</span><span class="o">.</span><span class="n">getOpenFileName</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Select Image&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Image Files (*.png *.jpg *jpeg *.bmp)&quot;</span><span class="p">)</span> <span class="c1"># Ask for file</span>
     <span class="k">if</span> <span class="n">fileName</span><span class="p">:</span> <span class="c1"># If the user gives a file</span>
         <span class="n">pixmap</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QPixmap</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span> <span class="c1"># Setup pixmap with the provided image</span>
@@ -244,21 +244,21 @@
 
 <p>In the QtWidgets.QFileDialog.getOpenFileName method call, you can see I have passed the string <code>"Image Files (*.png *.jpg *jpeg *.bmp)"</code>. This declares the type of files I will accept. If you want to accept any file, remove this string completely. If you want to make it so the user could switch it to all files themselves, set it to <code>"Image Files (*.png *.jpg *jpeg *.bmp);;All Files (*)"</code>; play around with this to get the idea of what is going on, you can add more file extensions and selections if wanted.</p>
 <p>Now we need to attach the button to the definition. This can simply be done using the connect method we used previously; make sure to put it at the bottom of the setupUi definition as we did before:</p>
-<div class="python codehilite"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">selectImageBtn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">setImage</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">selectImageBtn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">setImage</span><span class="p">)</span>
 </code></pre></div>
 
 <p>Run the script and make sure that your button works. Initially, the label will be clear but each time you select a file it should change to the selected file.</p>
 <h4 id="linking-the-add-to-list-button">
 <span style="position:relative"><a class="anchor" href="#linking-the-add-to-list-button"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Linking the Add to List Button</span></h4>
 <p>We will now need to create another class definition called <code>addItem</code> like before. In this method, we need to get the value of the lineEdit object and then clear it. We can then simply add the value we just got to the listWidget. After you have done that, the method should look like this:</p>
-<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">addItem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">addItem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="c1"># Get the value of the lineEdit</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">lineEdit</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span> <span class="c1"># Clear the text</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">listWidget</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1"># Add the value we got to the list</span>
 </code></pre></div>
 
 <p>And then like before, we need to connect the button to the method just under the last one we did:</p>
-<div class="python codehilite"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">addBtn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">addItem</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">addBtn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">addItem</span><span class="p">)</span>
 </code></pre></div>
 
 <p>Running the script now you should be able to type in the text edit item and then press add for the item to go into the list.</p>

@@ -101,11 +101,11 @@
 <h2 id="identifying-the-target-profile">
 <span style="position:relative"><a class="anchor" href="#identifying-the-target-profile"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Identifying the Target Profile</span></h2>
 <p>First, you need to identify the profile associated with the stored WiFi connection. To do this, open the command prompt and execute the following.</p>
-<div class="bash codehilite"><pre><span></span><code>netsh wlan show profiles
+<div class="codehilite"><pre><span></span><code>netsh wlan show profiles
 </code></pre></div>
 
 <p>You should get an output that looks something like this:</p>
-<div class="text codehilite"><pre><span></span><code>User profiles
+<div class="codehilite"><pre><span></span><code>User profiles
 -------------
     All User Profile     : WiFi Network 1
     All User Profile     : WiFi Network 2
@@ -123,12 +123,12 @@
 <h2 id="obtaining-the-profiles-password">
 <span style="position:relative"><a class="anchor" href="#obtaining-the-profiles-password"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Obtaining the Profile's Password</span></h2>
 <p>In cmd again, execute the following after replacing the profile name:</p>
-<div class="bash codehilite"><pre><span></span><code>netsh wlan show profile <span class="s2">&quot;&lt;profile name&gt;&quot;</span> <span class="nv">key</span><span class="o">=</span>clear
+<div class="codehilite"><pre><span></span><code>netsh wlan show profile <span class="s2">&quot;&lt;profile name&gt;&quot;</span> <span class="nv">key</span><span class="o">=</span>clear
 </code></pre></div>
 
 <p>For me, I would execute <code>netsh wlan show profile "WiFi Network 2" key=clear</code> as I am looking for the password associated with the profile <code>WiFi Network 2</code>.</p>
 <p>This will output some information about the network, if you go down to <em>Security settings</em> and look beside <em>Key Content</em>, you will see your WiFi password.</p>
-<div class="text codehilite"><pre><span></span><code>Security settings
+<div class="codehilite"><pre><span></span><code>Security settings
 -----------------
     Authentication         : WPA2-Personal
     Cipher                 : CCMP

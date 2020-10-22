@@ -113,7 +113,7 @@
 <p>First you will need to add a div tag straight under the body tag. It can technically be placed anywhere, this is just recommended for location reasons. Give this div an id of "snow"</p>
 <h3 id="example">
 <span style="position:relative"><a class="anchor" href="#example"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Example</span></h3>
-<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
         Head content
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -127,7 +127,7 @@
 <h2 id="css">
 <span style="position:relative"><a class="anchor" href="#css"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>CSS</span></h2>
 <p>You will now need to add some CSS, whether it is in a style tag in the head or an external style sheet; it doesn't matter. A selector for the id snow and class snow need to be created. We will then create an animation using keyframes and images supplied below.</p>
-<div class="css codehilite"><pre><span></span><code><span class="p">#</span><span class="nn">snow</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">#</span><span class="nn">snow</span> <span class="p">{</span>
     <span class="n">pointer-events</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
     <span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>
     <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
@@ -158,7 +158,7 @@
 <h2 id="connecting-css-and-div">
 <span style="position:relative"><a class="anchor" href="#connecting-css-and-div"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Connecting CSS and Div</span></h2>
 <p>If you open your site now, nothing should have changed, apart from a div sitting there that can't be seen. You will need to add the snow class to the div tag to enable the snow. You can do this manually or if you want more control, you can attach some buttons to the following functions to turn the snow on and off.</p>
-<div class="javascript codehilite"><pre><span></span><code><span class="nx">turnOnSnow</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="nx">turnOnSnow</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;snow&#39;</span><span class="p">);</span>
     <span class="nx">div</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;snow&quot;</span><span class="p">);</span>
 <span class="p">};</span>
@@ -174,7 +174,7 @@
 
 <nav class="blog-pagination text-center mb-5 mt-4">
     
-        <a class="btn btn-outline-primary mt-1" href="/blog/post/spotify-playlist-downloader/">&larr; Spotify Playlist Downloader</a>
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/lucy-in-the-sky-with-emotion/">&larr; Lucy In The Sky With Emotion</a>
     
     
         <a class="btn btn-outline-primary mt-1" href="/blog/post/change-file-modification-time-in-python/">Change File Modification Ti... &rarr;</a>

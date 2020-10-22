@@ -136,7 +136,7 @@
 <h2 id="setting-up-the-folder-structure">
 <span style="position:relative"><a class="anchor" href="#setting-up-the-folder-structure"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Setting Up The Folder Structure</span></h2>
 <p>When developing a client and server, you typically want to keep them in separate directories. To accomplish this, we will create two folders like below:</p>
-<div class="text codehilite"><pre><span></span><code>📁 project-root
+<div class="codehilite"><pre><span></span><code>📁 project-root
 ┣ 📁 client
 ┗ 📁 server
 </code></pre></div>
@@ -147,7 +147,7 @@
 <h3 id="pre-existing-react-app">
 <span style="position:relative"><a class="anchor" href="#pre-existing-react-app"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Pre-existing React App</span></h3>
 <p>If you have a pre-existing React app you want to serve from the Python server, copy package.json and everything beside it into the "client" folder. You should have something that now looks like this:</p>
-<div class="text codehilite"><pre><span></span><code>📁 project-root
+<div class="codehilite"><pre><span></span><code>📁 project-root
 ┣ 📁 client
 ┃ ┣ 📁 node_modules
 ┃ ┣ 📁 public
@@ -165,14 +165,14 @@
 <h3 id="create-a-new-react-app">
 <span style="position:relative"><a class="anchor" href="#create-a-new-react-app"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Create A New React App</span></h3>
 <p>If you want to start with a new React app, cd into the "client" folder and then execute:</p>
-<div class="terminal codehilite"><pre><span></span><code><span class="err">npx create-react-app .</span>
+<div class="codehilite"><pre><span></span><code><span class="err">npx create-react-app .</span>
 </code></pre></div>
 
 <blockquote>
 <p>You can alternatively create a TypeScript React app using <code>npx create-react-app . --template typescript</code></p>
 </blockquote>
 <p>After this completes, you should have something that looks like this:</p>
-<div class="text codehilite"><pre><span></span><code>📁 project-root
+<div class="codehilite"><pre><span></span><code>📁 project-root
 ┣ 📁 client
 ┃ ┣ 📁 node_modules
 ┃ ┣ 📁 public
@@ -190,7 +190,7 @@
 <h3 id="creating-the-server">
 <span style="position:relative"><a class="anchor" href="#creating-the-server"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Creating The Server</span></h3>
 <p>In the "server" folder, create a new file run.py:</p>
-<div class="text codehilite"><pre><span></span><code>📁 project-root
+<div class="codehilite"><pre><span></span><code>📁 project-root
 ┣ 📁 client
 ┃ ┗ ... react files
 ┗ 📁 server
@@ -202,11 +202,11 @@
 <p>If you have a pre-existing server/API, you can also perform similar steps to set up the serving of the React app, although the setup may be different for your server. If you do want to use your current server, I recommended moving your current server into the "server" folder and skip making run.py as you can modify the file where all your other endpoints are.</p>
 </blockquote>
 <p>To save on a lot of unnecessary code, we'll use <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> to help set up the web-server. To start, install Flask by executing the following in a terminal:</p>
-<div class="terminal codehilite"><pre><span></span><code><span class="err">python -m pip install flask</span>
+<div class="codehilite"><pre><span></span><code><span class="err">python -m pip install flask</span>
 </code></pre></div>
 
 <p>After flask has been installed, we will then set the server up in run.py. Open run.py in IDLE or another editor of your choice and add the following:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>  <span class="c1"># Import flask</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>  <span class="c1"># Import flask</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>  <span class="c1"># Setup the flask app by creating an instance of Flask</span>
 
@@ -222,11 +222,11 @@
 <p>This snippet has been modified from <a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/">Flask's Quickstart</a> page.</p>
 </blockquote>
 <p>Now run the server using IDLE or a terminal:</p>
-<div class="terminal codehilite"><pre><span></span><code><span class="err">python run.py</span>
+<div class="codehilite"><pre><span></span><code><span class="err">python run.py</span>
 </code></pre></div>
 
 <p>You should see a message like the following appear:</p>
-<div class="text codehilite"><pre><span></span><code>$ python run.py
+<div class="codehilite"><pre><span></span><code>$ python run.py
  * Serving Flask app &quot;run&quot; (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
@@ -243,7 +243,7 @@
 <span style="position:relative"><a class="anchor" href="#serving-an-html-page"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Serving An HTML Page</span></h3>
 <p>Typically when serving an HTML page from a Flask server, you would put the HTML file in a "templates" folder beside the Flask app. In this tutorial however, we will soon be using the index.html file from the React build, so we can just serve it as a static file.</p>
 <p>To prepare for this, create a file in "server/static" called index.html with a basic message:</p>
-<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>An Example Page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -254,7 +254,7 @@
 </code></pre></div>
 
 <p>Here would be the new layout:</p>
-<div class="text codehilite"><pre><span></span><code>📁 project-root
+<div class="codehilite"><pre><span></span><code>📁 project-root
 ┣ 📁 client
 ┃ ┗ ... react files
 ┗ 📁 server
@@ -264,7 +264,7 @@
 </code></pre></div>
 
 <p>After creating this new index.html file, we need to go back into run.py and make the server respond with this HTML file when someone requests a file from "/". We will change the <code>home</code> definition to return the file like this:  </p>
-<div class="python codehilite"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">home</span><span class="p">():</span>  <span class="c1"># At the same home function as before</span>
     <span class="k">return</span> <span class="n">app</span><span class="o">.</span><span class="n">send_static_file</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>  <span class="c1"># Return index.html from the static folder</span>
 </code></pre></div>
@@ -283,7 +283,7 @@
 <li><code>node</code> will happily run JavaScript without having to be transpiled (like TypeScript)</li>
 </ul>
 <p>Here is the script we will use to copy the build to the server:</p>
-<div class="javascript codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">targetSource</span> <span class="o">=</span> <span class="s1">&#39;./build&#39;</span><span class="p">;</span> <span class="c1">// Relative path to copy files from</span>
@@ -366,7 +366,7 @@
 </code></pre></div>
 
 <p>This script needs to be placed beside package.json:</p>
-<div class="text codehilite"><pre><span></span><code>📁 project-root
+<div class="codehilite"><pre><span></span><code>📁 project-root
 ┣ 📁 client
 ┃ ┣ 📁 node_modules
 ┃ ┣ 📁 public
@@ -381,7 +381,7 @@
 </code></pre></div>
 
 <p>We now want to setup package.json to run this script after an npm build. Create a new <code>"postbuild"</code> script key and set it's value value to <code>"node postbuild.js"</code>. Here is an example excerpt based off the default package.json generated before: </p>
-<div class="json codehilite"><pre><span></span><code><span class="s2">&quot;scripts&quot;</span><span class="err">:</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;scripts&quot;</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;react-scripts start&quot;</span><span class="p">,</span>
     <span class="nt">&quot;build&quot;</span><span class="p">:</span> <span class="s2">&quot;react-scripts build&quot;</span><span class="p">,</span>
     <span class="nt">&quot;postbuild&quot;</span><span class="p">:</span> <span class="s2">&quot;node postbuild.js&quot;</span><span class="p">,</span>
@@ -391,7 +391,7 @@
 </code></pre></div>
 
 <p>Now when you execute <code>npm build</code> in the "client" folder, all the files put in "build" will be copied to "server/static". To visualise the structure, we are going from:</p>
-<div class="text codehilite"><pre><span></span><code>📁 project-root
+<div class="codehilite"><pre><span></span><code>📁 project-root
 ┣ 📁 client
 ┃ ┣ 📁 build            &lt;-- build files
 ┃ ┃ ┣ 📜 favicon.ico
@@ -412,7 +412,7 @@
 </code></pre></div>
 
 <p>to</p>
-<div class="text codehilite"><pre><span></span><code>📁 project-root
+<div class="codehilite"><pre><span></span><code>📁 project-root
 ┣ 📁 client
 ┃ ┣ 📁 build
 ┃ ┃ ┣ 📜 favicon.ico
@@ -448,7 +448,7 @@
 <p>To get around this and make it a lot simpler for the client to request files, we can remove this "static/" part from the URL that the server is serving the static files from by changing <a href="https://flask.palletsprojects.com/en/1.1.x/api/#flask.Flask.static_url_path">static_url_path</a>. </p>
 <p>The <code>static_url_path</code> property is a value that can be supplied on the Flask instance initialisation which corresponds with the <em>URL prefix that the static route will be accessible from</em>. Since we can see that this is currently "static/" (from looking at the manifest.json file before), we can change it to be nothing by setting <code>static_url_path=''</code>.</p>
 <p>To do this, update the Flask instance initialisation to:</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">static_url_path</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">static_url_path</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 <p>Now if you restart the server and go to "/", you will see the React app fully loads and there are no 404s.</p>
@@ -463,7 +463,7 @@
 <span style="position:relative"><a class="anchor" href="#development-using-an-api-in-the-python-server"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Development Using An API In The Python Server</span></h3>
 <p>If your Python server is the  React app, you can develop your React app using <code>npm start</code> and have your application point at the Python server that is being run with <code>python run.py</code>. You do not have to use the application served from the Python server to use the API.</p>
 <p>To identify what URL to request, I quite often use something like:</p>
-<div class="javascript codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">api_root</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_ROOT</span> <span class="o">?</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_ROOT</span> <span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">api_root</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_ROOT</span> <span class="o">?</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_ROOT</span> <span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span><span class="p">;</span>
 </code></pre></div>
 
 <p>This allows me to set the environment variable <code>REACT_APP_API_ROOT</code> to state the location of the Python server for development. When building the application, do not set <code>REACT_APP_API_ROOT</code> so then the application being served from the Python server will use <code>window.location.origin</code>.</p>
@@ -474,7 +474,7 @@
 <span style="position:relative"><a class="anchor" href="#deploying-release"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Deploying / Release</span></h3>
 <p>When deploying this server, you will need to run <code>npm install</code> and <code>npm build</code> in the "client" directory before running the server. </p>
 <p>When committing to source control, you do not need to commit the React app build files that have been copied (or the original build folder for that matter). You can make sure you have the following in a .gitignore at the root of the project (beside the "client" and "server" folders).</p>
-<div class="text codehilite"><pre><span></span><code>server/static
+<div class="codehilite"><pre><span></span><code>server/static
 client/build
 client/node_modules
 </code></pre></div>
@@ -483,7 +483,7 @@ client/node_modules
 <span style="position:relative"><a class="anchor" href="#final-code"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Final Code</span></h2>
 <p>Aside from the default create-react-app or your current React app, here are the final files from this tutorial:</p>
 <p><strong>client/postbuild.js</strong></p>
-<div class="javascript codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">targetSource</span> <span class="o">=</span> <span class="s1">&#39;./build&#39;</span><span class="p">;</span> <span class="c1">// Relative path to move files from</span>
@@ -566,7 +566,7 @@ client/node_modules
 </code></pre></div>
 
 <p><strong>client/package.json</strong></p>
-<div class="json codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;client&quot;</span><span class="p">,</span>
   <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
   <span class="nt">&quot;private&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -607,7 +607,7 @@ client/node_modules
 <p>This is modified from the default create-react-app package.json. The only addition is <code>"postbuild": "node postbuild.js",</code></p>
 </blockquote>
 <p><strong>server/run.py</strong></p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>  <span class="c1"># Import flask</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>  <span class="c1"># Import flask</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">static_url_path</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1"># Setup the Flask app by creating an instance of Flask</span>
 

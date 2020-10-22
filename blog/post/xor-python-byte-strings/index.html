@@ -147,23 +147,23 @@
 <h2 id="string-xor">
 <span style="position:relative"><a class="anchor" href="#string-xor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>String XOR</span></h2>
 <p>I found <a href="https://stackoverflow.com/a/2612730/">an answer on StackOverflow</a> showing how to XOR two strings to form a resulting string:</p>
-<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">sxor</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">):</span>    
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">sxor</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">):</span>    
     <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">))</span>
 </code></pre></div>
 
 <p>Using this we could now do:</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">key</span> <span class="o">=</span> <span class="n">sxor</span><span class="p">(</span><span class="s1">&#39;string 1&#39;</span><span class="p">,</span> <span class="s1">&#39;string 2&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">key</span> <span class="o">=</span> <span class="n">sxor</span><span class="p">(</span><span class="s1">&#39;string 1&#39;</span><span class="p">,</span> <span class="s1">&#39;string 2&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 <h2 id="byte-xor">
 <span style="position:relative"><a class="anchor" href="#byte-xor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Byte XOR</span></h2>
 <p>But this only worked for strings and I had a byte string. To fix this I simply removed the <code>ord</code> and <code>chr</code> calls to only manipulate bytes.</p>
-<div class="python codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">byte_xor</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">byte_xor</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">_a</span> <span class="o">^</span> <span class="n">_b</span> <span class="k">for</span> <span class="n">_a</span><span class="p">,</span> <span class="n">_b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ba1</span><span class="p">,</span> <span class="n">ba2</span><span class="p">)])</span>
 </code></pre></div>
 
 <p>So now I could do</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">key</span> <span class="o">=</span> <span class="n">byte_xor</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;string 1&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;string 2&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">key</span> <span class="o">=</span> <span class="n">byte_xor</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;string 1&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;string 2&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 <h2 id="my-original-problem">
@@ -196,7 +196,7 @@
 </tbody>
 </table>
 <p>It was pretty easy to guess that the last row contained the flag and we could assume all the other rows used the same key. Since <em>[plaintext XOR key = cipher-text]</em> then <em>[cipher-text XOR plaintext = key]</em>; this meant I only need one cipher-text and it's corresponding plain text to get the key. Using Python, I could get the key using this method:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
 
 <span class="n">base64_ciphertext</span> <span class="o">=</span> <span class="s1">&#39;bVkmcyU2L14RKiBjMiddVSY9YzgrVV40&#39;</span>
 <span class="n">plaintext</span> <span class="o">=</span> <span class="s1">&#39;The flag is hidden below&#39;</span>
@@ -210,7 +210,7 @@
 </code></pre></div>
 
 <p>The key produced from this was <code>91CSCZN91CSCZN91CSCZN91C</code>. We can see this repeats so we could say <code>91CSCZN</code> is the "base key" that repeats. Now to use this key on the final row, since <code>bxor</code> will zip to whatever byte string is the shortest, we do not have to make the key the correct size.</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
 
 <span class="n">base64_ciphertext</span> <span class="o">=</span> <span class="s1">&#39;X10iNHk5fQ4HIGBxPnwPU3c=&#39;</span>
 <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;91CSCZN91CSCZN91CSCZN91C&#39;</span>
@@ -227,7 +227,7 @@
 
 <nav class="blog-pagination text-center mb-5 mt-4">
     
-        <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-import-a-pyqt5-ui-file-in-a-python-gui/">&larr; How to Import a PyQt5 .ui F...</a>
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/how-to-create-dialogs-in-python/">&larr; How to Create Dialogs in Python</a>
     
     
         <a class="btn btn-outline-primary mt-1" href="/blog/post/remove-columns-in-a-csv-file-with-python/">Remove Columns in a CSV Fil... &rarr;</a>

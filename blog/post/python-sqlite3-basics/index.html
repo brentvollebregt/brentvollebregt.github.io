@@ -129,25 +129,25 @@
 <h2 id="setting-up-a-connection">
 <span style="position:relative"><a class="anchor" href="#setting-up-a-connection"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Setting Up A Connection</span></h2>
 <p>SQLite3 comes with any python distribution so you don't need to download anything extra; simply import sqlite3 and you are ready.</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sqlite3</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sqlite3</span>
 </code></pre></div>
 
 <p>Now create a connection to the database file. Dos this using sqlite3.connect(); a connection object will be returned so make sure to keep it.</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;example.db&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;example.db&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 <blockquote>
 <p>If the .db file does not exist already, one will be created.</p>
 </blockquote>
 <p>Now create a cursor object which will let us interact with the database. We can do this using .cursor() on our connection object.</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 </code></pre></div>
 
 <p>With these three simple lines, you now have a connection to your database file and a cursor to execute queries with.</p>
 <h2 id="executing-statements">
 <span style="position:relative"><a class="anchor" href="#executing-statements"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Executing Statements</span></h2>
 <p>To execute statements, we can use .execute() on our cursor object. For example:</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE url (id INTEGER PRIMARY KEY, url TEXT, count INTEGER);&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE url (id INTEGER PRIMARY KEY, url TEXT, count INTEGER);&#39;</span><span class="p">)</span>
 <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT INTO url(url, count) VALUES(?, ?)&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 </code></pre></div>
 
@@ -167,14 +167,14 @@
 <h3 id="committing">
 <span style="position:relative"><a class="anchor" href="#committing"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Committing</span></h3>
 <p>When creating tables, adding rows and modifying values, the table is in a temporary state. To actually save the changes you need to call .commit() to the connection object. In this example I would use:</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 </code></pre></div>
 
 <p>Just like other databases, this will save the changes made. If something else is accessing the database file at the same time, it will not be able to see your changes until you have committed.</p>
 <h3 id="rolling-back">
 <span style="position:relative"><a class="anchor" href="#rolling-back"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Rolling Back</span></h3>
 <p>If you made changes to a database and want to undo them, regarding you haven't committed these changes yet, you can call .rollback() to the connection object. In this example I would use:</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
 </code></pre></div>
 
 <h3 id="available-datatypes">
@@ -190,14 +190,14 @@
 <h2 id="getting-returned-values">
 <span style="position:relative"><a class="anchor" href="#getting-returned-values"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Getting Returned Values</span></h2>
 <p>When getting data from your database, just like before, you will want to call .execute() on the cursor object. For example:</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id FROM url WHERE url=?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="p">))</span>
+<div class="codehilite"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id FROM url WHERE url=?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="p">))</span>
 </code></pre></div>
 
 <p>In this example, I am getting the id of a particular url in my url table. To get the result of my query there are two common possible methods. Depending on how many items your query returns will determine what method you use.</p>
 <h3 id="fetch-one-row-in-returned-object">
 <span style="position:relative"><a class="anchor" href="#fetch-one-row-in-returned-object"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Fetch One Row In Returned Object</span></h3>
 <p>After executing your query using cursor.execute() you can now call .fetchone() on cursor to get one row that has been returned. For example:</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">url_id</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">url_id</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
 </code></pre></div>
 
 <p>This will return a sqlite3.Row object which can easily be cast to a tuple. You can now get items out of the row using indexes. Since I only selected one column from the table I will have one value in my tuple in url_id; so to get this out I can use <code>url_id[0]</code> to get the id of the url.</p>
@@ -205,12 +205,12 @@
 <h3 id="fetch-all-row-in-returned-object">
 <span style="position:relative"><a class="anchor" href="#fetch-all-row-in-returned-object"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Fetch All Row In Returned Object</span></h3>
 <p>Like above, we can call .fetchall() on an executed query. This will return multiple rows like above in a list object. For example:</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id, url FROM url&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id, url FROM url&#39;</span><span class="p">)</span>
 <span class="n">ids_and_urls</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 </code></pre></div>
 
 <p>Based on this example, we now have tuples of ids and urls in a list object. You could now either look at particular rows or do a for loop over them like this:</p>
-<div class="python codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">ids_and_urls</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">ids_and_urls</span><span class="p">:</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;ID: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">))</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;URL: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">))</span>
 </code></pre></div>
@@ -223,18 +223,18 @@
 <span style="position:relative"><a class="anchor" href="#using-keys-in-fetched-data"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Using Keys in Fetched Data</span></h3>
 <p>It may seem a bit stupid to only be able to use indexes to get data out of a row object, and you would be right.</p>
 <p>First, we need to set the connections <code>row_factory</code> to <code>sqlite3.Row</code>. This needs to be executed before you set your cursor.</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">connection</span><span class="o">.</span><span class="n">row_factory</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Row</span>
+<div class="codehilite"><pre><span></span><code><span class="n">connection</span><span class="o">.</span><span class="n">row_factory</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Row</span>
 </code></pre></div>
 
 <p>Now when you set your cursor, you will be returned sqlite3.Row objects instead of tuples.</p>
 <p>Using .keys() we can get the keys that are used in the row object returned. For example:</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id, url FROM url WHERE url=?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="p">))</span>
+<div class="codehilite"><pre><span></span><code><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id, url FROM url WHERE url=?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="p">))</span>
 <span class="n">particualr_id_and_url</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">particualr_id_and_url</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 </code></pre></div>
 
 <p>This will return a list of the keys for items in the row object. These keys will be the names of the columns for the selected data (which you will already know as you set them). So to get a value out of the row object using its column name we use:</p>
-<div class="python codehilite"><pre><span></span><code><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;ID: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">particualr_id_and_url</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="p">))</span>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;ID: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">particualr_id_and_url</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="p">))</span>
 </code></pre></div>
 
 <h2 id="viewing-a-database-without-commands">
