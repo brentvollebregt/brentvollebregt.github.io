@@ -121,7 +121,7 @@
 </div>
 </div>
 </p>
-<p>Using the <a href="https://cryptography.io/en/latest/">cryptography</a> module in Python, we will use an implementation of AES called <a href="https://cryptography.io/en/latest/fernet/">Fernet</a> to encrypt data. I will also show you how to keep keys safe and how to use these methods on files.</p>
+<p>Using the <a href="https://cryptography.io/en/latest/">cryptography</a> module in Python, we will use an implementation of AES called <a href="https://cryptography.io/en/latest/fernet.html">Fernet</a> to encrypt data. I will also show you how to keep keys safe and how to use these methods on files.</p>
 <h2 id="installing-cryptography">
 <span style="position:relative"><a class="anchor" href="#installing-cryptography"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Installing cryptography</span></h2>
 <p>Since Python does not come with anything that can encrypt files, we will need to use a third-party module.</p>
@@ -137,7 +137,7 @@
 <h2 id="what-is-symmetric-encryption">
 <span style="position:relative"><a class="anchor" href="#what-is-symmetric-encryption"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>What is Symmetric Encryption?</span></h2>
 <p><a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm">Symmetric encryption</a> is when a key is used to encrypt and decrypt a message, so whoever encrypted it can decrypt it. The only way to decrypt the message is to know what was used to encrypt it; kind of like a password.</p>
-<p>To use symmetric encryption, we will use the <a href="https://cryptography.io/en/latest/fernet/">Fernet class</a> which is an implementation of <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a></p>
+<p>To use symmetric encryption, we will use the <a href="https://cryptography.io/en/latest/fernet.html">Fernet class</a> which is an implementation of <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a></p>
 <blockquote>
 <p>Looking for a tutorial on asymmetric encryption? <a href="/blog/post/asymmetric-encryption-and-decryption-in-python/">I wrote one of those for Python too</a>.</p>
 </blockquote>
@@ -290,7 +290,7 @@
 </code></pre></div>
 
 <blockquote>
-<p>As stated in <a href="https://cryptography.io/en/latest/fernet/#limitations">Fernet docs</a>, beware of large files; Fernet is ideal for encrypting data that easily fits in memory. You may need to think of methods to split larger files up to use this encryption method on large files.</p>
+<p>As stated in <a href="https://cryptography.io/en/latest/fernet.html#limitations">Fernet docs</a>, beware of large files; Fernet is ideal for encrypting data that easily fits in memory. You may need to think of methods to split larger files up to use this encryption method on large files.</p>
 </blockquote>
 </div>
 

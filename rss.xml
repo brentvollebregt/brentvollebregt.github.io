@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Sat, 31 Oct 2020 01:19:57 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2020 01:38:20 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -5786,7 +5786,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/p&gt;
-&lt;p&gt;Using the &lt;a href="https://cryptography.io/en/latest/"&gt;cryptography&lt;/a&gt; module in Python, we will use an implementation of AES called &lt;a href="https://cryptography.io/en/latest/fernet/"&gt;Fernet&lt;/a&gt; to encrypt data. I will also show you how to keep keys safe and how to use these methods on files.&lt;/p&gt;
+&lt;p&gt;Using the &lt;a href="https://cryptography.io/en/latest/"&gt;cryptography&lt;/a&gt; module in Python, we will use an implementation of AES called &lt;a href="https://cryptography.io/en/latest/fernet.html"&gt;Fernet&lt;/a&gt; to encrypt data. I will also show you how to keep keys safe and how to use these methods on files.&lt;/p&gt;
 &lt;h2 id="installing-cryptography"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#installing-cryptography"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing cryptography&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;Since Python does not come with anything that can encrypt files, we will need to use a third-party module.&lt;/p&gt;
@@ -5802,7 +5802,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;h2 id="what-is-symmetric-encryption"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#what-is-symmetric-encryption"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What is Symmetric Encryption?&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm"&gt;Symmetric encryption&lt;/a&gt; is when a key is used to encrypt and decrypt a message, so whoever encrypted it can decrypt it. The only way to decrypt the message is to know what was used to encrypt it; kind of like a password.&lt;/p&gt;
-&lt;p&gt;To use symmetric encryption, we will use the &lt;a href="https://cryptography.io/en/latest/fernet/"&gt;Fernet class&lt;/a&gt; which is an implementation of &lt;a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard"&gt;AES&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To use symmetric encryption, we will use the &lt;a href="https://cryptography.io/en/latest/fernet.html"&gt;Fernet class&lt;/a&gt; which is an implementation of &lt;a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard"&gt;AES&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Looking for a tutorial on asymmetric encryption? &lt;a href="/blog/post/asymmetric-encryption-and-decryption-in-python/"&gt;I wrote one of those for Python too&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -5955,7 +5955,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;As stated in &lt;a href="https://cryptography.io/en/latest/fernet/#limitations"&gt;Fernet docs&lt;/a&gt;, beware of large files; Fernet is ideal for encrypting data that easily fits in memory. You may need to think of methods to split larger files up to use this encryption method on large files.&lt;/p&gt;
+&lt;p&gt;As stated in &lt;a href="https://cryptography.io/en/latest/fernet.html#limitations"&gt;Fernet docs&lt;/a&gt;, beware of large files; Fernet is ideal for encrypting data that easily fits in memory. You may need to think of methods to split larger files up to use this encryption method on large files.&lt;/p&gt;
 &lt;/blockquote&gt;</content:encoded>
       <guid isPermaLink="false">https://nitratine.net/blog/post/encryption-and-decryption-in-python/</guid>
       <category>YouTube</category>
@@ -5981,7 +5981,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;li&gt;&lt;a href="#encrypting-and-decrypting-files"&gt;Encrypting and Decrypting Files&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;p&gt;Using the &lt;a href="https://cryptography.io/en/latest/"&gt;cryptography&lt;/a&gt; module in Python, this post will look into methods of generating keys, storing keys and using the asymmetric encryption method &lt;a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)"&gt;RSA&lt;/a&gt; to encrypt and decrypt messages and files. We will be using &lt;a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa/"&gt;cryptography.hazmat.primitives.asymmetric.rsa&lt;/a&gt; to generate keys.&lt;/p&gt;
+&lt;p&gt;Using the &lt;a href="https://cryptography.io/en/latest/"&gt;cryptography&lt;/a&gt; module in Python, this post will look into methods of generating keys, storing keys and using the asymmetric encryption method &lt;a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)"&gt;RSA&lt;/a&gt; to encrypt and decrypt messages and files. We will be using &lt;a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa.html"&gt;cryptography.hazmat.primitives.asymmetric.rsa&lt;/a&gt; to generate keys.&lt;/p&gt;
 &lt;h2 id="installing-cryptography"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#installing-cryptography"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installing cryptography&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;Since Python does not come with anything that can encrypt files, we will need to use a third-party module.&lt;/p&gt;
@@ -6028,7 +6028,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;You can password protect the contents of this file using &lt;a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa/#key-serialization"&gt;this top key serialization example&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can password protect the contents of this file using &lt;a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa.html#key-serialization"&gt;this top key serialization example&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;To store the public key, we need to use a slightly modified version.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;cryptography.hazmat.primitives&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;serialization&lt;/span&gt;
@@ -6077,7 +6077,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;p&gt;The variable &lt;em&gt;public_key&lt;/em&gt; will now have the public key.&lt;/p&gt;
 &lt;h2 id="encrypting"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#encrypting"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Encrypting&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;Due to how asymmetric encryption algorithms like RSA work, encrypting with either one is fine, you just will need to use the other to decrypt. Applying a bit of logic to this can create some useful scenarios like &lt;a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa/#signing"&gt;signing&lt;/a&gt; and &lt;a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa/#verification"&gt;verification&lt;/a&gt;. For this example, I will assume that you keep both keys safe and don't release them since this example is only for local encryption (can be applied to wider though when keys are exchanged).&lt;/p&gt;
+&lt;p&gt;Due to how asymmetric encryption algorithms like RSA work, encrypting with either one is fine, you just will need to use the other to decrypt. Applying a bit of logic to this can create some useful scenarios like &lt;a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa.html#signing"&gt;signing&lt;/a&gt; and &lt;a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa.html#verification"&gt;verification&lt;/a&gt;. For this example, I will assume that you keep both keys safe and don't release them since this example is only for local encryption (can be applied to wider though when keys are exchanged).&lt;/p&gt;
 &lt;p&gt;This means you can use either key but I will demonstrate using the public key to encrypt, this will mean anyone with the private key can decrypt the message.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;cryptography.hazmat.primitives&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;hashes&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;cryptography.hazmat.primitives.asymmetric&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;padding&lt;/span&gt;
