@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Thu, 05 Nov 2020 09:35:02 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2020 11:24:21 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -5443,6 +5443,7 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
       <description>This tutorial covers the basics of how to create GUI's in Python using PyQt5. I will demonstrate how to find the designer and basic usage, converting .ui to .py, running the output file and connecting events to methods.</description>
       <content:encoded>&lt;div class="toc"&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href="#important-first-note"&gt;Important First Note&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#setting-up-the-environment"&gt;Setting up the Environment&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#using-the-designer"&gt;Using the Designer&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="#locating"&gt;Locating&lt;/a&gt;&lt;/li&gt;
@@ -5472,6 +5473,12 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/p&gt;
+&lt;h2 id="important-first-note"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#important-first-note"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Important First Note&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Please understand this process is not the recommended method when using PyQt5 designed / pyuic; this is simply a demonstration of designing a UI using the PyQt5 designer tool, generating Python code and then partially understanding what comes out.&lt;/p&gt;
+&lt;p&gt;This tutorial is not obsolete however as it can help you get a basic grasp of how to use PyQt5. &lt;/p&gt;
+&lt;p&gt;The reason the method demonstrated below is not recommended is due to the fact if you use pyuic again to turn a .ui file into a .py file, it will overwrite all your changes to the file. I have a tutorial at &lt;a href="/blog/post/how-to-import-a-pyqt5-ui-file-in-a-python-gui/"&gt;How to Import a PyQt5 .ui File in a Python GUI&lt;/a&gt; which better explains how you should import the generated script so your changes will not be overwritten.&lt;/p&gt;
+&lt;p&gt;If you only intend on using the generated code as an initial layout and not re-generate the code (I do this a lot), you may find this method easier than importing as you can make changes to the layout a lot easier this way.&lt;/p&gt;
 &lt;h2 id="setting-up-the-environment"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#setting-up-the-environment"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Setting up the Environment&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;For this tutorial, you will need a version of Python equal to or above 3.5. I do however recommend to get a more recent version than 3.5 as I had issues with 3.5.2; a simple upgrade to 3.6.6 fixed this. If you don't know where to get Python, &lt;a href="https://www.python.org/downloads/"&gt;look here&lt;/a&gt;.&lt;/p&gt;
@@ -8052,7 +8059,10 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;li&gt;&lt;a href="#importing-the-ui-file-in-python"&gt;Importing the UI File In Python&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#getting-widget-object-pointers"&gt;Getting Widget Object Pointers&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="#giving-widgets-unique-names-to-find-them-with"&gt;Giving Widgets Unique Names to Find Them With&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#using-these-names-to-find-the-widgets"&gt;Using These Names to Find the Widgets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#using-these-names-to-find-the-widgets"&gt;Using These Names to Find the Widgets&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#searching-for-a-pointer"&gt;Searching For A Pointer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;a href="#connecting-buttons-to-methods"&gt;Connecting Buttons to Methods&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#reading-inputs"&gt;Reading Inputs&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -8156,7 +8166,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;/ul&gt;
 &lt;h2 id="getting-widget-object-pointers"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#getting-widget-object-pointers"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Getting Widget Object Pointers&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;Once you have the GUI being imported, you now need to create some pointers to objects you want. For this example I am going to use the .ui linked below:&lt;/p&gt;
+&lt;p&gt;Once you have the GUI being imported, you now need to identify some pointers for the objects you want to use. For this example I am going to use the .ui linked below:&lt;/p&gt;
 &lt;p&gt;&lt;a href="/posts/how-to-import-a-pyqt5-ui-file-in-a-python-gui/basic.ui"&gt;Download: basic.ui&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="basic.ui screenshot" src="/posts/how-to-import-a-pyqt5-ui-file-in-a-python-gui/basic-ui.png" /&gt;&lt;/p&gt;
 &lt;p&gt;This GUI contains 5 widgets that we can see:&lt;/p&gt;
@@ -8178,7 +8188,22 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;h3 id="using-these-names-to-find-the-widgets"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#using-these-names-to-find-the-widgets"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Using These Names to Find the Widgets&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;Now that each widget has a name attribute, we can get pointers of these objects. When I say pointers, I mean a variable that we can use to access this widget and modify it. &lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;Ui.__init__&lt;/code&gt; method is where you will want to get your pointers, right after &lt;code&gt;uic.loadUi('basic.ui', self)&lt;/code&gt; is called so the objects exist. To find an object, we can use &lt;a href="https://www.riverbankcomputing.com/static/Docs/PyQt4/qobject.html#findChild"&gt;&lt;code&gt;findChild&lt;/code&gt;&lt;/a&gt; on any one of its parent objects while supplying the type of widget we are getting and the name.&lt;/p&gt;
+&lt;p&gt;When &lt;code&gt;uic.loadUi('basic.ui', self)&lt;/code&gt; is called, the names of the widgets will be used to create pointers to the widgets themselves. This means to get our button named "printButton", we can access it using &lt;code&gt;self.printButton&lt;/code&gt; within the same class that &lt;code&gt;uic.loadUi('basic.ui', self)&lt;/code&gt; was called in after it has been called (technically we can call that on whatever &lt;code&gt;self&lt;/code&gt; is).&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Ui&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QtWidgets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;QMainWindow&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Ui&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;uic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loadUi&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;basic.ui&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c1"&gt;# Set the print button text to &amp;quot;Text Changed&amp;quot;&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printButton&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Text Changed&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="c1"&gt;# This should not throw an error as `uic.loadUi` would have created `self.printButton`&lt;/span&gt;
+
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id="searching-for-a-pointer"&gt;
+&lt;span style="position:relative"&gt;&lt;a class="anchor" href="#searching-for-a-pointer"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Searching For A Pointer&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;In the case that the method above doesn't work for some widgets, you can still search for them. To find an object, we can use &lt;a href="https://www.riverbankcomputing.com/static/Docs/PyQt4/qobject.html#findChild"&gt;&lt;code&gt;findChild&lt;/code&gt;&lt;/a&gt; on any one of its parent objects while supplying the type of widget we are getting and the name.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Ui&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QtWidgets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;QMainWindow&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Ui&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -8186,6 +8211,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 
         &lt;span class="c1"&gt;# Find the button with the name &amp;quot;printButton&amp;quot;&lt;/span&gt;
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;findChild&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QtWidgets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;QPushButton&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;printButton&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="c1"&gt;# We have now created `self.printButton` ourselves (will overwrite whatever was there if something existed already)&lt;/span&gt;
 
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -8203,7 +8229,7 @@ The idea of this is to easily switch clipboards with a simple click in a GUI. It
 &lt;p&gt;&lt;img alt="widget class name in the designer" src="/posts/how-to-import-a-pyqt5-ui-file-in-a-python-gui/widget-class-in-the-designer.png" /&gt;&lt;/p&gt;
 &lt;p&gt;The method above simply helps you get a pointer to the object. Now that the hardest part is done, you are free to do what you would normally do after you have located all your widgets you want to use.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Please note, this is not a full tutorial on PyQt5. I am simply demonstrating hwo to import .ui files&lt;/p&gt;
+&lt;p&gt;Please note, this is not a full tutorial on PyQt5. I am simply demonstrating how to import .ui files&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id="connecting-buttons-to-methods"&gt;
 &lt;span style="position:relative"&gt;&lt;a class="anchor" href="#connecting-buttons-to-methods"&gt;&lt;svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"&gt;&lt;path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Connecting Buttons to Methods&lt;/span&gt;&lt;/h3&gt;

@@ -103,7 +103,10 @@
 <li><a href="#importing-the-ui-file-in-python">Importing the UI File In Python</a></li>
 <li><a href="#getting-widget-object-pointers">Getting Widget Object Pointers</a><ul>
 <li><a href="#giving-widgets-unique-names-to-find-them-with">Giving Widgets Unique Names to Find Them With</a></li>
-<li><a href="#using-these-names-to-find-the-widgets">Using These Names to Find the Widgets</a></li>
+<li><a href="#using-these-names-to-find-the-widgets">Using These Names to Find the Widgets</a><ul>
+<li><a href="#searching-for-a-pointer">Searching For A Pointer</a></li>
+</ul>
+</li>
 <li><a href="#connecting-buttons-to-methods">Connecting Buttons to Methods</a></li>
 <li><a href="#reading-inputs">Reading Inputs</a></li>
 </ul>
@@ -207,7 +210,7 @@
 </ul>
 <h2 id="getting-widget-object-pointers">
 <span style="position:relative"><a class="anchor" href="#getting-widget-object-pointers"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Getting Widget Object Pointers</span></h2>
-<p>Once you have the GUI being imported, you now need to create some pointers to objects you want. For this example I am going to use the .ui linked below:</p>
+<p>Once you have the GUI being imported, you now need to identify some pointers for the objects you want to use. For this example I am going to use the .ui linked below:</p>
 <p><a href="/posts/how-to-import-a-pyqt5-ui-file-in-a-python-gui/basic.ui">Download: basic.ui</a></p>
 <p><img alt="basic.ui screenshot" src="/posts/how-to-import-a-pyqt5-ui-file-in-a-python-gui/basic-ui.png" /></p>
 <p>This GUI contains 5 widgets that we can see:</p>
@@ -229,7 +232,22 @@
 <h3 id="using-these-names-to-find-the-widgets">
 <span style="position:relative"><a class="anchor" href="#using-these-names-to-find-the-widgets"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Using These Names to Find the Widgets</span></h3>
 <p>Now that each widget has a name attribute, we can get pointers of these objects. When I say pointers, I mean a variable that we can use to access this widget and modify it. </p>
-<p>The <code>Ui.__init__</code> method is where you will want to get your pointers, right after <code>uic.loadUi('basic.ui', self)</code> is called so the objects exist. To find an object, we can use <a href="https://www.riverbankcomputing.com/static/Docs/PyQt4/qobject.html#findChild"><code>findChild</code></a> on any one of its parent objects while supplying the type of widget we are getting and the name.</p>
+<p>When <code>uic.loadUi('basic.ui', self)</code> is called, the names of the widgets will be used to create pointers to the widgets themselves. This means to get our button named "printButton", we can access it using <code>self.printButton</code> within the same class that <code>uic.loadUi('basic.ui', self)</code> was called in after it has been called (technically we can call that on whatever <code>self</code> is).</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Ui</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Ui</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">uic</span><span class="o">.</span><span class="n">loadUi</span><span class="p">(</span><span class="s1">&#39;basic.ui&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># Set the print button text to &quot;Text Changed&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printButton</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;Text Changed&#39;</span><span class="p">)</span>
+        <span class="c1"># This should not throw an error as `uic.loadUi` would have created `self.printButton`</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+
+<h4 id="searching-for-a-pointer">
+<span style="position:relative"><a class="anchor" href="#searching-for-a-pointer"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Searching For A Pointer</span></h4>
+<p>In the case that the method above doesn't work for some widgets, you can still search for them. To find an object, we can use <a href="https://www.riverbankcomputing.com/static/Docs/PyQt4/qobject.html#findChild"><code>findChild</code></a> on any one of its parent objects while supplying the type of widget we are getting and the name.</p>
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Ui</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QMainWindow</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Ui</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -237,6 +255,7 @@
 
         <span class="c1"># Find the button with the name &quot;printButton&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">button</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">QtWidgets</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">,</span> <span class="s1">&#39;printButton&#39;</span><span class="p">)</span>
+        <span class="c1"># We have now created `self.printButton` ourselves (will overwrite whatever was there if something existed already)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
@@ -254,7 +273,7 @@
 <p><img alt="widget class name in the designer" src="/posts/how-to-import-a-pyqt5-ui-file-in-a-python-gui/widget-class-in-the-designer.png" /></p>
 <p>The method above simply helps you get a pointer to the object. Now that the hardest part is done, you are free to do what you would normally do after you have located all your widgets you want to use.</p>
 <blockquote>
-<p>Please note, this is not a full tutorial on PyQt5. I am simply demonstrating hwo to import .ui files</p>
+<p>Please note, this is not a full tutorial on PyQt5. I am simply demonstrating how to import .ui files</p>
 </blockquote>
 <h3 id="connecting-buttons-to-methods">
 <span style="position:relative"><a class="anchor" href="#connecting-buttons-to-methods"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Connecting Buttons to Methods</span></h3>
