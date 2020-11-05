@@ -229,6 +229,96 @@
 <span style="position:relative"><a class="anchor" href="#the-key-presses-work-in-notepad-but-not-my-game"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>The Key Presses Work in Notepad But Not My Game</span></h3>
 <p>pynput uses a Win32API function called <code>SendInput</code>. The SendInput function will insert input events into the same queue as a hardware device but the events are marked with a <code>LLMHF_INJECTED</code> flag that can be detected by hooks and <a href="https://stackoverflow.com/a/19383403">then filtered</a>. To avoid this flag you probably have to write a custom driver <em>(ref: <a href="https://stackoverflow.com/a/44931001">stackoverflow/Anders</a>)</em>.</p>
 <p>It would be ideal for most games to look for these events if they want to reduce 'bot' activity as it stops packages like these being used.</p>
+<p>In <a href="https://github.com/Gautam-J/Self-Driving-Car">github.com/Gautam-J/Self-Driving-Car</a> I had seen that the file <a href="https://github.com/Gautam-J/Self-Driving-Car/blob/master/directkeys.py">directkeys.py</a> contained the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">ctypes</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">SendInput</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">user32</span><span class="o">.</span><span class="n">SendInput</span>
+
+<span class="n">W</span> <span class="o">=</span> <span class="mh">0x11</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mh">0x1E</span>
+<span class="n">S</span> <span class="o">=</span> <span class="mh">0x1F</span>
+<span class="n">D</span> <span class="o">=</span> <span class="mh">0x20</span>
+<span class="n">UP</span> <span class="o">=</span> <span class="mh">0xC8</span>
+<span class="n">LEFT</span> <span class="o">=</span> <span class="mh">0xCB</span>
+<span class="n">RIGHT</span> <span class="o">=</span> <span class="mh">0xCD</span>
+<span class="n">DOWN</span> <span class="o">=</span> <span class="mh">0xD0</span>
+<span class="n">ENTER</span> <span class="o">=</span> <span class="mh">0x1C</span>
+<span class="n">ESC</span> <span class="o">=</span> <span class="mh">0x01</span>
+<span class="n">TWO</span> <span class="o">=</span> <span class="mh">0x03</span>
+
+<span class="c1"># C struct redefinitions</span>
+<span class="n">PUL</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_ulong</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">KeyBdInput</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;wVk&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ushort</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;wScan&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ushort</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;dwFlags&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ulong</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ulong</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;dwExtraInfo&quot;</span><span class="p">,</span> <span class="n">PUL</span><span class="p">)]</span>
+
+
+<span class="k">class</span> <span class="nc">HardwareInput</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;uMsg&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ulong</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;wParamL&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_short</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;wParamH&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ushort</span><span class="p">)]</span>
+
+
+<span class="k">class</span> <span class="nc">MouseInput</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;dx&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;dy&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;mouseData&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ulong</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;dwFlags&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ulong</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ulong</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;dwExtraInfo&quot;</span><span class="p">,</span> <span class="n">PUL</span><span class="p">)]</span>
+
+
+<span class="k">class</span> <span class="nc">Input_I</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">Union</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;ki&quot;</span><span class="p">,</span> <span class="n">KeyBdInput</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;mi&quot;</span><span class="p">,</span> <span class="n">MouseInput</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="n">HardwareInput</span><span class="p">)]</span>
+
+
+<span class="k">class</span> <span class="nc">Input</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ulong</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;ii&quot;</span><span class="p">,</span> <span class="n">Input_I</span><span class="p">)]</span>
+
+
+<span class="c1"># Actuals Functions</span>
+<span class="k">def</span> <span class="nf">PressKey</span><span class="p">(</span><span class="n">hexKeyCode</span><span class="p">):</span>
+    <span class="n">extra</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ulong</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ii_</span> <span class="o">=</span> <span class="n">Input_I</span><span class="p">()</span>
+    <span class="n">ii_</span><span class="o">.</span><span class="n">ki</span> <span class="o">=</span> <span class="n">KeyBdInput</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">hexKeyCode</span><span class="p">,</span> <span class="mh">0x0008</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">pointer</span><span class="p">(</span><span class="n">extra</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_ulong</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">ii_</span><span class="p">)</span>
+    <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">user32</span><span class="o">.</span><span class="n">SendInput</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">pointer</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">sizeof</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">ReleaseKey</span><span class="p">(</span><span class="n">hexKeyCode</span><span class="p">):</span>
+    <span class="n">extra</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_ulong</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ii_</span> <span class="o">=</span> <span class="n">Input_I</span><span class="p">()</span>
+    <span class="n">ii_</span><span class="o">.</span><span class="n">ki</span> <span class="o">=</span> <span class="n">KeyBdInput</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">hexKeyCode</span><span class="p">,</span> <span class="mh">0x0008</span> <span class="o">|</span> <span class="mh">0x0002</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="n">ctypes</span><span class="o">.</span><span class="n">pointer</span><span class="p">(</span><span class="n">extra</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_ulong</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">ii_</span><span class="p">)</span>
+    <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">user32</span><span class="o">.</span><span class="n">SendInput</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">pointer</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">sizeof</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+
+<span class="c1"># directx scan codes</span>
+<span class="c1"># http://www.gamespp.com/directx/directInputKeyboardScanCodes.html</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">while</span> <span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">PressKey</span><span class="p">(</span><span class="mh">0x11</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ReleaseKey</span><span class="p">(</span><span class="mh">0x11</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+<blockquote>
+<p>The license for this piece of code can be found <a href="https://github.com/Gautam-J/Self-Driving-Car/blob/master/LICENSE">here</a>.</p>
+</blockquote>
+<p>This file demonstrates how we can press keys using DirectX key codes. The link in the file no longer exists but it can <a href="http://web-old.archive.org/web/20190801085838/http://www.gamespp.com/directx/directInputKeyboardScanCodes.html">still be found on the wayback machine</a>. This page provides other codes for keys that can be simulated.</p>
+<p>Unfortunately it will only work on Windows (due to the usage of <code>ctypes.windll</code>) but some may find that it solves their issues with the <code>LLMHF_INJECTED</code> flag.</p>
 </div>
 
 <nav class="blog-pagination text-center mb-5 mt-4">
