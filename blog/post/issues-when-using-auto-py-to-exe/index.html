@@ -131,6 +131,7 @@
 <li><a href="#lots-of-warnings-appear-in-the-output">Lots of Warnings Appear in the Output</a></li>
 <li><a href="#the-output-executable-is-huge">The Output Executable is Huge</a></li>
 <li><a href="#vcruntime140dll-is-either-not-designed-to-run-on-windows-or-it-contains-an-error">"VCRUNTIME140.dll" is either not designed to run on Windows or it contains an error</a></li>
+<li><a href="#loadlibraryex-the-file-cannot-be-accessed-by-the-system">LoadLibraryEx / The file cannot be accessed by the system</a></li>
 </ul>
 </li>
 <li><a href="#additional-information-and-explanations">Additional Information and Explanations</a><ul>
@@ -335,6 +336,18 @@
 <h3 id="vcruntime140dll-is-either-not-designed-to-run-on-windows-or-it-contains-an-error">
 <span style="position:relative"><a class="anchor" href="#vcruntime140dll-is-either-not-designed-to-run-on-windows-or-it-contains-an-error"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>"VCRUNTIME140.dll" is either not designed to run on Windows or it contains an error</span></h3>
 <p>Try selecting the <code>--noupx</code> button in the advanced tab.</p>
+<h3 id="loadlibraryex-the-file-cannot-be-accessed-by-the-system">
+<span style="position:relative"><a class="anchor" href="#loadlibraryex-the-file-cannot-be-accessed-by-the-system"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>LoadLibraryEx / The file cannot be accessed by the system</span></h3>
+<p>I have seen quite a few people get tracebacks containing the following error messages: </p>
+<ul>
+<li><code>win32ctypes.pywin32.pywintypes.error: (1920, 'LoadLibraryEx', 'The file cannot be accessed by the system'</code></li>
+<li><code>OSError: [WinError 1920] The file cannot be accessed by the system</code></li>
+</ul>
+<p>Looking at the traceback for these situations, it is very common that I see a path like <code>C:\Users\&lt;USER&gt;\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\...</code> which tells me they're using Python from the Windows Store. As stated in <a href="https://github.com/pyinstaller/pyinstaller/issues/4941">pyinstaller/pyinstaller#4941</a>, we have been told by a maintainer that:</p>
+<blockquote>
+<p>We don't support using python from the windows store when not using a virtual environment. Please use a virtual environment; that should fix this.</p>
+</blockquote>
+<p>So to fix this issue, download a distribution of Python from <a href="https://www.python.org/downloads/">python.org</a> or use a virtual environment. This solution is also noted in <a href="https://github.com/brentvollebregt/auto-py-to-exe/issues/141">brentvollebregt/auto-py-to-exe#141</a>.</p>
 <h2 id="additional-information-and-explanations">
 <span style="position:relative"><a class="anchor" href="#additional-information-and-explanations"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Additional Information and Explanations</span></h2>
 <p>Some things that are clear to people that use Python a lot are not always clear to new people. Here are some discussions about why and how things occur.</p>
@@ -413,7 +426,7 @@
 
 <nav class="blog-pagination text-center mb-5 mt-4">
     
-        <a class="btn btn-outline-primary mt-1" href="/blog/post/asymmetric-encryption-and-decryption-in-python/">&larr; Asymmetric Encryption and D...</a>
+        <a class="btn btn-outline-primary mt-1" href="/blog/post/encryption-and-decryption-in-python/">&larr; Encryption and Decryption in Python</a>
     
     
         <a class="btn btn-outline-primary mt-1" href="/blog/post/python-size-and-time-cache-decorator/">Python Size and Time Cache ... &rarr;</a>

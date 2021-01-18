@@ -138,9 +138,9 @@
 </code></pre></div>
 
 <p>Then I needed to scroll down and use this sleep method. A simple for loop that sleeps, <a href="https://stackoverflow.com/questions/4249353/jquery-scroll-to-bottom-of-the-page">scrolls to the bottom</a> using <code>.animate()</code> and prints where it is currently was easy to create:</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">async</span> <span class="kd">function</span> <span class="nx">scroll</span><span class="p">()</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="kd">function</span> <span class="nx">scroll</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mf">100</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">await</span> <span class="nx">sleep</span><span class="p">(</span><span class="mf">1000</span><span class="p">);</span>
+        <span class="k">await</span> <span class="nx">sleep</span><span class="p">(</span><span class="mf">1000</span><span class="p">);</span>
         <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;html, body&quot;</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span> <span class="nx">scrollTop</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">height</span><span class="p">()</span><span class="o">-</span><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">height</span><span class="p">()</span> <span class="p">});</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
     <span class="p">}</span>

@@ -284,10 +284,10 @@
 </ul>
 <p>Here is the script we will use to copy the build to the server:</p>
 <div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">targetSource</span> <span class="o">=</span> <span class="s1">&#39;./build&#39;</span><span class="p">;</span> <span class="c1">// Relative path to copy files from</span>
-<span class="kr">const</span> <span class="nx">targetDestination</span> <span class="o">=</span> <span class="s1">&#39;../server/static&#39;</span><span class="p">;</span> <span class="c1">// Relative path to copy files to</span>
+<span class="kd">const</span> <span class="nx">targetSource</span> <span class="o">=</span> <span class="s1">&#39;./build&#39;</span><span class="p">;</span> <span class="c1">// Relative path to copy files from</span>
+<span class="kd">const</span> <span class="nx">targetDestination</span> <span class="o">=</span> <span class="s1">&#39;../server/static&#39;</span><span class="p">;</span> <span class="c1">// Relative path to copy files to</span>
 
 <span class="cm">/**</span>
 <span class="cm"> * Remove directory recursively</span>
@@ -353,8 +353,8 @@
 <span class="p">}</span>
 
 <span class="c1">// Calculate absolute paths using the relative paths we defined at the top</span>
-<span class="kr">const</span> <span class="nx">sourceFolder</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">targetSource</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">destinationFolder</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">targetDestination</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">sourceFolder</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">targetSource</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">destinationFolder</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">targetDestination</span><span class="p">);</span>
 
 <span class="c1">// Remove destination folder if it exists to clear it</span>
 <span class="k">if</span> <span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="nx">destinationFolder</span><span class="p">))</span> <span class="p">{</span>
@@ -381,13 +381,13 @@
 </code></pre></div>
 
 <p>We now want to setup package.json to run this script after an npm build. Create a new <code>"postbuild"</code> script key and set it's value value to <code>"node postbuild.js"</code>. Here is an example excerpt based off the default package.json generated before: </p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;scripts&quot;</span><span class="err">:</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;react-scripts start&quot;</span><span class="p">,</span>
     <span class="nt">&quot;build&quot;</span><span class="p">:</span> <span class="s2">&quot;react-scripts build&quot;</span><span class="p">,</span>
     <span class="nt">&quot;postbuild&quot;</span><span class="p">:</span> <span class="s2">&quot;node postbuild.js&quot;</span><span class="p">,</span>
     <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;react-scripts test&quot;</span><span class="p">,</span>
     <span class="nt">&quot;eject&quot;</span><span class="p">:</span> <span class="s2">&quot;react-scripts eject&quot;</span>
-<span class="p">}</span><span class="err">,</span>
+<span class="p">},</span>
 </code></pre></div>
 
 <p>Now when you execute <code>npm build</code> in the "client" folder, all the files put in "build" will be copied to "server/static". To visualise the structure, we are going from:</p>
@@ -463,7 +463,7 @@
 <span style="position:relative"><a class="anchor" href="#development-using-an-api-in-the-python-server"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z" fill-rule="evenodd"></path></svg></a>Development Using An API In The Python Server</span></h3>
 <p>If your Python server is the  React app, you can develop your React app using <code>npm start</code> and have your application point at the Python server that is being run with <code>python run.py</code>. You do not have to use the application served from the Python server to use the API.</p>
 <p>To identify what URL to request, I quite often use something like:</p>
-<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">api_root</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_ROOT</span> <span class="o">?</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_ROOT</span> <span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">api_root</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_ROOT</span> <span class="o">?</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_API_ROOT</span> <span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span><span class="p">;</span>
 </code></pre></div>
 
 <p>This allows me to set the environment variable <code>REACT_APP_API_ROOT</code> to state the location of the Python server for development. When building the application, do not set <code>REACT_APP_API_ROOT</code> so then the application being served from the Python server will use <code>window.location.origin</code>.</p>
@@ -484,10 +484,10 @@ client/node_modules
 <p>Aside from the default create-react-app or your current React app, here are the final files from this tutorial:</p>
 <p><strong>client/postbuild.js</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">targetSource</span> <span class="o">=</span> <span class="s1">&#39;./build&#39;</span><span class="p">;</span> <span class="c1">// Relative path to move files from</span>
-<span class="kr">const</span> <span class="nx">targetDestination</span> <span class="o">=</span> <span class="s1">&#39;../server/static&#39;</span><span class="p">;</span> <span class="c1">// Relative path to move files to</span>
+<span class="kd">const</span> <span class="nx">targetSource</span> <span class="o">=</span> <span class="s1">&#39;./build&#39;</span><span class="p">;</span> <span class="c1">// Relative path to move files from</span>
+<span class="kd">const</span> <span class="nx">targetDestination</span> <span class="o">=</span> <span class="s1">&#39;../server/static&#39;</span><span class="p">;</span> <span class="c1">// Relative path to move files to</span>
 
 <span class="cm">/**</span>
 <span class="cm"> * Remove directory recursively</span>
@@ -553,8 +553,8 @@ client/node_modules
 <span class="p">}</span>
 
 <span class="c1">// Calculate absolute paths using the relative paths we defined at the top</span>
-<span class="kr">const</span> <span class="nx">sourceFolder</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">targetSource</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">destinationFolder</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">targetDestination</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">sourceFolder</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">targetSource</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">destinationFolder</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">targetDestination</span><span class="p">);</span>
 
 <span class="c1">// Remove destination folder if it exists to clear it</span>
 <span class="k">if</span> <span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="nx">destinationFolder</span><span class="p">))</span> <span class="p">{</span>

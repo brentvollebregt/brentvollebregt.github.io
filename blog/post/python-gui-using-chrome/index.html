@@ -253,8 +253,8 @@
 
 <p>These must be called after eel.start(). This can be done by calling a Python function in JavaScript which calls this demonstrated method. Also I will explain soon about the non-blocking eel.start() which then means you could do this after the eel.start().</p>
 <p>Calling a Python function with a return value from JavaScript is a bit harder due to the JavaScript language. Simply making a function async and using await will fix this though:</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">async</span> <span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">return_value</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">eel</span><span class="p">.</span><span class="nx">py_random</span><span class="p">()();</span> <span class="c1">// Must prefix call with &#39;await&#39;</span>
+<div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">return_value</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">eel</span><span class="p">.</span><span class="nx">py_random</span><span class="p">()();</span> <span class="c1">// Must prefix call with &#39;await&#39;</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Got this from Python: &#39;</span> <span class="o">+</span> <span class="nx">return_value</span><span class="p">);</span>
 <span class="p">}</span>
 
@@ -284,8 +284,8 @@
         <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>My Page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/eel.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-            <span class="nx">async</span> <span class="kd">function</span> <span class="nx">getTime</span><span class="p">()</span> <span class="p">{</span>
-                <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">eel</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()();</span>
+            <span class="k">async</span> <span class="kd">function</span> <span class="nx">getTime</span><span class="p">()</span> <span class="p">{</span>
+                <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">eel</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()();</span>
                 <span class="nx">alert</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
             <span class="p">}</span>
         <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
