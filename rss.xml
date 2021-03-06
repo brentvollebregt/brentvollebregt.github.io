@@ -12,7 +12,7 @@
       <link>https://nitratine.net</link>
     </image>
     <language>en</language>
-    <lastBuildDate>Sat, 27 Feb 2021 01:46:26 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Mar 2021 21:53:47 +0000</lastBuildDate>
     <item>
       <title>Colour</title>
       <link>https://nitratine.net/blog/post/colour/</link>
@@ -5287,7 +5287,9 @@ Once again, thank you for the support; I loved making this project.&lt;/p&gt;</c
     &lt;img src="/posts/price-per-unit/FeatureGraphic.jpg" alt="Header Image"&gt;
 &lt;/div&gt;
 
-&lt;div style="text-align: center"&gt;&lt;a href="https://play.google.com/store/apps/details?id=net.nitratine.priceperunit"&gt;Download From Google Play&lt;/a&gt; | &lt;a href="https://github.com/brentvollebregt/price-per-unit"&gt;View the Project on GitHub&lt;/a&gt;
+&lt;div align="center"&gt;
+    &lt;a href="https://play.google.com/store/apps/details?id=net.nitratine.priceperunit"&gt;&lt;img src="/posts/price-per-unit/get-it-on-google-play.png" alt="Get it on Google Play" height="100" style="display: inline"&gt;&lt;/a&gt;
+    &lt;a href="https://f-droid.org/en/packages/net.nitratine.priceperunit/"&gt;&lt;img src="/posts/price-per-unit/get-it-on-f-droid.png" alt="Get it on F-Droid" height="100" style="display: inline"&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;h2 id="introduction"&gt;
